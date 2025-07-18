@@ -1,0 +1,73 @@
+/* Proxima Nova Black */
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../src/shared/fonts/Proxima Nova/proximanova_black.otf') format('opentype'),
+    url('../src/shared/fonts/Proxima Nova/proximanova_black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Proxima Nova Black Italic */
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../src/shared/fonts/Proxima Nova/proximanova_blackit.otf') format('opentype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* Proxima Nova Bold */
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../src/shared/fonts/Proxima Nova/proximanova_bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Proxima Nova SemiBold */
+@font-face {
+    font-family: 'Proxima Nova';
+    src:    url('../src/shared/fonts/Proxima Nova/proximanova-semibold.woff2') format('woff2'),
+            url('../src/shared/fonts/Proxima Nova/proximanova-semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Proxima Nova medium */
+@font-face {
+    font-family: 'Proxima Nova';
+    src:    url('../src/shared/fonts/Proxima Nova/proximanova-medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Proxima Nova Bold Italic */
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../src/shared/fonts/Proxima Nova/proximanova_boldit.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Proxima Nova Extra Bold */
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../src/shared/fonts/Proxima Nova/proximanova_extrabold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+/* Proxima Nova Light */
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../src/shared/fonts/Proxima Nova/proximanova_light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Proxima Nova Regular */
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('../src/shared/fonts/Proxima Nova/proximanova_regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
