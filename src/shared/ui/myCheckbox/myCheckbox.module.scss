@@ -1,0 +1,48 @@
+
+.myCheckbox {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #606060;
+
+    >input{
+        display: none;
+    }
+}
+
+.checkboxView {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #606060;
+    margin-right: 10px;
+    border-radius: 6px;
+    background: transparent;
+    transition: .3s;
+}
+
+.checkboxIcon {
+    opacity: 0;
+    transition: .3s;
+}
+
+.checkbox:checked + .checkboxView {
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+.checkboxText {
+    transition: .3s;
+}
+
+.checkbox:checked + .checkboxView + .checkboxText {
+    color: #fff;
+}
+
+.checkbox:checked + .checkboxView .checkboxIcon {
+    opacity: 1;
+}
+

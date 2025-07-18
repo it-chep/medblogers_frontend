@@ -11,6 +11,16 @@ body {
 
   --black: #0E0F0F;
 
+
+  background-color: var(--black);
+
+}
+
+.wrapper_main{
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 * {

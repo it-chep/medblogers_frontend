@@ -4,13 +4,18 @@ import classes from  './myButton.module.scss'
 interface Props {
     isLoading?: boolean;
     error?: string;
+    onClick?: () => void;
 }
 
-export const MyButton: FC<Props & PropsWithChildren> = ({isLoading, error, children}) => {
+export const MyButton: FC<Props & PropsWithChildren> = ({onClick, isLoading, error, children}) => {
 
 
     return (
-        <button className={classes.myButton}>
+        <button
+            disabled={isLoading || Boolean(error)}
+            className={classes.myButton}
+            onClick={onClick}
+        >
             {children}
         </button>
     )
