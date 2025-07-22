@@ -1,0 +1,50 @@
+
+
+
+.subscriberLinkWrapper{
+  font-size: 16px;
+
+  .subscriberLink{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 4px;
+    width: 100%;
+    background: #404040;
+    color: white;
+    border-radius: 8px;
+    padding: 8px;
+
+    >img{
+      width: 24px;
+      height: 24px;
+    }
+
+    svg{
+      display: flex;
+      align-self: start;
+      width: 10px;
+      height: 10px;
+    }
+
+    .subsText{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      column-gap: 5px;
+      align-items: center;
+      text-align: center;
+
+      .subsCount{
+        font-weight: 700;
+        min-width: auto;
+        white-space: nowrap;
+        text-align: end;
+      }
+    }
+
+  }
+
+}

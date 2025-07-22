@@ -4,12 +4,20 @@ body {
   overflow-x: hidden;
 }
 
+button{
+  font-size: 16px;
+  font-family: 'Proxima Nova', 'sans-serif';
+  font-weight: 400;
+}
+
 body {
 
   --blue: #2F9BFF;
   --dark-blue: #01284B;
 
   --black: #0E0F0F;
+
+  --light-black: #1E1E1E;
 
   font-family: 'Proxima Nova', 'sans-serif';
   font-weight: 400;

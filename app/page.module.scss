@@ -7,15 +7,14 @@
   .aside{
     min-width: 300px;
     width: 300px;
-    border: 2px solid red;
   }
 
   .main{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 2px solid red;
     width: 100%;
+    overflow: hidden;
   }
 
 }
