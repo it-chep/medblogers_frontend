@@ -1,0 +1,20 @@
+
+
+
+.mainTitle{
+
+    h1{
+        color: white;
+        font-weight: 900;
+        font-size: clamp(20px, 3.2vw, 41px);
+        line-height: 100%;
+        letter-spacing: 0;
+    }
+
+    .desc{
+        font-size: clamp(12.5px, 1.4vw, 18px);
+        opacity: 0.7;
+        font-weight: 500;
+    }
+
+}

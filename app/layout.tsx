@@ -1,6 +1,7 @@
 import "./globals.css";
 import "./fonts.module.scss"
 import { Suspense } from "react";
+import { Header } from "@/src/widgets/header";
 
 export default function RootLayout({
     children,
@@ -11,6 +12,7 @@ export default function RootLayout({
         <Suspense fallback={<></>} >
             <html lang="en">
                 <body>
+                    <Header />
                     {children}
                 </body>
             </html>
