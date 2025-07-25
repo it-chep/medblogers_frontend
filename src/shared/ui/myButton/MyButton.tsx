@@ -5,15 +5,16 @@ interface Props {
     isLoading?: boolean;
     error?: string;
     onClick?: () => void;
+    grayStyle?: boolean;
 }
 
-export const MyButton: FC<Props & PropsWithChildren> = ({onClick, isLoading, error, children}) => {
+export const MyButton: FC<Props & PropsWithChildren> = ({onClick, isLoading, error, grayStyle, children}) => {
 
 
     return (
         <button
             disabled={isLoading || Boolean(error)}
-            className={classes.myButton}
+            className={classes.myButton + (grayStyle ? ` ${classes.grayStyle}` : '')}
             onClick={onClick}
         >
             {children}

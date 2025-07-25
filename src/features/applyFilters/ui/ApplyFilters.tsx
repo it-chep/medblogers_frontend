@@ -1,5 +1,6 @@
 "use client"
 
+import { clearParams } from "@/src/entities/filter";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC, InputHTMLAttributes } from "react";
@@ -12,19 +13,10 @@ interface IProps {
 
 export const ApplyFilters: FC<IProps> = ({currentMax, currentMin}) => {
 
-
     const searchParams = useSearchParams()
     const pathname = usePathname()
     const router = useRouter()
 
-    const clearParams = (urlParams: URLSearchParams) => {
-        urlParams.delete('city');
-        urlParams.delete('speciality');
-        urlParams.delete('social_media');
-        urlParams.delete('max_subscribers');
-        urlParams.delete('min_subscribers');
-    }
-    
     const selectedCities = () => {
         const selectedIds: string[] = [];
         const cities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.city input')

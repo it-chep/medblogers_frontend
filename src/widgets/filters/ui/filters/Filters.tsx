@@ -7,6 +7,7 @@ import { MyHr } from "@/src/shared/ui/myHr"
 import { filterService, IFilter } from "@/src/entities/filter"
 import { Slider } from "@/src/features/slider"
 import { ApplyFilters } from "@/src/features/applyFilters"
+import { ResetFilters } from "@/src/features/resetFilters"
 
 const MAX = 400_000
 const MIN = 300
@@ -68,8 +69,7 @@ export const Filters: FC = () => {
                 currentMin={valueMin}
                 currentMax={valueMax}
             />
+            <ResetFilters />
         </section>
-
-
     )
 }

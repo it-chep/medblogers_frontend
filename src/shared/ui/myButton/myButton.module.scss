@@ -12,4 +12,11 @@
   &:hover{
     background: var(--dark-blue);
   }
+
+
+  &.grayStyle{
+    background-color: transparent;
+    border: 1px solid var(--gray);
+    color: var(--gray);
+  }
 }
