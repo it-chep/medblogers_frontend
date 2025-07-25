@@ -1,7 +1,25 @@
 
 .filterList {
+    position: relative;
     display: flex;
     flex-direction: column;
+    list-style: none;
     gap: 20px;
     margin-top: 20px;
+    overflow-y: auto;
+    max-height: 200px;
+
+    
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        box-sizing: border-box;
+        background: #222;
+        border-radius: 50% / 3px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #ccc;
+        border-radius: 50% / 3px;
+    }
 }

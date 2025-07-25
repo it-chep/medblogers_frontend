@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, MouseEvent, PropsWithChildren, useRef } from "react";
+import { FC, MouseEvent, PropsWithChildren, useEffect, useRef } from "react";
 import classes from './openFilter.module.scss'
 
 interface IProps {
@@ -11,6 +11,7 @@ export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, children}) =>
 
     const refSvg = useRef<SVGSVGElement>(null)
     const refContainer = useRef<HTMLDivElement>(null)
+
 
     const onClick = () => {
         const targetSvg = refSvg.current;

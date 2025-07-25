@@ -5,8 +5,9 @@ import { MyCheckbox } from "@/src/shared/ui/myCheckbox";
 interface IProps {
     labelSlug: string;
     items: {
-        id: number;
+        id?: number;
         name: string;
+        slug?: string;
     }[];
 }
 
@@ -14,8 +15,8 @@ export const FilterList: FC<IProps> = ({items, labelSlug}) => {
 
     return (
         <ul className={classes.filterList}>
-            {items.map(item => 
-                <li key={item.id} className={labelSlug + `-${item.id}`}>
+            {items.map((item, ind) => 
+                <li key={ind} className={labelSlug + `-${item.id || item.slug}`}>
                     <MyCheckbox label={item.name} />
                 </li>
             )}

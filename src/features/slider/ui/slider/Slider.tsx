@@ -180,7 +180,7 @@ export const Slider: FC<IProps> = ({min, max, valueMax, valueMin, setValueMax, s
     
 
     return (
-        <>
+        <section className={classes.wrapper}>
             <ChangeInput 
                 valueMax={valueMax} 
                 valueMin={valueMin} 
@@ -194,6 +194,6 @@ export const Slider: FC<IProps> = ({min, max, valueMax, valueMin, setValueMax, s
                 <section ref={refThumbMin} className={classes.thumb + " " + classes.min}></section>
                 <section ref={refThumbMax} className={classes.thumb + " " + classes.max}></section>
             </section>
-        </>
+        </section>
     )
 }
