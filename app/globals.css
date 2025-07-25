@@ -8,6 +8,7 @@ button{
   font-size: 16px;
   font-family: 'Proxima Nova', 'sans-serif';
   font-weight: 400;
+  
 }
 
 body {
@@ -16,8 +17,14 @@ body {
   --dark-blue: #01284B;
 
   --black: #0E0F0F;
+  --dark-gray: #404040;
 
   --light-black: #1E1E1E;
+
+
+  --filter-background: #161616;
+
+  --time-input: .15s;
 
   font-family: 'Proxima Nova', 'sans-serif';
   font-weight: 400;
@@ -25,6 +32,8 @@ body {
 
 
   background-color: var(--black);
+
+  
 
 }
 

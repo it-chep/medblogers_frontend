@@ -1,0 +1,22 @@
+
+
+
+
+.page{
+  display: flex;
+  gap: 20px;
+
+  .aside{
+    min-width: 300px;
+    width: 300px;
+  }
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+}

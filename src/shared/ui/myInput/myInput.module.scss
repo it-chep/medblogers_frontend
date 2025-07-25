@@ -1,0 +1,49 @@
+
+
+.inputBox{
+    width: 100%;
+    border: 1px solid #8b8b8b;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 6px;
+    
+    transition: all var(--time-input) ease;
+
+    &.hightlight{
+        border: 1px solid var(--blue);
+    }
+
+    .sign{
+        color: #ffffff80;
+    }
+    
+    input{
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        height: 40px;
+        padding-right: 16px;
+
+      
+    }
+
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Для Firefox */
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    /* Для IE и Edge */
+    input[type="number"]::-ms-clear {
+        display: none;
+    }
+}

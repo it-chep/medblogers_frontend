@@ -1,18 +1,7 @@
-import classes from "./page.module.scss";
-import {DoctorsAll} from "@/src/widgets/doctors";
+import HomePage from "@/src/views/home/HomePage";
 
 export default function Home() {
     return (
-        <section className={classes.page + ' wrapper_main'}>
-
-            <aside className={classes.aside}>
-                FILTERS
-            </aside>
-            <main className={classes.main}>
-                <section>STATISTICS</section>
-                <section>SEARCH</section>
-                <DoctorsAll />
-            </main>
-        </section>
+      <HomePage />
   );
 }
