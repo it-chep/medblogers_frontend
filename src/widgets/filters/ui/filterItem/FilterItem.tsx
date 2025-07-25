@@ -1,8 +1,9 @@
 import { OpenFilter } from "@/src/features/openFilter";
-import { FC, PropsWithChildren, useState } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 import classes from './filterItem.module.scss'
 import { FilterList } from "@/src/entities/filter";
 import { SearchFilter } from "@/src/features/searchFilter";
+import { useSearchParams } from "next/navigation";
 
 interface IProps{
     label: string;
@@ -11,6 +12,7 @@ interface IProps{
     items: {
         id?: number;
         name: string;
+        doctors_count?: number;
         slug?: string;
     }[];
 }
@@ -18,6 +20,24 @@ interface IProps{
 export const FilterItem: FC<IProps & PropsWithChildren> = ({label, labelSlug, items, search = true, children}) => {
 
     const [searchItems, setSearchItems] = useState<IProps['items']>(items)
+    const searchParams = useSearchParams()
+
+    const initialCheckBoxes = () => {
+        const params = new URLSearchParams(searchParams);
+        const values = params.get(labelSlug)?.split(',')
+        if(values){
+            values.forEach(value => {
+                const elem: HTMLInputElement | null = document.querySelector(`#${labelSlug}-${value} input`)
+                if(elem){
+                    elem.checked = true;
+                }
+            })
+        }
+    }
+
+    useEffect(() => {
+        initialCheckBoxes()
+    }, [searchParams])
 
     return (
         <section className={classes.filterItem}>

@@ -286,7 +286,7 @@ export const DoctorsAll: FC = () => {
             "avatar_url": "https://storage.yandexcloud.net/medblogers-photos/images/user_artyomova-anastasiya-vitalevna_/app/docstar_site/docstar/user_photos/user_photos/artyomova.png"
         },
             ])
-            // await doctorService.getAll('')
+            // await doctorService.getAll(searchParams.toString())
         }
         catch (e){
             console.log(e)
@@ -296,12 +296,12 @@ export const DoctorsAll: FC = () => {
         }
     }
 
-   
 
 
 
     useEffect(() => {
         getDoctors()
+        console.log(111111111111)
     }, [searchParams])
 
     return (

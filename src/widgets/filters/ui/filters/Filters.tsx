@@ -8,17 +8,65 @@ import { filterService, IFilter } from "@/src/entities/filter"
 import { Slider } from "@/src/features/slider"
 import { ApplyFilters } from "@/src/features/applyFilters"
 import { ResetFilters } from "@/src/features/resetFilters"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 const MAX = 400_000
 const MIN = 300
 
-export const Filters: FC = () => {
+interface IProps {
+    filters: IFilter | null;
+    setFilters: (filters: IFilter) => void;
+}
+
+export const Filters: FC<IProps> = ({filters, setFilters}) => {
     
     const [isLoading, setIsLoading] = useState<boolean>(true)
-    const [filters, setFilters] = useState<IFilter>()
 
-    const [valueMax, setValueMax] = useState<number>(MAX) 
-    const [valueMin, setValueMin] = useState<number>(MIN) 
+    const searchParams = useSearchParams()
+    const pathname = usePathname()
+    const router = useRouter()
+
+    let initialMin = searchParams.get('min_subscribers') ? Number(searchParams.get('min_subscribers')) : MIN
+    let initialMax = searchParams.get('max_subscribers') ? Number(searchParams.get('max_subscribers')) : MAX
+
+    let isOk = true;
+    const initial =() => {
+        if(initialMin < MIN){
+            initialMin = MIN;
+            isOk = false;
+        }
+        if(initialMax > MAX){
+            initialMax = MAX;
+            isOk = false;
+        }
+        if(initialMin > initialMax){
+            initialMin = initialMax;
+            isOk = false;
+        }
+
+    }
+    
+    const setNewUrl = (params: URLSearchParams) => {
+        const newUrl = `${pathname}?${params.toString()}`
+        router.push(newUrl)
+    }
+
+    initial()
+
+    useEffect(() => {
+        if(!isOk){
+            const params = new URLSearchParams(searchParams);
+            params.set('min_subscribers', String(initialMin))
+            params.set('max_subscribers', String(initialMax))
+            setNewUrl(params)
+        }
+    })
+
+    
+    
+
+    const [valueMin, setValueMin] = useState<number>(initialMin) 
+    const [valueMax, setValueMax] = useState<number>(initialMax) 
 
     const onBlurSlider = (valMin: number, valMax: number) => {
         setValueMin(valMin)
@@ -29,7 +77,6 @@ export const Filters: FC = () => {
         try{
             setIsLoading(true)
             const filtersRes = await filterService.getAll()
-            console.log(filtersRes)
             setFilters(filtersRes)
         }
         catch(e){

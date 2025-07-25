@@ -1,0 +1,26 @@
+
+
+
+.filterBadge{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 64px;
+    gap: 6px;
+    padding: 10px 16px;
+    margin-right: 15px;
+    margin-top: 15px;
+    background: var(--blue);
+
+        svg{
+        cursor: pointer;
+        fill: var(--blue);
+    }
+
+    &:hover{
+        background-color: #FF3737;
+        svg{
+            fill: #FF3737;
+        }
+    }
+}

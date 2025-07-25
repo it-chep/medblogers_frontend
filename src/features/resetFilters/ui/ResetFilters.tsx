@@ -15,16 +15,28 @@ export const ResetFilters: FC = () => {
     const router = useRouter()
 
 
-    
     const setNewUrl = (params: URLSearchParams) => {
         const newUrl = `${pathname}?${params.toString()}`
         router.push(newUrl)
     }
 
+    const resetFilterCheckboxes = () => {
+
+        const cities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.city input')
+        cities.forEach(city => {
+            city.checked = false
+        })
+
+        const specs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.speciality input')
+        specs.forEach(speciality => {
+            speciality.checked = false
+        })
+    }
+ 
     const reset = () => {
         const params = new URLSearchParams(searchParams);
         clearParams(params)
-
+        resetFilterCheckboxes()
         setNewUrl(params)
     }   
 
