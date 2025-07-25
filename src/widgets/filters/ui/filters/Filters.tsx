@@ -53,7 +53,7 @@ export const Filters: FC = () => {
             <MyHr />
             <FilterItem label="Специальность" labelSlug="speciality" items={filters?.specialities || []} />
             <MyHr />
-            <FilterItem label="Подписчики" labelSlug="sub" items={filters?.filter_info || []}>
+            <FilterItem label="Подписчики" search={false} labelSlug="sub" items={filters?.filter_info || []}>
                 <Slider 
                     max={MAX}
                     min={MIN}
