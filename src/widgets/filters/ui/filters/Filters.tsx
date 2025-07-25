@@ -65,6 +65,7 @@ export const Filters: FC = () => {
                     onBlur={onBlurSlider}
                 />
             </FilterItem>
+            <MyHr />
             <ApplyFilters 
                 currentMin={valueMin}
                 currentMax={valueMax}

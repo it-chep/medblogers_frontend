@@ -5,6 +5,7 @@ import { clearParams } from "@/src/entities/filter";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC } from "react";
+import classes from './resetFilters.module.scss'
 
 
 export const ResetFilters: FC = () => {
@@ -28,7 +29,7 @@ export const ResetFilters: FC = () => {
     }   
 
     return (
-        <section>
+        <section className={classes.resetFilters}>
             <MyButton grayStyle={true} onClick={reset}>Сбросить</MyButton>
         </section>
     )
