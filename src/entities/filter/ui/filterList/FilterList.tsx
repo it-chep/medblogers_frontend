@@ -16,7 +16,7 @@ export const FilterList: FC<IProps> = ({items, labelSlug}) => {
     return (
         <ul className={classes.filterList}>
             {items.map((item, ind) => 
-                <li key={ind} className={labelSlug + `-${item.id || item.slug}`}>
+                <li key={ind} data-id={item.id || item.slug} className={labelSlug} id={labelSlug + `-${item.id || item.slug}`}>
                     <MyCheckbox label={item.name} />
                 </li>
             )}

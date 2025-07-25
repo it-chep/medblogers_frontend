@@ -296,27 +296,7 @@ export const DoctorsAll: FC = () => {
         }
     }
 
-    function updateSearchParam({key, value}: {
-        key: string,
-        value: string
-    }): string {
-        const params = new URLSearchParams(searchParams);
-        if (value) {
-            params.set(key, value)
-        } else {
-            params.delete(key)
-        }
-        return `${pathname}?${params.toString()}`
-    }
-
-    function updateSearchParamForCurrentPage({key, value}: {
-        key: string,
-        value: string
-    }) {
-        const newUrl = updateSearchParam({key, value})
-        router.push(newUrl)
-    }
-
+   
 
 
 

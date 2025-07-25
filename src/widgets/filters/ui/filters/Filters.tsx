@@ -6,10 +6,10 @@ import classes from './filters.module.scss'
 import { MyHr } from "@/src/shared/ui/myHr"
 import { filterService, IFilter } from "@/src/entities/filter"
 import { Slider } from "@/src/features/slider"
+import { ApplyFilters } from "@/src/features/applyFilters"
 
 const MAX = 400_000
 const MIN = 300
-
 
 export const Filters: FC = () => {
     
@@ -64,6 +64,10 @@ export const Filters: FC = () => {
                     onBlur={onBlurSlider}
                 />
             </FilterItem>
+            <ApplyFilters 
+                currentMin={valueMin}
+                currentMax={valueMax}
+            />
         </section>
 
 
