@@ -48,6 +48,7 @@ export const ChangeInput: FC<IProps> = ({
                 typeInput="number"
                 value={`${targetMin}`}
                 setValue={val => setTargetMin(+val)}
+                sign="от"
             />
             <section className={classes.dash} />
             <MyInput 
@@ -55,6 +56,7 @@ export const ChangeInput: FC<IProps> = ({
                 value={`${targetMax}`}
                 setValue={val => setTargetMax(+val)}
                 onBlur={onTargetBlur}
+                sign="до"
             />
         </section>
     )

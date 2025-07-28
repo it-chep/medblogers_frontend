@@ -11,9 +11,10 @@ interface IProps{
     setValue: (value: string) => void;
     isLoading?: boolean;
     error?: string;
+    sign?: string;
 }
 
-export const MyInput: FC<IProps> = ({value, setValue, typeInput, onBlur = () => {}}) => {
+export const MyInput: FC<IProps> = ({value, setValue, typeInput, onBlur = () => {}, sign}) => {
 
     const refBox = useRef<HTMLDivElement>(null)
 
@@ -32,7 +33,7 @@ export const MyInput: FC<IProps> = ({value, setValue, typeInput, onBlur = () => 
 
     return (
         <section ref={refBox} className={classes.inputBox}>
-            <div className={classes.sign}>от&nbsp;</div>
+            <div className={classes.sign}>{sign}&nbsp;</div>
             <input 
                 onFocus={onFocus}
                 onBlur={onBlurInput}
