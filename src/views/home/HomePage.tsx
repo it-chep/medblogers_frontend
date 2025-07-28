@@ -6,6 +6,8 @@ import { Filters } from '@/src/widgets/filters'
 import { ActiveFilters } from '@/src/widgets/activeFilters/ui/ActiveFilters'
 import { IFilter } from '@/src/entities/filter'
 import { useState } from 'react'
+import { Statistics } from '@/src/widgets/statistics'
+import { SearchDoctors } from '@/src/features/searchDoctors'
 
 
 
@@ -19,8 +21,8 @@ export default function HomePage() {
                 <Filters filters={filters} setFilters={setFilters} />
             </aside>
             <main className={classes.main}>
-                <section>STATISTICS</section>
-                <section>SEARCH</section>
+                <Statistics />
+                <SearchDoctors />
                 <ActiveFilters filters={filters} />
                 <DoctorsAll />
             </main>

@@ -17,7 +17,7 @@ export const DoctorsAll: FC = () => {
     async function getDoctors() {
         try{
             setIsLoading(true)
-            await new Promise(resolve => setTimeout(resolve, 2000))
+            // await new Promise(resolve => setTimeout(resolve, 2000))
             setDoctors([
                 {
             "name": "\u0410\u0431\u0434\u0443\u043b\u0430\u0435\u0432\u0430 \u0421\u043e\u0444\u044c\u044f \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432\u043e\u0432\u043d\u0430",
@@ -301,7 +301,6 @@ export const DoctorsAll: FC = () => {
 
     useEffect(() => {
         getDoctors()
-        console.log(111111111111)
     }, [searchParams])
 
     return (
