@@ -18,10 +18,14 @@ export const DeleteActiveFilter: FC<IProps> = ({labelSlug, id}) => {
     const deleteFilter = () => {
         const newUrl = new URLSearchParams(searchParams)
         const selectedFilter = searchParams.get(labelSlug)?.split(',')
-        console.log(selectedFilter)
         if(selectedFilter){
             const newSelectedFilter = selectedFilter.filter(s => +s !== id)
-            newUrl.set(labelSlug, newSelectedFilter.join(','))
+            if(newSelectedFilter.length === 0){
+                newUrl.delete(labelSlug)
+            }
+            else{
+                newUrl.set(labelSlug, newSelectedFilter.join(','))
+            }
 
             const elem: HTMLInputElement | null = document.querySelector(`#${labelSlug}-${id} input`)
             if(elem){

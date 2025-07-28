@@ -101,7 +101,7 @@ export const Filters: FC<IProps> = ({filters, setFilters}) => {
             <MyHr />
             <FilterItem label="Специальность" labelSlug="speciality" items={filters?.specialities || []} />
             <MyHr />
-            <FilterItem label="Подписчики" search={false} labelSlug="sub" items={filters?.filter_info || []}>
+            <FilterItem label="Подписчики" search={false} labelSlug="social_media" items={filters?.filter_info || []}>
                 <Slider 
                     max={MAX}
                     min={MIN}
