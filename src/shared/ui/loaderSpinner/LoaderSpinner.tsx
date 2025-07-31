@@ -1,8 +1,8 @@
 import { FC } from "react";
-import classes from './myLoaderSpinner.module.scss'
+import classes from './loaderSpinner.module.scss'
 
 
-export const MyLoaderSpinner: FC = () => {
+export const LoaderSpinner: FC = () => {
 
 
     return (

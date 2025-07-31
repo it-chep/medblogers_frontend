@@ -7,7 +7,7 @@ import classes from './searchDoctors.module.scss'
 import { searchDoctorsService } from "../../api/SearchDoctorsService";
 import { ISearchDoctors } from "../../model/types";
 import { SearchResult } from "../result/SearchResult";
-import { MyLoaderSpinner } from "@/src/shared/ui/myLoaderSpinner";
+import { MyLoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 
 
 export const SearchDoctors: FC = () => {

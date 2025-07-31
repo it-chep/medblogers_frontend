@@ -1,1 +1,0 @@
-export { MyLoaderSpinner } from "./MyLoaderSpinner";

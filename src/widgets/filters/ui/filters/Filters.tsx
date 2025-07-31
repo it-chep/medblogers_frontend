@@ -10,6 +10,7 @@ import { ResetFilters } from "@/src/features/resetFilters"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { IFilter } from "../../model/types"
 import { filterService } from "../../api/FilterService"
+import { LoaderContainer } from "@/src/shared/ui/loaderContainer"
 
 const MAX = 400_000
 const MIN = 300
@@ -93,7 +94,7 @@ export const Filters: FC<IProps> = ({filters, setFilters}) => {
     return (
         isLoading
             ?
-        <section>Loading...</section>
+        <section className={classes.loader}><LoaderContainer /></section>
             :
         <section className={classes.container}>
             <FilterItem label="Город" labelSlug="city" items={filters?.cities || []} />

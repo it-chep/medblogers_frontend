@@ -3,7 +3,7 @@ import classes from './searchResult.module.scss'
 import { ISearchDoctors } from "../../model/types";
 import { ItemList } from "../itemList/ItemList";
 import { SearchMiniature } from "@/src/entities/doctor";
-import { MyLoaderSpinner } from "@/src/shared/ui/myLoaderSpinner";
+import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 
 
 interface IProps {
@@ -22,7 +22,7 @@ export const SearchResult: FC<IProps> = ({result, setOpen, isLoading}) => {
                 isLoading
                     ?
                 <section className={classes.loader}>
-                    <MyLoaderSpinner />
+                    <LoaderSpinner />
                 </section>
                     :
                 !result
