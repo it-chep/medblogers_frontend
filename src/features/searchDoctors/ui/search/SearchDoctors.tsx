@@ -7,7 +7,6 @@ import classes from './searchDoctors.module.scss'
 import { searchDoctorsService } from "../../api/SearchDoctorsService";
 import { ISearchDoctors } from "../../model/types";
 import { SearchResult } from "../result/SearchResult";
-import { MyLoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 
 
 export const SearchDoctors: FC = () => {
@@ -45,9 +44,7 @@ export const SearchDoctors: FC = () => {
         <section className={classes.wrapper}>
             <SearchInput onChange={onChange} onFocus={onOpen} />
             <MyModal open={open} setOpen={setOpen}>
-                {
-                    <SearchResult isLoading={isLoading} setOpen={setOpen} result={searchResult} />     
-                }
+                <SearchResult isLoading={isLoading} setOpen={setOpen} result={searchResult} />     
             </MyModal>
         </section>
     )

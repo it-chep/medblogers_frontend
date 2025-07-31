@@ -68,7 +68,7 @@ export const ActiveFilters: FC<IProps> = ({filters}) => {
     return (
         filters
             ?
-        selectedCheckboxesCities.length === 0 && selectedCheckboxesForSpecs.length === 0
+        selectedCheckboxesForCities.length === 0 && selectedCheckboxesForSpecs.length === 0
             ?
         <></>
             :
