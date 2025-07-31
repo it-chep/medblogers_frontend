@@ -68,6 +68,10 @@ export const ActiveFilters: FC<IProps> = ({filters}) => {
     return (
         filters
             ?
+        selectedCheckboxesCities.length === 0 && selectedCheckboxesForSpecs.length === 0
+            ?
+        <></>
+            :
         <section className={classes.activeFilters}>
             {selectedCheckboxesForCities.map((selectedCheckbox, ind) => 
                 <FilterBadge
