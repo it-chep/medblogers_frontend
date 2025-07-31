@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { DeleteActiveFilter } from "@/src/features/deleteActiveFilter";
 import { FilterBadge } from "@/src/shared/ui/filterBadge";
 import { IFilter, IItem } from "../model/types";
+import { LoaderContainer } from "@/src/shared/ui/loaderContainer";
 
 interface IProps {
     filters: IFilter | null;
@@ -93,6 +94,6 @@ export const ActiveFilters: FC<IProps> = ({filters}) => {
             )}
         </section>
             :
-        <section>Loading...</section>
+        <section className={classes.loader}><LoaderContainer /></section>
     )
 }

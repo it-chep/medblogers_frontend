@@ -4,6 +4,7 @@ import {FC, useEffect, useState} from "react";
 import {usePathname, useRouter, useSearchParams} from "next/navigation";
 import {DoctorMiniature, doctorService, IDoctorMiniature} from "@/src/entities/doctor";
 import classes from './doctorsAll.module.scss'
+import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 
 export const DoctorsAll: FC = () => {
 
@@ -17,7 +18,6 @@ export const DoctorsAll: FC = () => {
     async function getDoctors() {
         try{
             setIsLoading(true)
-            // await new Promise(resolve => setTimeout(resolve, 2000))
             setDoctors([
                 {
             "name": "\u0410\u0431\u0434\u0443\u043b\u0430\u0435\u0432\u0430 \u0421\u043e\u0444\u044c\u044f \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432\u043e\u0432\u043d\u0430",
@@ -305,23 +305,29 @@ export const DoctorsAll: FC = () => {
 
     return (
         <section className={classes.container}>
-            {doctors.map(doctor =>
-                <DoctorMiniature
-                    key={doctor.slug}
-                    avatar_url={doctor.avatar_url}
-                    city={doctor.city}
-                    doctor_url={doctor.doctor_url}
-                    inst_subs_count={doctor.inst_subs_count}
-                    inst_subs_count_text={doctor.inst_subs_count_text}
-                    inst_url={doctor.inst_url}
-                    name={doctor.name}
-                    slug={doctor.slug}
-                    speciality={doctor.speciality}
-                    tg_channel_url={doctor.tg_channel_url}
-                    tg_subs_count={doctor.tg_subs_count}
-                    tg_subs_count_text={doctor.tg_subs_count_text}
-                />
-            )}
+            {
+                isLoading
+                    ?
+                <section className={classes.loader}><LoaderSpinner /></section>
+                    :                
+                doctors.map(doctor =>
+                    <DoctorMiniature
+                        key={doctor.slug}
+                        avatar_url={doctor.avatar_url}
+                        city={doctor.city}
+                        doctor_url={doctor.doctor_url}
+                        inst_subs_count={doctor.inst_subs_count}
+                        inst_subs_count_text={doctor.inst_subs_count_text}
+                        inst_url={doctor.inst_url}
+                        name={doctor.name}
+                        slug={doctor.slug}
+                        speciality={doctor.speciality}
+                        tg_channel_url={doctor.tg_channel_url}
+                        tg_subs_count={doctor.tg_subs_count}
+                        tg_subs_count_text={doctor.tg_subs_count_text}
+                    />
+                )
+            }
         </section>
     )
 }

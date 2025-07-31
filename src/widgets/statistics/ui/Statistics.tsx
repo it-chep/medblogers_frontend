@@ -1,6 +1,7 @@
 import { IStatistic, StatisticItem, statisticService } from "@/src/entities/statistic";
 import { FC, useEffect, useState } from "react";
 import classes from './statistics.module.scss'
+import { LoaderContainer } from "@/src/shared/ui/loaderContainer";
 
 
 
@@ -32,7 +33,7 @@ export const Statistics: FC = () => {
             {
                 isLoading
                     ?
-                <section>Loading...</section>
+                <section className={classes.loader}><LoaderContainer /></section>
                     :
                 <>
                     { 
