@@ -10,12 +10,12 @@ export const Header: FC = () => {
 
 
     return (
-        <section className="wrapper_main">
+        <header className="wrapper_main">
             <section className={classes.header}>
                 <Image src={logo.src} width={268} height={75} alt="логотип" />
                 <Title />
                 <OpenMenu />
             </section>
-        </section>
+        </header>
     )
 }

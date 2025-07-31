@@ -3,8 +3,9 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 16px;
     color: #606060;
+    gap: 10px;
 
     >input{
         display: none;
@@ -15,10 +16,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    min-height: 18px;
+    min-width: 18px;
     border: 1px solid #606060;
-    margin-right: 10px;
     border-radius: 6px;
     background: transparent;
     transition: .3s;

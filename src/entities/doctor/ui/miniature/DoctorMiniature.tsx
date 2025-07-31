@@ -16,7 +16,7 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
 
     return (
         <section className={classes.container}>
-            <section className={classes.docInfoWraper}>
+            <section className={classes.docInfoWrapper}>
                 <Image src={IMG.src} alt={'Аватарка врача'} width={260} height={160} />
                 <section className={classes.docInfo}>
                     <section className={classes.name}><p>{name}</p></section>

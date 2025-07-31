@@ -6,19 +6,24 @@
     gap: 10px;
     margin-top: 20px;
     background-color: #222;
-    padding: 6px 15px;
+    padding: 8px 15px;
     border-radius: 10px;
     font-size: 16px;
 
     svg{
-        width: 15px;
+        width: 18px;
+        height: 18px;
+        min-height: 18px;
+        min-width: 18px;
+        object-fit: contain;
     }
 
     input{
-        color: #FFF;
+        color: #ccc;
         background-color: #222;
         border: none;
         outline: none;
         width: 100%;
+        font-size: 16px;
     }
 }
