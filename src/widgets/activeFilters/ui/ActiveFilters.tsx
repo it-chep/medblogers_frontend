@@ -3,13 +3,9 @@
 import { FC, useEffect, useState } from "react";
 import classes from './activeFilters.module.scss'
 import { useSearchParams } from "next/navigation";
-import { FilterBadge, IFilter } from "@/src/entities/filter";
 import { DeleteActiveFilter } from "@/src/features/deleteActiveFilter";
-
-type IItem = {
-    id: number;
-    name: string;
-}
+import { FilterBadge } from "@/src/shared/ui/filterBadge";
+import { IFilter, IItem } from "../model/types";
 
 interface IProps {
     filters: IFilter | null;
@@ -74,7 +70,7 @@ export const ActiveFilters: FC<IProps> = ({filters}) => {
             ?
         <section className={classes.activeFilters}>
             {selectedCheckboxesForCities.map((selectedCheckbox, ind) => 
-                <FilterBadge 
+                <FilterBadge
                     key={ind} 
                     item={selectedCheckbox} 
                     labelSlug="city" 

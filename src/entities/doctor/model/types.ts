@@ -20,3 +20,13 @@ export interface IDoctorMiniature {
     tg_subs_count: string;
     tg_subs_count_text: string;
 }
+
+export interface IDoctorSearch {
+    name: string;
+    city: string;
+    slug: string;
+    speciality: string;
+    doctor_url: string;
+    local_file: null;
+    avatar_url: string;
+}

@@ -26,5 +26,9 @@
         border: none;
         outline: none;
         box-shadow: none;
+
+    }
+    &:hover{
+        border: 2px solid var(--blue);
     }
 }

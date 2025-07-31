@@ -1,9 +1,9 @@
 "use client"
 
-import { clearParams } from "@/src/entities/filter";
+import { clearParams } from "@/src/shared/lib/helpers/clearParams";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FC, InputHTMLAttributes } from "react";
+import { FC } from "react";
 
 
 interface IProps {

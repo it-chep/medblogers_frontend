@@ -1,0 +1,1 @@
+export {type ICity} from './model/types'

@@ -1,7 +1,6 @@
 import { FC } from "react";
 import classes from './filterList.module.scss'
 import { MyCheckbox } from "@/src/shared/ui/myCheckbox";
-import { useSearchParams } from "next/navigation";
 
 interface IProps {
     labelSlug: string;

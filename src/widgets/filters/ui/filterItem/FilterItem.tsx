@@ -1,9 +1,9 @@
 import { OpenFilter } from "@/src/features/openFilter";
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import classes from './filterItem.module.scss'
-import { FilterList } from "@/src/entities/filter";
 import { SearchFilter } from "@/src/features/searchFilter";
 import { useSearchParams } from "next/navigation";
+import { FilterList } from "../filterList/FilterList";
 
 interface IProps{
     label: string;

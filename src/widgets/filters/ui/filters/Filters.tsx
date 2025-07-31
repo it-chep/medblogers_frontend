@@ -4,11 +4,12 @@ import { FC, useEffect, useState } from "react"
 import { FilterItem } from "../filterItem/FilterItem"
 import classes from './filters.module.scss'
 import { MyHr } from "@/src/shared/ui/myHr"
-import { filterService, IFilter } from "@/src/entities/filter"
 import { Slider } from "@/src/features/slider"
 import { ApplyFilters } from "@/src/features/applyFilters"
 import { ResetFilters } from "@/src/features/resetFilters"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { IFilter } from "../../model/types"
+import { filterService } from "../../api/FilterService"
 
 const MAX = 400_000
 const MIN = 300

@@ -1,11 +1,11 @@
 
 "use client"
 
-import { clearParams } from "@/src/entities/filter";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC } from "react";
 import classes from './resetFilters.module.scss'
+import { clearParams } from "@/src/shared/lib/helpers/clearParams";
 
 
 export const ResetFilters: FC = () => {
