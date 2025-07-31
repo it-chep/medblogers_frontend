@@ -1,0 +1,38 @@
+
+
+
+.wrapper{
+    position: relative;
+    z-index: 109;
+    margin-top: 12px;
+    color: white;
+    max-height: 480px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #1E1E1E;
+    border-radius: 26px;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        box-sizing: border-box;
+        background: #222;
+        border-radius: 50% / 3px;
+        margin: 20px 0;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #ccc;
+        border-radius: 50% / 3px;
+    }
+
+    
+    .doctors{
+        >h4{
+           padding: 10px 20px;
+           font-weight: 400;
+        }
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -4,6 +4,7 @@ import classes from './filterItem.module.scss'
 import { SearchFilter } from "@/src/features/searchFilter";
 import { useSearchParams } from "next/navigation";
 import { FilterList } from "../filterList/FilterList";
+import { clearParams } from "@/src/shared/lib/helpers/clearParams";
 
 interface IProps{
     label: string;
@@ -22,7 +23,15 @@ export const FilterItem: FC<IProps & PropsWithChildren> = ({label, labelSlug, it
     const [searchItems, setSearchItems] = useState<IProps['items']>(items)
     const searchParams = useSearchParams()
 
+    const clearCheckBoxes = () => {
+        const elems: NodeListOf<HTMLInputElement> = document.querySelectorAll(`.${labelSlug} input`)
+        elems.forEach(elem => {
+            elem.checked = false;
+        })
+    }
+
     const initialCheckBoxes = () => {
+        clearCheckBoxes()
         const params = new URLSearchParams(searchParams);
         const values = params.get(labelSlug)?.split(',')
         if(values){

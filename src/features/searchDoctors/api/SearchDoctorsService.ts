@@ -331,10 +331,20 @@ const RES = {
 
 class SearchDoctorsService{
 
+    controller: null | AbortController = null; 
+
     async get(query: string): Promise<ISearchDoctors>{
 
+        if(this.controller){
+            this.controller.abort()
+        }
 
-        // const res = await fetch('')
+        this.controller = new AbortController()
+
+        // const res = await fetch('', {
+        //     cache: 'no-cache',
+        //     signal: this.controller?.signal
+        // })
 
         // if(res.ok){
 

@@ -2,9 +2,8 @@
 
 import { DoctorsAll } from '@/src/widgets/doctors'
 import classes from './home.module.scss'
-import { Filters } from '@/src/widgets/filters'
+import { Filters, IFilter } from '@/src/widgets/filters'
 import { ActiveFilters } from '@/src/widgets/activeFilters/ui/ActiveFilters'
-import { IFilter } from '@/src/entities/filter'
 import { useState } from 'react'
 import { Statistics } from '@/src/widgets/statistics'
 import { SearchDoctors } from '@/src/features/searchDoctors'

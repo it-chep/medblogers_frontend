@@ -1,21 +1,49 @@
-import { FC } from 'react'
+import { FC, useRef, useState } from 'react'
 import classes from './searchInput.module.scss'
 
 
 interface IProps {
     onFocus: () => void;
+    onChange: (value: string) => void;
 }
 
-export const SearchInput: FC<IProps> = ({onFocus}) => {
+export const SearchInput: FC<IProps> = ({onFocus, onChange}) => {
 
+    const [value, setValue] = useState<string>('')
+
+    const refWrap = useRef<HTMLDivElement>(null)
+
+    const onInputFocus = () => {
+        onFocus()
+        if(refWrap.current){
+            refWrap.current.classList.add(classes.focus)
+        }
+    }
+
+    const onInputBlur = () => {
+        if(refWrap.current){
+            refWrap.current.classList.remove(classes.focus)
+        }
+    }
+    
 
     return (
-        <section className={classes.wrapper}>
+        <section ref={refWrap} className={classes.wrapper}>
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="25" viewBox="0 0 22 25" fill="none">
                 <rect x="7.06929" y="14.2754" width="1.84748" height="11.9236" rx="0.923741" transform="rotate(36.3618 7.06929 14.2754)" fill="#606060"/>
                 <path d="M17.0502 14.7411C14.6305 18.0278 10.0045 18.7305 6.71783 16.3108C3.43117 13.891 2.7284 9.26507 5.14815 5.9784C7.56791 2.69174 12.1939 1.98897 15.4805 4.40873C18.7672 6.82849 19.47 11.4545 17.0502 14.7411ZM6.72504 7.13936C4.94646 9.55514 5.46301 12.9553 7.87878 14.7339C10.2946 16.5125 13.6948 15.9959 15.4733 13.5802C17.2519 11.1644 16.7354 7.76419 14.3196 5.98561C11.9038 4.20703 8.50361 4.72358 6.72504 7.13936Z" fill="#606060"/>
             </svg>
-            <input placeholder="Найдем для вас врача..." onFocus={onFocus} type='text' />
+            <input
+                value={value}
+                onChange={e => {
+                    setValue(e.target.value)
+                    onChange(e.target.value)
+                }} 
+                placeholder="Найдем для вас врача..." 
+                onFocus={onInputFocus} 
+                onBlur={onInputBlur}
+                type='text' 
+            />
         </section>
     )
 }

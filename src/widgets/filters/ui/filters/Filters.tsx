@@ -30,21 +30,16 @@ export const Filters: FC<IProps> = ({filters, setFilters}) => {
     let initialMin = searchParams.get('min_subscribers') ? Number(searchParams.get('min_subscribers')) : MIN
     let initialMax = searchParams.get('max_subscribers') ? Number(searchParams.get('max_subscribers')) : MAX
 
-    let isOk = true;
     const initial =() => {
         if(initialMin < MIN){
             initialMin = MIN;
-            isOk = false;
         }
         if(initialMax > MAX){
             initialMax = MAX;
-            isOk = false;
         }
         if(initialMin > initialMax){
             initialMin = initialMax;
-            isOk = false;
         }
-
     }
     
     const setNewUrl = (params: URLSearchParams) => {
@@ -55,17 +50,20 @@ export const Filters: FC<IProps> = ({filters, setFilters}) => {
     initial()
 
     useEffect(() => {
-        if(!isOk){
-            const params = new URLSearchParams(searchParams);
-            params.set('min_subscribers', String(initialMin))
-            params.set('max_subscribers', String(initialMax))
-            setNewUrl(params)
-        }
-    })
+        const params = new URLSearchParams(searchParams);
+        params.set('min_subscribers', String(initialMin))
+        params.set('max_subscribers', String(initialMax))
+        setNewUrl(params)
+    }, [])
+
+    useEffect(() => {
+        const params = new URLSearchParams(searchParams);
+        setValueMin(initialMin)
+        setValueMax(initialMax)
+        setNewUrl(params)
+    }, [searchParams])
 
     
-    
-
     const [valueMin, setValueMin] = useState<number>(initialMin) 
     const [valueMax, setValueMax] = useState<number>(initialMax) 
 
