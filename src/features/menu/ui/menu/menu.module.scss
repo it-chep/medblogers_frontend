@@ -1,0 +1,45 @@
+
+
+
+.menu{
+    position: fixed;
+    width: 50%;
+    background-color: var(--black);
+    padding: 20px;
+    right: 0;
+    z-index: 999;
+    top: 0;
+    height: 100%;
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0;
+
+        span{
+            font-size: 32px;
+            font-weight: 700;
+        }
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li{
+            font-size: 20px;
+            color: #FFFFFF;
+
+            transition: color .15s ease;
+
+            &:hover{
+                color: var(--blue);
+            }
+        }
+    }
+}
