@@ -1,0 +1,27 @@
+
+
+
+.arrayLeft, .arrayRight{
+    stroke: #717171;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+
+    &:hover{
+        stroke: var(--blue);
+    }
+
+    &.disabled{
+        cursor: auto;
+        stroke: #717171;
+    }
+}
+
+
+.arrayLeft{
+
+}
+
+.arrayRight{
+
+}
