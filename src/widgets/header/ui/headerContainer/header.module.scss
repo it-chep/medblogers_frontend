@@ -11,4 +11,9 @@
     overflow: visible;
     z-index: 19;
     position: relative;
+
+    >a{
+        display: flex;
+        align-items: center;
+    }
 }
