@@ -4,13 +4,13 @@ import {IDoctorMiniature, IDoctorMiniatureResponse} from "@/src/entities/doctor/
 class DoctorService {
 
 
-    async getAll(params: string){
+    async getAll(params: string): Promise<IDoctorMiniatureResponse> {
         const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/filter-doctor/' + params,
             {
                 cache: "no-cache"
             }
         )
-        const doctorsData: IDoctorMiniatureResponse[] = await response.json()
+        const doctorsData: IDoctorMiniatureResponse = await response.json()
         return doctorsData
     }
 
