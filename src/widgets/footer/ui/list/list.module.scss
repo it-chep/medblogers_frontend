@@ -1,0 +1,35 @@
+
+
+
+.listLinks{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0.9;
+    
+    .bold{
+        font-weight: 800;
+    }
+}
+
+
+.sign{
+    display: block;
+    opacity: 0.4;
+    line-height: 120%;
+
+}
+
+.listRequisites{
+    margin-top: 20px;
+    opacity: 0.4;
+    line-height: 150%;
+}
+
+@media (max-width: 480px) {
+    .sign{
+        .text{
+            font-size: 14px;
+        }
+    }
+}
