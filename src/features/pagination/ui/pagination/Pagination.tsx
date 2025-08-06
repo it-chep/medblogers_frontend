@@ -84,6 +84,7 @@ export const Pagination: FC<IProps> = ({totalPages, setIsLoading}) => {
 
     const onSelected = (page: number) => {
         setIsLoading(true)
+        window.scrollTo({top: 0})
         const params = new URLSearchParams(searchParams)
         params.set('page', `${page}`)
         const newUrl = `${pathname}?${params.toString()}`
