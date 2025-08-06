@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useState } from "react";
 import classes from './pagination.module.scss'
 import { SwitchPages } from "../switchPages/SwitchPages";
 
