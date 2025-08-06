@@ -1,0 +1,1 @@
+export { MyHr } from "./MyHr";

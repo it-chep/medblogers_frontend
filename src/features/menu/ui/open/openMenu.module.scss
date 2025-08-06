@@ -1,0 +1,17 @@
+
+
+
+.openMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    min-height: 40px;
+    height: 40px;
+    min-width: 40px;
+    width: 40px;
+    border-radius: 50px;
+    background-color: var(--blue);
+
+    cursor: pointer;
+}

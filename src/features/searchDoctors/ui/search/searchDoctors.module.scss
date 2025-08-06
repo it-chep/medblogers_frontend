@@ -1,0 +1,17 @@
+
+
+
+.wrapper{
+    position: relative;
+
+    .list{
+        position: relative;
+        z-index: 109;
+        margin-top: 12px;
+        color: white;
+        max-height: 480px;
+        overflow-y: auto;
+        background: #1E1E1E;
+        border-radius: 26px;
+    }
+}
