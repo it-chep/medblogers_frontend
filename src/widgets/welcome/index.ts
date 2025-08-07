@@ -1,0 +1,1 @@
+export { WelcomeWidget } from "./ui/welcome/WelcomeWidget";

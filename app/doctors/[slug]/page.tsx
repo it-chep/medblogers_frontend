@@ -1,5 +1,3 @@
-import { doctorService } from "@/src/entities/doctor"
-import { IDoctor } from "@/src/entities/doctor/model/types"
 import DoctorPage from "@/src/views/doctor/Doctor"
 
 
