@@ -21,8 +21,8 @@ export const OpenMenu: FC = () => {
             <section onClick={onClick} className={classes.openMenu}>
                 <Image 
                     alt="burger"
-                    width={20} 
-                    height={20} 
+                    width={25} 
+                    height={25} 
                     src={burgerImg.src} 
                 />
             </section>
