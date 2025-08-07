@@ -1,0 +1,32 @@
+
+
+
+.wrapper{
+
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    border-radius: 20px;
+    background: var(--light-black);
+    gap: 20px;
+    padding: 20px;
+    overflow: hidden;
+
+    .avatar{
+        position: relative;
+        object-position: 10% 10%;
+        min-width: 300px;
+        min-height: 300px;
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 14px;
+    }
+
+    .content{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+    }
+}

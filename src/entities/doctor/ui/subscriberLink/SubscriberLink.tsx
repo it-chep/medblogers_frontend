@@ -6,19 +6,21 @@ import Image from "next/image";
 interface IProps {
     link: string;
     socialIconSrc: string;
-    subsCount: string;
+    subsCount?: string;
     text: string;
 
 }
 
-export const SubscriberLink: FC<IProps> = ({socialIconSrc, subsCount, text, link}) => {
+export const SubscriberLink: FC<IProps> = ({socialIconSrc, subsCount = null, text, link}) => {
+
+    console.log(subsCount)
 
     return (
         <section className={classes.subscriberLinkWrapper}>
             <a className={classes.subscriberLink} href={link}>
                 <Image src={socialIconSrc} alt="соцсеть" height={24} width={24} />
                 <section className={classes.subsText}>
-                    <span className={classes.subsCount}>{subsCount}</span>
+                    { subsCount && <span className={classes.subsCount}>{subsCount}</span> }
                     <span>{text}</span>
                 </section>
                 <svg width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">

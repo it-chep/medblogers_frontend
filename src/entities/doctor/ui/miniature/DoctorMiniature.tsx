@@ -9,15 +9,13 @@ import {MyButton} from "@/src/shared/ui/myButton";
 import {SubscriberLink} from "@/src/entities/doctor/ui/subscriberLink/SubscriberLink";
 
 export const DoctorMiniature: FC<IDoctorMiniature> = ({
-    name, avatar_url, city, doctor_url, inst_url, tg_channel_url, inst_subs_count_text, inst_subs_count, tg_subs_count_text, tg_subs_count, slug, speciality
+    name, image, city, instLink, tgLink, instSubsCount, instSubsCountText, tgSubsCount, tgSubsCountText, slug, speciality
 }) => {
-
-    console.log(avatar_url)
 
     return (
         <section className={classes.container}>
             <section className={classes.docInfoWrapper}>
-                <Image src={IMG.src} alt={'Аватарка врача'} width={260} height={160} />
+                { image && <Image src={image} alt={'Аватарка врача'} width={260} height={160} /> }
                 <section className={classes.docInfo}>
                     <section className={classes.name}><p>{name}</p></section>
                     <section className={classes.userAdditionalInfo}>
@@ -29,27 +27,27 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
             <section className={classes.buttonsWrapper}>
                 <section className={classes.subscribersWrapper}>
                     {
-                        tg_channel_url
+                        tgLink
                             &&
                         <SubscriberLink
-                            link={tg_channel_url}
+                            link={tgLink}
                             socialIconSrc={tg_logo.src}
-                            subsCount={tg_subs_count}
-                            text={tg_subs_count_text}
+                            subsCount={tgSubsCount}
+                            text={tgSubsCountText}
                         />
                     }
                     {
-                        inst_url
+                        instLink
                             &&
                         <SubscriberLink
-                            link={inst_url}
+                            link={instLink}
                             socialIconSrc={inst_logo.src}
-                            subsCount={inst_subs_count}
-                            text={inst_subs_count_text}
+                            subsCount={instSubsCount}
+                            text={instSubsCountText}
                         />
                     }
                 </section>
-                <a href={doctor_url} className={classes.link}>
+                <a href={`doctors/${slug}`} className={classes.link}>
                     <MyButton>Подробнее</MyButton>
                 </a>
             </section>
