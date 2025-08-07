@@ -1,0 +1,42 @@
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    --text-gray: #aeaeae;
+
+    .main{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .name{
+            font-size: 32px;
+            line-height: 42px;
+        }
+    
+        .city{
+            color: var(--text-gray);
+        }
+    
+        .specialities{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+
+    .blogTheme{
+        .sign{
+            color: var(--text-gray);
+        }
+    }
+
+    .link{
+        display: block;
+        width: 200px;
+    }
+}

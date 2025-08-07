@@ -1,24 +1,23 @@
 
 
 export interface IDoctorMiniatureResponse {
-    data: IDoctorMiniature[];
+    doctors: IDoctorMiniature[];
     page: number;
     pages: number;
 }
 
 export interface IDoctorMiniature {
-    avatar_url: string;
+    image: string;
     city: string;
-    doctor_url: string;
-    inst_subs_count: string;
-    inst_subs_count_text: string;
-    inst_url: string | null;
+    instSubsCount: string;
+    instSubsCountText: string;
+    instLink: string | null;
     name: string;
     slug: string;
     speciality: string;
-    tg_channel_url: string | null;
-    tg_subs_count: string;
-    tg_subs_count_text: string;
+    tgLink: string | null;
+    tgSubsCount: string;
+    tgSubsCountText: string;
 }
 
 export interface IDoctorSearch {
@@ -29,4 +28,37 @@ export interface IDoctorSearch {
     doctor_url: string;
     local_file: null;
     avatar_url: string;
+}
+
+interface IItem {
+    id: string;
+    name: string;
+}
+
+export interface IDoctor {
+
+    code?: number;
+
+    name: string;
+    slug: string;
+    instUrl: string;
+    vkUrl: string;
+    dzenUrl: string;
+    tgUrl: string;
+    tgChannelUrl: string;
+    youtubeUrl: string;
+    tiktokUrl: string;
+    siteLink: string;
+    specialities: IItem[];
+    mainCity: IItem;
+    mainSpeciality: IItem;
+    tgSubsCount: string;
+    tgSubsCountText: string;
+    tgLastUpdatedDate: string;
+    instSubsCount: string;
+    instSubsCountText: string;
+    instLastUpdatedDate: string;
+    mainBlogTheme: string;
+    image: string;
+    // cities: [],
 }

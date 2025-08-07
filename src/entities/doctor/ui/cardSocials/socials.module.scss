@@ -1,0 +1,19 @@
+
+
+
+
+.socials{
+    min-width: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding-left: 10px;
+    border-left: 1px solid #ffffff40;
+
+    .profiles{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+}
