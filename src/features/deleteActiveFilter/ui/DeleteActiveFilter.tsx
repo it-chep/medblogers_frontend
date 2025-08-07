@@ -31,7 +31,7 @@ export const DeleteActiveFilter: FC<IProps> = ({labelSlug, id}) => {
             if(elem){
                 elem.checked = false;
             }
-
+            newUrl.delete('page')
             setNewUrl(newUrl)
         }
     }

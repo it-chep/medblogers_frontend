@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useState } from "react";
 import classes from './pagination.module.scss'
 import { SwitchPages } from "../switchPages/SwitchPages";
 
@@ -84,6 +84,7 @@ export const Pagination: FC<IProps> = ({totalPages, setIsLoading}) => {
 
     const onSelected = (page: number) => {
         setIsLoading(true)
+        window.scrollTo({top: 0})
         const params = new URLSearchParams(searchParams)
         params.set('page', `${page}`)
         const newUrl = `${pathname}?${params.toString()}`

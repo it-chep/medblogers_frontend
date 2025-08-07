@@ -4,4 +4,5 @@ export const clearParams = (urlParams: URLSearchParams) => {
     urlParams.delete('social_media');
     urlParams.delete('max_subscribers');
     urlParams.delete('min_subscribers');
+    urlParams.delete('page');
 }
