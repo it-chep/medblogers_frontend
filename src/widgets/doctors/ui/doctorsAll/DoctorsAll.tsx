@@ -23,8 +23,6 @@ export const DoctorsAll: FC = () => {
             setTotalPages(doctorsRes.pages)
             console.log(doctorsRes.doctors)
             setDoctors(doctorsRes.doctors)
-            
-            
         }
         catch (e){
             console.log(e)
