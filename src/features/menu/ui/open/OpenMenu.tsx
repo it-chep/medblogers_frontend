@@ -49,9 +49,11 @@ export const OpenMenu: FC<IProps> = ({mobile}) => {
                 open={open} 
                 setOpen={setOpen}
             >
-                <Menu open={open}>
-                    <Close setOpen={setOpen} />
-                </Menu>
+                <section className={classes.close + (mobile ? ` ${classes.mobile}` : '')}>
+                    <Menu open={open}>
+                        <Close setOpen={setOpen} />
+                    </Menu>
+                </section>
             </MyModal>
         </>
     )
