@@ -18,10 +18,10 @@ const MIN = 300
 interface IProps {
     filters: IFilter | null;
     setFilters: (filters: IFilter) => void;
-    openInitFilter?: boolean;
+    mobile?: boolean;
 }
 
-export const Filters: FC<IProps> = ({filters, openInitFilter, setFilters}) => {
+export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
     
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -99,21 +99,21 @@ export const Filters: FC<IProps> = ({filters, openInitFilter, setFilters}) => {
             :
         <section className={classes.container}>
             <FilterItem 
-                openInit={openInitFilter} 
+                mobile={mobile} 
                 label="Город" 
                 labelSlug="city" 
                 items={filters?.cities || []} 
             />
             <MyHr />
             <FilterItem 
-                openInit={openInitFilter} 
+                mobile={mobile} 
                 label="Специальность" 
                 labelSlug="speciality" 
                 items={filters?.specialities || []} 
             />
             <MyHr />
             <FilterItem 
-                openInit={openInitFilter} 
+                mobile={mobile} 
                 label="Подписчики" 
                 search={false} 
                 labelSlug="social_media" 

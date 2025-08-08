@@ -2,7 +2,7 @@
 
 
 .wrapper{
-    
+    overflow: hidden;    
 
     .label{
         display: flex;
@@ -47,4 +47,22 @@
             max-height: 300px;
         }
     }
+
+
+    &.mobile{
+        .label{
+
+            >p{
+                font-size: 20px;
+            }
+
+            .svgBox{
+                width: 20px;
+                height: 20px;
+                min-height: 20px;
+                min-width: 20px;
+            }
+        }
+    }
 }
+

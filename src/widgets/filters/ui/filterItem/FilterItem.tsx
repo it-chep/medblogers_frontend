@@ -16,10 +16,10 @@ interface IProps{
         doctors_count?: number;
         slug?: string;
     }[];
-    openInit?: boolean;
+    mobile?: boolean;
 }
 
-export const FilterItem: FC<IProps & PropsWithChildren> = ({label, openInit, labelSlug, items, search = true, children}) => {
+export const FilterItem: FC<IProps & PropsWithChildren> = ({label, mobile, labelSlug, items, search = true, children}) => {
 
     const [searchItems, setSearchItems] = useState<IProps['items']>(items)
     const searchParams = useSearchParams()
@@ -51,9 +51,9 @@ export const FilterItem: FC<IProps & PropsWithChildren> = ({label, openInit, lab
 
     return (
         <section className={classes.filterItem}>
-            <OpenFilter openInit={openInit} label={label}>
+            <OpenFilter mobile={mobile} label={label}>
                 { search && <SearchFilter items={items} setItems={setSearchItems} /> }
-                <FilterList labelSlug={labelSlug} items={searchItems} />
+                <FilterList mobile={mobile} labelSlug={labelSlug} items={searchItems} />
                 {children}
             </OpenFilter>
         </section>

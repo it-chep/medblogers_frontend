@@ -32,7 +32,7 @@ export default function HomePage() {
                 <Statistics />
                 <SearchDoctors>
                     <OpenFiltersModal>
-                        <Filters openInitFilter={true} filters={filters} setFilters={setFilters} />
+                        <Filters mobile={true} filters={filters} setFilters={setFilters} />
                     </OpenFiltersModal>
                 </SearchDoctors>
                 <ActiveFilters filters={filters} />

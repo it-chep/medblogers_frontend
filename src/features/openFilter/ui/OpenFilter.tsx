@@ -5,10 +5,10 @@ import classes from './openFilter.module.scss'
 
 interface IProps {
     label: string;
-    openInit?: boolean;
+    mobile?: boolean;
 }
 
-export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, openInit = null, children}) => {
+export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, mobile = null, children}) => {
 
     const refSvg = useRef<SVGSVGElement>(null)
     const refContainer = useRef<HTMLDivElement>(null)
@@ -25,7 +25,7 @@ export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, openInit = nu
 
     const isOne = useRef<boolean>(true)
     useEffect(() => {
-        if(isOne.current && openInit && refSvg && refContainer){
+        if(isOne.current && mobile && refSvg && refContainer){
             onClick()
             isOne.current = false;
         }
@@ -36,7 +36,7 @@ export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, openInit = nu
     }
 
     return (
-        <section className={classes.wrapper}>
+        <section className={classes.wrapper + (mobile ? ` ${classes.mobile}` : '')}>
             <section className={classes.label} onMouseDown={cancelSelection} onClick={onClick}>
                 <section className={classes.svgBox}>
                     <svg ref={refSvg}  className={classes.arrow} width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">

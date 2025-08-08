@@ -5,7 +5,17 @@
 
 
     .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
+        background-color: var(--sign-gray);
 
+        svg{
+            fill: #FFF;
+        }
 
     }
 
@@ -21,6 +31,8 @@
         padding: 20px;
 
         .top{
+            display: flex;
+            justify-content: space-between;
             margin: 20px 0;
 
             .title{

@@ -18,7 +18,7 @@ export const Header: FC = () => {
                         <Image src={logo.src} width={268} height={75} alt="логотип" />
                     </Link>
                     <section className={classes.openMenuMobile}>
-                        <OpenMenu />
+                        <OpenMenu mobile={true} />
                     </section>
                 </section>
                     <Title />

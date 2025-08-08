@@ -23,6 +23,7 @@
 @media (max-width: 480px) {
     .wrapper{
         display: flex;
+        align-items: center;
         gap: 10px;
 
         .openFilterForMobile{
