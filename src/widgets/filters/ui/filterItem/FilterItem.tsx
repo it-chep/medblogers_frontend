@@ -16,9 +16,10 @@ interface IProps{
         doctors_count?: number;
         slug?: string;
     }[];
+    openInit?: boolean;
 }
 
-export const FilterItem: FC<IProps & PropsWithChildren> = ({label, labelSlug, items, search = true, children}) => {
+export const FilterItem: FC<IProps & PropsWithChildren> = ({label, openInit, labelSlug, items, search = true, children}) => {
 
     const [searchItems, setSearchItems] = useState<IProps['items']>(items)
     const searchParams = useSearchParams()
@@ -50,7 +51,7 @@ export const FilterItem: FC<IProps & PropsWithChildren> = ({label, labelSlug, it
 
     return (
         <section className={classes.filterItem}>
-            <OpenFilter label={label}>
+            <OpenFilter openInit={openInit} label={label}>
                 { search && <SearchFilter items={items} setItems={setSearchItems} /> }
                 <FilterList labelSlug={labelSlug} items={searchItems} />
                 {children}

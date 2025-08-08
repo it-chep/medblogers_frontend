@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useState } from "react";
+import { FC, PropsWithChildren, useState } from "react";
 import { SearchInput } from "../searchInput/SearchInput";
 import { MyModal } from "@/src/shared/ui/myModal";
 import classes from './searchDoctors.module.scss'
@@ -9,7 +9,7 @@ import { ISearchDoctors } from "../../model/types";
 import { SearchResult } from "../result/SearchResult";
 
 
-export const SearchDoctors: FC = () => {
+export const SearchDoctors: FC<PropsWithChildren> = ({children}) => {
 
     const [open, setOpen] = useState<boolean>(false)
     const [searchResult, setSearchResult] = useState<ISearchDoctors | null>(null)
@@ -46,6 +46,9 @@ export const SearchDoctors: FC = () => {
             <MyModal open={open} setOpen={setOpen}>
                 <SearchResult isLoading={isLoading} setOpen={setOpen} result={searchResult} />     
             </MyModal>
+            <section className={classes.openFilterForMobile}>
+                {children}
+            </section>
         </section>
     )
 }

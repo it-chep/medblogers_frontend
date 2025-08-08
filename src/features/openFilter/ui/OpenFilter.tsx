@@ -5,13 +5,13 @@ import classes from './openFilter.module.scss'
 
 interface IProps {
     label: string;
+    openInit?: boolean;
 }
 
-export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, children}) => {
+export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, openInit = null, children}) => {
 
     const refSvg = useRef<SVGSVGElement>(null)
     const refContainer = useRef<HTMLDivElement>(null)
-
 
     const onClick = () => {
         const targetSvg = refSvg.current;
@@ -21,6 +21,15 @@ export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, children}) =>
             targetContainer.classList.toggle(classes.open)
         }
     }
+    
+
+    const isOne = useRef<boolean>(true)
+    useEffect(() => {
+        if(isOne.current && openInit && refSvg && refContainer){
+            onClick()
+            isOne.current = false;
+        }
+    }, [refSvg, refContainer])
 
     const cancelSelection = (e: MouseEvent) => {
         e.preventDefault()

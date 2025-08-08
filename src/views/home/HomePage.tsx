@@ -8,6 +8,7 @@ import { use, useEffect, useState } from 'react'
 import { Statistics } from '@/src/widgets/statistics'
 import { SearchDoctors } from '@/src/features/searchDoctors'
 import { useSearchParams } from 'next/navigation'
+import { OpenFiltersModal } from '@/src/features/openFiltersModal'
 
 
 
@@ -29,7 +30,11 @@ export default function HomePage() {
             </aside>
             <main className={classes.main}>
                 <Statistics />
-                <SearchDoctors />
+                <SearchDoctors>
+                    <OpenFiltersModal>
+                        <Filters openInitFilter={true} filters={filters} setFilters={setFilters} />
+                    </OpenFiltersModal>
+                </SearchDoctors>
                 <ActiveFilters filters={filters} />
                 <DoctorsAll />
             </main>

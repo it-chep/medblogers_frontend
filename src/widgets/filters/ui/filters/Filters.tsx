@@ -18,9 +18,10 @@ const MIN = 300
 interface IProps {
     filters: IFilter | null;
     setFilters: (filters: IFilter) => void;
+    openInitFilter?: boolean;
 }
 
-export const Filters: FC<IProps> = ({filters, setFilters}) => {
+export const Filters: FC<IProps> = ({filters, openInitFilter, setFilters}) => {
     
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -97,11 +98,27 @@ export const Filters: FC<IProps> = ({filters, setFilters}) => {
         <section className={classes.loader}><LoaderContainer /></section>
             :
         <section className={classes.container}>
-            <FilterItem label="Город" labelSlug="city" items={filters?.cities || []} />
+            <FilterItem 
+                openInit={openInitFilter} 
+                label="Город" 
+                labelSlug="city" 
+                items={filters?.cities || []} 
+            />
             <MyHr />
-            <FilterItem label="Специальность" labelSlug="speciality" items={filters?.specialities || []} />
+            <FilterItem 
+                openInit={openInitFilter} 
+                label="Специальность" 
+                labelSlug="speciality" 
+                items={filters?.specialities || []} 
+            />
             <MyHr />
-            <FilterItem label="Подписчики" search={false} labelSlug="social_media" items={filters?.filter_info || []}>
+            <FilterItem 
+                openInit={openInitFilter} 
+                label="Подписчики" 
+                search={false} 
+                labelSlug="social_media" 
+                items={filters?.filter_info || []}
+            >
                 <Slider 
                     max={MAX}
                     min={MIN}

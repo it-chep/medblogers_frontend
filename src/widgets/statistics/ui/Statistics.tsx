@@ -40,7 +40,7 @@ export const Statistics: FC = () => {
                         statistics?.doctors_count 
                             && 
                         <StatisticItem 
-                            label="Врачей в базе:" 
+                            label="Врачей в базе" 
                             count={String(statistics.doctors_count)} 
                         /> 
                     }
@@ -48,7 +48,7 @@ export const Statistics: FC = () => {
                         statistics?.subscribers_count 
                             && 
                         <StatisticItem 
-                            label={"Общее количество " + statistics.subscribers_count_text + " у врачей:"} 
+                            label={"Общее количество " + statistics.subscribers_count_text + " у врачей"} 
                             count={statistics.subscribers_count} 
                         /> 
                     }

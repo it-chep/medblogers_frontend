@@ -27,7 +27,7 @@ export const OpenMenu: FC = () => {
                 />
             </section>
             <MyModal 
-                transition={.3} 
+                transitionSec={.3} 
                 open={open} 
                 setOpen={setOpen}
             >

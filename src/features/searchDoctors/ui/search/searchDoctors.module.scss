@@ -14,4 +14,19 @@
         background: #1E1E1E;
         border-radius: 26px;
     }
+
+    .openFilterForMobile{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper{
+        display: flex;
+        gap: 10px;
+
+        .openFilterForMobile{
+            display: block;
+        }
+    }
 }

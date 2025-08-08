@@ -2,6 +2,7 @@
 
 
 .wrapper{
+    display: flex;
     color: #FFFFFF;
     font-weight: 500;
     line-height: 28px;
@@ -10,5 +11,67 @@
     .count{
         font-weight: 800;
         margin-left: 6px;
+
+        >img{
+            display: none;
+        }
+    }
+
+    .countDesc{
+        display: block;
+    }
+
+    .countMobile{
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .wrapper{
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper{
+        flex-direction: column-reverse; 
+        justify-content: center;
+
+        .text{
+            font-weight: 400;
+            font-size: 3.9vw;
+            opacity: 0.6;
+            line-height: 100%;
+            margin-top: 8px;
+        }
+
+        .count{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            line-height: 100%;
+            font-weight: 600;
+            font-size: 5vw;
+            color: var(--blue);
+
+            >img{
+                display: block;
+                width: 5vw;
+                height: 5vw;
+            }
+        }
+
+        .countDesc{
+            display: none;
+        }
+
+        .countMobile{
+            display: block;
+        }
+
+        .colon{
+            display: none;
+        }
     }
 }

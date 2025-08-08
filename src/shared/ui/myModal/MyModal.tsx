@@ -6,10 +6,10 @@ import classes from './myModal.module.scss'
 interface IProps {
     open: boolean;
     setOpen: (open: boolean) => void;
-    transition?: number; // seconds
+    transitionSec?: number; // seconds
 }
 
-export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transition, children}) => {
+export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transitionSec, children}) => {
 
     const refWrap = useRef<HTMLDivElement>(null)
     const refDarken = useRef<HTMLDivElement>(null)
@@ -35,12 +35,12 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
             isOne.current = false;
             return
         }
-        if(transition){
+        if(transitionSec){
          
             let currentOpacity = open ? 0 : 1;
 
             function animateOpacity() {
-                if(transition && refWrap.current){
+                if(transitionSec && refWrap.current){
                     refWrap.current.style.opacity = String(currentOpacity);
     
                     if(open && currentOpacity >= 1){
@@ -55,7 +55,7 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
                     }
     
                     currentOpacity = open ? currentOpacity + 0.025 : currentOpacity - 0.025;
-                    setTimeout(animateOpacity, transition * 1000 / 40)
+                    setTimeout(animateOpacity, transitionSec * 1000 / 40)
                 }
 
             }
