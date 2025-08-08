@@ -13,8 +13,6 @@ interface IProps {
 
 export const SubscriberLink: FC<IProps> = ({socialIconSrc, subsCount = null, text, link}) => {
 
-    console.log(subsCount)
-
     return (
         <section className={classes.subscriberLinkWrapper}>
             <a className={classes.subscriberLink} href={link}>

@@ -11,14 +11,14 @@ import tiktok_logo from '@/src/shared/lib/assets/tiktok_logo.svg'
 import vk_logo from '@/src/shared/lib/assets/vk_logo.png'
 
 import { LastUpdated } from "../lastUpdated/LastUpdated";
+import Link from "next/link";
+import { MyButton } from "@/src/shared/ui/myButton";
 
 interface IProps {
     doctor: IDoctor;
 }
 
 export const Socials: FC<IProps> = ({doctor}) => {
-
-    console.log(doctor.tgSubsCount)
 
     return (
         <section className={classes.socials}>
@@ -106,6 +106,11 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     />
                 }
             </section>
+            <Link className={classes.link} href={'https://t.me/doc13sofi'}>
+                <MyButton>
+                    Связаться
+                </MyButton>
+            </Link>
         </section>
     )
 }
