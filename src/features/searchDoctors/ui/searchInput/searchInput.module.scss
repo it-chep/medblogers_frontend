@@ -34,3 +34,9 @@
         z-index: 109;
     }
 }
+
+@media (max-width: 480px) {
+    .wrapper{
+        height: 50px;
+    }
+}

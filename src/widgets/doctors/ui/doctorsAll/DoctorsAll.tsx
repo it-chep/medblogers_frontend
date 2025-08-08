@@ -21,10 +21,8 @@ export const DoctorsAll: FC = () => {
             await new Promise(resolve => setTimeout(resolve, 2000))
             const doctorsRes = await doctorService.getAll(searchParams.toString())
             setTotalPages(doctorsRes.pages)
-
+            console.log(doctorsRes.doctors)
             setDoctors(doctorsRes.doctors)
-            
-            
         }
         catch (e){
             console.log(e)

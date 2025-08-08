@@ -43,3 +43,25 @@
         }
     }
 }
+
+@media (max-width: 900px) {
+    .menu{
+      .header{
+        margin: 12.5px 6px 20px 0;
+      }
+    }
+}
+
+@media (max-width: 650px) {
+    .menu{
+        width: 100%;
+    }
+}
+
+@media (max-width: 350px) {
+    .menu{
+      .header{
+        margin: 11.5px 1px 20px 0;
+      }
+    }
+}

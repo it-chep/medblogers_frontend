@@ -6,7 +6,7 @@ interface IProps {
     setOpen: (open: boolean) => void;
 }
 
-export const CloseMenu: FC<IProps> = ({setOpen}) => {
+export const Close: FC<IProps> = ({setOpen}) => {
 
 
     const onClose = () => setOpen(false)

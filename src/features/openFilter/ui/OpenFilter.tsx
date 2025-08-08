@@ -5,13 +5,13 @@ import classes from './openFilter.module.scss'
 
 interface IProps {
     label: string;
+    mobile?: boolean;
 }
 
-export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, children}) => {
+export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, mobile = null, children}) => {
 
     const refSvg = useRef<SVGSVGElement>(null)
     const refContainer = useRef<HTMLDivElement>(null)
-
 
     const onClick = () => {
         const targetSvg = refSvg.current;
@@ -21,13 +21,22 @@ export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, children}) =>
             targetContainer.classList.toggle(classes.open)
         }
     }
+    
+
+    const isOne = useRef<boolean>(true)
+    useEffect(() => {
+        if(isOne.current && mobile && refSvg && refContainer){
+            onClick()
+            isOne.current = false;
+        }
+    }, [refSvg, refContainer])
 
     const cancelSelection = (e: MouseEvent) => {
         e.preventDefault()
     }
 
     return (
-        <section className={classes.wrapper}>
+        <section className={classes.wrapper + (mobile ? ` ${classes.mobile}` : '')}>
             <section className={classes.label} onMouseDown={cancelSelection} onClick={onClick}>
                 <section className={classes.svgBox}>
                     <svg ref={refSvg}  className={classes.arrow} width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">

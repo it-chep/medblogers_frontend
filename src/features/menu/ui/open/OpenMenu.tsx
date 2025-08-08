@@ -1,39 +1,59 @@
 "use client"
 
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import classes from './openMenu.module.scss'
 import Image from "next/image";
 import burgerImg from '../../lib/assets/burger.png'
 import { MyModal } from "@/src/shared/ui/myModal";
 import { Menu } from "../menu/Menu";
-import { CloseMenu } from "../close/CloseMenu";
+import { Close } from "@/src/shared/ui/close/Close";
 
+interface IProps {
+    mobile?: boolean;
+}
 
-
-export const OpenMenu: FC = () => {
+export const OpenMenu: FC<IProps> = ({mobile}) => {
 
     const [open, setOpen] = useState<boolean>(false)
 
     const onClick = () => setOpen(true)
+
+    useEffect(() => {
+        if(mobile){
+            if(open){
+                document.body.style.overflow = 'hidden'
+            }
+            else{
+                document.body.style.overflow = ''
+            }
+    
+            return () => {
+                document.body.style.overflow = ''
+            }
+        }
+    }, [open])
+
 
     return (
         <>
             <section onClick={onClick} className={classes.openMenu}>
                 <Image 
                     alt="burger"
-                    width={20} 
-                    height={20} 
+                    width={25} 
+                    height={25} 
                     src={burgerImg.src} 
                 />
             </section>
             <MyModal 
-                transition={.3} 
+                transitionSec={.3} 
                 open={open} 
                 setOpen={setOpen}
             >
-                <Menu open={open}>
-                    <CloseMenu setOpen={setOpen} />
-                </Menu>
+                <section className={classes.close + (mobile ? ` ${classes.mobile}` : '')}>
+                    <Menu open={open}>
+                        <Close setOpen={setOpen} />
+                    </Menu>
+                </section>
             </MyModal>
         </>
     )

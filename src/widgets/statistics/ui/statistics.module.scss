@@ -14,3 +14,15 @@
         height: 100%;
     }
 }
+
+@media (max-width: 480px) {
+    .wrapper{
+        justify-content: center;
+        width: 100%;
+        gap: 20px;
+
+        .loader{
+            height: 30px;
+        }
+    }
+}

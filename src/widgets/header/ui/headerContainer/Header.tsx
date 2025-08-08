@@ -13,11 +13,18 @@ export const Header: FC = () => {
     return (
         <header className="wrapper_main">
             <section className={classes.header}>
-                <Link href={'/'}>
-                    <Image src={logo.src} width={268} height={75} alt="логотип" />
-                </Link>
-                <Title />
-                <OpenMenu />
+                <section className={classes.top}>
+                    <Link href={'/'}>
+                        <Image src={logo.src} width={268} height={75} alt="логотип" />
+                    </Link>
+                    <section className={classes.openMenuMobile}>
+                        <OpenMenu mobile={true} />
+                    </section>
+                </section>
+                    <Title />
+                <section className={classes.openMenuDesc}>
+                    <OpenMenu />
+                </section>
             </section>
         </header>
     )

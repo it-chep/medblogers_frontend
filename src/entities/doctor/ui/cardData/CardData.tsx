@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import classes from './cardData.module.scss'
 import { IDoctor } from "../../model/types";
 import { CityBadge } from "../citiesBadges/CityBadge";
@@ -10,7 +10,7 @@ interface IProps {
     doctor: IDoctor;
 }
 
-export const CardData: FC<IProps> = ({doctor}) => {
+export const CardData: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
 
 
 

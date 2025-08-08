@@ -18,9 +18,10 @@ const MIN = 300
 interface IProps {
     filters: IFilter | null;
     setFilters: (filters: IFilter) => void;
+    mobile?: boolean;
 }
 
-export const Filters: FC<IProps> = ({filters, setFilters}) => {
+export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
     
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -97,11 +98,27 @@ export const Filters: FC<IProps> = ({filters, setFilters}) => {
         <section className={classes.loader}><LoaderContainer /></section>
             :
         <section className={classes.container}>
-            <FilterItem label="Город" labelSlug="city" items={filters?.cities || []} />
+            <FilterItem 
+                mobile={mobile} 
+                label="Город" 
+                labelSlug="city" 
+                items={filters?.cities || []} 
+            />
             <MyHr />
-            <FilterItem label="Специальность" labelSlug="speciality" items={filters?.specialities || []} />
+            <FilterItem 
+                mobile={mobile} 
+                label="Специальность" 
+                labelSlug="speciality" 
+                items={filters?.specialities || []} 
+            />
             <MyHr />
-            <FilterItem label="Подписчики" search={false} labelSlug="social_media" items={filters?.filter_info || []}>
+            <FilterItem 
+                mobile={mobile} 
+                label="Подписчики" 
+                search={false} 
+                labelSlug="social_media" 
+                items={filters?.filter_info || []}
+            >
                 <Slider 
                     max={MAX}
                     min={MIN}
