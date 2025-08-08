@@ -1,6 +1,5 @@
 import DoctorPage from "@/src/views/doctor/Doctor"
 
-
 type TParams = {
     slug: string;
 };
