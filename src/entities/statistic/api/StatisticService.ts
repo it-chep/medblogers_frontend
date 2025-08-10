@@ -1,22 +1,18 @@
 import { IStatistic } from "../model/types"
 
 
-
-const STATISTICS: IStatistic = {
-    doctors_count: 373,
-    subscribers_count: "4 391 516",
-    subscribers_count_text: "подписчиков"
-}
-
-
 class StatisticService {
 
     async get(): Promise<IStatistic>{
 
-
-
-
-        return STATISTICS
+        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/statistics/',
+            {
+                cache: "no-cache"
+            }
+        )
+        
+        const statistics: IStatistic = await response.json()
+        return statistics
     }
 
 }
