@@ -27,7 +27,10 @@ export const SearchDoctors: FC<PropsWithChildren> = ({children}) => {
             const searchRes = await searchDoctorsService.get(encodeURI(value))
             setSearchResult(searchRes)
         }
-        catch(e){
+        catch(e: any){
+            if(e.name === 'AbortError'){
+                return
+            }
             console.log(e)
         }
         finally{
