@@ -9,5 +9,5 @@ export interface IFilterSocial {
 export interface IFilter {
     cities: ICity[];
     specialities: ISpeciality[];
-    filter_info: IFilterSocial[];
+    filterInfo: IFilterSocial[];
 }

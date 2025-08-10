@@ -5,7 +5,8 @@ class StatisticService {
 
     async get(): Promise<IStatistic>{
 
-        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/statistics',
+        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/counters_info',
+                                     
             {
                 cache: "no-cache"
             }

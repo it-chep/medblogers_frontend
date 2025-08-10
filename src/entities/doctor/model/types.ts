@@ -21,13 +21,12 @@ export interface IDoctorMiniature {
 }
 
 export interface IDoctorSearch {
+    id: string;
     name: string;
-    city: string;
+    cityName: string;
     slug: string;
-    speciality: string;
-    doctor_url: string;
-    local_file: null;
-    avatar_url: string;
+    specialityName: string;
+    image: string;
 }
 
 interface IItem {

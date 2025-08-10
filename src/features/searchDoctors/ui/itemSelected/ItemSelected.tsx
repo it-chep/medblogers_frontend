@@ -5,7 +5,7 @@ import { clearParams } from "@/src/shared/lib/helpers/clearParams";
 
 interface IProps{
     labelUrl: 'city' | 'speciality'
-    id: number;
+    id: string;
     setOpen: (open: boolean) => void;
 }
 

@@ -20,7 +20,7 @@ export const IItem: FC<IProps> = ({label, icon, item}) => {
             <Image src={icon} width={30} height={30} alt={label} />
             <section className={classes.data}>
                 <p>{item.name}</p>
-                <p className={classes.count}>Кол-во врачей: {item.doctors_count}</p>
+                <p className={classes.count}>Кол-во врачей: {item.doctorsCount}</p>
             </section>
         </section>
     )
