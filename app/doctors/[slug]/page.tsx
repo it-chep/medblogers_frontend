@@ -6,7 +6,7 @@ type TParams = {
 
 export default async function Product({ params }: any) {
 
-    const { slug }: TParams = params;
+    const { slug }: TParams = await params;
 
     return (
         <DoctorPage slug={slug} />

@@ -5,7 +5,7 @@ class DoctorService {
 
 
     async getAll(params: string): Promise<IDoctorMiniatureResponse> {
-        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/filter-doctors' + (params ? `/${params}` : ''),
+        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/filter-doctors' + (params ? `?${params}` : ''),
             {
                 cache: "no-cache"
             }
