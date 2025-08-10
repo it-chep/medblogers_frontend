@@ -9,6 +9,7 @@ import { Statistics } from '@/src/widgets/statistics'
 import { SearchDoctors } from '@/src/features/searchDoctors'
 import { useSearchParams } from 'next/navigation'
 import { OpenFiltersModal } from '@/src/features/openFiltersModal'
+import { BannerNewDoctor } from '@/src/widgets/bannerNewDoctor'
 
 
 
@@ -26,7 +27,10 @@ export default function HomePage() {
     return (
         <section className={classes.page + ' wrapper_main'}>
             <aside className={classes.aside}>
-                <Filters filters={filters} setFilters={setFilters} />
+                <BannerNewDoctor />
+                <section className={classes.filters}>
+                    <Filters filters={filters} setFilters={setFilters} />
+                </section>
             </aside>
             <main className={classes.main}>
                 <Statistics />

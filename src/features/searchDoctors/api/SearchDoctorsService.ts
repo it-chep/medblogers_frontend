@@ -341,15 +341,10 @@ class SearchDoctorsService{
 
         this.controller = new AbortController()
 
-        // const res = await fetch('', {
-        //     cache: 'no-cache',
-        //     signal: this.controller?.signal
-        // })
-
-        // if(res.ok){
-
-        // }
-
+        const res = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/search-doctor' + `?query=${query}`, {
+            cache: 'no-cache',
+            signal: this.controller?.signal
+        })
 
         return RES
     }

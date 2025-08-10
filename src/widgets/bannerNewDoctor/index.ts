@@ -1,0 +1,1 @@
+export { BannerNewDoctor } from "./ui/BannerNewDoctor";

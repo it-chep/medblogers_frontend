@@ -3,8 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
     images: {
         domains: [
-            'medblogers-photos.storage.yandexcloud.net', // Ваш домен
-            'other-allowed-domain.com' // Другие домены, если есть
+            'medblogers-photos.storage.yandexcloud.net',
+            'storage.yandexcloud.net'
+        ],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'storage.yandexcloud.net',
+            },
         ],
     },
 };
