@@ -37,19 +37,19 @@ export const Statistics: FC = () => {
                     :
                 <>
                     { 
-                        statistics?.doctors_count 
+                        statistics?.doctorsCount 
                             && 
                         <StatisticItem 
                             label="Врачей в базе" 
-                            count={String(statistics.doctors_count)} 
+                            count={String(statistics.doctorsCount)} 
                         /> 
                     }
                     { 
-                        statistics?.subscribers_count 
+                        statistics?.subscribersCount 
                             && 
                         <StatisticItem 
-                            label={"Общее количество " + statistics.subscribers_count_text + " у врачей"} 
-                            count={statistics.subscribers_count} 
+                            label={"Общее количество подписчиков у врачей"} 
+                            count={statistics.subscribersCount} 
                         /> 
                     }
                 </>

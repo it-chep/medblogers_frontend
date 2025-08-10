@@ -14,11 +14,11 @@ export const SearchMiniature: FC<IProps> = ({doctor}) => {
 
 
     return (
-        <Link href={doctor.doctor_url} className={classes.container}>
+        <Link href={`/doctors/${doctor.slug}`} className={classes.container}>
             <Image width={100} height={100} src={IMG.src} alt="Фото врача" />
             <section className={classes.data}>
                 <h5>{doctor.name}</h5>
-                <p>{doctor.speciality}, г. {doctor.city}</p>
+                <p>{doctor.specialityName}, г. {doctor.cityName}</p>
             </section>
         </Link>
     )

@@ -2,7 +2,7 @@
 
 
 export interface ISpeciality {
-    id: number;
+    id: string;
     name: string;
-    doctors_count: number;
+    doctorsCount: string;
 }

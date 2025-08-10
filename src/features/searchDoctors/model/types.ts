@@ -8,5 +8,5 @@ import { ISpeciality } from "@/src/entities/speciality";
 export interface ISearchDoctors {
     cities: ICity[];
     specialities: ISpeciality[];
-    data: IDoctorSearch[];
+    doctors: IDoctorSearch[];
 }

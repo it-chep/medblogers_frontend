@@ -6,9 +6,9 @@ interface IProps {
     labelSlug: string;
     mobile?: boolean;
     items: {
-        id?: number;
+        id?: string;
         name: string;
-        doctors_count?: number;
+        doctorsCount?: string;
         slug?: string;
     }[];
 }
@@ -20,7 +20,7 @@ export const FilterList: FC<IProps> = ({items, mobile, labelSlug}) => {
         <ul className={classes.filterList + (mobile ? ` ${classes.mobile}` : '')}>
             {items.map((item, ind) => 
                 <li key={ind} data-id={item.id || item.slug} className={labelSlug} id={labelSlug + `-${item.id || item.slug}`}>
-                    <MyCheckbox label={item.name + (item.doctors_count ? ' ' + `(${item.doctors_count})` : '')} />
+                    <MyCheckbox label={item.name + (item.doctorsCount ? ' ' + `(${item.doctorsCount})` : '')} />
                 </li>
             )}
         </ul>

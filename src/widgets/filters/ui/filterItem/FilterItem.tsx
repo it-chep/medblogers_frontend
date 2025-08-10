@@ -11,9 +11,9 @@ interface IProps{
     labelSlug: string;
     search?: boolean;
     items: {
-        id?: number;
+        id?: string;
         name: string;
-        doctors_count?: number;
+        doctorsCount?: string;
         slug?: string;
     }[];
     mobile?: boolean;

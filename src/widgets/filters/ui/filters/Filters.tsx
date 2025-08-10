@@ -117,7 +117,7 @@ export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
                 label="Подписчики" 
                 search={false} 
                 labelSlug="social_media" 
-                items={filters?.filter_info || []}
+                items={filters?.filterInfo || []}
             >
                 <Slider 
                     max={MAX}
