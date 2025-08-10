@@ -7,7 +7,6 @@ class SearchDoctorsService{
     async get(query: string): Promise<ISearchDoctors>{
 
         if(this.controller){
-            console.log(1111111)
             this.controller.abort()
         }
 
