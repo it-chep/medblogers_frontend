@@ -20,7 +20,6 @@ export const DoctorsAll: FC = () => {
             setIsLoading(true)
             const doctorsRes = await doctorService.getAll(searchParams.toString())
             setTotalPages(doctorsRes.pages)
-            console.log(doctorsRes.doctors)
             setDoctors(doctorsRes.doctors)
         }
         catch (e){
@@ -63,7 +62,7 @@ export const DoctorsAll: FC = () => {
                 }
             </section>
             {
-                isLoading
+                isLoading || (totalPages && totalPages <= 1)
                     ?
                 <></>
                     :
