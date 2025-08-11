@@ -101,14 +101,14 @@ export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
             <FilterItem 
                 mobile={mobile} 
                 label="Город" 
-                labelSlug="city" 
+                labelSlug="cities" 
                 items={filters?.cities || []} 
             />
             <MyHr />
             <FilterItem 
                 mobile={mobile} 
                 label="Специальность" 
-                labelSlug="speciality" 
+                labelSlug="specialities" 
                 items={filters?.specialities || []} 
             />
             <MyHr />

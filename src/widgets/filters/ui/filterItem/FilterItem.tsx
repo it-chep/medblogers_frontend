@@ -4,7 +4,6 @@ import classes from './filterItem.module.scss'
 import { SearchFilter } from "@/src/features/searchFilter";
 import { useSearchParams } from "next/navigation";
 import { FilterList } from "../filterList/FilterList";
-import { clearParams } from "@/src/shared/lib/helpers/clearParams";
 
 interface IProps{
     label: string;

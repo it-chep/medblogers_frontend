@@ -70,10 +70,10 @@ export const ApplyFilters: FC<IProps> = ({currentMax, currentMin}) => {
         const selectedSubsIds = selectedSubs()
 
         if(selectedCitiesIds.length > 0){
-            params.append('city', selectedCitiesIds.join(','));
+            params.append('cities', selectedCitiesIds.join(','));
         }
         if(selectedSpecialitiesIds.length > 0){
-            params.append('speciality', selectedSpecialitiesIds.join(','));
+            params.append('specialities', selectedSpecialitiesIds.join(','));
         }
         if(selectedSubsIds.length > 0){
             params.append('social_media', selectedSubsIds.join(','));
