@@ -6,9 +6,22 @@
     color: #606060;
     gap: 10px;
 
+    &.top{
+        align-items: start;
+
+        .checkboxView {
+            margin-top: 2px;
+        }
+    }
+
+    &.checkboxTop{
+        align-items: start;
+    }
+
     >input{
         display: none;
     }
+
 }
 
 .checkboxView {
