@@ -5,10 +5,19 @@ import logo from '../../lib/assets/medblogers_logo.png'
 import { Title } from "../title/Title";
 import { OpenMenu } from "@/src/features/menu";
 import Link from "next/link";
+import { headers } from "next/headers";
+import { noPages } from "../../lib/const/noPages";
 
+export const Header: FC = async () => {
 
-export const Header: FC = () => {
+    const headerList = await headers();
+    const pathname = headerList.get("x-current-path");
 
+    if(pathname && noPages.includes(pathname)){
+        return (
+            <></>
+        )
+    }
 
     return (
         <header className="wrapper_main">
