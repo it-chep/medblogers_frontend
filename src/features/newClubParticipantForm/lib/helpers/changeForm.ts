@@ -1,5 +1,6 @@
 import { ICityData } from "@/src/entities/city";
 import { IForm } from "../../model/types";
+import { ISpecialityData } from "@/src/entities/speciality/model/types";
 
 
 
@@ -55,16 +56,27 @@ export const changeForm = (form: IForm, setForm: (form: IForm) => void) =>  {
             newCities.push(additionalCity)
             setForm({...form, additionalCities: newCities})
         },
+        setAdditionalSpecialities(additionalSpeciality: ISpecialityData){
+            const newSpecialities = [...form.additionalSpecialities]
+            newSpecialities.push(additionalSpeciality)
+            setForm({...form, additionalSpecialities: newSpecialities})
+        },
         deleteAdditionalCities(name: string){
             const targetCityInd = form.additionalCities.findIndex(city => city.cityName === name) 
             
-
             if(targetCityInd >= 0){
-
                 const newCities = [...form.additionalCities]
                 newCities.splice(targetCityInd, 1)
-                console.log(newCities)
                 setForm({...form, additionalCities: newCities})
+            }
+        },
+        deleteAdditionalSpecialities(name: string){
+            const targetSpecialityInd = form.additionalSpecialities.findIndex(speciality => speciality.specialityName === name) 
+            
+            if(targetSpecialityInd >= 0){
+                const newSpecialities = [...form.additionalSpecialities]
+                newSpecialities.splice(targetSpecialityInd, 1)
+                setForm({...form, additionalSpecialities: newSpecialities})
             }
         }
     }

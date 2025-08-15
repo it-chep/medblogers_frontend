@@ -6,3 +6,8 @@ export interface ISpeciality {
     name: string;
     doctorsCount: string;
 }
+
+export interface ISpecialityData {
+    specialityId: string;
+    specialityName: string;
+}

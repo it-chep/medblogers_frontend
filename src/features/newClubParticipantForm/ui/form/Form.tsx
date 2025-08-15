@@ -12,17 +12,19 @@ import { MyCheckbox } from "@/src/shared/ui/myCheckbox";
 import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { Search } from "../search/Search";
+import { ISpecialityData } from "@/src/entities/speciality/model/types";
 
 export const Form: FC = () => {
 
     const [form, setForm] = useState<IForm>(initialStateForm)
     const [cities, setCities] = useState<ICityData[]>([])
+    const [specialities, setSpecialities] = useState<ISpecialityData[]>([])
 
     const {
         setEmail, setLastName, setFirstName, setMiddleName, setTelegramChannel,
         setBirthDate, setInstagramUsername, setVkUsername, setTelegramUsername,
         setDzenUsername, setYoutubeUsername, setMainBlogTheme, setSiteLink, setAgreePolicy,
-        setAdditionalCities, deleteAdditionalCities,
+        setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities, deleteAdditionalSpecialities
     } = changeForm(form, setForm)
 
     const getCities = async () => {
@@ -30,8 +32,14 @@ export const Form: FC = () => {
         setCities(cities)
     }
 
+    const getSpecialities = async () => {
+        const specialities = await newClubParticipantService.getSpecialities()
+        setSpecialities(specialities)
+    }
+
     useEffect(() => {
         getCities()
+        getSpecialities()
     }, [])
 
 
@@ -42,13 +50,12 @@ export const Form: FC = () => {
         }
     }
 
-    const setCitiesDelete = (name: string) => {
-        const targetCity = cities.find(city => city.cityName === name)
-        if(targetCity){
-            setAdditionalCities(targetCity)
+    const setSpecialitiesSelected = (name: string) => {
+        const targetSpeciality = specialities.find(speciality => speciality.specialityName === name)
+        if(targetSpeciality){
+            setAdditionalSpecialities(targetSpeciality)
         }
     }
-
 
     return (
         <section className={classes.container}>
@@ -70,6 +77,16 @@ export const Form: FC = () => {
                 deleteSelected={deleteAdditionalCities} 
                 items={cities.map(city => city.cityName)} 
                 setSelected={setCitiesSelected} 
+                placeholder="Введите название города..."
+            />
+
+            <Search 
+                label="Дополнительные специальности"
+                seletedItems={form.additionalSpecialities.map(speciality => speciality.specialityName)} 
+                deleteSelected={deleteAdditionalSpecialities} 
+                items={specialities.map(speciality => speciality.specialityName)} 
+                setSelected={setSpecialitiesSelected} 
+                placeholder="Введите название специальности..."
             />
 
             <MyInput label="ТОП-5 заболеваний/тем про которые пишете в блоге" value={form.mainBlogTheme} setValue={setMainBlogTheme} />

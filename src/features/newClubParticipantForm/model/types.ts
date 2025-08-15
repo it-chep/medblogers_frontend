@@ -1,4 +1,5 @@
 import { ICityData } from "@/src/entities/city";
+import { ISpecialityData } from "@/src/entities/speciality/model/types";
 
 export interface IForm {
     email: string;
@@ -19,5 +20,5 @@ export interface IForm {
     mainBlogTheme: string;
 
     additionalCities: ICityData[];
-    additionalSpecialities: string[];
+    additionalSpecialities: ISpecialityData[];
 }

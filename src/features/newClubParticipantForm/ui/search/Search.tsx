@@ -1,5 +1,4 @@
 import { FC, useEffect, useMemo, useRef, useState } from "react";
-import { MyInput } from "../input/MyInput";
 import { SearchList } from "../searchList/SearchList";
 import classes from './search.module.scss'
 import { Badge } from "../badge/Badge";
@@ -11,9 +10,10 @@ interface IProps {
     setSelected: (selected: string) => void;
     deleteSelected: (name: string) => void;
     seletedItems: string[];
+    placeholder: string;
 }
 
-export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, seletedItems}) => {
+export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, seletedItems, placeholder}) => {
 
 
     const [searchItems, setSearchItems] = useState<string[]>(items)
@@ -55,7 +55,7 @@ export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, s
                         onSelected={deleteSelected} 
                     />
                 )}
-                <input ref={inputRef} placeholder={seletedItems.length === 0 ? 'Введите название города...' : ''} type="text" value={value} onChange={e => setValue(e.target.value)} />
+                <input ref={inputRef} placeholder={seletedItems.length === 0 ? placeholder : ''} type="text" value={value} onChange={e => setValue(e.target.value)} />
             </section>
 
             {
