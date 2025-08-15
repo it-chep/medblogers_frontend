@@ -13,6 +13,7 @@ import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { Search } from "../search/Search";
 import { ISpecialityData } from "@/src/entities/speciality/model/types";
+import { SearchItem } from "../searchItem/SearchItem";
 
 export const Form: FC = () => {
 
@@ -24,7 +25,8 @@ export const Form: FC = () => {
         setEmail, setLastName, setFirstName, setMiddleName, setTelegramChannel,
         setBirthDate, setInstagramUsername, setVkUsername, setTelegramUsername,
         setDzenUsername, setYoutubeUsername, setMainBlogTheme, setSiteLink, setAgreePolicy,
-        setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities, deleteAdditionalSpecialities
+        setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities, deleteAdditionalSpecialities,
+        setCity, setSpeciality
     } = changeForm(form, setForm)
 
     const getCities = async () => {
@@ -41,7 +43,6 @@ export const Form: FC = () => {
         getCities()
         getSpecialities()
     }, [])
-
 
     const setCitiesSelected = (name: string) => {
         const targetCity = cities.find(city => city.cityName === name)
@@ -71,6 +72,8 @@ export const Form: FC = () => {
             <MyInput label="Ссылка на ЯндексДзен" value={form.dzenUsername} setValue={setDzenUsername} placeholder="Можете оставить пустым" />
             <MyInput label="Ссылка на YouTube" value={form.youtubeUsername} setValue={setYoutubeUsername} placeholder="Можете оставить пустым" />
             
+            <SearchItem items={cities.map(city => city.cityName)} selectedItem={cities.find(city => city.cityId === form.cityId)?.cityName || ''} setSelected={setCity} />
+
             <Search 
                 label="Дополнительные города"
                 seletedItems={form.additionalCities.map(city => city.cityName)} 
@@ -103,7 +106,6 @@ export const Form: FC = () => {
                     Отправить
                 </MyButton>
             </section>
-
         </section>
     )
 }

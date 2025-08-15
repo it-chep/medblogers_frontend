@@ -1,7 +1,8 @@
-import { FC, useEffect, useMemo, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { SearchList } from "../searchList/SearchList";
 import classes from './search.module.scss'
 import { Badge } from "../badge/Badge";
+import { useSearchItems } from "../../lib/hooks/useSearchItems";
 
 
 interface IProps {
@@ -15,28 +16,14 @@ interface IProps {
 
 export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, seletedItems, placeholder}) => {
 
-    const [searchItems, setSearchItems] = useState<string[]>(items)
     const inputRef = useRef<HTMLInputElement>(null)
-    const [value, setValue] = useState<string>('') 
-    
-    const filteredItems = useMemo(() => {
-        if (!value) return [];
-        
-        const targetItems = items.filter(item => 
-            item.toLowerCase().includes(value.toLowerCase()) && 
-            !seletedItems.includes(item)
-        );
-        return targetItems;
-    }, [value, items, seletedItems]);
+    const [value, setValue] = useState<string>('')  
 
-    useEffect(() => {
-        setSearchItems(filteredItems);
-    }, [filteredItems]);
+    const searchItems = useSearchItems(value, items, seletedItems)
 
     const onSelected = (selected: string) => {
         setSelected(selected)
         setValue('')
-        setSearchItems([])
         if(inputRef.current) inputRef.current.focus()
     }
 

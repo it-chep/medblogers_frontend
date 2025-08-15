@@ -51,6 +51,12 @@ export const changeForm = (form: IForm, setForm: (form: IForm) => void) =>  {
         setAgreePolicy(agreePolicy: boolean){
             setForm({...form, agreePolicy})
         },
+        setCity(cityId: string){
+            setForm({...form, cityId})
+        },
+        setSpeciality(specialityId: string){
+            setForm({...form, specialityId})
+        },
         setAdditionalCities(additionalCity: ICityData){
             const newCities = [...form.additionalCities]
             newCities.push(additionalCity)
