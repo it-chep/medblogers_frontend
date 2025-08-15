@@ -22,7 +22,7 @@ export const Form: FC = () => {
         setEmail, setLastName, setFirstName, setMiddleName, setTelegramChannel,
         setBirthDate, setInstagramUsername, setVkUsername, setTelegramUsername,
         setDzenUsername, setYoutubeUsername, setMainBlogTheme, setSiteLink, setAgreePolicy,
-        setAdditionalCities,
+        setAdditionalCities, deleteAdditionalCities,
     } = changeForm(form, setForm)
 
     const getCities = async () => {
@@ -33,6 +33,21 @@ export const Form: FC = () => {
     useEffect(() => {
         getCities()
     }, [])
+
+
+    const setCitiesSelected = (name: string) => {
+        const targetCity = cities.find(city => city.cityName === name)
+        if(targetCity){
+            setAdditionalCities(targetCity)
+        }
+    }
+
+    const setCitiesDelete = (name: string) => {
+        const targetCity = cities.find(city => city.cityName === name)
+        if(targetCity){
+            setAdditionalCities(targetCity)
+        }
+    }
 
 
     return (
@@ -49,7 +64,13 @@ export const Form: FC = () => {
             <MyInput label="Ссылка на ЯндексДзен" value={form.dzenUsername} setValue={setDzenUsername} placeholder="Можете оставить пустым" />
             <MyInput label="Ссылка на YouTube" value={form.youtubeUsername} setValue={setYoutubeUsername} placeholder="Можете оставить пустым" />
             
-            <Search seletedItems={form.additionalCities} items={cities} setSelected={setAdditionalCities} />
+            <Search 
+                label="Дополнительные города"
+                seletedItems={form.additionalCities.map(city => city.cityName)} 
+                deleteSelected={deleteAdditionalCities} 
+                items={cities.map(city => city.cityName)} 
+                setSelected={setCitiesSelected} 
+            />
 
             <MyInput label="ТОП-5 заболеваний/тем про которые пишете в блоге" value={form.mainBlogTheme} setValue={setMainBlogTheme} />
             <MyInput label="Ваш сайт/таплинк" value={form.siteLink} setValue={setSiteLink} placeholder="Пример: https://taplink.cc/readydoc" />

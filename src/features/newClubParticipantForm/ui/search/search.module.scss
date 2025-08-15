@@ -1,0 +1,35 @@
+
+
+
+.wrapper{
+    position: relative;
+    .label{
+        padding-left: 10px;
+    }
+
+    .result{
+        display: flex;
+        flex-wrap: wrap;
+        background: #242424;
+        margin-top: 4px;
+        border-radius: 6px;
+        border: 2px solid var(--sign-gray);
+        padding: 10px 10px 10px 15px;
+        font-size: 16px;
+        gap: 10px;
+        min-height: 50px;
+        align-items: center;
+        
+
+        >input{
+            background-color: transparent;
+            border: 0;
+            outline: none;
+            color: #FFF;
+            min-width: 50px;
+            font-size: 16px;
+            flex-grow: 1;
+            height: 28px;
+        }
+    }
+}

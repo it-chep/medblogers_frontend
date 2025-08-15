@@ -1,23 +1,23 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useRef, useState } from "react";
 import { MyInput } from "../input/MyInput";
 import { SearchList } from "../searchList/SearchList";
-import { TItem } from "../../model/types";
-
-
+import classes from './search.module.scss'
+import { Badge } from "../badge/Badge";
 
 
 interface IProps {
-    items: TItem[];
-    setSelected: (selected: TItem) => void;
-    seletedItems: TItem[];
+    label: string;
+    items: string[];
+    setSelected: (selected: string) => void;
+    deleteSelected: (name: string) => void;
+    seletedItems: string[];
 }
 
+export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, seletedItems}) => {
 
-export const Search: FC<IProps> = ({items, setSelected, seletedItems}) => {
 
-
-    const [searchItems, setSearchItems] = useState<TItem[]>(items)
-
+    const [searchItems, setSearchItems] = useState<string[]>(items)
+    const inputRef = useRef<HTMLInputElement>(null)
     const [value, setValue] = useState<string>('') 
  
     
@@ -25,7 +25,7 @@ export const Search: FC<IProps> = ({items, setSelected, seletedItems}) => {
         if (!value) return [];
         
         const targetItems = items.filter(item => 
-            item.name.toLowerCase().includes(value.toLowerCase()) && 
+            item.toLowerCase().includes(value.toLowerCase()) && 
             !seletedItems.includes(item)
         );
         return targetItems;
@@ -35,17 +35,34 @@ export const Search: FC<IProps> = ({items, setSelected, seletedItems}) => {
         setSearchItems(filteredItems);
     }, [filteredItems]);
 
-    const onSelected = (selected: TItem) => {
+    const onSelected = (selected: string) => {
         setSelected(selected)
         setValue('')
         setSearchItems([])
+        if(inputRef.current) inputRef.current.focus()
     }
 
     return (
-        <section>
-            <MyInput value={value} setValue={setValue} />
+        <section className={classes.wrapper}>
+            <span className={classes.label}>
+                {label}
+            </span>
+            <section className={classes.result}>
+                {seletedItems.map(item => 
+                    <Badge 
+                        key={item} 
+                        name={item} 
+                        onSelected={deleteSelected} 
+                    />
+                )}
+                <input ref={inputRef} placeholder={seletedItems.length === 0 ? 'Введите название города...' : ''} type="text" value={value} onChange={e => setValue(e.target.value)} />
+            </section>
 
-            <SearchList itemList={searchItems} onSelected={onSelected} />
+            {
+                searchItems.length !== 0
+                    &&
+                <SearchList itemList={searchItems} onSelected={onSelected} />
+            }
 
         </section>
     )

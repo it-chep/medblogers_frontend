@@ -8,6 +8,6 @@ export interface ICity {
 }
 
 export interface ICityData {
-    id: string;
-    name: string;
+    cityId: string;
+    cityName: string;
 }

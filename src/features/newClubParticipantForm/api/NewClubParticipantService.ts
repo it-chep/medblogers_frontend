@@ -93,8 +93,8 @@ class NewClubParticipantService {
             }
         )
                 
-        const cities: ICityData[] = await response.json()
-        return CITIES   
+        const {cities}: {cities: ICityData[]} = await response.json()
+        return cities   
     }
 
 }

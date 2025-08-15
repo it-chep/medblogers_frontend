@@ -1,4 +1,5 @@
-import { IForm, TItem } from "../../model/types";
+import { ICityData } from "@/src/entities/city";
+import { IForm } from "../../model/types";
 
 
 
@@ -49,10 +50,22 @@ export const changeForm = (form: IForm, setForm: (form: IForm) => void) =>  {
         setAgreePolicy(agreePolicy: boolean){
             setForm({...form, agreePolicy})
         },
-        setAdditionalCities(additionalCity: TItem){
+        setAdditionalCities(additionalCity: ICityData){
             const newCities = [...form.additionalCities]
             newCities.push(additionalCity)
             setForm({...form, additionalCities: newCities})
+        },
+        deleteAdditionalCities(name: string){
+            const targetCityInd = form.additionalCities.findIndex(city => city.cityName === name) 
+            
+
+            if(targetCityInd >= 0){
+
+                const newCities = [...form.additionalCities]
+                newCities.splice(targetCityInd, 1)
+                console.log(newCities)
+                setForm({...form, additionalCities: newCities})
+            }
         }
     }
     

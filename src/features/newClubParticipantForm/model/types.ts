@@ -1,9 +1,4 @@
-
-export type TItem = {
-    id: string;
-    name: string;
-}
-
+import { ICityData } from "@/src/entities/city";
 
 export interface IForm {
     email: string;
@@ -23,6 +18,6 @@ export interface IForm {
     siteLink: string;
     mainBlogTheme: string;
 
-    additionalCities: TItem[];
-    additionalSpecialities: TItem[];
+    additionalCities: ICityData[];
+    additionalSpecialities: string[];
 }
