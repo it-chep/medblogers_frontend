@@ -17,6 +17,8 @@ export const MyInput: FC<IProps & ComponentProps<'input'>> = ({value, setValue, 
         setValue(value)
     }
 
+    
+
     return (
         <section className={classes.wrapper}>
             <span className={classes.label}>

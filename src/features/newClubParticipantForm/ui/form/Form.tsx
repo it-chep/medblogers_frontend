@@ -25,8 +25,8 @@ export const Form: FC = () => {
         setEmail, setLastName, setFirstName, setMiddleName, setTelegramChannel,
         setBirthDate, setInstagramUsername, setVkUsername, setTelegramUsername,
         setDzenUsername, setYoutubeUsername, setMainBlogTheme, setSiteLink, setAgreePolicy,
-        setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities, deleteAdditionalSpecialities,
-        setCity, setSpeciality
+        setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities,
+         deleteAdditionalSpecialities, setCity, setSpeciality
     } = changeForm(form, setForm)
 
     const getCities = async () => {
@@ -51,6 +51,20 @@ export const Form: FC = () => {
         }
     }
 
+    const setCitySelected = (name: string) => {
+        const targetCity = cities.find(city => city.cityName === name)
+        if(targetCity){
+            setCity(targetCity.cityId)
+        }
+    }
+
+    const setSpecialitySelected = (name: string) => {
+        const targetSpeciality = specialities.find(speciality => speciality.specialityName === name)
+        if(targetSpeciality){
+            setSpeciality(targetSpeciality.specialityId)
+        }
+    }
+
     const setSpecialitiesSelected = (name: string) => {
         const targetSpeciality = specialities.find(speciality => speciality.specialityName === name)
         if(targetSpeciality){
@@ -72,7 +86,12 @@ export const Form: FC = () => {
             <MyInput label="Ссылка на ЯндексДзен" value={form.dzenUsername} setValue={setDzenUsername} placeholder="Можете оставить пустым" />
             <MyInput label="Ссылка на YouTube" value={form.youtubeUsername} setValue={setYoutubeUsername} placeholder="Можете оставить пустым" />
             
-            <SearchItem items={cities.map(city => city.cityName)} selectedItem={cities.find(city => city.cityId === form.cityId)?.cityName || ''} setSelected={setCity} />
+            <SearchItem 
+                label="Выберите город (Если вашего нет, напишите об этом в бота)"
+                items={cities.map(city => city.cityName)} 
+                selectedItem={cities.find(city => city.cityId === form.cityId)?.cityName || ''} 
+                setSelected={setCitySelected} 
+            />
 
             <Search 
                 label="Дополнительные города"
@@ -81,6 +100,13 @@ export const Form: FC = () => {
                 items={cities.map(city => city.cityName)} 
                 setSelected={setCitiesSelected} 
                 placeholder="Введите название города..."
+            />
+
+            <SearchItem 
+                label="Выберите вашу специальность (Если ее нет, напишите в бота)"
+                items={specialities.map(speciality => speciality.specialityName)} 
+                selectedItem={specialities.find(speciality => speciality.specialityId === form.specialityId)?.specialityName || ''} 
+                setSelected={setSpecialitySelected} 
             />
 
             <Search 
