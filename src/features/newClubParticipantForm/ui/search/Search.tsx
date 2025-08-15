@@ -15,11 +15,9 @@ interface IProps {
 
 export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, seletedItems, placeholder}) => {
 
-
     const [searchItems, setSearchItems] = useState<string[]>(items)
     const inputRef = useRef<HTMLInputElement>(null)
     const [value, setValue] = useState<string>('') 
- 
     
     const filteredItems = useMemo(() => {
         if (!value) return [];
