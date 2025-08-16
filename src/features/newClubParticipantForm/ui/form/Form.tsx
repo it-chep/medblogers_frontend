@@ -36,7 +36,7 @@ export const Form: FC = () => {
          deleteAdditionalSpecialities, setCity, setSpeciality
     } = changeForm(form, setForm)
 
-    const {setErrorField} = changeFormError(formError, setFormError)
+    const {setErrorFieldDelete} = changeFormError(formError, setFormError)
 
     const getCities = async () => {
         const cities = await newClubParticipantService.getCities()
@@ -110,7 +110,7 @@ export const Form: FC = () => {
 
     const setSelectedAgreePolicy = () => {
         setAgreePolicy(!form.agreePolicy)
-        setErrorField('agreePolicy')('')
+        setErrorFieldDelete('agreePolicy')()
     }
 
     return (
@@ -121,7 +121,7 @@ export const Form: FC = () => {
                 setValue={setEmail} 
                 type="email"
                 error={formError?.find(error => error.field === 'email')?.text} 
-                setError={setErrorField('email')}
+                setError={setErrorFieldDelete('email')}
                 required
                 name="email"
             />
@@ -132,7 +132,7 @@ export const Form: FC = () => {
                 type="text"
                 name="lastName"
                 error={formError?.find(error => error.field === 'lastName')?.text} 
-                setError={setErrorField('lastName')}
+                setError={setErrorFieldDelete('lastName')}
                 required
             />
             <MyInput 
@@ -142,7 +142,7 @@ export const Form: FC = () => {
                 type="text"
                 name="firstName"
                 error={formError?.find(error => error.field === 'firstName')?.text} 
-                setError={setErrorField('firstName')}
+                setError={setErrorFieldDelete('firstName')}
                 required
             />
             <MyInput 
@@ -152,7 +152,7 @@ export const Form: FC = () => {
                 type="text"
                 name="middleName"
                 error={formError?.find(error => error.field === 'middleName')?.text} 
-                setError={setErrorField('middleName')}
+                setError={setErrorFieldDelete('middleName')}
                 required
             />
             <MyInput 
@@ -163,7 +163,7 @@ export const Form: FC = () => {
                 type="text"
                 name="birthDate"
                 error={formError?.find(error => error.field === 'birthDate')?.text} 
-                setError={setErrorField('birthDate')}
+                setError={setErrorFieldDelete('birthDate')}
                 required
             />
             <MyInput 
@@ -190,7 +190,7 @@ export const Form: FC = () => {
                 type="text"
                 name="telegramUsername"
                 error={formError?.find(error => error.field === 'telegramUsername')?.text} 
-                setError={setErrorField('telegramUsername')}
+                setError={setErrorFieldDelete('telegramUsername')}
                 required
             />
             <MyInput 
@@ -226,7 +226,7 @@ export const Form: FC = () => {
                 placeholder="Нажмите чтобы открыть поиск города"
                 placeholderSearch="Введите название города..."
                 error={formError?.find(error => error.field === 'cityId')?.text} 
-                setError={setErrorField('cityId')}
+                setError={setErrorFieldDelete('cityId')}
             />
 
             <Search 
@@ -246,7 +246,7 @@ export const Form: FC = () => {
                 placeholder="Нажмите чтобы открыть поиск специальности"
                 placeholderSearch="Введите название специальности..."
                 error={formError?.find(error => error.field === 'specialityId')?.text} 
-                setError={setErrorField('specialityId')}
+                setError={setErrorFieldDelete('specialityId')}
             />
 
             <Search 
