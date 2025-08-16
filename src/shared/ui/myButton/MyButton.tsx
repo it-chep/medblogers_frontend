@@ -10,7 +10,6 @@ interface Props {
 
 export const MyButton: FC<Props & PropsWithChildren> = ({onClick, isLoading, error, grayStyle, children}) => {
 
-
     return (
         <button
             disabled={isLoading || Boolean(error)}

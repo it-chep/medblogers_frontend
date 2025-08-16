@@ -8,6 +8,6 @@ export interface ISpeciality {
 }
 
 export interface ISpecialityData {
-    specialityId: string;
+    specialityId: number;
     specialityName: string;
 }

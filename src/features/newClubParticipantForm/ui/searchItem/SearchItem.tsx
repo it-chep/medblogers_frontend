@@ -10,9 +10,15 @@ interface IProps {
     selectedItem: string;
     items: string[]
     label: string;
+    placeholder: string;
+    placeholderSearch: string;
+    error?: string;
+    setError?: (error: string) => void;
 }
 
-export const SearchItem: FC<IProps> = ({selectedItem, setSelected, items, label}) => {
+export const SearchItem: FC<IProps> = (
+    {selectedItem, setSelected, items, label, placeholder, placeholderSearch, error, setError}
+) => {
 
 
     const [value, setValue] = useState<string>('')
@@ -42,17 +48,24 @@ export const SearchItem: FC<IProps> = ({selectedItem, setSelected, items, label}
         setValue('')
         setSelected(item)
         setOpen(false)
+        setError && setError('')
         document.body.removeEventListener('click', onClose)
     }
 
     return (
-        <section className={classes.wrapper}>
+        <section className={classes.wrapper + (error ? ` ${classes.error}` : '')}>
             <span className={classes.label}>
                 {label}
             </span>
             <section onClick={onOpen} className={classes.inputBox}>
                 <section className={classes.input}>
-                    <MyInput placeholder="Нажмите чтобы открыть поиск специальности" value={selectedItem} setValue={() => {}} />
+                    <MyInput 
+                        error={error} 
+                        setError={setError} 
+                        placeholder={placeholder}
+                        value={selectedItem} 
+                        setValue={() => {}} 
+                    />
                 </section>
             </section>
             {
@@ -64,7 +77,7 @@ export const SearchItem: FC<IProps> = ({selectedItem, setSelected, items, label}
                             ref={inputRef} 
                             value={value} 
                             setValue={setValue} 
-                            placeholder='Введите название города...'
+                            placeholder={placeholderSearch}
                         />
                     </section>
                     <section className={classes.list}>

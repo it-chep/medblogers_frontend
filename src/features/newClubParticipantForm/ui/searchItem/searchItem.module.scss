@@ -17,6 +17,14 @@
         }
     }
 
+    &.error{
+        .inputBox{
+            .input{
+                
+            }
+        }
+    }
+
     .search{
         position: absolute;
         background-color: #242424;

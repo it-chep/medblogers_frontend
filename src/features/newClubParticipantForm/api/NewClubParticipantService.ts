@@ -1,5 +1,6 @@
 import { ICityData } from "@/src/entities/city"
 import { ISpecialityData } from "@/src/entities/speciality/model/types"
+import { IFormError, IFormReq } from "../model/types"
 
 class NewClubParticipantService {
 
@@ -25,6 +26,21 @@ class NewClubParticipantService {
         return specialities   
     }
 
+    async setForm(form: IFormReq){
+        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/doctors/create',
+            {
+                method: 'POST',
+                body: JSON.stringify({}),
+                cache: 'no-cache'
+            }
+        )
+
+        const data: {redirectUrl?: string, errors?: IFormError[]} = await response.json()
+        return data
+
+    }
+
+    
 }
 
 export const newClubParticipantService = new NewClubParticipantService()

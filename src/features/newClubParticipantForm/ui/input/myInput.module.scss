@@ -34,4 +34,16 @@
         }
     }
 
+    &.error{
+        >input{
+            background: rgba(255, 65, 65, 0.22);
+            border: 1px solid #ff4141;
+        }
+    }
+
+    .errorText{
+        color: #ff4141;
+        font-size: 14px;
+    }
+
 }

@@ -13,12 +13,23 @@ export interface IForm {
     youtubeUsername: string;
     dzenUsername: string;
     agreePolicy: boolean;
-    cityId: string;
-    specialityId: string;
+    cityId: number;
+    specialityId: number;
     telegramChannel: string;
     siteLink: string;
     mainBlogTheme: string;
 
     additionalCities: ICityData[];
     additionalSpecialities: ISpecialityData[];
+}
+
+
+export interface IFormReq extends Omit<IForm, 'additionalCities' | 'additionalSpecialities'> {
+    additionalCities: number[];
+    additionalSpecialities: number[];
+}
+
+export interface IFormError {
+    field: string;
+    text: string;
 }
