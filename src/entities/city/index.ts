@@ -1,1 +1,1 @@
-export {type ICity} from './model/types'
+export {type ICity, type ICityData} from './model/types'

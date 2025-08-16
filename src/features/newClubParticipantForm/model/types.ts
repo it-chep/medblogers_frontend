@@ -1,0 +1,35 @@
+import { ICityData } from "@/src/entities/city";
+import { ISpecialityData } from "@/src/entities/speciality/model/types";
+
+export interface IForm {
+    email: string;
+    firstName: string;
+    lastName: string;
+    middleName: string;
+    birthDate: string;
+    telegramUsername: string;
+    instagramUsername: string;
+    vkUsername: string;
+    youtubeUsername: string;
+    dzenUsername: string;
+    agreePolicy: boolean;
+    cityId: number;
+    specialityId: number;
+    telegramChannel: string;
+    siteLink: string;
+    mainBlogTheme: string;
+
+    additionalCities: ICityData[];
+    additionalSpecialities: ISpecialityData[];
+}
+
+
+export interface IFormReq extends Omit<IForm, 'additionalCities' | 'additionalSpecialities'> {
+    additionalCities: number[];
+    additionalSpecialities: number[];
+}
+
+export interface IFormError {
+    field: string;
+    text: string;
+}
