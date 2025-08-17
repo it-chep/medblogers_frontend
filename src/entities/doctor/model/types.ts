@@ -11,11 +11,11 @@ export interface IDoctorMiniature {
     city: string;
     instSubsCount: string;
     instSubsCountText: string;
-    instLink: string | null;
+    instLink: string;
     name: string;
     slug: string;
     speciality: string;
-    tgLink: string | null;
+    tgLink: string;
     tgSubsCount: string;
     tgSubsCountText: string;
 }

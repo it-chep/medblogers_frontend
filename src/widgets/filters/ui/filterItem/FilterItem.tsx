@@ -33,7 +33,7 @@ export const FilterItem: FC<IProps & PropsWithChildren> = ({label, mobile, label
     const initialCheckBoxes = () => {
         clearCheckBoxes()
         const params = new URLSearchParams(searchParams);
-        const values = params.get(labelSlug)?.split(',')
+        const values = params.getAll(labelSlug)
         if(values){
             values.forEach(value => {
                 const elem: HTMLInputElement | null = document.querySelector(`#${labelSlug}-${value} input`)

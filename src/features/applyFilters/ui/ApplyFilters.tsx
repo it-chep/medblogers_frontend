@@ -19,7 +19,7 @@ export const ApplyFilters: FC<IProps> = ({currentMax, currentMin}) => {
 
     const selectedCities = () => {
         const selectedIds: string[] = [];
-        const cities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.city input')
+        const cities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.cities input')
         const selectedCheckboxes = Array.from(cities).filter(city => city.checked);
         selectedCheckboxes.forEach(selectedCity => {
             const checkboxId = selectedCity.parentElement?.parentElement?.dataset.id;
@@ -32,7 +32,7 @@ export const ApplyFilters: FC<IProps> = ({currentMax, currentMin}) => {
 
     const selectedSpecialities = () => {
         const selectedIds: string[] = [];
-        const specialities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.speciality input')
+        const specialities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.specialities input')
         const selectedCheckboxes = Array.from(specialities).filter(speciality => speciality.checked);
         selectedCheckboxes.forEach(selectedSpeciality => {
             const checkboxId = selectedSpeciality.parentElement?.parentElement?.dataset.id;
@@ -70,13 +70,19 @@ export const ApplyFilters: FC<IProps> = ({currentMax, currentMin}) => {
         const selectedSubsIds = selectedSubs()
 
         if(selectedCitiesIds.length > 0){
-            params.append('cities', selectedCitiesIds.join(','));
+            selectedCitiesIds.forEach(cityId => {
+                params.append('cities', cityId);
+            })
         }
         if(selectedSpecialitiesIds.length > 0){
-            params.append('specialities', selectedSpecialitiesIds.join(','));
+            selectedSpecialitiesIds.forEach(specialityId => {
+                params.append('specialities', specialityId);
+            })
         }
         if(selectedSubsIds.length > 0){
-            params.append('social_media', selectedSubsIds.join(','));
+            selectedSubsIds.forEach(subId => {
+                params.append('social_media', subId);
+            })
         }
 
         params.set('min_subscribers', String(currentMin))

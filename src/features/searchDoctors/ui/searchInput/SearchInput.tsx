@@ -39,7 +39,7 @@ export const SearchInput: FC<IProps> = ({onFocus, onChange}) => {
                     setValue(e.target.value)
                     onChange(e.target.value)
                 }} 
-                placeholder="Найдем для вас врача..." 
+                placeholder="Введите ФИО, специальность или город" 
                 onFocus={onInputFocus} 
                 onBlur={onInputBlur}
                 type='text' 

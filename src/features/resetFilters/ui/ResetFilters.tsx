@@ -22,12 +22,12 @@ export const ResetFilters: FC = () => {
 
     const resetFilterCheckboxes = () => {
 
-        const cities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.city input')
+        const cities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.cities input')
         cities.forEach(city => {
             city.checked = false
         })
 
-        const specs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.speciality input')
+        const specs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.specialities input')
         specs.forEach(speciality => {
             speciality.checked = false
         })

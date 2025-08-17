@@ -27,7 +27,7 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
             <section className={classes.buttonsWrapper}>
                 <section className={classes.subscribersWrapper}>
                     {
-                        tgLink
+                        tgSubsCount
                             &&
                         <SubscriberLink
                             link={tgLink}
@@ -37,7 +37,7 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
                         />
                     }
                     {
-                        instLink
+                        instSubsCount
                             &&
                         <SubscriberLink
                             link={instLink}
