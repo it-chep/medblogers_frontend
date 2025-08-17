@@ -9,7 +9,7 @@ interface IProps {
     label?: string;
     onChange?: (val: string) => void;
     error?: string;
-    setError?: (error: string) => void;
+    setError?: () => void;
     required?: boolean;
 }
 
@@ -24,7 +24,7 @@ export const MyInput: FC<IProps & ComponentProps<'input'>> = (
         setValue(value)
 
         setCurrentError('')
-        setError && setError('')
+        setError && setError()
     }
 
     const isOne = useRef<boolean>(true)

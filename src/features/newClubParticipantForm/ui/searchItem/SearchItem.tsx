@@ -13,7 +13,7 @@ interface IProps {
     placeholder: string;
     placeholderSearch: string;
     error?: string;
-    setError?: (error: string) => void;
+    setError?: () => void;
 }
 
 export const SearchItem: FC<IProps> = (
@@ -48,7 +48,7 @@ export const SearchItem: FC<IProps> = (
         setValue('')
         setSelected(item)
         setOpen(false)
-        setError && setError('')
+        setError && setError()
         document.body.removeEventListener('click', onClose)
     }
 

@@ -30,7 +30,7 @@ class NewClubParticipantService {
         const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/doctors/create',
             {
                 method: 'POST',
-                body: JSON.stringify({}),
+                body: JSON.stringify(form),
                 cache: 'no-cache'
             }
         )
