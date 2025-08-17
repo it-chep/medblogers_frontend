@@ -28,7 +28,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
                         &&
                     <section>
                         <SubscriberLink 
-                            link={doctor.tgUrl}
+                            link={doctor.tgChannelUrl}
                             subsCount={doctor.tgSubsCount}
                             text={doctor.tgSubsCountText}
                             socialIconSrc={tg_logo.src}
@@ -55,8 +55,8 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     doctor.tgUrl && !doctor.tgSubsCount
                         &&
                     <SubscriberLink  
-                        text="Профиль в Telegram"
-                        link={doctor.tgUrl}
+                        text="Канал в Telegram"
+                        link={doctor.tgChannelUrl}
                         socialIconSrc={tg_logo.src}
                     />
                 }
