@@ -24,7 +24,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
         <section className={classes.socials}>
             <section className={classes.profiles}>
                 {
-                    doctor.tgSubsCount !== '0'
+                    doctor.tgSubsCount
                         &&
                     <section>
                         <SubscriberLink 
@@ -37,7 +37,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     </section>
                 }
                 {
-                    doctor.instSubsCount !== '0'
+                    doctor.instSubsCount
                         &&
                     <section>
                         <SubscriberLink
@@ -52,7 +52,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
             </section>
             <section className={classes.profiles}>
                 {
-                    doctor.tgUrl !== '' && doctor.tgSubsCount === '0'
+                    doctor.tgUrl && !doctor.tgSubsCount
                         &&
                     <SubscriberLink  
                         text="Профиль в Telegram"
@@ -61,7 +61,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     />
                 }
                 {
-                    doctor.instUrl !== '' && doctor.instSubsCount === '0'
+                    doctor.instUrl && !doctor.instSubsCount
                         &&
                     <SubscriberLink  
                         text="Профиль в Instagram*"
@@ -70,7 +70,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     />
                 }
                 {
-                    doctor.vkUrl !== ''
+                    doctor.vkUrl
                         &&
                     <SubscriberLink  
                         text="Профиль в VK"
@@ -79,7 +79,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     />
                 }
                 {
-                    doctor.dzenUrl !== ''
+                    doctor.dzenUrl
                         &&
                     <SubscriberLink  
                         text="Профиль в Dzen"
@@ -88,7 +88,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     />
                 }
                 {
-                    doctor.youtubeUrl !== ''
+                    doctor.youtubeUrl
                         &&
                     <SubscriberLink  
                         text="Профиль в Youtube"
@@ -97,7 +97,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     />
                 }
                 {
-                    doctor.siteLink !== ''
+                    doctor.siteLink
                         &&
                     <SubscriberLink  
                         text="Сайт врача"
