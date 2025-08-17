@@ -33,7 +33,7 @@ export const Menu: FC<IProps & PropsWithChildren> = ({open, children}) => {
             <ul>
                 {menuLinks.map((menuLink, ind) => 
                     <li key={ind}>
-                        <a href={menuLink.link}>{menuLink.name}</a>
+                        <a target='_blank' href={menuLink.link}>{menuLink.name}</a>
                     </li>
                 )}
             </ul>
