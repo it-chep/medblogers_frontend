@@ -31,7 +31,7 @@ export const CardData: FC<IProps & PropsWithChildren> = ({doctor, children}) => 
                 <span className={classes.sign}>Тематика блога:</span> {doctor.mainBlogTheme}
             </section>
 
-            <Link className={classes.link} href={'https://t.me/doc13sofi'}>
+            <Link className={classes.link} href={doctor.tgUrl}>
                 <MyButton>
                     Связаться
                 </MyButton>

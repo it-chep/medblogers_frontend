@@ -106,7 +106,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     />
                 }
             </section>
-            <Link className={classes.link} href={'https://t.me/doc13sofi'}>
+            <Link className={classes.link} href={doctor.tgUrl}>
                 <MyButton>
                     Связаться
                 </MyButton>
