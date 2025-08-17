@@ -4,7 +4,6 @@ import { IDoctor } from "../../model/types";
 import Image from "next/image";
 import { Socials } from "../cardSocials/Socials";
 
-import IMG from '@/public/user_borisova-Love-Petrovna_2.jpg'
 import { CardData } from "../cardData/CardData";
 
 interface IProps{
@@ -13,17 +12,12 @@ interface IProps{
 
 export const DoctorCard: FC<IProps> = ({doctor}) => {
     
-    console.log(doctor)
-
     return (
         <section className={classes.wrapper}>
             {
-                IMG
-                    &&
                 <Image 
                     className={classes.avatar} 
-                    // src={doctor.image} 
-                    src={IMG.src}
+                    src={doctor.image} 
                     height={300} 
                     width={300} 
                     alt="Фото врача" 
