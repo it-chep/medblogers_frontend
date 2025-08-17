@@ -43,7 +43,7 @@ export const DoctorsAll: FC = () => {
                         ?
                     <section className={classes.loader}><LoaderSpinner /></section>
                         :                
-                    doctors.map((doctor, ind) =>
+                    doctors?.map((doctor, ind) =>
                         <DoctorMiniature
                             key={ind}
                             image={doctor.image}
