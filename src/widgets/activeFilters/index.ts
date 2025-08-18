@@ -1,1 +1,1 @@
-import { ActiveFilters } from "./ui/ActiveFilters";
+export { ActiveFiltersLayout } from "./ui/ActiveFiltersLayout";

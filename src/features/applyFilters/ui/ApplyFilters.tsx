@@ -3,15 +3,15 @@
 import { clearParams } from "@/src/shared/lib/helpers/clearParams";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FC } from "react";
-
+import { FC, PropsWithChildren } from "react";
+import classes from './applyFilters.module.scss'
 
 interface IProps {
     currentMin: number;
     currentMax: number;
 }
 
-export const ApplyFilters: FC<IProps> = ({currentMax, currentMin}) => {
+export const ApplyFilters: FC<IProps & PropsWithChildren> = ({currentMax, currentMin, children}) => {
 
     const searchParams = useSearchParams()
     const pathname = usePathname()
@@ -92,8 +92,8 @@ export const ApplyFilters: FC<IProps> = ({currentMax, currentMin}) => {
     }   
 
     return (
-        <section>
-            <MyButton onClick={apply}>Применить</MyButton>
+        <section className={classes.container}>
+            <MyButton onClick={apply}>Применить {children}</MyButton>
         </section>
     )
 }
