@@ -92,12 +92,14 @@ export const Form: FC = () => {
         try{
             setIsLoading(true)
             const res = await newClubParticipantService.setForm(formReq)
-            if(res.errors){
-                setFormError(res.errors)
-                window.scrollTo({top: 0})
+            if(res.errors.length === 0){
+                router.push('/spasibo_club_participant')
             }
-            if(res.redirectUrl){
-                router.push(res.redirectUrl)
+            else{
+                if(res.errors){
+                    setFormError(res.errors)
+                    window.scrollTo({top: 0})
+                }
             }
         }
         catch(e){

@@ -1,0 +1,36 @@
+
+.wrapper{
+    width: 500px;
+    margin: 60px auto 0 auto;
+    min-height: 100vh;
+
+    .aboutImg{
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .header{
+        margin-top: 15px;
+        h1{
+            font-size: 30px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        
+        .desc{
+            margin-top: 15px;
+            text-align: center;
+      
+            p{
+                text-align: center;
+                line-height: 150%;
+            }
+
+            a{
+                color: var(--blue);
+            }
+        }
+    }
+}
