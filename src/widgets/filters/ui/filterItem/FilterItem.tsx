@@ -16,6 +16,7 @@ interface IProps{
         name: string;
         doctorsCount?: string;
         slug?: string;
+        selected?: boolean;
     }[];
     mobile?: boolean;
 
@@ -23,18 +24,21 @@ interface IProps{
 
 export const FilterItem: FC<IProps & PropsWithChildren> = ({label, mobile, labelSlug, items, search = true, children}) => {
 
-    const [searchItems, setSearchItems] = useState<IProps['items']>(items)
-    const {filter} = useAppSelector(s => s.filterReducer)
 
-    useEffect(() => {
-        setSearchItems(filter[labelSlug])
-    }, [filter])
+    const [value, setValue] = useState<string>('')
+
 
     return (
         <section className={classes.filterItem}>
             <OpenFilter mobile={mobile} label={label}>
-                { search && <SearchFilter items={items} setItems={setSearchItems} /> }
-                <FilterList mobile={mobile} labelSlug={labelSlug} items={searchItems} />
+                { search && <SearchFilter value={value} setValue={setValue} /> }
+                <FilterList mobile={mobile} labelSlug={labelSlug} 
+                    items={
+                        items.filter(item => {
+                            return item.name.toLocaleLowerCase().includes(value.toLocaleLowerCase())
+                        }
+                    )} 
+                />
                 {children}
             </OpenFilter>
         </section>

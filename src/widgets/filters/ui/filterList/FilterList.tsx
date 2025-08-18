@@ -20,18 +20,18 @@ export const FilterList: FC<IProps> = ({items, mobile, labelSlug}) => {
  
     const {setSelected} = useFilterActions()
 
-    const onSelected = (ind: number) => {
+    const onSelected = (name: string) => {
         return (selected: boolean) => {
-            setSelected({field: labelSlug, index: ind, selected})
+            setSelected({field: labelSlug, name: name, selected})
         }
     }
 
     return (
         <ul className={classes.filterList + (mobile ? ` ${classes.mobile}` : '')}>
-            {items.map((item, ind) => 
-                <li key={ind} data-id={item.id || item.slug} className={labelSlug} id={labelSlug + `-${item.id || item.slug}`}>
+            {items.map(item => 
+                <li key={item.name} data-id={item.id || item.slug} className={labelSlug} id={labelSlug + `-${item.id || item.slug}`}>
                     <MyCheckbox 
-                        onSelected={onSelected(ind)} 
+                        onSelected={onSelected(item.name)} 
                         checked={item.selected} 
                         label={item.name + (item.doctorsCount ? ' ' + `(${item.doctorsCount})` : '')}
                     />

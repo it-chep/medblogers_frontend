@@ -3,23 +3,12 @@
 import { FC, useState } from "react";
 import classes from './searchFilter.module.scss'
 
-interface IProps<T extends {name: string}> {
-    items: T[];
-    setItems: (items: T[]) => void;
+interface IProps {
+    value: string;
+    setValue: (val: string) => void;
 }
 
-export function SearchFilter<T extends {name: string}>({items, setItems}: IProps<T>) {
-
-    const [value, setValue] = useState<string>('')
-
-    const onChange = (val: string) => {
-        setValue(val)
-        const showItems = items.filter(item => {
-            console.log(item.name, val)
-            return item.name.toLocaleLowerCase().includes(val.toLocaleLowerCase())
-        })
-        setItems(showItems)
-    }
+export const SearchFilter: FC<IProps> = ({value, setValue}) => {
 
     return (
         <section className={classes.searchFilter}>
@@ -27,7 +16,7 @@ export function SearchFilter<T extends {name: string}>({items, setItems}: IProps
                 <rect x="7.06929" y="14.2754" width="1.84748" height="11.9236" rx="0.923741" transform="rotate(36.3618 7.06929 14.2754)" fill="#606060"/>
                 <path d="M17.0502 14.7411C14.6305 18.0278 10.0045 18.7305 6.71783 16.3108C3.43117 13.891 2.7284 9.26507 5.14815 5.9784C7.56791 2.69174 12.1939 1.98897 15.4805 4.40873C18.7672 6.82849 19.47 11.4545 17.0502 14.7411ZM6.72504 7.13936C4.94646 9.55514 5.46301 12.9553 7.87878 14.7339C10.2946 16.5125 13.6948 15.9959 15.4733 13.5802C17.2519 11.1644 16.7354 7.76419 14.3196 5.98561C11.9038 4.20703 8.50361 4.72358 6.72504 7.13936Z" fill="#606060"/>
             </svg>
-            <input type="text" value={value} onChange={e => onChange(e.target.value)} />
+            <input type="text" value={value} onChange={e => setValue(e.target.value)} />
         </section>
     )
 }

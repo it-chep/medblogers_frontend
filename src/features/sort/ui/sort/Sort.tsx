@@ -49,7 +49,7 @@ export const Sort: FC = () => {
                 onClick={onToggleOpen} 
                 className={classes.selectedSort}
             >
-                {selectedSort.name} <Image src={arrow.src} width={16} height={9} alt="Стрелка вниз" />
+                {selectedSort.name} <Image src={arrow.src} width={14} height={8} alt="Стрелка вниз" />
             </section>
             <ul className={classes.select}>
                 {sortValues.map(sortValue => 

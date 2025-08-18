@@ -7,6 +7,7 @@ import { DeleteActiveFilter } from "@/src/features/deleteActiveFilter";
 import { FilterBadge } from "@/src/shared/ui/filterBadge";
 import { IItem } from "../model/types";
 import { useAppSelector } from "@/src/app/store/store";
+import { IFilter } from "@/src/entities/filter";
 
 
 export const ActiveFilters: FC = () => {
@@ -24,11 +25,11 @@ export const ActiveFilters: FC = () => {
         let cities: IItem[] = []
         if(values){
             values.forEach(value => {
-                const elem: HTMLInputElement | null = document.querySelector(`#cities-${value} .checkbox_text`)
+                const elem: IFilter['cities'][0] | undefined = filter.cities.find(city => city.id === value)
                 if(elem){
                     cities.push({
                         id: +value,
-                        name: elem.innerHTML.replace(/\s*\([^)]*\)/g, '')
+                        name: elem.name.replace(/\s*\([^)]*\)/g, '')
                     })
                 }
             })
@@ -42,11 +43,11 @@ export const ActiveFilters: FC = () => {
         let specs: IItem[] = []
         if(values){
             values.forEach(value => {
-                const elem: HTMLInputElement | null = document.querySelector(`#specialities-${value} .checkbox_text`)
+                const elem: IFilter['specialities'][0] | undefined = filter.specialities.find(city => city.id === value)
                 if(elem){
                     specs.push({
                         id: +value,
-                        name: elem.innerHTML.replace(/\s*\([^)]*\)/g, '')
+                        name: elem.name.replace(/\s*\([^)]*\)/g, '')
                     })
                 }
             })
