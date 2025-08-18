@@ -9,7 +9,7 @@ import { useAppSelector } from "@/src/app/store/store";
 
 interface IProps{
     label: string;
-    labelSlug: keyof IFilter;
+    labelSlug: keyof Omit<IFilter, 'minSubscribers' | 'maxSubscribers'>;
     search?: boolean;
     items: {
         id?: string;

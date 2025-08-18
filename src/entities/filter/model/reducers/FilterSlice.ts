@@ -7,6 +7,8 @@ export const initialState: IFilterState = {
         cities: [],
         specialities: [],
         filterInfo: [],
+        maxSubscribers: '',
+        minSubscribers: '',
     },
     isLoading: true,
     error: '',
@@ -22,9 +24,15 @@ export const FilterSlice = createSlice({
         setFilter(state, action: PayloadAction<IFilter>){
             state.filter = action.payload;
         },
-        setSelected(state, action: PayloadAction<{field: keyof IFilter, index: number, selected: boolean}>){
+        setSelected(state, action: PayloadAction<{field: keyof Omit<IFilter, 'minSubscribers' | 'maxSubscribers'>, index: number, selected: boolean}>){
             state.filter[action.payload.field][action.payload.index].selected = action.payload.selected;
-        }
+        },
+        setCurrentMax(state, action: PayloadAction<number>){
+            state.filter.maxSubscribers = String(action.payload);
+        },
+        setCurrentMin(state, action: PayloadAction<number>){
+            state.filter.minSubscribers = String(action.payload);
+        },
     }
 })
 
