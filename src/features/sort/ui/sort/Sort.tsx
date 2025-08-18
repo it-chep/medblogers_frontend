@@ -49,7 +49,7 @@ export const Sort: FC = () => {
                 onClick={onToggleOpen} 
                 className={classes.selectedSort}
             >
-                {selectedSort.name} <Image src={arrow.src} width={14} height={8} alt="Стрелка вниз" />
+                <span>Подписчики: <span className={classes.highlight}>{selectedSort.name}</span></span> <Image src={arrow.src} width={14} height={8} alt="Стрелка вниз" />
             </section>
             <ul className={classes.select}>
                 {sortValues.map(sortValue => 
@@ -59,7 +59,7 @@ export const Sort: FC = () => {
                         key={sortValue.value}
                         onClick={() => onSelected(sortValue)}
                     >
-                        {sortValue.name} {selectedSort.value === sortValue.value && <Image src={checkMark.src} height={10} width={15} alt="Галочка" /> }
+                        Подписчики: {sortValue.name} {selectedSort.value === sortValue.value && <Image src={checkMark.src} height={10} width={15} alt="Галочка" /> }
                     </li>
                 )}
             </ul>

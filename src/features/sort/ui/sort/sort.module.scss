@@ -2,11 +2,11 @@
 
 
 .wrapper{
-    // margin-left: auto;
     position: relative;
     font-size: 18px;
-    min-width: 360px;
     width: 360px;
+    max-width: 100%;    
+    height: 100%;
 
     &.open{
         .selectedSort{
@@ -20,15 +20,21 @@
     .selectedSort{
         border: 1px solid transparent;
         display: flex;
+        gap: 4px;
         align-items: center;
         justify-content: space-between;
         position: relative;
-        height: 50px;
+        min-height: 50px;
         border-radius: 20px;
         background-color: var(--dark-gray);
         width: 100%;
-        padding: 0 30px;
+        max-width: 100%;    
+        padding: 20px 30px;
         cursor: pointer;
+
+        .highlight{
+            color: var(--blue);
+        }
     }
 
     .select{
@@ -44,13 +50,14 @@
         padding: 10px;
         background-color: var(--dark-gray);
         width: 100%;
-        top: 0;
-        margin-top: 60px;
+        max-width: 100%;    
+        margin-top: 10px;
 
         .option{
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 4px;
             border-radius: 18px;
             padding: 10px 20px;
             background-color: transparent;
@@ -64,5 +71,12 @@
                 background-color: var(--sign-gray);
             }
         }
+    }
+}
+
+
+@media (max-width: 480px) {
+    .wrapper{
+        width: 100%;
     }
 }

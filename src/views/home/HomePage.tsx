@@ -26,8 +26,8 @@ export default function HomePage() {
                         <FiltersLayout />
                     </OpenFiltersModal>
                 </SearchDoctors>
-                <ActiveFiltersLayout />
                 <Sort />
+                <ActiveFiltersLayout />
                 <DoctorsAll />
             </main>
         </section>
