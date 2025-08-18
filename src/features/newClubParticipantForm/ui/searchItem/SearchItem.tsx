@@ -29,7 +29,7 @@ export const SearchItem: FC<IProps> = (
 
     const onOpen = () => setOpen(true)
     
-    function onClose(e: PointerEvent) {
+    function onClose(e: Event) {
         const target = e.target as HTMLElement
         if(!target.closest(`.${classes.inputBox}`) && !target.closest(`.${classes.search}`)){
             setOpen(false)

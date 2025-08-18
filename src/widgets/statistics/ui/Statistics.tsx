@@ -1,9 +1,11 @@
+"use client"
+
 import { IStatistic, StatisticItem, statisticService } from "@/src/entities/statistic";
 import { FC, useEffect, useState } from "react";
 import classes from './statistics.module.scss'
 import { LoaderContainer } from "@/src/shared/ui/loaderContainer";
 
-
+// ISR надо
 
 export const Statistics: FC = () => {
 

@@ -21,7 +21,6 @@ export const ResetFilters: FC = () => {
     }
 
     const resetFilterCheckboxes = () => {
-
         const cities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.cities input')
         cities.forEach(city => {
             city.checked = false

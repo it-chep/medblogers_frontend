@@ -30,7 +30,7 @@ export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, s
     }
 
         
-    function onClose(e: PointerEvent) {
+    function onClose(e: Event) {
         const target = e.target as HTMLElement
         if(!target.closest(`.${classes.wrapper}`)){
             setOpen(false)
@@ -40,7 +40,6 @@ export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, s
 
     useEffect(() => {
         if(value.length > 0){
-            console.log(111)
             setOpen(true)
         }
     }, [value])

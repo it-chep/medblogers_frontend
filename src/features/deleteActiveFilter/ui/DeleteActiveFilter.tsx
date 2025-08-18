@@ -14,23 +14,15 @@ export const DeleteActiveFilter: FC<IProps> = ({labelSlug, id}) => {
     const pathname = usePathname()
     const router = useRouter()
 
-
     const deleteFilter = () => {
         const newUrl = new URLSearchParams(searchParams)
-        const selectedFilter = searchParams.get(labelSlug)?.split(',')
+        const selectedFilter = searchParams.getAll(labelSlug)
         if(selectedFilter){
             const newSelectedFilter = selectedFilter.filter(s => +s !== id)
-            if(newSelectedFilter.length === 0){
-                newUrl.delete(labelSlug)
-            }
-            else{
-                newUrl.set(labelSlug, newSelectedFilter.join(','))
-            }
-
-            const elem: HTMLInputElement | null = document.querySelector(`#${labelSlug}-${id} input`)
-            if(elem){
-                elem.checked = false;
-            }
+            newUrl.delete(labelSlug)
+            newSelectedFilter.forEach(selectedFilter => {
+                newUrl.append(labelSlug, selectedFilter)
+            })
             newUrl.delete('page')
             setNewUrl(newUrl)
         }
