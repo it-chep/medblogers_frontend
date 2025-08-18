@@ -1,4 +1,3 @@
-
 import { DoctorsAll } from '@/src/widgets/doctors'
 import classes from './home.module.scss'
 import { Statistics } from '@/src/widgets/statistics'
@@ -9,9 +8,7 @@ import { FiltersLayout } from '@/src/widgets/filters'
 import { ActiveFiltersLayout } from '@/src/widgets/activeFilters'
 
 
-
 export default function HomePage() {
-
 
     return (
         <section className={classes.page + ' wrapper_main'}>

@@ -3,7 +3,6 @@ import "./fonts.module.scss"
 import { Suspense } from "react";
 import { Header } from "@/src/widgets/header";
 import { Footer } from "@/src/widgets/footer";
-import { headers } from "next/headers";
 
 export default function RootLayout({
     children,

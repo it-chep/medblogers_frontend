@@ -97,6 +97,7 @@ export const Filters: FC<IProps> = ({mobile}) => {
             isOne.current = false;
             return
         }
+        window.scrollTo({top: 0})
         const copy = JSON.parse(JSON.stringify(filter))
         initialFilterSelected(copy, 'cities')
         initialFilterSelected(copy, 'specialities')
