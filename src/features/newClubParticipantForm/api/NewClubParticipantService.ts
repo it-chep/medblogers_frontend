@@ -35,7 +35,7 @@ class NewClubParticipantService {
             }
         )
 
-        const data: {redirectUrl?: string, errors?: IFormError[]} = await response.json()
+        const data: {errors: IFormError[]} = await response.json()
         return data
 
     }

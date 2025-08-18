@@ -7,17 +7,20 @@ import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
 import IMG from '@/public/user_abdurzakova-alyona-aleksandrovna_photo_2025-06-21_01-10-57.jpg'
 import {MyButton} from "@/src/shared/ui/myButton";
 import {SubscriberLink} from "@/src/entities/doctor/ui/subscriberLink/SubscriberLink";
+import Link from "next/link";
 
 export const DoctorMiniature: FC<IDoctorMiniature> = ({
     name, image, city, instLink, tgLink, instSubsCount, instSubsCountText, tgSubsCount, tgSubsCountText, slug, speciality
 }) => {
 
+    const doctorLink = `doctors/${slug}`
+
     return (
         <section className={classes.container}>
             <section className={classes.docInfoWrapper}>
-                { image && <Image src={image} alt={'Аватарка врача'} width={260} height={160} /> }
+                { image && <noindex><Link rel="nofollow" href={doctorLink}><Image src={image} alt={'Аватарка врача'} width={260} height={160} /></Link></noindex> }
                 <section className={classes.docInfo}>
-                    <section className={classes.name}><p>{name}</p></section>
+                    <section className={classes.name}><Link href={doctorLink}>{name}</Link></section>
                     <section className={classes.userAdditionalInfo}>
                         <p>{speciality}</p>
                         <p>📍 {city}</p>
@@ -47,10 +50,13 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
                         />
                     }
                 </section>
-                <a href={`doctors/${slug}`} className={classes.link}>
-                    <MyButton>Подробнее</MyButton>
-                </a>
+                <noindex className={classes.link}>
+                    <Link rel="nofollow" href={doctorLink} >
+                        <MyButton>Подробнее</MyButton>
+                    </Link>
+                </noindex>
             </section>
+
         </section>
     )
 }

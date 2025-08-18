@@ -14,8 +14,7 @@ import { PreliminaryFilterCount } from "@/src/features/preliminaryFilterCount"
 import { IFilter, useFilterActions } from "@/src/entities/filter"
 import { useAppSelector } from "@/src/app/store/store"
 
-const MAX = 400_000
-const MIN = 300
+
 
 interface IProps {
     mobile?: boolean;
@@ -24,43 +23,49 @@ interface IProps {
 export const Filters: FC<IProps> = ({mobile}) => {
     
     const {filter, isLoading} = useAppSelector(s => s.filterReducer)
-    const {setFilter, setIsLoading} = useFilterActions()
+    const {setFilter, setIsLoading, setCurrentMax, setCurrentMin} = useFilterActions()
 
     const searchParams = useSearchParams()
 
-    let initialMin = searchParams.get('min_subscribers') ? Number(searchParams.get('min_subscribers')) : MIN
-    let initialMax = searchParams.get('max_subscribers') ? Number(searchParams.get('max_subscribers')) : MAX
+    const [valueMin, setValueMin] = useState<number>(0)
+    const [valueMax, setValueMax] = useState<number>(0)
 
-    const initial =() => {
-        if(initialMin < MIN){
-            initialMin = MIN;
+    const [MAX, setMAX] = useState<number>(0)
+    const [MIN, setMIN] = useState<number>(0)
+    
+    const initialMinMax =(filter: IFilter) => {
+        let initialMin = searchParams.get('min_subscribers') ? Number(searchParams.get('min_subscribers')) : +filter.minSubscribers
+        let initialMax = searchParams.get('max_subscribers') ? Number(searchParams.get('max_subscribers')) : +filter.maxSubscribers
+        if(initialMax && initialMin){
+            if(initialMin < +filter.minSubscribers){
+                initialMin = +filter.minSubscribers;
+            }
+            if(initialMax > +filter.maxSubscribers){
+                initialMax = +filter.maxSubscribers;
+            }
+            if(initialMin > initialMax){
+                initialMin = initialMax;
+            }
         }
-        if(initialMax > MAX){
-            initialMax = MAX;
-        }
-        if(initialMin > initialMax){
-            initialMin = initialMax;
-        }
+        filter.minSubscribers = String(initialMin)
+        filter.maxSubscribers = String(initialMax)
     }
     
-    initial()
-
-    const [valueMin, setValueMin] = useState<number>(initialMin) 
-    const [valueMax, setValueMax] = useState<number>(initialMax) 
-
     const onBlurSlider = (valMin: number, valMax: number) => {
-        setValueMin(valMin)
+        setCurrentMin(valMin)
+        setCurrentMax(valMax)
         setValueMax(valMax)
+        setValueMin(valMin)
     }
 
-    const initialFilterSelected = (filter: IFilter, labelSlug: keyof IFilter) => {
+    const initialFilterSelected = (filter: IFilter, labelSlug: keyof Omit<IFilter, 'minSubscribers' | 'maxSubscribers'>) => {
         const params = new URLSearchParams(searchParams);
         const values = params.getAll(labelSlug === 'filterInfo' ? 'social_media' : labelSlug)
         filter[labelSlug].forEach(item => item.selected = false)
         if(values){
             values.forEach(value => {
                 const targetInd = labelSlug === 'filterInfo' ? 
-                filter[labelSlug].findIndex(item => item.name === value) :
+                filter[labelSlug].findIndex(item => item.slug === value) :
                 filter[labelSlug].findIndex(item => item.id === value) 
                         
                 if(targetInd >= 0){
@@ -74,9 +79,14 @@ export const Filters: FC<IProps> = ({mobile}) => {
         try{
             setIsLoading(true)
             const filtersRes = await filterService.getAll()
+            setMAX(+filtersRes.maxSubscribers)
+            setMIN(+filtersRes.minSubscribers)
             initialFilterSelected(filtersRes, 'cities')
             initialFilterSelected(filtersRes, 'specialities')
             initialFilterSelected(filtersRes, 'filterInfo')
+            initialMinMax(filtersRes)
+            setValueMin(+filtersRes.minSubscribers)
+            setValueMax(+filtersRes.maxSubscribers)
             setFilter(filtersRes)
         }
         catch(e){
@@ -97,6 +107,7 @@ export const Filters: FC<IProps> = ({mobile}) => {
             isOne.current = false;
             return
         }
+        window.scrollTo({top: 0})
         const copy = JSON.parse(JSON.stringify(filter))
         initialFilterSelected(copy, 'cities')
         initialFilterSelected(copy, 'specialities')
@@ -135,7 +146,7 @@ export const Filters: FC<IProps> = ({mobile}) => {
                     max={MAX}
                     min={MIN}
                     valueMax={valueMax} 
-                    valueMin={valueMin} 
+                    valueMin={valueMin}
                     setValueMax={setValueMax} 
                     setValueMin={setValueMin} 
                     onBlur={onBlurSlider}
@@ -143,8 +154,8 @@ export const Filters: FC<IProps> = ({mobile}) => {
             </FilterItem>
             <MyHr />
             <ApplyFilters 
-                currentMin={valueMin}
-                currentMax={valueMax}
+                currentMin={+filter.minSubscribers}
+                currentMax={+filter.maxSubscribers}
             >
                 <PreliminaryFilterCount />
             </ApplyFilters>

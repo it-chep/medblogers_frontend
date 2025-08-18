@@ -23,8 +23,10 @@ export const PreliminaryFilterCount: FC = () => {
             searchParams.append('specialities', speciality.id)
         })
         filterInfo.forEach(info => {
-            searchParams.append('social_media', info.name)
+            searchParams.append('social_media', info.slug)
         })
+        searchParams.append('min_subscribers', filter.minSubscribers)
+        searchParams.append('max_subscribers', filter.maxSubscribers)
         return searchParams
     }
 

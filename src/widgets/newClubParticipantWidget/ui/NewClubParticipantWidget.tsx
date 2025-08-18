@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classes from './newClubParticipantWidget.module.scss'
 import Image from "next/image";
-import aboutImg from '../lib/assets/dog_about.png'
+import aboutImg from '@/src/shared/lib/assets/dog_about.png'
 import { NewClubParticipantForm } from "@/src/features/newClubParticipantForm";
 
 export const NewClubParticipantWidget: FC = () => {

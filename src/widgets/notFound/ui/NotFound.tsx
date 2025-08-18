@@ -1,8 +1,7 @@
 import { FC } from "react";
-import classes from './notFound.module.scss'
 import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
-
+import classes from './notFound.module.scss'
 
 
 export const NotFoundWidget: FC = () => {

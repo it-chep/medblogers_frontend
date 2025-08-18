@@ -1,6 +1,7 @@
 import { DoctorCard, doctorService } from "@/src/entities/doctor";
 import { IDoctor } from "@/src/entities/doctor/model/types";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
+import { notFound } from "next/navigation";
 
 
 
@@ -26,11 +27,9 @@ export async function DoctorDetail(props: IProps){
 
     const doctor = await getData(props.slug)
 
-    console.log(doctor)
-
     if(!doctor || doctor.code === 2){
         return (
-            <>404</>
+            notFound()
         )
     }
 

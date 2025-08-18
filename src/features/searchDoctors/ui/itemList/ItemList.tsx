@@ -15,7 +15,7 @@ interface IProps {
 
 export const ItemList: FC<IProps> = ({labelName, items, setOpen}) => {
 
-    const labelNameSlug = labelName === 'Города' ? 'city' : 'speciality'
+    const labelNameSlug = labelName === 'Города' ? 'cities' : 'specialities'
 
     return (
         <section className={classes.container}>   

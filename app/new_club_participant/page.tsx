@@ -1,7 +1,7 @@
 import NewClubParticipantPage from "@/src/views/newClubParticipant/NewClubParticipantPage";
 
 
-export default function newClubParticipant() {
+export default function NewClubParticipant() {
 
 
     return (

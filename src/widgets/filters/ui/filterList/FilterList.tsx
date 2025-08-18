@@ -5,7 +5,7 @@ import { IFilter, useFilterActions } from "@/src/entities/filter";
 import { useAppSelector } from "@/src/app/store/store";
 
 interface IProps {
-    labelSlug: keyof IFilter;
+    labelSlug: keyof Omit<IFilter, 'minSubscribers' | 'maxSubscribers'>;
     mobile?: boolean;
     items: {
         id?: string;

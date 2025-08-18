@@ -45,7 +45,7 @@ export const ApplyFilters: FC<IProps & PropsWithChildren> = ({currentMax, curren
 
     const selectedSubs = () => {
         const selectedIds: string[] = [];
-        const subs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.social_media input')
+        const subs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.filterInfo input')
         const selectedCheckboxes = Array.from(subs).filter(sub => sub.checked);
         selectedCheckboxes.forEach(selectedSub => {
             const checkboxId = selectedSub.parentElement?.parentElement?.dataset.id;

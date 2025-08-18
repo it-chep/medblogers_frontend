@@ -59,5 +59,10 @@ export interface IDoctor {
     instLastUpdatedDate: string;
     mainBlogTheme: string;
     image: string;
-    // cities: [],
+    cities: IItem[],
+}
+
+export interface IDoctorSeo{
+    title: string;
+    description: string;
 }
