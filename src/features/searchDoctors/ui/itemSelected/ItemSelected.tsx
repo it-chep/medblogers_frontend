@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { clearParams } from "@/src/shared/lib/helpers/clearParams";
 
 interface IProps{
-    labelUrl: 'city' | 'speciality'
+    labelUrl: 'cities' | 'specialities'
     id: string;
     setOpen: (open: boolean) => void;
 }

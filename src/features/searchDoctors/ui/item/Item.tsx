@@ -5,7 +5,7 @@ import { ISpeciality } from "@/src/entities/speciality";
 import Image from "next/image";
 
 interface IProps {
-    label: 'city' | 'speciality';
+    label: 'cities' | 'specialities';
     item: ICity | ISpeciality;
     icon: string;
 
