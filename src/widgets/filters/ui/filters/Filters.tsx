@@ -1,33 +1,32 @@
 "use client"
 
-import { FC, useEffect, useState } from "react"
+import { FC, useEffect, useRef, useState } from "react"
 import { FilterItem } from "../filterItem/FilterItem"
 import classes from './filters.module.scss'
 import { MyHr } from "@/src/shared/ui/myHr"
 import { Slider } from "@/src/features/slider"
 import { ApplyFilters } from "@/src/features/applyFilters"
 import { ResetFilters } from "@/src/features/resetFilters"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
-import { IFilter } from "../../model/types"
-import { filterService } from "../../api/FilterService"
+import { useSearchParams } from "next/navigation"
+import { filterService } from "../../../../entities/filter/api/FilterService"
 import { LoaderContainer } from "@/src/shared/ui/loaderContainer"
+import { PreliminaryFilterCount } from "@/src/features/preliminaryFilterCount"
+import { IFilter, useFilterActions } from "@/src/entities/filter"
+import { useAppSelector } from "@/src/app/store/store"
 
 const MAX = 400_000
 const MIN = 300
 
 interface IProps {
-    filters: IFilter | null;
-    setFilters: (filters: IFilter) => void;
     mobile?: boolean;
 }
 
-export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
+export const Filters: FC<IProps> = ({mobile}) => {
     
-    const [isLoading, setIsLoading] = useState<boolean>(true)
+    const {filter, isLoading} = useAppSelector(s => s.filterReducer)
+    const {setFilter, setIsLoading} = useFilterActions()
 
     const searchParams = useSearchParams()
-    const pathname = usePathname()
-    const router = useRouter()
 
     let initialMin = searchParams.get('min_subscribers') ? Number(searchParams.get('min_subscribers')) : MIN
     let initialMax = searchParams.get('max_subscribers') ? Number(searchParams.get('max_subscribers')) : MAX
@@ -44,28 +43,8 @@ export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
         }
     }
     
-    const setNewUrl = (params: URLSearchParams) => {
-        const newUrl = `${pathname}?${params.toString()}`
-        router.push(newUrl)
-    }
-
     initial()
 
-    useEffect(() => {
-        const params = new URLSearchParams(searchParams);
-        params.set('min_subscribers', String(initialMin))
-        params.set('max_subscribers', String(initialMax))
-        setNewUrl(params)
-    }, [])
-
-    useEffect(() => {
-        const params = new URLSearchParams(searchParams);
-        setValueMin(initialMin)
-        setValueMax(initialMax)
-        setNewUrl(params)
-    }, [searchParams])
-
-    
     const [valueMin, setValueMin] = useState<number>(initialMin) 
     const [valueMax, setValueMax] = useState<number>(initialMax) 
 
@@ -73,12 +52,32 @@ export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
         setValueMin(valMin)
         setValueMax(valMax)
     }
+
+    const initialFilterSelected = (filter: IFilter, labelSlug: keyof IFilter) => {
+        const params = new URLSearchParams(searchParams);
+        const values = params.getAll(labelSlug === 'filterInfo' ? 'social_media' : labelSlug)
+        filter[labelSlug].forEach(item => item.selected = false)
+        if(values){
+            values.forEach(value => {
+                const targetInd = labelSlug === 'filterInfo' ? 
+                filter[labelSlug].findIndex(item => item.name === value) :
+                filter[labelSlug].findIndex(item => item.id === value) 
+                        
+                if(targetInd >= 0){
+                    filter[labelSlug][targetInd].selected = true
+                }     
+            })
+        }
+    }
     
     async function getFilters() {
         try{
             setIsLoading(true)
             const filtersRes = await filterService.getAll()
-            setFilters(filtersRes)
+            initialFilterSelected(filtersRes, 'cities')
+            initialFilterSelected(filtersRes, 'specialities')
+            initialFilterSelected(filtersRes, 'filterInfo')
+            setFilter(filtersRes)
         }
         catch(e){
             console.log(e)
@@ -92,6 +91,19 @@ export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
         getFilters()
     }, [])
 
+    const isOne = useRef<boolean>(true)
+    useEffect(() => {
+        if(isOne.current){
+            isOne.current = false;
+            return
+        }
+        const copy = JSON.parse(JSON.stringify(filter))
+        initialFilterSelected(copy, 'cities')
+        initialFilterSelected(copy, 'specialities')
+        initialFilterSelected(copy, 'filterInfo')
+        setFilter(copy)
+    }, [searchParams])
+
     return (
         isLoading
             ?
@@ -102,22 +114,22 @@ export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
                 mobile={mobile} 
                 label="Город" 
                 labelSlug="cities" 
-                items={filters?.cities || []} 
+                items={filter?.cities || []} 
             />
             <MyHr />
             <FilterItem 
                 mobile={mobile} 
                 label="Специальность" 
                 labelSlug="specialities" 
-                items={filters?.specialities || []} 
+                items={filter?.specialities || []} 
             />
             <MyHr />
             <FilterItem 
                 mobile={mobile} 
                 label="Подписчики" 
                 search={false} 
-                labelSlug="social_media" 
-                items={filters?.filterInfo || []}
+                labelSlug="filterInfo" 
+                items={filter?.filterInfo || []}
             >
                 <Slider 
                     max={MAX}
@@ -133,7 +145,9 @@ export const Filters: FC<IProps> = ({filters, mobile, setFilters}) => {
             <ApplyFilters 
                 currentMin={valueMin}
                 currentMax={valueMax}
-            />
+            >
+                <PreliminaryFilterCount />
+            </ApplyFilters>
             <ResetFilters />
         </section>
     )
