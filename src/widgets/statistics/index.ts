@@ -1,1 +1,1 @@
-export { Statistics } from "./ui/Statistics";
+export { StatisticsLayout as default } from "./ui/StatisticsLayout";
