@@ -2,7 +2,6 @@ import { FC } from "react";
 import classes from './welcomeWidget.module.scss'
 import { List } from "../list/List";
 import { noposts, requirements } from "../../lib/const/lists";
-import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
 
 
@@ -18,11 +17,11 @@ export const WelcomeWidget: FC = () => {
                 <List title="✅ Требования к размещаемым:" items={requirements} />
                 <section className={classes.condition}>Если вы соответствуете всем критериям, то нажимайте на кнопку</section>
                 <section className={classes.callToAction}>«Залететь на сайт»👇</section>
-                <Link className={classes.link} href={'https://t.me/m/K8N_6UNkMGFi'}>
+                <a target="_blank" className={classes.link} href={'https://t.me/m/K8N_6UNkMGFi'}>
                     <MyButton>
                         Залететь на сайт
                     </MyButton>
-                </Link>
+                </a>
            </section>
         </section>
     )
