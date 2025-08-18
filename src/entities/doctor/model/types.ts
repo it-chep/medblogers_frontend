@@ -61,3 +61,8 @@ export interface IDoctor {
     image: string;
     cities: IItem[],
 }
+
+export interface IDoctorSeo{
+    title: string;
+    description: string;
+}

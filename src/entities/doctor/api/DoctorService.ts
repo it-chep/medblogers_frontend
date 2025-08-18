@@ -1,8 +1,7 @@
-import {IDoctor, IDoctorMiniatureResponse} from "../model/types";
+import {IDoctor, IDoctorMiniatureResponse, IDoctorSeo} from "../model/types";
 
 
 class DoctorService {
-
 
     async getAll(params: string): Promise<IDoctorMiniatureResponse> {
         const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/filter-doctors' + (params ? `?${params}` : ''),
@@ -15,15 +14,24 @@ class DoctorService {
     }
 
     async get(slug: string): Promise<IDoctor> {
-        
         const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/doctors/' + slug,
             {
                 next: {revalidate: 60}
             }
         )
-        // await new Promise(resolve => setTimeout(resolve, 4000))
         const doctor: IDoctor = await response.json()
         return doctor
+    }
+
+    async seo(slug: string){
+        console.log(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/seo/' + slug)
+        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/seo/' + slug,
+            {
+                cache: 'no-store',
+            }
+        )
+        const seo: IDoctorSeo = await response.json()
+        return seo
     }
 
 }
