@@ -6,6 +6,7 @@ import { OpenFiltersModal } from '@/src/features/openFiltersModal'
 import { BannerNewDoctor } from '@/src/widgets/bannerNewDoctor'
 import { FiltersLayout } from '@/src/widgets/filters'
 import { ActiveFiltersLayout } from '@/src/widgets/activeFilters'
+import { Sort } from '@/src/features/sort'
 
 
 export default function HomePage() {
@@ -25,6 +26,7 @@ export default function HomePage() {
                         <FiltersLayout />
                     </OpenFiltersModal>
                 </SearchDoctors>
+                <Sort />
                 <ActiveFiltersLayout />
                 <DoctorsAll />
             </main>

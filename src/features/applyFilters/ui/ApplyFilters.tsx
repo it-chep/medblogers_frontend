@@ -5,6 +5,7 @@ import { MyButton } from "@/src/shared/ui/myButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC, PropsWithChildren } from "react";
 import classes from './applyFilters.module.scss'
+import { useAppSelector } from "@/src/app/store/store";
 
 interface IProps {
     currentMin: number;
@@ -17,42 +18,20 @@ export const ApplyFilters: FC<IProps & PropsWithChildren> = ({currentMax, curren
     const pathname = usePathname()
     const router = useRouter()
 
+    const {filter} = useAppSelector(s => s.filterReducer)
+
     const selectedCities = () => {
-        const selectedIds: string[] = [];
-        const cities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.cities input')
-        const selectedCheckboxes = Array.from(cities).filter(city => city.checked);
-        selectedCheckboxes.forEach(selectedCity => {
-            const checkboxId = selectedCity.parentElement?.parentElement?.dataset.id;
-            if(checkboxId){
-                selectedIds.push(checkboxId)
-            }
-        })
+        const selectedIds = filter.cities.filter(city => city.selected).map(city => city.id)
         return selectedIds
     }
 
     const selectedSpecialities = () => {
-        const selectedIds: string[] = [];
-        const specialities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.specialities input')
-        const selectedCheckboxes = Array.from(specialities).filter(speciality => speciality.checked);
-        selectedCheckboxes.forEach(selectedSpeciality => {
-            const checkboxId = selectedSpeciality.parentElement?.parentElement?.dataset.id;
-            if(checkboxId){
-                selectedIds.push(checkboxId)
-            }
-        })
+        const selectedIds = filter.specialities.filter(speciality => speciality.selected).map(speciality => speciality.id)
         return selectedIds
     }
 
     const selectedSubs = () => {
-        const selectedIds: string[] = [];
-        const subs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.filterInfo input')
-        const selectedCheckboxes = Array.from(subs).filter(sub => sub.checked);
-        selectedCheckboxes.forEach(selectedSub => {
-            const checkboxId = selectedSub.parentElement?.parentElement?.dataset.id;
-            if(checkboxId){
-                selectedIds.push(checkboxId)
-            }
-        })
+        const selectedIds = filter.filterInfo.filter(info => info.selected).map(info => info.slug)
         return selectedIds
     }
 
