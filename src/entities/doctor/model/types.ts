@@ -59,5 +59,5 @@ export interface IDoctor {
     instLastUpdatedDate: string;
     mainBlogTheme: string;
     image: string;
-    // cities: [],
+    cities: IItem[],
 }

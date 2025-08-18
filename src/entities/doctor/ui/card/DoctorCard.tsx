@@ -12,6 +12,7 @@ interface IProps{
 
 export const DoctorCard: FC<IProps> = ({doctor}) => {
     
+
     return (
         <section className={classes.wrapper}>
             {

@@ -23,11 +23,11 @@ export default function HomePage() {
             </aside>
             <main className={classes.main}>
                 <Statistics />
-                {/* <SearchDoctors>
+                <SearchDoctors>
                     <OpenFiltersModal>
-                        <Filters mobile={true} filters={filters} setFilters={setFilters} />
+                        <FiltersLayout />
                     </OpenFiltersModal>
-                </SearchDoctors> */}
+                </SearchDoctors>
                 <ActiveFiltersLayout />
                 <DoctorsAll />
             </main>
