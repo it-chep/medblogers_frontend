@@ -12,7 +12,6 @@ export const WelcomeWidget: FC = () => {
 
     return (
         <section className={classes.container}>
-            <h1 className={classes.title}>Добро пожаловать в единую базу <span className="nowrap">врачей-блогеров!</span></h1>
             <section className={classes.text}>
                 <span>Мы рады врачам-блогерам из любого города и любой специальности, но есть ряд ограничений и требований.</span>
                 <List title="❌ На сайте не размещаем:" items={noposts} />
