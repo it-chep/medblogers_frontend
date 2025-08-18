@@ -1,12 +1,12 @@
 import { DoctorsAll } from '@/src/widgets/doctors'
 import classes from './home.module.scss'
-import { Statistics } from '@/src/widgets/statistics'
 import { SearchDoctors } from '@/src/features/searchDoctors'
 import { OpenFiltersModal } from '@/src/features/openFiltersModal'
 import { BannerNewDoctor } from '@/src/widgets/bannerNewDoctor'
 import { FiltersLayout } from '@/src/widgets/filters'
 import { ActiveFiltersLayout } from '@/src/widgets/activeFilters'
 import { Sort } from '@/src/features/sort'
+import StatisticsLayout from '@/src/widgets/statistics'
 
 
 export default function HomePage() {
@@ -20,7 +20,7 @@ export default function HomePage() {
                 </section>
             </aside>
             <main className={classes.main}>
-                <Statistics />
+                <StatisticsLayout />
                 <SearchDoctors>
                     <OpenFiltersModal>
                         <FiltersLayout />

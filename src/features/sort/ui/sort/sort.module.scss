@@ -45,7 +45,7 @@
         list-style: none;
         margin: 0;
         padding: 0;
-        z-index: 99;
+        z-index: 9;
         border-radius: 20px;
         padding: 10px;
         background-color: var(--dark-gray);
@@ -78,5 +78,17 @@
 @media (max-width: 480px) {
     .wrapper{
         width: 100%;
+
+        .selectedSort{
+            padding: 20px 25px;
+        }
+
+        .select{
+            padding: 8px;
+            .option{
+                padding: 10px 17px;
+            }
+
+        }
     }
 }

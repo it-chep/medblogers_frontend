@@ -1,60 +1,46 @@
-"use client"
-
 import { IStatistic, StatisticItem, statisticService } from "@/src/entities/statistic";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import classes from './statistics.module.scss'
-import { LoaderContainer } from "@/src/shared/ui/loaderContainer";
+import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 
 // ISR надо
 
-export const Statistics: FC = () => {
 
-    const [isLoading, setIsLoading] = useState<boolean>(true)
-    const [statistics, setStatistic] = useState<IStatistic | null>(null)
-
-    const getStatistics = async () => {
-        try{
-            setIsLoading(true)
-            const statisticsRes = await statisticService.get()
-            setStatistic(statisticsRes)
-        }
-        catch(e){
-            console.log(e)
-        }
-        finally{
-            setIsLoading(false)
-        }
+const getData = async () => {
+    let statistics: IStatistic | null = null;
+    try{
+        statistics = await statisticService.get() 
     }
+    catch(e){
+        if (isDynamicServerError(e)) {
+            throw e;
+        }
+        console.log(e)
+    }
+    return statistics
+}
 
-    useEffect(() => {
-        getStatistics()
-    }, [])
+export default async function Statistics() {
+
+    const statistics = await getData()
 
     return (
         <section className={classes.wrapper}>
-            {
-                isLoading
-                    ?
-                <section className={classes.loader}><LoaderContainer /></section>
-                    :
-                <>
-                    { 
-                        statistics?.doctorsCount 
-                            && 
-                        <StatisticItem 
-                            label="Врачей в базе" 
-                            count={String(statistics.doctorsCount)} 
-                        /> 
-                    }
-                    { 
-                        statistics?.subscribersCount 
-                            && 
-                        <StatisticItem 
-                            label={"Общее количество подписчиков у врачей"} 
-                            count={statistics.subscribersCount} 
-                        /> 
-                    }
-                </>
+            { 
+                statistics?.doctorsCount 
+                    && 
+                <StatisticItem 
+                    label="Врачей в базе" 
+                    count={String(statistics.doctorsCount)} 
+                /> 
+            }
+            { 
+                statistics?.subscribersCount 
+                    && 
+                <StatisticItem 
+                    label={"Общее количество подписчиков у врачей"} 
+                    count={statistics.subscribersCount} 
+                /> 
             }
         </section>
     )
