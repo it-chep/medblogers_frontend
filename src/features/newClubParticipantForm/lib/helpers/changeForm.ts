@@ -51,6 +51,9 @@ export const changeForm = (form: IForm, setForm: (form: IForm) => void) =>  {
         setAgreePolicy(agreePolicy: boolean){
             setForm({...form, agreePolicy})
         },
+        setMarketingPreferences(marketingPreferences: string){
+            setForm({...form, marketingPreferences})
+        },
         setCity(cityId: number){
             setForm({...form, cityId})
         },
