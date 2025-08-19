@@ -1,3 +1,4 @@
+import { SERVER_URL_API } from "@/src/app/env/env"
 
 
 
@@ -5,7 +6,7 @@
 class PaginationService {
 
     async get(params: string) {
-        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/pages_count' + `?${params}`,
+        const response = await fetch(SERVER_URL_API + '/v1/pages_count' + `?${params}`,
             {
                 cache: "no-cache"
             }

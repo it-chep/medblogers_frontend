@@ -1,3 +1,4 @@
+import { SERVER_URL_API } from "@/src/app/env/env";
 import { ISearchDoctors } from "../model/types"
 
 class SearchDoctorsService{
@@ -12,7 +13,7 @@ class SearchDoctorsService{
 
         this.controller = new AbortController()
 
-        const res = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/search-doctors' + `?query=${query}`, {
+        const res = await fetch(SERVER_URL_API + '/v1/search-doctors' + `?query=${query}`, {
 
             cache: 'no-cache',
             signal: this.controller?.signal
