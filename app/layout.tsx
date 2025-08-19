@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { Header } from "@/src/widgets/header";
 import { Footer } from "@/src/widgets/footer";
 import { Metadata } from "next";
+import { VerifiedCookies } from "@/src/widgets/verifiedCookies";
 
 export const metadata: Metadata = {
   title: {
@@ -27,6 +28,7 @@ export default function RootLayout({
                     <Header />
                     {children}
                     <Footer />
+                    <VerifiedCookies />
                 </body>
             </html>
         </Suspense>

@@ -32,7 +32,7 @@ export const Form: FC = () => {
         setBirthDate, setInstagramUsername, setVkUsername, setTelegramUsername,
         setDzenUsername, setYoutubeUsername, setMainBlogTheme, setSiteLink, setAgreePolicy,
         setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities,
-         deleteAdditionalSpecialities, setCity, setSpeciality
+         deleteAdditionalSpecialities, setCity, setSpeciality, setMarketingPreferences
     } = changeForm(form, setForm)
 
     const {setErrorFieldDelete} = changeFormError(formError, setFormError)
@@ -265,6 +265,14 @@ export const Form: FC = () => {
                 setValue={setMainBlogTheme}
                 type="text"
                 name="mainBlogTheme" 
+            />
+            <MyInput 
+                label="У врачей каких специальностей вы бы хотели приобрести рекламу / договориться о коллаборации? (Планируем сделать вкладку «ищу неврологов, гинекологов и т.д.)" 
+                value={form.marketingPreferences} 
+                setValue={setMarketingPreferences}
+                placeholder="Например: ВПЧ, беременность, нарушения цикла, профилактика ОРВИ..."
+                type="text"
+                name="marketingPreferences" 
             />
             <MyInput 
                 label="Ваш сайт/таплинк" 

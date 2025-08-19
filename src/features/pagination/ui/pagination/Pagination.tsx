@@ -83,6 +83,7 @@ export const Pagination: FC<IProps> = ({totalPages}) => {
         window.scrollTo({top: 0})
         const params = new URLSearchParams(searchParams)
         params.set('page', `${page}`)
+        setCurrentPage(page)
         const newUrl = `${pathname}?${params.toString()}`
         router.replace(newUrl)
     }

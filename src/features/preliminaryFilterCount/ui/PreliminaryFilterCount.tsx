@@ -41,7 +41,7 @@ export const PreliminaryFilterCount: FC = () => {
 
     return (
         <span className={classes.container}>
-            ({count})
+            { count && <>({count})</> }
         </span>
     )
 }

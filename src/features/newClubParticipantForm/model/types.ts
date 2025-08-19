@@ -18,7 +18,7 @@ export interface IForm {
     telegramChannel: string;
     siteLink: string;
     mainBlogTheme: string;
-
+    marketingPreferences: string;
     additionalCities: ICityData[];
     additionalSpecialities: ISpecialityData[];
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import classes from './paginationWidget.module.scss'
 import { useSearchParams } from "next/navigation";
 import { paginationService } from "../api/PaginationService";
@@ -14,6 +14,13 @@ export const PaginationWidget: FC = () => {
     const searchParams = useSearchParams()
     const [pagesCount, setPagesCount] = useState<number>(0)
     const [isLoading, setIsLoading] = useState<boolean>(true)
+
+    const paramsKey = useMemo(() => {
+        const params = new URLSearchParams(searchParams.toString());
+        params.delete('page');
+        params.delete('sort')
+        return params.toString();
+    }, [searchParams]);
 
     const getData = async () => {
         try{
@@ -31,7 +38,7 @@ export const PaginationWidget: FC = () => {
 
     useEffect(() => {
         getData()
-    }, [searchParams])
+    }, [paramsKey])
 
     return (
         <section className={classes.wrapper}>

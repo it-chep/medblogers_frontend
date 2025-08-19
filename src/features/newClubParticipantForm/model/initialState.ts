@@ -20,6 +20,7 @@ export const initialStateForm: IForm = {
     vkUsername: '',
     additionalCities: [],
     additionalSpecialities: [],
+    marketingPreferences: '',
     cityId: -1,
     specialityId: -1    
 }
