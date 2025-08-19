@@ -7,11 +7,10 @@ import { SwitchPages } from "../switchPages/SwitchPages";
 
 interface IProps {
     totalPages: number;
-    setIsLoading: (isLoading: boolean) => void;
 }
 
 
-export const Pagination: FC<IProps> = ({totalPages, setIsLoading}) => {
+export const Pagination: FC<IProps> = ({totalPages}) => {
 
     const searchParams = useSearchParams()
     const pathname = usePathname()
@@ -28,15 +27,13 @@ export const Pagination: FC<IProps> = ({totalPages, setIsLoading}) => {
         }
         
         if(currentPage < 3){
-            allPages[0] = true;
-            allPages[1] = true;
-            allPages[2] = true;
-            allPages[3] = true;
+            for(let i = 0; i < Math.min(totalPages - 1, 3); i++){
+                allPages[i] = true;
+            }
             allPages[totalPages - 1] = true;
         }
-        else if(currentPage > totalPages - 3) {
+        else if(currentPage > totalPages - 2) {
             allPages[0] = true;
-            allPages[totalPages - 4] = true;
             allPages[totalPages - 3] = true;
             allPages[totalPages - 2] = true;
             allPages[totalPages - 1] = true;
@@ -83,7 +80,6 @@ export const Pagination: FC<IProps> = ({totalPages, setIsLoading}) => {
     
 
     const onSelected = (page: number) => {
-        setIsLoading(true)
         window.scrollTo({top: 0})
         const params = new URLSearchParams(searchParams)
         params.set('page', `${page}`)

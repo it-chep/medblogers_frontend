@@ -27,6 +27,7 @@ export const Sort: FC = () => {
 
     const newUrl = (selectedSort: string) => {
         const params = new URLSearchParams(searchParams)
+        params.delete('page')
         params.set('sort', selectedSort)
         const newUrl = `${pathname}?${params.toString()}`
         router.push(newUrl)

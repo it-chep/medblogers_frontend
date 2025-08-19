@@ -61,13 +61,6 @@ export const DoctorsAll: FC = () => {
                     )
                 }
             </section>
-            {
-                isLoading || (totalPages && totalPages <= 1)
-                    ?
-                <></>
-                    :
-                <Pagination setIsLoading={setIsLoading} totalPages={totalPages || 0} />
-            }
         </section>
     )
 }
