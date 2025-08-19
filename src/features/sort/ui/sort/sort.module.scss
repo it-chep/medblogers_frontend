@@ -4,7 +4,7 @@
 .wrapper{
     position: relative;
     font-size: 18px;
-    width: 360px;
+    width: 340px;
     max-width: 100%;    
     height: 100%;
 
@@ -24,12 +24,12 @@
         align-items: center;
         justify-content: space-between;
         position: relative;
-        min-height: 50px;
+        min-height: 48px;
         border-radius: 20px;
         background-color: var(--dark-gray);
         width: 100%;
         max-width: 100%;    
-        padding: 20px 30px;
+        padding: 10px 30px;
         cursor: pointer;
 
         .highlight{
@@ -80,13 +80,14 @@
         width: 100%;
 
         .selectedSort{
-            padding: 20px 25px;
+            padding: 10px 25px;
+            min-height: 50px;
         }
 
         .select{
             padding: 8px;
             .option{
-                padding: 10px 17px;
+                padding: 12px 17px;
             }
 
         }

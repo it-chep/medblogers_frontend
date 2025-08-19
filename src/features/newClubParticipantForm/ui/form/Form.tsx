@@ -27,7 +27,6 @@ export const Form: FC = () => {
 
     const router = useRouter()
 
-
     const {
         setEmail, setLastName, setFirstName, setMiddleName, setTelegramChannel,
         setBirthDate, setInstagramUsername, setVkUsername, setTelegramUsername,
@@ -233,7 +232,7 @@ export const Form: FC = () => {
 
             <Search 
                 label="Дополнительные города"
-                seletedItems={form.additionalCities.map(city => city.cityName)} 
+                selectedItems={form.additionalCities.map(city => city.cityName)} 
                 deleteSelected={deleteAdditionalCities} 
                 items={cities.map(city => city.cityName)} 
                 setSelected={setCitiesSelected} 
@@ -253,7 +252,7 @@ export const Form: FC = () => {
 
             <Search 
                 label="Дополнительные специальности"
-                seletedItems={form.additionalSpecialities.map(speciality => speciality.specialityName)} 
+                selectedItems={form.additionalSpecialities.map(speciality => speciality.specialityName)} 
                 deleteSelected={deleteAdditionalSpecialities} 
                 items={specialities.map(speciality => speciality.specialityName)} 
                 setSelected={setSpecialitiesSelected} 

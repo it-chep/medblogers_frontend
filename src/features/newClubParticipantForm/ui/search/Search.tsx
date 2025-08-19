@@ -9,19 +9,19 @@ interface IProps {
     label: string;
     items: string[];
     setSelected: (selected: string) => void;
-    deleteSelected: (name: string) => void;
-    seletedItems: string[];
+    deleteSelected?: (name: string) => void;
+    selectedItems: string[];
     placeholder: string;
 }
 
-export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, seletedItems, placeholder}) => {
+export const Search: FC<IProps> = ({items, setSelected, deleteSelected = () => {}, label, selectedItems, placeholder}) => {
 
     const inputRef = useRef<HTMLInputElement>(null)
     const [value, setValue] = useState<string>('')  
     const [open, setOpen] = useState<boolean>(false)
     const resultRef = useRef<HTMLDivElement>(null)
 
-    const searchItems = useSearchItems(value, items, seletedItems)
+    const searchItems = useSearchItems(value, items, selectedItems)
 
     const onSelected = (selected: string) => {
         setSelected(selected)
@@ -63,7 +63,7 @@ export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, s
                 {label}
             </span>
             <section ref={resultRef} className={classes.result}>
-                {seletedItems.map(item => 
+                {selectedItems.map(item => 
                     <Badge 
                         key={item} 
                         name={item} 
@@ -72,7 +72,7 @@ export const Search: FC<IProps> = ({items, setSelected, deleteSelected, label, s
                 )}
                 <input 
                     ref={inputRef} 
-                    placeholder={seletedItems.length === 0 ? placeholder : ''} 
+                    placeholder={selectedItems.length === 0 ? placeholder : ''} 
                     type="text" 
                     value={value} 
                     onChange={e => setValue(e.target.value)} 
