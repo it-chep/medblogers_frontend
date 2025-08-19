@@ -47,7 +47,7 @@ export const OpenFiltersModal: FC<PropsWithChildren> = ({children}) => {
                         <Close setOpen={setOpen} />
                     </section>
                     {
-                        open && children
+                        children
                     }
                 </section>
             </MyModal>
