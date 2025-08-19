@@ -6,7 +6,8 @@ import { ILink } from "../../model/types";
 export const infs: ILink[] = [
     {
         label: 'О проекте',
-        link: 'https://doc.readyschool.ru/base'
+        link: 'https://doc.readyschool.ru/base',
+        noindex: true,
     },
     {
         label: 'Политика конфиденциальности',
@@ -19,7 +20,8 @@ export const infs: ILink[] = [
     {
         label: 'О клубе',
         link: 'https://medblogers.ru/',
-        bold: 'MEDBLOGERS'
+        bold: 'MEDBLOGERS',
+        noindex: true,
     },
     {
         label: 'История обновлений',
@@ -31,7 +33,8 @@ export const infs: ILink[] = [
 export const contacts: ILink[] = [
     {
         label: 'Отдел заботы и техподдержка',
-        link: 'https://t.me/readydog'
+        link: 'https://t.me/readydog',
+        noindex: true,
     },
     {
         label: 'Telegram-канал',
