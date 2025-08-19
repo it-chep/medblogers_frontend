@@ -264,13 +264,14 @@ export const Form: FC = () => {
                 value={form.mainBlogTheme} 
                 setValue={setMainBlogTheme}
                 type="text"
+                placeholder="Например: ВПЧ, беременность, нарушения цикла, профилактика ОРВИ..."
                 name="mainBlogTheme" 
             />
             <MyInput 
                 label="У врачей каких специальностей вы бы хотели приобрести рекламу / договориться о коллаборации? (Планируем сделать вкладку «ищу неврологов, гинекологов и т.д.)" 
                 value={form.marketingPreferences} 
                 setValue={setMarketingPreferences}
-                placeholder="Например: ВПЧ, беременность, нарушения цикла, профилактика ОРВИ..."
+                placeholder="Например: Неврологи, педиатры, ревматологи, рентгенологи"
                 type="text"
                 name="marketingPreferences" 
             />

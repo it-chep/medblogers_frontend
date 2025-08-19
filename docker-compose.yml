@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  next-app:
+  frontend:
     build: .
-    container_name: my-next-app
+    container_name: frontend
     ports:
       - "3000:3000"
     restart: unless-stopped
