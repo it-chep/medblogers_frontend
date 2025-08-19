@@ -22,34 +22,38 @@ export const Socials: FC<IProps> = ({doctor}) => {
 
     return (
         <section className={classes.socials}>
-            <section className={classes.profiles}>
-                {
-                    doctor.tgSubsCount
-                        &&
-                    <section>
-                        <SubscriberLink 
-                            link={doctor.tgChannelUrl}
-                            subsCount={doctor.tgSubsCount}
-                            text={doctor.tgSubsCountText}
-                            socialIconSrc={tg_logo.src}
-                        />
-                        <LastUpdated lastUpdated={doctor.tgLastUpdatedDate} />
-                    </section>
-                }
-                {
-                    doctor.instSubsCount
-                        &&
-                    <section>
-                        <SubscriberLink
-                            link={doctor.instUrl}
-                            subsCount={doctor.instSubsCount}
-                            text={doctor.instSubsCountText}
-                            socialIconSrc={inst_logo.src}
-                        />
-                        <LastUpdated lastUpdated={doctor.instLastUpdatedDate} />
-                    </section>
-                }
-            </section>
+            {
+                (doctor.tgSubsCount || doctor.instSubsCount)
+                    &&
+                <section className={classes.profiles}>
+                    {
+                        doctor.tgSubsCount
+                            &&
+                        <section>
+                            <SubscriberLink 
+                                link={doctor.tgChannelUrl}
+                                subsCount={doctor.tgSubsCount}
+                                text={doctor.tgSubsCountText}
+                                socialIconSrc={tg_logo.src}
+                            />
+                            <LastUpdated lastUpdated={doctor.tgLastUpdatedDate} />
+                        </section>
+                    }
+                    {
+                        doctor.instSubsCount
+                            &&
+                        <section>
+                            <SubscriberLink
+                                link={doctor.instUrl}
+                                subsCount={doctor.instSubsCount}
+                                text={doctor.instSubsCountText}
+                                socialIconSrc={inst_logo.src}
+                            />
+                            <LastUpdated lastUpdated={doctor.instLastUpdatedDate} />
+                        </section>
+                    }
+                </section>
+            }
             <section className={classes.profiles}>
                 {
                     doctor.tgUrl && !doctor.tgSubsCount
