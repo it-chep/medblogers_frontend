@@ -1,0 +1,17 @@
+
+
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    min-height: 30px;
+    width: 100%;
+    
+    .loader{
+        height: 100%;
+        width: 80%;
+        margin: 0 auto;
+    }   
+
+}

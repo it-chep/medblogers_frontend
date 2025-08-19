@@ -7,6 +7,7 @@ import { FiltersLayout } from '@/src/widgets/filters'
 import { ActiveFiltersLayout } from '@/src/widgets/activeFilters'
 import { Sort } from '@/src/features/sort'
 import StatisticsLayout from '@/src/widgets/statistics'
+import { PaginationWidget } from '@/src/widgets/pagination'
 
 
 export default function HomePage() {
@@ -29,6 +30,7 @@ export default function HomePage() {
                 <Sort />
                 <ActiveFiltersLayout />
                 <DoctorsAll />
+                <PaginationWidget />
             </main>
         </section>
     )
