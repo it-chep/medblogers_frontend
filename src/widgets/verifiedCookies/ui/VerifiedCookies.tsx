@@ -33,7 +33,7 @@ export const VerifiedCookies: FC = () => {
         <section className={classes.container}>
             <Image src={cookieImg.src} width={30} height={30} alt="Cookie" />
             <span>
-                Мы используем файлы cookie для обеспечения удобства работы с сайтом <span className={classes.pk}>и его контакта с пользователем</span>
+                Мы используем файлы cookie, шаришь?
             </span>
             <section className={classes.button}>
                 <MyButton onClick={onClick}>
