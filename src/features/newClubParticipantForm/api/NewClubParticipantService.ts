@@ -1,11 +1,12 @@
 import { ICityData } from "@/src/entities/city"
 import { ISpecialityData } from "@/src/entities/speciality/model/types"
 import { IFormError, IFormReq } from "../model/types"
+import { SERVER_URL_API } from "@/src/app/env/env"
 
 class NewClubParticipantService {
 
     async getCities(){
-        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/cities_list',                                     
+        const response = await fetch(SERVER_URL_API + '/v1/cities_list',                                     
             {
                 cache: "no-cache"
             }
@@ -17,7 +18,7 @@ class NewClubParticipantService {
 
     
     async getSpecialities(){
-        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/specialities_list',                                     
+        const response = await fetch(SERVER_URL_API + '/v1/specialities_list',                                     
             {
                 cache: "no-cache"
             }
@@ -27,7 +28,7 @@ class NewClubParticipantService {
     }
 
     async setForm(form: IFormReq){
-        const response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL_API + '/v1/doctors/create',
+        const response = await fetch(SERVER_URL_API + '/v1/doctors/create',
             {
                 method: 'POST',
                 body: JSON.stringify(form),

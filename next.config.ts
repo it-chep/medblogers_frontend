@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
                 hostname: 'storage.yandexcloud.net',
             },
         ],
+        
     },
 };
 
