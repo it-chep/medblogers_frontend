@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useRef, useState } from "react"
+import { FC, useEffect, useMemo, useRef, useState } from "react"
 import { FilterItem } from "../filterItem/FilterItem"
 import classes from './filters.module.scss'
 import { MyHr } from "@/src/shared/ui/myHr"
@@ -101,6 +101,13 @@ export const Filters: FC<IProps> = ({mobile}) => {
         getFilters()
     }, [])
 
+    const paramsKey = useMemo(() => {
+        const params = new URLSearchParams(searchParams.toString());
+        params.delete('page');
+        params.delete('sort')
+        return params.toString();
+    }, [searchParams]);
+
     const isOne = useRef<boolean>(true)
     useEffect(() => {
         if(isOne.current){
@@ -113,7 +120,7 @@ export const Filters: FC<IProps> = ({mobile}) => {
         initialFilterSelected(copy, 'specialities')
         initialFilterSelected(copy, 'filterInfo')
         setFilter(copy)
-    }, [searchParams])
+    }, [paramsKey])
 
     return (
         isLoading
