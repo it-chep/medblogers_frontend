@@ -12,7 +12,7 @@ export const NotFoundWidget: FC = () => {
             <h1 className={classes.status}>Ошибка 404</h1>
             <section className={classes.desc}>Неправильно набран адрес или такой страницы не существует</section>
             <section className={classes.inform}>
-                <Link href={'https://t.me/maxim_jordan'}>
+                <Link href={'https://t.me/readydog'}>
                     <MyButton>
                         Сообщить об ошибке
                     </MyButton>
