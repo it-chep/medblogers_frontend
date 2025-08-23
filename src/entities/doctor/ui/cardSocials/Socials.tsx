@@ -56,7 +56,7 @@ export const Socials: FC<IProps> = ({doctor}) => {
             }
             <section className={classes.profiles}>
                 {
-                    doctor.tgUrl && !doctor.tgSubsCount
+                    doctor.tgChannelUrl && !doctor.tgSubsCount
                         &&
                     <SubscriberLink  
                         text="Канал в Telegram"
