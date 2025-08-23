@@ -12,7 +12,7 @@ export const NewClubParticipantWidget: FC = () => {
             <Image className={classes.aboutImg} src={aboutImg.src} height={125} width={500} alt="Напиши здесь о себе" />
             <section className={classes.header}>
                 <h1>Анкета участника MEDBLOGERS</h1>
-                <p>Привет, MEDBLOGERец! Эта форма позволит вам попасть на единый сайт - базу врачей-блогеров, а также поможет вам и коллегам найти вас и предложить сотрудничество.</p>
+                <p>Привет, MEDBLOGER! Эта форма позволит вам попасть на единый сайт - базу врачей-блогеров, а также поможет вам и коллегам найти вас и предложить сотрудничество.</p>
             </section>
             <section className={classes.body}>
                 <NewClubParticipantForm />
