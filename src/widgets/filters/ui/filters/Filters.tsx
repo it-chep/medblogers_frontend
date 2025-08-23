@@ -108,6 +108,12 @@ export const Filters: FC<IProps> = ({mobile}) => {
         return params.toString();
     }, [searchParams]);
 
+    const updateSlider = () => {
+        let initialMin = searchParams.get('min_subscribers') ? Number(searchParams.get('min_subscribers')) : MIN
+        let initialMax = searchParams.get('max_subscribers') ? Number(searchParams.get('max_subscribers')) : MAX
+        onBlurSlider(initialMin, initialMax)
+    }
+
     const isOne = useRef<boolean>(true)
     useEffect(() => {
         if(isOne.current){
@@ -115,11 +121,12 @@ export const Filters: FC<IProps> = ({mobile}) => {
             return
         }
         window.scrollTo({top: 0})
-        const copy = JSON.parse(JSON.stringify(filter))
+        const copy: IFilter = JSON.parse(JSON.stringify(filter))
         initialFilterSelected(copy, 'cities')
         initialFilterSelected(copy, 'specialities')
         initialFilterSelected(copy, 'filterInfo')
         setFilter(copy)
+        updateSlider()
     }, [paramsKey])
 
     return (
