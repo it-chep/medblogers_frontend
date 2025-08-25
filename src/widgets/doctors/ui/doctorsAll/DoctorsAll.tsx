@@ -6,6 +6,7 @@ import {DoctorMiniature, doctorService, IDoctorMiniature} from "@/src/entities/d
 import classes from './doctorsAll.module.scss'
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 import { Pagination } from "@/src/features/pagination";
+import { sortValues } from "@/src/features/sort";
 
 export const DoctorsAll: FC = () => {
 
@@ -14,11 +15,22 @@ export const DoctorsAll: FC = () => {
     const [totalPages, setTotalPages] = useState<number | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
+    const checkSearchParams = () => {
+        const sortParam = searchParams.get('sort')
+        const params = new URLSearchParams(searchParams)
+        if(sortParam){
+            const isOk = sortValues.find(value => value.value === sortParam)
+            if(!isOk){
+                params.set('sort', sortValues[0].value)
+            }
+        }
+        return params
+    }
 
     async function getDoctors() {
         try{
             setIsLoading(true)
-            const doctorsRes = await doctorService.getAll(searchParams.toString())
+            const doctorsRes = await doctorService.getAll(checkSearchParams().toString())
             setTotalPages(doctorsRes.pages)
             setDoctors(doctorsRes.doctors)
         }
