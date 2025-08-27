@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import classes from './pagination.module.scss'
 import { SwitchPages } from "../switchPages/SwitchPages";
 
@@ -16,7 +16,15 @@ export const Pagination: FC<IProps> = ({totalPages}) => {
     const pathname = usePathname()
     const router = useRouter()
 
-    const [currentPage, setCurrentPage] = useState<number>(searchParams.get('page') ? Number(searchParams.get('page')) : 1)
+    const getCurrentPage = () => {
+        return searchParams.get('page') ? Number(searchParams.get('page')) : 1
+    }
+
+    const [currentPage, setCurrentPage] = useState<number>(getCurrentPage())
+
+    useEffect(() => {
+        setCurrentPage(getCurrentPage())
+    }, [searchParams])
 
     const getVisiblePages = () => {
    
