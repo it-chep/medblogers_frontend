@@ -71,3 +71,29 @@
   }
 
 }
+
+@media (max-width: 480px) {
+  .container{
+
+    .docInfoWrapper{
+
+      .docInfo{
+        .name{
+          line-height: 22px;
+          font-size: 22px;
+          height: 64px;
+        }
+        .userAdditionalInfo{
+          p{
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .buttonsWrapper{
+      padding: 15px 9px 9px;
+    }
+
+  }
+}
