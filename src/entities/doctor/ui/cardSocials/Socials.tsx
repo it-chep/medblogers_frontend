@@ -101,6 +101,15 @@ export const Socials: FC<IProps> = ({doctor}) => {
                     />
                 }
                 {
+                    doctor.tiktokUrl
+                        &&
+                    <SubscriberLink  
+                        text="Профиль в Tiktok"
+                        link={doctor.tiktokUrl}
+                        socialIconSrc={tiktok_logo.src}
+                    />
+                }
+                {
                     doctor.siteLink
                         &&
                     <SubscriberLink  
