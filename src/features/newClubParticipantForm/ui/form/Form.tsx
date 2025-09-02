@@ -282,6 +282,8 @@ export const Form: FC = () => {
                 placeholder="Пример: https://taplink.cc/readydoc" 
                 type="text"
                 name="siteLink" 
+                error={formError?.find(error => error.field === 'siteLink')?.text} 
+                setError={setErrorFieldDelete('siteLink')}
             />
 
             <MyCheckbox 
