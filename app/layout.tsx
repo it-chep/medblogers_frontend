@@ -5,6 +5,7 @@ import { Header } from "@/src/widgets/header";
 import { Footer } from "@/src/widgets/footer";
 import { Metadata } from "next";
 import { VerifiedCookies } from "@/src/widgets/verifiedCookies";
+import { YandexMetrika } from "@/src/app/metrika/YandexMetrika";
 
 export const metadata: Metadata = {
   title: {
@@ -31,6 +32,7 @@ export default function RootLayout({
                     <VerifiedCookies />
                 </body>
             </html>
+            <YandexMetrika counterId={99369042} />
         </Suspense>
   );
 }
