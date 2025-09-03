@@ -16,6 +16,7 @@ import { ISpecialityData } from "@/src/entities/speciality/model/types";
 import { SearchItem } from "../searchItem/SearchItem";
 import { useRouter } from "next/navigation";
 import { changeFormError } from "../../lib/helpers/changeFormError";
+import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 
 export const Form: FC = () => {
 
@@ -90,6 +91,7 @@ export const Form: FC = () => {
         
         try{
             setIsLoading(true)
+            await new Promise(resolve => setTimeout(resolve, 4000))
             const res = await newClubParticipantService.setForm(formReq)
             if(res.errors.length === 0){
                 router.push('/spasibo_club_participant')
@@ -298,7 +300,15 @@ export const Form: FC = () => {
 
             <section className={classes.button}>
                 <MyButton isLoading={isLoading} error={formError.length > 0 ? "Заполните обязательные поля" : ""}>
-                    Отправить
+                    { 
+                        isLoading 
+                            ? 
+                        <section className={classes.loader}>
+                            <LoaderSpinner color="#FFF" />
+                        </section> 
+                            : 
+                        'Отправить' 
+                    }
                 </MyButton>
             </section>
         </form>
