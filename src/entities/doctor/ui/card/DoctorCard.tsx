@@ -16,7 +16,7 @@ export const DoctorCard: FC<IProps> = ({doctor}) => {
     return (
         <section className={classes.wrapper}>
             {
-                <Image 
+                <img 
                     className={classes.avatar} 
                     src={doctor.image} 
                     height={300} 
