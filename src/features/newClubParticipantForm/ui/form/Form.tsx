@@ -7,7 +7,7 @@ import { IForm, IFormError, IFormReq } from "../../model/types";
 import { initialStateForm } from "../../model/initialState";
 import { changeForm } from "../../lib/helpers/changeForm";
 import { newClubParticipantService } from "../../api/NewClubParticipantService";
-import { ICityData } from "@/src/entities/city";
+import { cityService, ICityData } from "@/src/entities/city";
 import { MyCheckbox } from "@/src/shared/ui/myCheckbox";
 import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
@@ -17,6 +17,7 @@ import { SearchItem } from "../searchItem/SearchItem";
 import { useRouter } from "next/navigation";
 import { changeFormError } from "../../lib/helpers/changeFormError";
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
+import { specialityService } from "@/src/entities/speciality";
 
 export const Form: FC = () => {
 
@@ -39,12 +40,12 @@ export const Form: FC = () => {
     const {setErrorFieldDelete} = changeFormError(formError, setFormError)
 
     const getCities = async () => {
-        const cities = await newClubParticipantService.getCities()
+        const cities = await cityService.getCities()
         setCities(cities)
     }
 
     const getSpecialities = async () => {
-        const specialities = await newClubParticipantService.getSpecialities()
+        const specialities = await specialityService.getSpecialities()
         setSpecialities(specialities)
     }
 
