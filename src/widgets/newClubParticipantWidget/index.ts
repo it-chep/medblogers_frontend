@@ -1,1 +1,1 @@
-export { NewClubParticipantWidget } from "./ui/NewClubParticipantWidget";
+export { NewClubParticipantWidget } from "./ui/widget/NewClubParticipantWidget";

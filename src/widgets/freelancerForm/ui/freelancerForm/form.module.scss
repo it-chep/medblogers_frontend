@@ -1,0 +1,47 @@
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 160px;
+
+    .checkbox{
+        font-size: 18px;
+    }
+
+    .agreePolicy{
+
+        font-size: 18px;
+
+        a{
+            color: rgba(13, 110, 253);
+            transition: color .15s ease;
+
+            &:hover{
+                color: #0a58ca;
+            }
+        }
+    }
+
+    .button{
+        margin-top: 10px;
+        height: 60px;
+
+        .loader{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+}
+
+@media (max-width: 480px) {
+    .container{
+        .button{
+            margin: 10px 20px 0 20px;
+        }
+    }
+}

@@ -2,7 +2,6 @@
 
 import { FC, useRef } from "react";
 import classes from './myInput.module.scss'
-import { InputType } from "zlib";
 
 interface IProps{
     value: string;
