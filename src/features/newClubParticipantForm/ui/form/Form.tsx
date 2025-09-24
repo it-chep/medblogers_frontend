@@ -91,7 +91,6 @@ export const Form: FC = () => {
         
         try{
             setIsLoading(true)
-            await new Promise(resolve => setTimeout(resolve, 4000))
             const res = await newClubParticipantService.setForm(formReq)
             if(res.errors.length === 0){
                 router.push('/spasibo_club_participant')
