@@ -33,3 +33,11 @@ export interface IFilterState{
     isLoading: boolean;
     error: string;
 }
+
+export type IItemFilter = {
+    id?: string;
+    name: string;
+    doctorsCount?: string;
+    slug?: string;
+    selected?: boolean;
+}

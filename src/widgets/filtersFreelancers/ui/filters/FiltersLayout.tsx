@@ -3,14 +3,16 @@
 import ReduxProvider from "@/src/app/store/StoreProvider";
 import { FC, useEffect, useState } from "react";
 import { Filters } from "./Filters";
-import { IFilter } from "@/src/entities/filter";
+import { IFilterFreelancer } from "@/src/entities/filterFreelancer";
+
+
 
 interface IProps {
     forDesk: boolean;
-    filters: IFilter;
+    filters: IFilterFreelancer;
 }
 
-export const FiltersLayout: FC<IProps> = ({forDesk, filters}) => {
+export const FiltersFreelancersLayout: FC<IProps> = ({forDesk, filters}) => {
 
     const [isMobile, setIsMobile] = useState<boolean>(false)
     const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -45,7 +47,7 @@ export const FiltersLayout: FC<IProps> = ({forDesk, filters}) => {
         (!isMobile && forDesk) || (isMobile && !forDesk)
             ?
         <ReduxProvider>
-            <Filters forDesk={forDesk} filtersRes={filters} />
+            <Filters filtersRes={filters} forDesk={forDesk} />
         </ReduxProvider>
             :
         <></>

@@ -1,21 +1,22 @@
-import filterReducer from "@/src/entities/filter/model/reducers/FilterSlice";
+import { filterReducer } from "@/src/entities/filter";
+import { filterFreelancerReducer } from "@/src/entities/filterFreelancer";
 import { configureStore } from "@reduxjs/toolkit";
-import { useDispatch, useSelector } from "react-redux";
-
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 
 const store = configureStore({
     reducer: {
-        filterReducer
+        filterReducer,
+        filterFreelancerReducer,
+        
     }
 })
-
 
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
-export const useAppSelector = useSelector.withTypes<RootState>()
-export const useAppDispatch = useDispatch.withTypes<AppDispatch>()
+export const useAppDispatch: () => AppDispatch = useDispatch
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 export default store

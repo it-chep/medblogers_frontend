@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import classes from './itemSelected.module.scss'
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { clearParams } from "@/src/shared/lib/helpers/clearParams";
+import { clearParamsFilter } from "@/src/shared/lib/helpers/clearParamsFilter";
 
 interface IProps{
     labelUrl: 'cities' | 'specialities'
@@ -17,7 +17,7 @@ export const ItemSelected: FC<IProps & PropsWithChildren> = ({labelUrl, id, setO
 
     const onSelected = () => {  
         const params = new URLSearchParams(searchParams)
-        clearParams(params)
+        clearParamsFilter(params)
         params.set(labelUrl, String(id))
         const newUrl = `${pathname}?${params.toString()}`
         setOpen(false)

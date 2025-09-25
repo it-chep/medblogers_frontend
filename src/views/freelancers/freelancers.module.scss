@@ -1,0 +1,38 @@
+.page{
+  display: flex;
+  gap: 20px;
+  min-height: 100vh;
+
+  .aside{
+    min-width: 280px;
+    width: 280px;
+  }
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+}
+
+@media (max-width: 650px) {
+  .page{
+    flex-direction: column;
+
+    .aside{
+      width: 100%;
+      min-width: 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .page{
+    .aside .filters{
+      display: none;
+    }
+  }
+}

@@ -8,19 +8,19 @@ import { Slider } from "@/src/features/slider"
 import { ApplyFilters } from "@/src/features/applyFilters"
 import { ResetFilters } from "@/src/features/resetFilters"
 import { useSearchParams } from "next/navigation"
-import { filterService } from "../../../../entities/filter/api/FilterService"
 import { LoaderContainer } from "@/src/shared/ui/loaderContainer"
 import { PreliminaryFilterCount } from "@/src/features/preliminaryFilterCount"
 import { IFilter, useFilterActions } from "@/src/entities/filter"
 import { useAppSelector } from "@/src/app/store/store"
-
+import { clearParamsFilter } from "@/src/shared/lib/helpers/clearParamsFilter"
 
 
 interface IProps {
-    mobile?: boolean;
+    forDesk: boolean;
+    filtersRes: IFilter;
 }
 
-export const Filters: FC<IProps> = ({mobile}) => {
+export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
     
     const {filter, isLoading} = useAppSelector(s => s.filterReducer)
     const {setFilter, setIsLoading, setCurrentMax, setCurrentMin} = useFilterActions()
@@ -75,26 +75,17 @@ export const Filters: FC<IProps> = ({mobile}) => {
         }
     }
     
-    async function getFilters() {
-        try{
-            setIsLoading(true)
-            const filtersRes = await filterService.getAll()
-            setMAX(+filtersRes.maxSubscribers)
-            setMIN(+filtersRes.minSubscribers)
-            initialFilterSelected(filtersRes, 'cities')
-            initialFilterSelected(filtersRes, 'specialities')
-            initialFilterSelected(filtersRes, 'filterInfo')
-            initialMinMax(filtersRes)
-            setValueMin(+filtersRes.minSubscribers)
-            setValueMax(+filtersRes.maxSubscribers)
-            setFilter(filtersRes)
-        }
-        catch(e){
-            console.log(e)
-        }
-        finally{
-            setIsLoading(false)
-        }
+    function getFilters() {
+        const copy: IFilter = JSON.parse(JSON.stringify(filtersRes))
+        setMAX(+copy.maxSubscribers)
+        setMIN(+copy.minSubscribers)
+        initialFilterSelected(copy, 'cities')
+        initialFilterSelected(copy, 'specialities')
+        initialFilterSelected(copy, 'filterInfo')
+        initialMinMax(copy)
+        setValueMin(+copy.minSubscribers)
+        setValueMax(+copy.maxSubscribers)
+        setFilter(copy)
     }
 
     useEffect(() => {
@@ -128,6 +119,7 @@ export const Filters: FC<IProps> = ({mobile}) => {
         setFilter(copy)
         updateSlider()
     }, [paramsKey])
+    
 
     return (
         isLoading
@@ -136,25 +128,25 @@ export const Filters: FC<IProps> = ({mobile}) => {
             :
         <section className={classes.container}>
             <FilterItem 
-                mobile={mobile} 
+                mobile={!forDesk} 
                 label="Город" 
                 labelSlug="cities" 
                 items={filter?.cities || []} 
             />
             <MyHr />
             <FilterItem 
-                mobile={mobile} 
+                mobile={!forDesk} 
                 label="Специальность" 
                 labelSlug="specialities" 
                 items={filter?.specialities || []} 
             />
             <MyHr />
             <FilterItem 
-                mobile={mobile} 
+                mobile={!forDesk} 
                 label="Подписчики" 
                 search={false} 
                 labelSlug="filterInfo" 
-                items={filter?.filterInfo || []}
+                items={filter?.filterInfo.map(info => ({id: info.slug, ...info})) || []}
             >
                 <Slider 
                     max={MAX}
@@ -173,7 +165,7 @@ export const Filters: FC<IProps> = ({mobile}) => {
             >
                 <PreliminaryFilterCount />
             </ApplyFilters>
-            <ResetFilters />
+            <ResetFilters clearParams={clearParamsFilter} />
         </section>
     )
 }

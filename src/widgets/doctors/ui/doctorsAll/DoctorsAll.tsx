@@ -5,7 +5,6 @@ import {useSearchParams} from "next/navigation";
 import {DoctorMiniature, doctorService, IDoctorMiniature} from "@/src/entities/doctor";
 import classes from './doctorsAll.module.scss'
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
-import { Pagination } from "@/src/features/pagination";
 import { sortValues } from "@/src/features/sort";
 
 export const DoctorsAll: FC = () => {

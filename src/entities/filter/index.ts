@@ -1,2 +1,5 @@
+export { filterService } from './api/FilterService'
+export { FilterList } from './ui/filterList/FilterList'
 export { useFilterActions } from './lib/hooks/useFilterActions'
-export {type IFilter} from './model/types'
+export {type IFilter, type IItemFilter} from './model/types'
+export {default as filterReducer} from './model/reducers/FilterSlice'

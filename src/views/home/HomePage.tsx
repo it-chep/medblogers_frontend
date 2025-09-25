@@ -8,23 +8,40 @@ import { ActiveFiltersLayout } from '@/src/widgets/activeFilters'
 import { Sort } from '@/src/features/sort'
 import StatisticsLayout from '@/src/widgets/statistics'
 import { PaginationWidget } from '@/src/widgets/pagination'
+import { filterService, IFilter } from '@/src/entities/filter'
 
+const getData = async () => {
+    let filters: IFilter | null = null;
+    try{
+        filters = await filterService.getAll()
+    }
+    catch(e){
+        console.log(e)
+    }
+    return filters
+}
 
-export default function HomePage() {
+export default async function HomePage() {
+
+    const filters = await getData()
+
+    if(!filters){
+        return <></>
+    }
 
     return (
         <section className={classes.page + ' wrapper_main'}>
             <aside className={classes.aside}>
                 <BannerNewDoctor />
                 <section className={classes.filters}>
-                    <FiltersLayout />
+                    <FiltersLayout forDesk={true} filters={filters} />
                 </section>
             </aside>
             <main className={classes.main}>
                 <StatisticsLayout />
                 <SearchDoctors>
                     <OpenFiltersModal>
-                        <FiltersLayout />
+                        <FiltersLayout filters={filters} forDesk={false} />
                     </OpenFiltersModal>
                 </SearchDoctors>
                 <Sort />

@@ -1,41 +1,28 @@
-
 "use client"
 
 import { MyButton } from "@/src/shared/ui/myButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC } from "react";
 import classes from './resetFilters.module.scss'
-import { clearParams } from "@/src/shared/lib/helpers/clearParams";
 
+interface IProps {
+    clearParams: (params: URLSearchParams) => void;
+}
 
-export const ResetFilters: FC = () => {
+export const ResetFilters: FC<IProps> = ({clearParams}) => {
 
     const searchParams = useSearchParams()
     const pathname = usePathname()
     const router = useRouter()
-
 
     const setNewUrl = (params: URLSearchParams) => {
         const newUrl = `${pathname}?${params.toString()}`
         router.push(newUrl)
     }
 
-    const resetFilterCheckboxes = () => {
-        const cities: NodeListOf<HTMLInputElement> = document.querySelectorAll('.cities input')
-        cities.forEach(city => {
-            city.checked = false
-        })
-
-        const specs: NodeListOf<HTMLInputElement> = document.querySelectorAll('.specialities input')
-        specs.forEach(speciality => {
-            speciality.checked = false
-        })
-    }
- 
     const reset = () => {
         const params = new URLSearchParams(searchParams);
         clearParams(params)
-        resetFilterCheckboxes()
         setNewUrl(params)
     }   
 

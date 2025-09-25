@@ -21,8 +21,6 @@ export const Slider: FC<IProps> = ({min, max, valueMax, valueMin, setValueMax, s
     const refInactiveLeft = useRef<HTMLDivElement>(null)
     const refInactiveRight = useRef<HTMLDivElement>(null)
 
-    
-
     const setGrab = () => {
         document.body.style.cursor = 'grab'
     }

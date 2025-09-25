@@ -1,4 +1,4 @@
-export const clearParams = (urlParams: URLSearchParams) => {
+export const clearParamsFilter = (urlParams: URLSearchParams) => {
     urlParams.delete('cities');
     urlParams.delete('specialities');
     urlParams.delete('social_media');

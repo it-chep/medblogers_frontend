@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { preliminaryFilterCountService } from "../api/PreliminaryFilterCountService";
 import { useAppSelector } from "@/src/app/store/store";
-import classes from './preliminaryFilterCount.module.scss'
 
 
 export const PreliminaryFilterCount: FC = () => {
@@ -40,7 +39,7 @@ export const PreliminaryFilterCount: FC = () => {
     }, [filter])
 
     return (
-        <span className={classes.container}>
+        <span>
             { count && <>({count})</> }
         </span>
     )

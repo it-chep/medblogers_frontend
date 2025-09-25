@@ -1,11 +1,11 @@
 "use client"
 
-import { clearParams } from "@/src/shared/lib/helpers/clearParams";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC, PropsWithChildren } from "react";
 import classes from './applyFilters.module.scss'
 import { useAppSelector } from "@/src/app/store/store";
+import { clearParamsFilter } from "@/src/shared/lib/helpers/clearParamsFilter";
 
 interface IProps {
     currentMin: number;
@@ -42,7 +42,7 @@ export const ApplyFilters: FC<IProps & PropsWithChildren> = ({currentMax, curren
 
     const apply = () => {
         const params = new URLSearchParams(searchParams);
-        clearParams(params)
+        clearParamsFilter(params)
 
         const selectedCitiesIds = selectedCities()
         const selectedSpecialitiesIds = selectedSpecialities()

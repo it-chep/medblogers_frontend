@@ -28,6 +28,18 @@ class FreelancerService {
         return socialNetworks  
     }
 
+    async getAll(params: string) {
+        const response = await fetch(SERVER_URL_API + '/v1/freelancers' + (params ? `?${params}` : ''),
+            {
+                cache: "no-cache"
+            }
+        )
+        const doctorsData = await response.json()
+        return doctorsData
+    }
+
+    
+
 } 
 
 export const freelancerService = new FreelancerService()

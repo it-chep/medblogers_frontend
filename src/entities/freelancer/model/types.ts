@@ -9,3 +9,6 @@ export interface IPriceListItem {
     name: string;
     amount: number;
 } 
+
+
+

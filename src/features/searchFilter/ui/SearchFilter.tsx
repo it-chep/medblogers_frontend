@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useState } from "react";
+import { FC} from "react";
 import classes from './searchFilter.module.scss'
 
 interface IProps {
