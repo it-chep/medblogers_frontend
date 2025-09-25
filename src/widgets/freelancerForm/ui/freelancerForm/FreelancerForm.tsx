@@ -66,7 +66,7 @@ export const FreelancerForm: FC = () => {
             setIsLoading(true)
             const res = await freelancerFormService.setForm(form)
             if(res.errors.length === 0){
-                // router.push('/spasibo_club_participant')
+                router.push('/spasibo_club_participant')
             }
             else{
                 if(res.errors){
