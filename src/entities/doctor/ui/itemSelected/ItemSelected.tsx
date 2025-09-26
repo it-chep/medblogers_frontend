@@ -1,3 +1,5 @@
+"use client"
+
 import { FC, PropsWithChildren } from "react";
 import classes from './itemSelected.module.scss'
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
