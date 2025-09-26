@@ -1,5 +1,4 @@
 import { IStatistic, StatisticItem, statisticService } from "@/src/entities/statistic";
-import { FC } from "react";
 import classes from './statistics.module.scss'
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 

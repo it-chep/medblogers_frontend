@@ -1,6 +1,6 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
 import { ISpecialityData } from "../../speciality/model/types"
-import { IFreelancerSpeciality } from "../model/types"
+import { IFreelancerSpeciality, IStatisticFreelancers } from "../model/types"
 import { IItem } from "@/src/shared/model/types"
 
 
@@ -39,6 +39,15 @@ class FreelancerService {
     }
 
     
+    async getStatistics(): Promise<IStatisticFreelancers> {
+        const response = await fetch(SERVER_URL_API + '/v1/freelancers/counters_info',
+            {
+                cache: "no-cache"
+            }
+        )
+        const statistics = await response.json()
+        return statistics
+    }
 
 } 
 

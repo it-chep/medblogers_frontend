@@ -44,3 +44,7 @@ export interface ISearchFreelancers {
     cities: ICityFreelancer[];
     specialities: ISpecialityFreelancer[];
 }
+
+export interface IStatisticFreelancers {
+    freelancersCount: number; 
+}

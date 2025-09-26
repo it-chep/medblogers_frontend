@@ -1,0 +1,1 @@
+export { StatisticsFreelancersLayout } from "./ui/StatisticsFreelancersLayout";
