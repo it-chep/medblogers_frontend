@@ -2,16 +2,16 @@
 
 import { FC, PropsWithChildren, useState } from "react";
 import { MyModal } from "@/src/shared/ui/myModal";
-import classes from './searchDoctors.module.scss'
+import classes from './search.module.scss'
 import { SearchInput } from "@/src/features/searchInput";
-import { ISearchDoctors, SearchResultDoctors } from "@/src/entities/doctor";
-import { searchDoctorsService } from "../../api/SearchDoctorsService";
+import { ISearchFreelancers, SearchResultFreelancer } from "@/src/entities/freelancer";
+import { searchFreelancersService } from "../api/SearchFreelancersService";
 
 
-export const SearchDoctors: FC<PropsWithChildren> = ({children}) => {
+export const SearchFreelancers: FC<PropsWithChildren> = ({children}) => {
 
     const [open, setOpen] = useState<boolean>(false)
-    const [searchResult, setSearchResult] = useState<ISearchDoctors | null>(null)
+    const [searchResult, setSearchResult] = useState<ISearchFreelancers | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const onOpen = () => setOpen(true)
@@ -23,7 +23,7 @@ export const SearchDoctors: FC<PropsWithChildren> = ({children}) => {
         }
         try{
             setIsLoading(true)
-            const searchRes = await searchDoctorsService.get(encodeURI(value))
+            const searchRes = await searchFreelancersService.get(encodeURI(value))
             setSearchResult(searchRes)
         }
         catch(e: any){
@@ -46,7 +46,11 @@ export const SearchDoctors: FC<PropsWithChildren> = ({children}) => {
         <section className={classes.wrapper}>
             <SearchInput onChange={onChange} onFocus={onOpen} />
             <MyModal open={open} setOpen={setOpen}>
-                <SearchResultDoctors isLoading={isLoading} setOpen={setOpen} result={searchResult} />     
+                <SearchResultFreelancer 
+                    result={searchResult} 
+                    setOpen={setOpen}
+                    isLoading={isLoading}
+                />
             </MyModal>
             <section className={classes.openFilterForMobile}>
                 {children}

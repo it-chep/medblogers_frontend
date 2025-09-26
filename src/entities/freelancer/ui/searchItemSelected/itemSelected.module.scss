@@ -1,0 +1,10 @@
+
+
+
+.wrapper{
+    cursor: pointer;
+
+    &:hover{
+        background-color: var(--blue);
+    }
+}

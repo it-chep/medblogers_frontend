@@ -1,0 +1,25 @@
+
+
+
+.container{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 32px;
+
+    img{
+        border-radius: 22px;
+        object-fit: cover;
+    }
+
+    &:hover{
+        background-color: var(--blue);
+    }
+
+    .data{
+        
+        p{
+            color: var(--sign-gray);
+        }
+    }
+}

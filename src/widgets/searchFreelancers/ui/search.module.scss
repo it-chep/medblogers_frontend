@@ -1,0 +1,33 @@
+
+
+
+.wrapper{
+    position: relative;
+
+    .list{
+        position: relative;
+        z-index: 109;
+        margin-top: 12px;
+        color: white;
+        max-height: 480px;
+        overflow-y: auto;
+        background: #1E1E1E;
+        border-radius: 26px;
+    }
+
+    .openFilterForMobile{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .openFilterForMobile{
+            display: block;
+        }
+    }
+}

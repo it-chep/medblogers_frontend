@@ -1,14 +1,14 @@
 import { FC } from "react";
 import classes from './itemList.module.scss'
-import { Item } from "../item/Item";
+import { Item } from "../searchItem/Item";
 import markIcon from '@/src/shared/lib/assets/mark.png'
 import specialityIcon from '@/src/shared/lib/assets/speciality.png'
-import { ItemSelected } from "../itemSelected/ItemSelected";
-import { ICityDoctor, ISpecialityDoctor } from "../../model/types";
+import { ItemSelected } from "../searchItemSelected/ItemSelected";
+import { ICityFreelancer, ISpecialityFreelancer } from "../../model/types";
 
 interface IProps {
     labelName: 'Города' | 'Специальности';
-    items: ICityDoctor[] | ISpecialityDoctor[];
+    items: ICityFreelancer[] | ISpecialityFreelancer[];
     setOpen: (open: boolean) => void;
 }
 

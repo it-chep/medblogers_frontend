@@ -75,14 +75,12 @@ export interface ICityDoctor {
     id: string;
     name: string;
     doctorsCount: string;
-    selected?: boolean;
 }
 
 export interface ISpecialityDoctor {
     id: string;
     name: string;
     doctorsCount: string;
-    selected?: boolean;
 }
 
 export interface ISearchDoctors {

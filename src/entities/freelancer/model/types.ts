@@ -15,7 +15,19 @@ interface ISocialNetworkItem {
     name: string;
 } 
 
-export interface ISearchFreelancers {
+export interface ICityFreelancer{
+    id: string;
+    name: string;
+    freelancersCount: number;
+} 
+
+export interface ISpecialityFreelancer{
+    id: string;
+    name: string;
+    freelancersCount: number;
+} 
+
+export interface ISearchFreelancer {
     id: string;
     name: string;
     cityName: string;
@@ -25,4 +37,10 @@ export interface ISearchFreelancers {
     experienceWithDoctors: boolean;
     priceCategory: number;
     socialNetworks: ISocialNetworkItem[];
+}
+
+export interface ISearchFreelancers {
+    freelancers: ISearchFreelancer[];
+    cities: ICityFreelancer[];
+    specialities: ISpecialityFreelancer[];
 }

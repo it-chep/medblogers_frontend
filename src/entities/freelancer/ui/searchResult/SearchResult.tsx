@@ -1,17 +1,18 @@
 import { FC } from "react";
 import classes from './searchResult.module.scss'
 import { ItemList } from "../searchItemList/ItemList";
-import { ISearchDoctors, SearchMiniature } from "@/src/entities/doctor";
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
+import { ISearchFreelancers } from "../../model/types";
+import { SearchMiniature } from "../searchMiniature/SearchMiniature";
 
 
 interface IProps {
-    result: ISearchDoctors | null;
+    result: ISearchFreelancers | null;
     setOpen: (open: boolean) => void;
     isLoading: boolean;
 }
 
-export const SearchResultDoctors: FC<IProps> = ({result, setOpen, isLoading}) => {
+export const SearchResultFreelancer: FC<IProps> = ({result, setOpen, isLoading}) => {
 
 
     
@@ -28,9 +29,9 @@ export const SearchResultDoctors: FC<IProps> = ({result, setOpen, isLoading}) =>
                     ?
                 <></>
                     :
-                result.cities.length === 0 && result.doctors.length === 0 && result.specialities.length === 0
+                result.cities.length === 0 && result.freelancers.length === 0 && result.specialities.length === 0
                     ?
-                <p className={classes.empty}>Нет подходящих врачей.</p>
+                <p className={classes.empty}>Нет подходящих специалистов.</p>
                     :
                 <>
                     {
@@ -52,14 +53,14 @@ export const SearchResultDoctors: FC<IProps> = ({result, setOpen, isLoading}) =>
                         />
                     }
                     {
-                        result.doctors.length !== 0
+                        result.freelancers.length !== 0
                             &&
-                        <section className={classes.doctors}>
+                        <section className={classes.freelancers}>
                             <h4>Доктора</h4>
-                            {result.doctors.map((doctor, ind) => 
-                                <SearchMiniature 
+                            {result.freelancers.map((freelancer, ind) => 
+                                <SearchMiniature
                                     key={ind}
-                                    doctor={doctor} 
+                                    freelancer={freelancer} 
                                 />
                             )}
                         </section>
