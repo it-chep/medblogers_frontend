@@ -1,12 +1,11 @@
 "use client"
 
 import { FC, PropsWithChildren, useState } from "react";
-import { SearchInput } from "../searchInput/SearchInput";
 import { MyModal } from "@/src/shared/ui/myModal";
 import classes from './searchDoctors.module.scss'
+import { SearchInput } from "@/src/features/searchInput";
 import { searchDoctorsService } from "../../api/SearchDoctorsService";
-import { ISearchDoctors } from "../../model/types";
-import { SearchResult } from "../result/SearchResult";
+import { ISearchDoctors, SearchResult } from "@/src/entities/doctor";
 
 
 export const SearchDoctors: FC<PropsWithChildren> = ({children}) => {

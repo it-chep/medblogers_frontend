@@ -11,7 +11,7 @@ interface IProps {
 
 }
 
-export const IItem: FC<IProps> = ({label, icon, item}) => {
+export const Item: FC<IProps> = ({label, icon, item}) => {
 
     
 

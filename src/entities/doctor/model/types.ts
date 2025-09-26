@@ -20,14 +20,6 @@ export interface IDoctorMiniature {
     tgSubsCountText: string;
 }
 
-export interface IDoctorSearch {
-    id: string;
-    name: string;
-    cityName: string;
-    slug: string;
-    specialityName: string;
-    image: string;
-}
 
 interface IItem {
     id: string;
@@ -37,7 +29,7 @@ interface IItem {
 export interface IDoctor {
 
     code?: number;
-
+    
     name: string;
     slug: string;
     instUrl: string;
@@ -65,4 +57,36 @@ export interface IDoctor {
 export interface IDoctorSeo{
     title: string;
     description: string;
+}
+
+
+export interface ISearchDoctor {
+    id: string;
+    name: string;
+    cityName: string;
+    slug: string;
+    specialityName: string;
+    image: string;
+}
+
+
+
+export interface ICityDoctor {
+    id: string;
+    name: string;
+    doctorsCount: string;
+    selected?: boolean;
+}
+
+export interface ISpecialityDoctor {
+    id: string;
+    name: string;
+    doctorsCount: string;
+    selected?: boolean;
+}
+
+export interface ISearchDoctors {
+    cities: ICityDoctor[];
+    specialities: ISpecialityDoctor[];
+    doctors: ISearchDoctor[];
 }

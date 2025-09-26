@@ -1,5 +1,5 @@
 import { SERVER_URL_API } from "@/src/app/env/env";
-import { ISearchDoctors } from "../model/types"
+import { ISearchDoctors } from "@/src/entities/doctor";
 
 class SearchDoctorsService{
 

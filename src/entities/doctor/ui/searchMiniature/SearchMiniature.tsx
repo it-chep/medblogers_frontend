@@ -1,12 +1,12 @@
 import { FC } from "react";
 import classes from './searchMiniature.module.scss'
 import Link from "next/link";
-import { IDoctorSearch } from "../../model/types";
 import Image from "next/image";
+import { ISearchDoctor } from "../../model/types";
 
 
 interface IProps {
-    doctor: IDoctorSearch;
+    doctor: ISearchDoctor;
 }
 
 export const SearchMiniature: FC<IProps> = ({doctor}) => {

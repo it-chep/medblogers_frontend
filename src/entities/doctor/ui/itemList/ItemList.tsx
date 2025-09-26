@@ -1,15 +1,14 @@
 import { FC } from "react";
 import classes from './itemList.module.scss'
-import { ICity } from "@/src/entities/city";
-import { ISpeciality } from "@/src/entities/speciality";
-import { IItem } from "../item/Item";
+import { Item } from "../item/Item";
 import markIcon from '@/src/shared/lib/assets/mark.png'
 import specialityIcon from '@/src/shared/lib/assets/speciality.png'
 import { ItemSelected } from "../itemSelected/ItemSelected";
+import { ICityDoctor, ISpecialityDoctor } from "../../model/types";
 
 interface IProps {
     labelName: 'Города' | 'Специальности';
-    items: ICity[] | ISpeciality[];
+    items: ICityDoctor[] | ISpecialityDoctor[];
     setOpen: (open: boolean) => void;
 }
 
@@ -27,7 +26,7 @@ export const ItemList: FC<IProps> = ({labelName, items, setOpen}) => {
                     id={item.id}
                     key={ind}
                 >
-                    <IItem 
+                    <Item 
                         icon={labelName === 'Города' ? markIcon.src : specialityIcon.src} 
                         item={item} 
                         label={labelNameSlug}

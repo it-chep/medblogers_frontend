@@ -1,2 +1,2 @@
 export { freelancerService } from "./api/FreelancerService";
-export {type IFreelancerSpeciality, type IPriceListItem} from './model/types'
+export {type ISearchFreelancers, type IFreelancerSpeciality, type IPriceListItem} from './model/types'

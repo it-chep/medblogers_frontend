@@ -34,7 +34,7 @@ export default async function FreelancersPage() {
                 </section>
             </aside>
             <main className={classes.main}>
-             
+              
             </main>
         </section>
     )

@@ -1,6 +1,5 @@
 import { DoctorsAll } from '@/src/widgets/doctors'
 import classes from './home.module.scss'
-import { SearchDoctors } from '@/src/features/searchDoctors'
 import { OpenFiltersModal } from '@/src/features/openFiltersModal'
 import { BannerNewDoctor } from '@/src/widgets/bannerNewDoctor'
 import { FiltersLayout } from '@/src/widgets/filters'
@@ -9,6 +8,7 @@ import { Sort } from '@/src/features/sort'
 import StatisticsLayout from '@/src/widgets/statistics'
 import { PaginationWidget } from '@/src/widgets/pagination'
 import { filterService, IFilter } from '@/src/entities/filter'
+import { SearchDoctors } from '@/src/widgets/searchDoctors'
 
 const getData = async () => {
     let filters: IFilter | null = null;

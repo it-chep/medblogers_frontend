@@ -1,8 +1,7 @@
 import { FC } from "react";
 import classes from './searchResult.module.scss'
-import { ISearchDoctors } from "../../model/types";
 import { ItemList } from "../itemList/ItemList";
-import { SearchMiniature } from "@/src/entities/doctor";
+import { ISearchDoctors, SearchMiniature } from "@/src/entities/doctor";
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 
 
