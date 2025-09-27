@@ -4,7 +4,6 @@ import classes from './doctorMiniature.module.scss'
 import Image from "next/image";
 import tg_logo from '@/src/shared/lib/assets/telegram_logo.png'
 import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
-import IMG from '@/public/user_abdurzakova-alyona-aleksandrovna_photo_2025-06-21_01-10-57.jpg'
 import {MyButton} from "@/src/shared/ui/myButton";
 import {SubscriberLink} from "@/src/entities/doctor/ui/subscriberLink/SubscriberLink";
 import Link from "next/link";

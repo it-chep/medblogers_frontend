@@ -48,3 +48,17 @@ export interface ISearchFreelancers {
 export interface IStatisticFreelancers {
     freelancersCount: number; 
 }
+
+
+
+export interface IFreelancerMiniature {
+    name: string;
+    slug: string;
+    speciality: string;
+    city: string;
+    image: string;
+    experienceWithDoctors: boolean;
+    hasCommand: boolean;
+    priceCategory: number;
+    socialNetworks: ISocialNetworkItem[];
+}

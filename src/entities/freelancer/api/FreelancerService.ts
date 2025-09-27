@@ -1,6 +1,6 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
 import { ISpecialityData } from "../../speciality/model/types"
-import { IFreelancerSpeciality, IStatisticFreelancers } from "../model/types"
+import { IFreelancerMiniature, IFreelancerSpeciality, IStatisticFreelancers } from "../model/types"
 import { IItem } from "@/src/shared/model/types"
 
 
@@ -28,14 +28,14 @@ class FreelancerService {
         return socialNetworks  
     }
 
-    async getAll(params: string) {
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers' + (params ? `?${params}` : ''),
+    async getAll(params: string): Promise<IFreelancerMiniature[]> {
+        const response = await fetch(SERVER_URL_API + '/v1/freelancers/filter' + (params ? `?${params}` : ''),
             {
                 cache: "no-cache"
             }
         )
-        const doctorsData = await response.json()
-        return doctorsData
+        const {freelancers}: {freelancers: IFreelancerMiniature[]} = await response.json()
+        return freelancers
     }
 
     

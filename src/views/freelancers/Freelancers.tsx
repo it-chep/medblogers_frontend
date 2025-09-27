@@ -6,6 +6,7 @@ import { filterFreelancerService, IFilterFreelancer } from '@/src/entities/filte
 import { OpenFiltersModal } from '@/src/features/openFiltersModal';
 import { StatisticsFreelancersLayout } from '@/src/widgets/statisticsFreelancers';
 import { ActiveFiltersFreelancersLayout } from '@/src/widgets/activeFiltersFreelancers';
+import { FreelancersAll } from '@/src/widgets/freelancers';
 
 const getData = async () => {
     let filters: IFilterFreelancer | null = null;
@@ -44,6 +45,7 @@ export default async function FreelancersPage() {
                     </OpenFiltersModal>
                 </SearchFreelancers>
                 <ActiveFiltersFreelancersLayout />
+                <FreelancersAll />
             </main>
         </section>
     )
