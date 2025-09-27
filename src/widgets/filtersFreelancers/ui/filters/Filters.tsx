@@ -12,6 +12,7 @@ import { ResetFilters } from "@/src/features/resetFilters";
 import { clearParamsFilterFreelancer } from "@/src/shared/lib/helpers/clearParamsFilterFreelancer";
 import { ToggleSwitch } from "@/src/shared/ui/toggleSwitch";
 import { IFilterFreelancer, useFilterFreelancerActions } from "@/src/entities/filterFreelancer";
+import { PreliminaryFilterCountFreelancers } from "@/src/features/preliminaryFilterCountFreelancers";
 
 
 
@@ -127,7 +128,9 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                 onSelected={setExperienceWithDoctors}
             />
             <MyHr />
-            <ApplyFiltersFreelancers />
+            <ApplyFiltersFreelancers>
+                <PreliminaryFilterCountFreelancers />
+            </ApplyFiltersFreelancers>
             <ResetFilters clearParams={clearParamsFilterFreelancer} />
         </section>
     )

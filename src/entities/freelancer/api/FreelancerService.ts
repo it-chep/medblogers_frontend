@@ -49,6 +49,7 @@ class FreelancerService {
         return statistics
     }
 
+    
 } 
 
 export const freelancerService = new FreelancerService()

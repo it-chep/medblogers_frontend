@@ -47,7 +47,6 @@ export const FiltersFreelancersLayout: FC<IProps> = ({forDesk, filters}) => {
             ?
         <ReduxProvider>
             <Filters filtersRes={filters} forDesk={forDesk} />
-            <></>
         </ReduxProvider>
             :
         <></>
