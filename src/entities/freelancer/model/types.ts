@@ -10,8 +10,13 @@ export interface IPriceListItem {
     amount: number;
 } 
 
+interface IPriceListItemRes {
+    name: string;
+    amount: string;
+} 
+
 interface ISocialNetworkItem {
-    id: number;
+    id: string;
     name: string;
 } 
 
@@ -59,6 +64,27 @@ export interface IFreelancerMiniature {
     image: string;
     experienceWithDoctors: boolean;
     hasCommand: boolean;
-    priceCategory: number;
+    priceCategory: string;
     socialNetworks: ISocialNetworkItem[];
+}
+
+export interface IFreelancer {
+
+    code?: number;
+
+    name: string;
+    slug: string;
+    tgUrl: string;
+    priceCategory: string;
+    portfolioLink: string;
+    image: string;
+    cities: ICityFreelancer[];
+    specialities: ISpecialityFreelancer[];
+    mainCity: ICityFreelancer;
+    mainSpeciality: ISpecialityFreelancer;
+    socialNetworks: ISocialNetworkItem[];
+    priceList: IPriceListItemRes[];
+    workingExperience: string;
+    hasCommand: boolean;
+    experienceWithDoctors: boolean;
 }

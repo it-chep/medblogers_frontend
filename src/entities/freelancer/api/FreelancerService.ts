@@ -1,6 +1,6 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
 import { ISpecialityData } from "../../speciality/model/types"
-import { IFreelancerMiniature, IFreelancerSpeciality, IStatisticFreelancers } from "../model/types"
+import { IFreelancer, IFreelancerMiniature, IFreelancerSpeciality, IStatisticFreelancers } from "../model/types"
 import { IItem } from "@/src/shared/model/types"
 
 
@@ -49,7 +49,16 @@ class FreelancerService {
         return statistics
     }
 
-    
+    async get(slug: string): Promise<IFreelancer> {
+        const response = await fetch(SERVER_URL_API + '/v1/freelancers/card/' + slug,
+            {
+                cache: "no-cache"
+            }
+        )
+        const freelancer = await response.json()
+        return freelancer
+    }
+
 } 
 
 export const freelancerService = new FreelancerService()

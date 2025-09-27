@@ -1,0 +1,13 @@
+.badge{
+    padding: 8px 20px;
+    border-radius: 8px;
+    background: #404040;
+    color: var(--text-gray);
+    width: fit-content;
+
+    &.main{
+        background: #01284B;
+        color: #2E99FC;
+
+    }
+}

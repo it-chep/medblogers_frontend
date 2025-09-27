@@ -13,12 +13,13 @@ interface IProps {
 export const CardData: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
 
 
-
     return (
         <section className={classes.container}>
             <section className={classes.main}>
                 <h1 className={classes.name}>{doctor.name}</h1>
-                <span className={classes.city}>Город: {doctor.mainCity.name}{doctor.cities.length >= 0 && doctor.cities.map(city => `, ${city.name}`)}</span>
+                <span className={classes.city}>
+                    Город: {doctor.mainCity.name}{doctor.cities.length >= 0 && doctor.cities.map(city => `, ${city.name}`)}
+                </span>
                 <section className={classes.specialities}>
                     <SpecialityBadge id={doctor.mainSpeciality.id} text={doctor.mainSpeciality.name} main={true} />
                     {doctor.specialities.map((speciality, ind) => 
