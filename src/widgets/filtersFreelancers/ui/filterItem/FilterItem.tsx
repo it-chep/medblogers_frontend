@@ -2,8 +2,7 @@ import { FC, PropsWithChildren, useState } from "react";
 import classes from './filterItem.module.scss'
 import { SearchFilter, useSearchItems } from "@/src/features/searchFilter";
 import { OpenFilter } from "@/src/features/openFilter";
-import { IFilterFreelancer, IItemFilterFreelancer, useFilterFreelancerActions } from "@/src/entities/filterFreelancer";
-import { FilterFreelancerList } from "@/src/entities/filterFreelancer/ui/filterList/FilterList";
+import { FilterFreelancerList, IFilterFreelancer, IItemFilterFreelancer, useFilterFreelancerActions } from "@/src/entities/filterFreelancer";
 
 interface IProps{
     label: string;

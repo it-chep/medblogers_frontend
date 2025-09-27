@@ -1,14 +1,13 @@
-import { filterReducer } from "@/src/entities/filter";
 import { filterFreelancerReducer } from "@/src/entities/filterFreelancer";
+import { filterReducer } from "@/src/entities/filter";
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 
 const store = configureStore({
     reducer: {
-        filterReducer,
         filterFreelancerReducer,
-        
+        filterReducer,
     }
 })
 

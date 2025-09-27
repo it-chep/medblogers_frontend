@@ -1,8 +1,8 @@
 import { FC } from "react";
 import classes from './itemList.module.scss'
 import { Item } from "../searchItem/Item";
-import markIcon from '@/src/shared/lib/assets/mark.png'
-import specialityIcon from '@/src/shared/lib/assets/speciality.png'
+import markIcon from '@/src/shared/lib/assets/mark_blue.png'
+import specialityIcon from '@/src/shared/lib/assets/speciality_blue.png'
 import { ItemSelected } from "../searchItemSelected/ItemSelected";
 import { ICityFreelancer, ISpecialityFreelancer } from "../../model/types";
 

@@ -19,46 +19,30 @@ export const ActiveFilters: FC = () => {
     const [selectedCheckboxesForCities, setSelectedCheckboxesForCities] = useState<IItem[]>([])
     const [selectedCheckboxesForSpecs, setSelectedCheckboxesForSpecs] = useState<IItem[]>([])
 
-    const selectedCheckboxesCities = () => {
+    const selectedCheckboxes = (label: 'cities' | 'specialities') => {
         const params = new URLSearchParams(searchParams);
-        const values = params.getAll('cities')
-        let cities: IItem[] = []
+        const values = params.getAll(label)
+        let items: IItem[] = []
         if(values){
             values.forEach(value => {
-                const elem: IFilter['cities'][0] | undefined = filter.cities.find(city => city.id === value)
+                const elem: IFilter['cities' | 'specialities'][0] | undefined = filter[label].find(item => item.id === value)
                 if(elem){
-                    cities.push({
+                    items.push({
                         id: +value,
                         name: elem.name.replace(/\s*\([^)]*\)/g, '')
                     })
                 }
             })
         }
-        return cities
+        return items
     }
 
-    const selectedCheckboxesSpecs = () => {
-        const params = new URLSearchParams(searchParams);
-        const values = params.getAll('specialities')
-        let specs: IItem[] = []
-        if(values){
-            values.forEach(value => {
-                const elem: IFilter['specialities'][0] | undefined = filter.specialities.find(city => city.id === value)
-                if(elem){
-                    specs.push({
-                        id: +value,
-                        name: elem.name.replace(/\s*\([^)]*\)/g, '')
-                    })
-                }
-            })
-        }
-        return specs
-    }
+    
 
     useEffect(() => {
         if(filter){
-            const citites = selectedCheckboxesCities()
-            const specs = selectedCheckboxesSpecs()
+            const citites = selectedCheckboxes('cities')
+            const specs = selectedCheckboxes('specialities')
             setSelectedCheckboxesForCities([...citites])
             setSelectedCheckboxesForSpecs([...specs])
         }

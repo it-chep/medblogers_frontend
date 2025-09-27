@@ -6,7 +6,6 @@ import { Filters } from "./Filters";
 import { IFilterFreelancer } from "@/src/entities/filterFreelancer";
 
 
-
 interface IProps {
     forDesk: boolean;
     filters: IFilterFreelancer;
@@ -48,6 +47,7 @@ export const FiltersFreelancersLayout: FC<IProps> = ({forDesk, filters}) => {
             ?
         <ReduxProvider>
             <Filters filtersRes={filters} forDesk={forDesk} />
+            <></>
         </ReduxProvider>
             :
         <></>

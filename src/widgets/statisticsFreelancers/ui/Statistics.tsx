@@ -1,9 +1,7 @@
-import { StatisticItem } from "@/src/entities/statistic";
+import { freelancerService, IStatisticFreelancers } from '@/src/entities/freelancer';
 import classes from './statistics.module.scss'
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
-import { freelancerService, IStatisticFreelancers } from "@/src/entities/freelancer";
-
-// ISR надо
+import { StatisticItem } from '@/src/entities/statistic';
 
 
 const getData = async () => {
@@ -30,7 +28,7 @@ export default async function Statistics() {
                 statistics?.freelancersCount 
                     && 
                 <StatisticItem 
-                    label="Специалистов в базе " 
+                    label="Специалистов в базе:" 
                     count={String(statistics.freelancersCount)} 
                 /> 
             }

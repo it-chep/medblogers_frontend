@@ -1,6 +1,6 @@
 import { bindActionCreators } from "@reduxjs/toolkit"
-import { useAppDispatch } from "@/src/app/store/store"
 import { FilterFreelancerSlice } from "../../model/reducers/FilterSlice"
+import { useAppDispatch } from "@/src/app/store/store"
 
 
 

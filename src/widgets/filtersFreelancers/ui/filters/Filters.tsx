@@ -7,11 +7,11 @@ import classes from './filters.module.scss'
 import { LoaderContainer } from "@/src/shared/ui/loaderContainer";
 import { FilterItem } from "../filterItem/FilterItem";
 import { MyHr } from "@/src/shared/ui/myHr";
-import { IFilterFreelancer, useFilterFreelancerActions } from "@/src/entities/filterFreelancer";
 import { ApplyFiltersFreelancers } from "@/src/features/applyFiltersFreelancers";
 import { ResetFilters } from "@/src/features/resetFilters";
 import { clearParamsFilterFreelancer } from "@/src/shared/lib/helpers/clearParamsFilterFreelancer";
 import { ToggleSwitch } from "@/src/shared/ui/toggleSwitch";
+import { IFilterFreelancer, useFilterFreelancerActions } from "@/src/entities/filterFreelancer";
 
 
 
