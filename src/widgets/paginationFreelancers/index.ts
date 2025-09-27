@@ -1,0 +1,1 @@
+export { PaginationFreelancersWidget } from "./ui/PaginationFreelancersWidget";
