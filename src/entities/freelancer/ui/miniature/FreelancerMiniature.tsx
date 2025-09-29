@@ -7,7 +7,6 @@ import { IFreelancerMiniature } from "../../model/types";
 import markImg from '@/src/shared/lib/assets/mark_blue.png';
 import commandImg from '@/src/shared/lib/assets/command_blue_bg.png';
 import withDoctorsImg from '@/src/shared/lib/assets/with_doctors_bg.png';
-import IMG from '@/src/shared/lib/assets/men.png'
 
 
 interface IProps {
@@ -17,8 +16,6 @@ interface IProps {
 export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
 
     const freelancerLink = `freelancers/${freelancer.slug}`
-
-    const fr: IFreelancerMiniature = {...freelancer, hasCommand: true, experienceWithDoctors: true}
 
     return (
         <section className={classes.container}>
@@ -32,11 +29,11 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
                         className={classes.image}
                     >
                         <section className={classes.icons}>
-                            {fr.hasCommand && <Image alt="Работа в команде" height={32} width={36} src={commandImg.src}  />}
-                            {fr.experienceWithDoctors && <Image alt="Работа в команде" height={32} width={36} src={withDoctorsImg.src}  />}
+                            {freelancer.hasCommand && <Image alt="Работа в команде" height={32} width={36} src={commandImg.src}  />}
+                            {freelancer.experienceWithDoctors && <Image alt="Работа в команде" height={32} width={36} src={withDoctorsImg.src}  />}
 
                         </section>
-                        <Image src={IMG.src} alt={'Аватарка фрилансера'} width={260} height={160} />
+                        <Image src={freelancer.image} alt={'Аватарка фрилансера'} width={260} height={160} />
                     </Link>
                 </noindex> }
                 <section className={classes.info}>

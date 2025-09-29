@@ -1,9 +1,8 @@
-import { FreelancerCard, freelancerService, IFreelancer, PriceListWrap } from "@/src/entities/freelancer";
+import { FreelancerCard, freelancerService, IFreelancer } from "@/src/entities/freelancer";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
 import classes from './detail.module.scss'
 import { OpenPriceList } from "@/src/features/openPriceList";
-
 
 interface IProps{
     slug: string;
@@ -26,8 +25,6 @@ const getData = async (slug: string) => {
 export async function FreelancerDetail(props: IProps){
 
     const freelancer = await getData(props.slug)
-
-    console.log(freelancer)
 
     if(!freelancer || freelancer.code === 2){
         return (
