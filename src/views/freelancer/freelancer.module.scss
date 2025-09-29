@@ -2,7 +2,9 @@
 
 
 .page{
-
+    --text-gray: #aeaeae;
+    min-height: 100vh;
+    margin-bottom: 300px;
 
     .main{
         min-height: calc(100vh - 75px);

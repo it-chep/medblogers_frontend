@@ -1,0 +1,38 @@
+
+
+
+.openPriceList{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 20px;
+    background: var(--light-black);
+    padding: 20px;
+    overflow: hidden;
+    justify-content: center;
+    gap: 20px;
+
+    .content{
+        position: relative;
+        overflow: hidden;
+        width: 100%;    
+
+        .darken{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 11;
+            background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+            width: 100%;
+
+        }
+
+    }
+
+    .button{
+        width: 220px;
+        margin: 0 auto;
+    }
+    
+}

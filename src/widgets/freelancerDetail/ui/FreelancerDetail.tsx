@@ -1,7 +1,8 @@
-import { FreelancerCard, freelancerService, IFreelancer } from "@/src/entities/freelancer";
+import { FreelancerCard, freelancerService, IFreelancer, PriceListWrap } from "@/src/entities/freelancer";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
-
+import classes from './detail.module.scss'
+import { OpenPriceList } from "@/src/features/openPriceList";
 
 
 interface IProps{
@@ -35,6 +36,9 @@ export async function FreelancerDetail(props: IProps){
     }
 
     return (
-        <FreelancerCard freelancer={freelancer} />
+        <section className={classes.container}>
+            <FreelancerCard freelancer={freelancer} />
+            <OpenPriceList priceList={freelancer.priceList} />
+        </section>
     )
 }

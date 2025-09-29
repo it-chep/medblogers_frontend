@@ -1,3 +1,4 @@
+export { PriceListWrap } from "./ui/priceList/PriceListWrap";
 export { FreelancerCard } from "./ui/card/FreelancerCard";
 export { FreelancerMiniature } from "./ui/miniature/FreelancerMiniature";
 export { SearchResultFreelancer } from "./ui/searchResult/SearchResult";

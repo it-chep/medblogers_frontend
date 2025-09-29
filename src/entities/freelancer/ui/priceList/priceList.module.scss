@@ -1,0 +1,96 @@
+
+
+
+.container{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    overflow: hidden;
+
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+
+        >img{
+            position: absolute;
+            left: 0;
+        }
+
+        >h2{
+            font-size: 32px;
+            line-height: 42px;
+        }
+    }
+
+    .content{
+        display: flex;
+        color: var(--text-gray);
+        border-radius: 16px;
+        border: 1px solid var(--dark-gray);
+        position: relative;
+
+        
+        
+    }
+
+
+
+}
+
+    .list{
+        list-style: none;
+        width: 50%;
+        border-collapse: collapse;
+
+        &:first-child{
+            border-right: 1px solid var(--dark-gray);
+        }
+
+        .top{
+            display: flex;
+            width: 100%;
+            gap: 16px;
+            padding: 20px 20px 8px 20px;
+
+            .badge{
+                padding: 8px 20px;
+                border-radius: 8px;
+                background: #404040;
+                text-align: center;
+                
+                &:first-child{
+                    width: 65%;
+                }
+
+                &:last-child{
+                    width: 35%;
+                }
+            }
+        }
+
+        .item{
+            display: flex;
+            width: 100%;
+            gap: 16px;
+            border-bottom: 1px solid var(--dark-gray);
+            padding: 10px 20px;
+
+            &:last-child{
+                border-bottom: none;
+            }
+
+            .name{
+                width: 65%;
+                text-align: left;
+            }
+            .amount{
+                text-align: right;
+                width: 35%;
+            }
+        }
+    }

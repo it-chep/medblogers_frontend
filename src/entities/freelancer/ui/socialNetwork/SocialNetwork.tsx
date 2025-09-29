@@ -23,8 +23,8 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork}) => {
     ]
 
     const socialNetworkFreelancer = socialConsts.filter(socialConst => {
-        return true
         if(socialNetwork.findIndex(s => s.name === socialConst.name) >= 0){
+            return true
         }
         return false
     })
@@ -34,7 +34,7 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork}) => {
            Работаю в соц сетях: 
            <section className={classes.social}>
                 {socialNetworkFreelancer.map(s => 
-                    <Image alt={s.name} height={20} width={20} src={s.img} />
+                    <Image key={s.name} alt={s.name} height={20} width={20} src={s.img} />
                 )}
            </section>
         </section>
