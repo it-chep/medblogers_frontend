@@ -10,7 +10,7 @@ import { PaginationWidget } from '@/src/widgets/pagination'
 import { filterService, IFilter } from '@/src/entities/filter'
 import { SearchDoctors } from '@/src/widgets/searchDoctors'
 import Link from 'next/link'
-import { MyButton } from '@/src/shared/ui/myButton'
+import { ButtonDark } from '@/src/shared/ui/buttonDark'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -36,7 +36,7 @@ export default async function HomePage() {
             <aside className={classes.aside}>
                 <BannerNewDoctor />
                 <Link href={'/freelancers'} className={classes.button}>
-                    <MyButton>Перейти к фрилансерам</MyButton>
+                    <ButtonDark>Нанять фрилансеров</ButtonDark>
                 </Link>
                 <section className={classes.filters}>
                     <FiltersLayout forDesk={true} filters={filters} />

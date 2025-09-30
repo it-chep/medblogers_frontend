@@ -9,8 +9,8 @@ import { ActiveFiltersFreelancersLayout } from '@/src/widgets/activeFiltersFreel
 import { FreelancersAll } from '@/src/widgets/freelancers';
 import { PaginationFreelancersWidget } from '@/src/widgets/paginationFreelancers';
 import { BannerNewFreelancer } from '@/src/widgets/bannerNewFreelancer';
-import { MyButton } from '@/src/shared/ui/myButton';
 import Link from 'next/link';
+import { ButtonDark } from '@/src/shared/ui/buttonDark';
 
 const getData = async () => {
     let filters: IFilterFreelancer | null = null;
@@ -39,7 +39,7 @@ export default async function FreelancersPage() {
             <aside className={classes.aside}>
                 <BannerNewFreelancer />
                 <Link href={'/'} className={classes.button}>
-                    <MyButton>Перейти к врачам</MyButton>
+                    <ButtonDark>Перейти к врачам</ButtonDark>
                 </Link>
                 <section className={classes.filters}>
                     <FiltersFreelancersLayout forDesk={true} filters={filters} />
