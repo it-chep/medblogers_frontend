@@ -4,7 +4,15 @@
 .wrapper{
     cursor: pointer;
 
+    svg{
+        fill: var(--blue);
+    }
+
     &:hover{
         background-color: var(--blue);
+
+        svg{
+            fill: var( --dark-blue);
+        }
     }
 }
