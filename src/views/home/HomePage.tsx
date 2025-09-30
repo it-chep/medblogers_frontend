@@ -9,6 +9,8 @@ import StatisticsLayout from '@/src/widgets/statistics'
 import { PaginationWidget } from '@/src/widgets/pagination'
 import { filterService, IFilter } from '@/src/entities/filter'
 import { SearchDoctors } from '@/src/widgets/searchDoctors'
+import Link from 'next/link'
+import { MyButton } from '@/src/shared/ui/myButton'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -33,6 +35,9 @@ export default async function HomePage() {
         <section className={classes.page + ' wrapper_main'}>
             <aside className={classes.aside}>
                 <BannerNewDoctor />
+                <Link href={'/freelancers'} className={classes.button}>
+                    <MyButton>Перейти к фрилансерам</MyButton>
+                </Link>
                 <section className={classes.filters}>
                     <FiltersLayout forDesk={true} filters={filters} />
                 </section>
