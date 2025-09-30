@@ -30,19 +30,31 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                         <SpecialityBadge key={ind} id={speciality.id} text={speciality.name} />
                     )}
                 </section>
-                <section className={classes.flags}>
-                    <section className={classes.flag}>
-                        <Image height={32} width={36} src={withDoctorsImg.src} alt={'Опыт работы с врачами'} />
-                        <span className={classes.text}>Есть опыт работы с врачами</span>
+                {
+                    (freelancer.hasCommand || freelancer.experienceWithDoctors)
+                        &&
+                    <section className={classes.flags}>
+                        {
+                            freelancer.experienceWithDoctors
+                                &&
+                            <section className={classes.flag}>
+                                <Image height={32} width={36} src={withDoctorsImg.src} alt={'Опыт работы с врачами'} />
+                                <span className={classes.text}>Есть опыт работы с врачами</span>
+                            </section>
+                        }
+                        {
+                            freelancer.hasCommand
+                                &&
+                            <section className={classes.flag}>
+                                <Image height={32} width={36} src={commandImg.src} alt={'Есть команда'} />
+                                <span className={classes.text}>Есть команда</span>
+                            </section>
+                        }
                     </section>
-                    <section className={classes.flag}>
-                        <Image height={32} width={36} src={commandImg.src} alt={'Есть команда'} />
-                        <span className={classes.text}>Есть команда</span>
-                    </section>
-                </section>
+                }
                 <section className={classes.experience}>
                     <Image height={32} width={36} src={workingExperienceImg.src} alt={'Опыт работы'} />
-                        <span className={classes.text}>Опыт работы</span>
+                        <span className={classes.text}>Опыт работы {freelancer.workingExperience}</span>
                 </section>
             </section>
             <SocialNetwork socialNetwork={freelancer.socialNetworks} />
