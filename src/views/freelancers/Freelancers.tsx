@@ -46,7 +46,7 @@ export default async function FreelancersPage() {
                 </section>
             </aside>
             <main className={classes.main}>
-                <StatisticsFreelancersLayout />
+                {/* <StatisticsFreelancersLayout /> */}
                 <SearchFreelancers>
                     <OpenFiltersModal>
                         <FiltersFreelancersLayout filters={filters} forDesk={false} />
