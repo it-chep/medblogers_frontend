@@ -31,11 +31,11 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                     )}
                 </section>
                 {
-                    (freelancer.hasCommand || freelancer.experienceWithDoctors)
+                    (true)
                         &&
                     <section className={classes.flags}>
                         {
-                            freelancer.experienceWithDoctors
+                            true
                                 &&
                             <section className={classes.flag}>
                                 <Image height={32} width={36} src={withDoctorsImg.src} alt={'Опыт работы с врачами'} />
@@ -43,7 +43,7 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                             </section>
                         }
                         {
-                            freelancer.hasCommand
+                            true
                                 &&
                             <section className={classes.flag}>
                                 <Image height={32} width={36} src={commandImg.src} alt={'Есть команда'} />
@@ -54,11 +54,10 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                 }
                 <section className={classes.experience}>
                     <Image height={32} width={36} src={workingExperienceImg.src} alt={'Опыт работы'} />
-                        <span className={classes.text}>Опыт работы {freelancer.workingExperience}</span>
+                    <span className={classes.text}>Опыт работы {freelancer.workingExperience}</span>
                 </section>
             </section>
             <SocialNetwork socialNetwork={freelancer.socialNetworks} />
-
             <Link className={classes.link} href={freelancer.tgUrl}>
                 <MyButton>
                     Связаться

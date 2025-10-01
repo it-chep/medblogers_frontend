@@ -12,9 +12,7 @@ interface IProps {
 
 export const PriceListWrap: FC<IProps> = ({priceList}) => {
 
-    if(priceList.length % 2 !==0){
-        priceList.push({name: '', amount: ''})
-    }
+    const priceListForDesctop: IFreelancer['priceList'] = priceList.length % 2 === 0 ? priceList : [...priceList, {name: '', amount: ''}];
 
     return (
         <section className={classes.container}>
@@ -23,9 +21,14 @@ export const PriceListWrap: FC<IProps> = ({priceList}) => {
                 <h2>Прайс-лист</h2>
             </section>
             <section className={classes.content}>
-                <PriceList priceList={priceList.slice(0, priceList.length / 2)} />
-                <section className={classes.border}></section>
-                <PriceList priceList={priceList.slice(priceList.length / 2)} />
+                <section className={classes.desctop}>
+                    <PriceList priceList={priceListForDesctop.slice(0, priceListForDesctop.length / 2)} />
+                    <section className={classes.border}></section>
+                    <PriceList priceList={priceListForDesctop.slice(priceListForDesctop.length / 2)} />
+                </section>
+                <section className={classes.mobile}>
+                    <PriceList priceList={priceList} />
+                </section>
             </section>
         </section>
     )

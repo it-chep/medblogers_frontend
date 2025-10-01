@@ -1,25 +1,25 @@
 "use client"
 
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import classes from './openPriceList.module.scss'
 import { IFreelancer, PriceListWrap } from "@/src/entities/freelancer";
 import { MyButton } from "@/src/shared/ui/myButton";
 
 interface IProps {
     priceList: IFreelancer['priceList'];
+    heightConst: number;
+    darkenHeightConst: number
 }
 
-export const OpenPriceList: FC<IProps> = ({priceList}) => {
+export const OpenPriceList: FC<IProps> = ({priceList, heightConst, darkenHeightConst}) => {
 
-    const use = priceList.length > 6;
+    const use = priceList.length > 8;
 
     const [open, setOpen] = useState<boolean>(false)
     const contentRef = useRef<HTMLDivElement>(null)
     const darkenRef = useRef<HTMLDivElement>(null)
 
     const additionalPercentage = 0.2;
-    const heightConst = 300;
-    const darkenHeightConst = 120;
 
     const speed = (priceList.length + (priceList.length * additionalPercentage)) / 30;
 
@@ -28,7 +28,7 @@ export const OpenPriceList: FC<IProps> = ({priceList}) => {
         if(contentRef.current && darkenRef.current){
             if(newOpen){
                 const height = contentRef.current.scrollHeight;
-                contentRef.current.style.height = height + 'px';
+                contentRef.current.style.height = height + 5 + 'px';
                 darkenRef.current.style.height = '0px';
                 darkenRef.current.style.opacity = '0';
             }
@@ -36,7 +36,6 @@ export const OpenPriceList: FC<IProps> = ({priceList}) => {
                 contentRef.current.style.height = heightConst + 'px';
                 darkenRef.current.style.height = darkenHeightConst + 'px';
                 darkenRef.current.style.opacity = '1';
-
             }
             setOpen(newOpen)
         }
