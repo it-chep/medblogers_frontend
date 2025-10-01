@@ -9,6 +9,7 @@ import { useAppSelector } from "@/src/app/store/store";
 import { IItem } from "@/src/shared/model/types";
 import { IFilterFreelancer } from "@/src/entities/filterFreelancer";
 
+type TSelectedFilters = 'cities' | 'specialities' | 'societies' | 'priceCategories';
 
 export const ActiveFilters: FC = () => {
 
@@ -18,14 +19,16 @@ export const ActiveFilters: FC = () => {
 
     const [selectedCheckboxesForCities, setSelectedCheckboxesForCities] = useState<IItem[]>([])
     const [selectedCheckboxesForSpecs, setSelectedCheckboxesForSpecs] = useState<IItem[]>([])
+    const [selectedCheckboxesForSocieties, setSelectedCheckboxesForSocieties] = useState<IItem[]>([])
+    const [selectedCheckboxesForPriceCategories, setSelectedCheckboxesForPriceCategories] = useState<IItem[]>([])
 
-    const selectedCheckboxes = (label: 'cities' | 'specialities') => {
+    const selectedCheckboxes = (label: TSelectedFilters) => {
         const params = new URLSearchParams(searchParams);
-        const values = params.getAll(label)
+        const values = params.getAll(label === 'priceCategories' ? 'price_category' : label)
         let items: IItem[] = []
         if(values){
             values.forEach(value => {
-                const elem: IFilterFreelancer['cities' | 'specialities'][0] | undefined = filterFreelancer[label].find(item => item.id === value)
+                const elem: IFilterFreelancer[TSelectedFilters][0] | undefined = filterFreelancer[label].find(item => item.id === value)
                 if(elem){
                     items.push({
                         id: +value,
@@ -41,14 +44,19 @@ export const ActiveFilters: FC = () => {
         if(filterFreelancer){
             const citites = selectedCheckboxes('cities')
             const specs = selectedCheckboxes('specialities')
+            const societies = selectedCheckboxes('societies')
+            const priceCategories = selectedCheckboxes('priceCategories')
             setSelectedCheckboxesForCities([...citites])
             setSelectedCheckboxesForSpecs([...specs])
+            setSelectedCheckboxesForSocieties([...societies])
+            setSelectedCheckboxesForPriceCategories([...priceCategories])
         }
 
     }, [filterFreelancer]) 
 
     return (
-        selectedCheckboxesForCities.length === 0 && selectedCheckboxesForSpecs.length === 0
+        selectedCheckboxesForCities.length && selectedCheckboxesForSpecs.length &&
+        selectedCheckboxesForSocieties.length && selectedCheckboxesForPriceCategories.length
             ?
         <></>
             :
@@ -69,6 +77,24 @@ export const ActiveFilters: FC = () => {
                     labelSlug="specialities" 
                 >
                     <DeleteActiveFilter labelSlug="specialities" id={selectedCheckbox.id} />
+                </FilterBadge>
+            )}
+            {selectedCheckboxesForSocieties.map((selectedCheckbox, ind) => 
+                <FilterBadge 
+                    key={ind} 
+                    item={selectedCheckbox} 
+                    labelSlug="societies" 
+                >
+                    <DeleteActiveFilter labelSlug="societies" id={selectedCheckbox.id} />
+                </FilterBadge>
+            )}
+            {selectedCheckboxesForPriceCategories.map((selectedCheckbox, ind) => 
+                <FilterBadge 
+                    key={ind} 
+                    item={selectedCheckbox} 
+                    labelSlug="price_category" 
+                >
+                    <DeleteActiveFilter labelSlug="price_category" id={selectedCheckbox.id} />
                 </FilterBadge>
             )}
         </section>
