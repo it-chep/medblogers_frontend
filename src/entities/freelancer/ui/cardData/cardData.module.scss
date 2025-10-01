@@ -10,7 +10,7 @@
         gap: 20px;
 
         .name{
-            font-size: 32px;
+            font-size: 28px;
             line-height: 42px;
         }
     
@@ -60,7 +60,7 @@
     .container{
         .main{
             .name{
-                font-size: 28px;
+                font-size: 26px;
                 line-height: 36px;
             }
 
@@ -71,16 +71,6 @@
     }
 }
 
-@media (max-width: 550px) {
-    .container{
-        .main{
-            .name{
-                font-size: 28px;
-                line-height: 36px;
-            }
-        }
-    }
-}
 
 @media (max-width: 480px) {
     .container{
