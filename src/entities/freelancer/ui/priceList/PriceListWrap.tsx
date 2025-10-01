@@ -7,17 +7,32 @@ import { PriceList } from "./PriceList";
 
 interface IProps {
     priceList: IFreelancer['priceList'];
+    priceCategory: string;
 }
 
 
-export const PriceListWrap: FC<IProps> = ({priceList}) => {
+export const PriceListWrap: FC<IProps> = ({priceList, priceCategory}) => {
 
     const priceListForDesctop: IFreelancer['priceList'] = priceList.length % 2 === 0 ? priceList : [...priceList, {name: '', amount: ''}];
+
+
+    const price = '₽₽₽₽'
+
+    console.log(priceCategory)
 
     return (
         <section className={classes.container}>
             <section className={classes.header}>
-                <Image src={priceListImg.src} alt="Ценовая категория" height={35} width={88} />
+                <section className={classes.price}>
+                    {price.split('').map((p, ind) => 
+                        <span 
+                            key={ind} 
+                            className={((ind < (+priceCategory)) ? `${classes.highlight}` : '')}
+                        >
+                            {p}
+                        </span>
+                    )}
+                </section>
                 <h2>Прайс-лист</h2>
             </section>
             <section className={classes.content}>

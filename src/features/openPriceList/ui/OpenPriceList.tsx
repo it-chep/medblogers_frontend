@@ -8,10 +8,11 @@ import { MyButton } from "@/src/shared/ui/myButton";
 interface IProps {
     priceList: IFreelancer['priceList'];
     heightConst: number;
-    darkenHeightConst: number
+    darkenHeightConst: number;
+    priceCategory: string;
 }
 
-export const OpenPriceList: FC<IProps> = ({priceList, heightConst, darkenHeightConst}) => {
+export const OpenPriceList: FC<IProps> = ({priceList, heightConst, darkenHeightConst, priceCategory}) => {
 
     const use = priceList.length > 8;
 
@@ -41,6 +42,8 @@ export const OpenPriceList: FC<IProps> = ({priceList, heightConst, darkenHeightC
         }
     }
 
+    
+
     return (
         <section className={classes.openPriceList}>
             {
@@ -52,7 +55,7 @@ export const OpenPriceList: FC<IProps> = ({priceList, heightConst, darkenHeightC
                         ref={contentRef} 
                         style={{height: heightConst + 'px', transition: `all ${speed}s ease`}} 
                     >
-                        <PriceListWrap priceList={priceList} />
+                        <PriceListWrap priceCategory={priceCategory} priceList={priceList} />
                         <section 
                             className={classes.darken}
                             ref={darkenRef} 
@@ -66,7 +69,7 @@ export const OpenPriceList: FC<IProps> = ({priceList, heightConst, darkenHeightC
                     </section>
                 </>             
                     :
-                <PriceListWrap priceList={priceList} />
+                <PriceListWrap priceCategory={priceCategory} priceList={priceList} />
             }
         </section>
     )

@@ -44,6 +44,7 @@ export async function FreelancerDetail(props: IProps){
                             heightConst={300} 
                             darkenHeightConst={120} 
                             priceList={freelancer.priceList} 
+                            priceCategory={freelancer.priceCategory}
                         />
                     </section>
                     <section className={classes.mobile}>
@@ -51,6 +52,7 @@ export async function FreelancerDetail(props: IProps){
                             heightConst={600} 
                             darkenHeightConst={260} 
                             priceList={freelancer.priceList} 
+                            priceCategory={freelancer.priceCategory}
                         />
                     </section>
                 </>

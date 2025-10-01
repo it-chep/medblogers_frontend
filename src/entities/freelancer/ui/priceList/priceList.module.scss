@@ -14,9 +14,23 @@
         width: 100%;
         position: relative;
 
-        >img{
+        .price{
             position: absolute;
             left: 0;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--blue);
+            background-color: var(--dark-blue);
+            padding: 6px 20px;
+            border-radius: 10px;
+
+            span{
+                opacity: 0.4;
+    
+                &.highlight{
+                    opacity: 1;
+                }
+            }
         }
 
         >h2{
