@@ -22,7 +22,7 @@
             left: 0;
             bottom: 0;
             z-index: 11;
-            background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+            background: linear-gradient(to top, var(--light-black), rgba(0, 0, 0, 0));
             width: 100%;
 
         }
