@@ -2,7 +2,6 @@
 
 import { FC, FormEvent, useEffect, useState } from "react";
 import classes from './form.module.scss'
-import { cityService, ICityData } from "@/src/entities/city";
 import { MyCheckbox } from "@/src/shared/ui/myCheckbox";
 import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
@@ -15,7 +14,7 @@ import { changeFormError } from "@/src/widgets/newClubParticipantWidget/lib/help
 import { initialStateForm } from "../../model/initialState";
 import { freelancerChange } from "../../lib/helpers/freelancerChange";
 import { freelancerFormService } from "../../api/FreelancerFormService";
-import { freelancerService, IFreelancerSpeciality } from "@/src/entities/freelancer";
+import { freelancerService, IFreelancerCity, IFreelancerSpeciality } from "@/src/entities/freelancer";
 import { IItem } from "@/src/shared/model/types";
 import { PriceListChange } from "@/src/features/priceListChange";
 
@@ -24,8 +23,8 @@ export const FreelancerForm: FC = () => {
     const [form, setForm] = useState<IFreelancerForm>(initialStateForm)
     const [formError, setFormError] = useState<IFormError[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [cities, setCities] = useState<ICityData[]>([])
     const [socialNetworkList, setSocialNetworkList] = useState<IItem[]>([])
+    const [cities, setCities] = useState<IFreelancerCity[]>([])
     const [specialities, setSpecialities] = useState<IFreelancerSpeciality[]>([])
 
     const router = useRouter()
@@ -40,7 +39,7 @@ export const FreelancerForm: FC = () => {
     const {setErrorFieldDelete} = changeFormError(formError, setFormError)
 
     const getCities = async () => {
-        const cities = await cityService.getCities()
+        const cities = await freelancerService.getCities()
         setCities(cities)
     }
 
