@@ -30,7 +30,7 @@ export const Item: FC<IProps> = ({label, item}) => {
             }
             <section className={classes.data}>
                 <p>{item.name}</p>
-                <p className={classes.count}>Кол-во врачей: {item.freelancersCount}</p>
+                <p className={classes.count}>Кол-во Фрилансеров: {item.freelancersCount}</p>
             </section>
         </section>
     )

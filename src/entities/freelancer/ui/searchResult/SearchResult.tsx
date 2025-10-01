@@ -56,7 +56,7 @@ export const SearchResultFreelancer: FC<IProps> = ({result, setOpen, isLoading})
                         result.freelancers.length !== 0
                             &&
                         <section className={classes.freelancers}>
-                            <h4>Доктора</h4>
+                            <h4>Фрилансеры</h4>
                             {result.freelancers.map((freelancer, ind) => 
                                 <SearchMiniature
                                     key={ind}
