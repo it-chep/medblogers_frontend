@@ -7,7 +7,6 @@ import { StatisticItem } from '@/src/entities/statistic';
 const getData = async () => {
     let statistics: IStatisticFreelancers | null = null;
     try{
-        await new Promise(resolve => setTimeout(resolve, 3000))
         statistics = await freelancerService.getStatistics() 
     }
     catch(e){
