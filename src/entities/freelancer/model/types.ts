@@ -18,6 +18,7 @@ interface IPriceListItemRes {
 interface ISocialNetworkItem {
     id: string;
     name: string;
+    slug: string;
 } 
 
 export interface ICityFreelancer{

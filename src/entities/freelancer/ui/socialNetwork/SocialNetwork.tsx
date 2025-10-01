@@ -23,7 +23,7 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork}) => {
     ]
 
     const socialNetworkFreelancer = socialConsts.filter(socialConst => {
-        if(socialNetwork.findIndex(s => s.name === socialConst.name) >= 0){
+        if(socialNetwork.findIndex(s => s.slug === socialConst.name) >= 0){
             return true
         }
         return false
