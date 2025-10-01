@@ -222,7 +222,12 @@ export const FreelancerForm: FC = () => {
             >
                 <span className={classes.checkbox}>Есть своя команда</span>
             </MyCheckbox>
-            <PriceListChange list={form.priceList} setList={setPriceList} />
+            <PriceListChange 
+                list={form.priceList} 
+                setList={setPriceList} 
+                error={formError?.find(error => error.field === 'priceList')?.text} 
+                setError={setErrorFieldDelete('priceList')}
+            />
             <MyCheckbox 
                 error={formError?.find(error => error.field === 'agreePolicy')?.text}
                 checkBoxTop={true} 

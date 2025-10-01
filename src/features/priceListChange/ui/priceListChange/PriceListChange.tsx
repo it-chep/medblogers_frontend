@@ -9,15 +9,18 @@ import deleteImg from '../../lib/assets/delete.png'
 interface IProps {
     list: IPriceListItem[];
     setList: (list: IPriceListItem[]) => void;
+    error?: string;
+    setError?: (err: string) => void;
 }
 
-export const PriceListChange: FC<IProps> = ({list, setList}) => {
+export const PriceListChange: FC<IProps> = ({list, setList, error, setError}) => {
 
 
     const addItem = () => {
         const target: IPriceListItem[] = [...list]
         target.push({name: '', amount: 0})
         setList(target)
+        setError && setError('')
     }
 
     const setName = (ind: number) => {
@@ -25,6 +28,7 @@ export const PriceListChange: FC<IProps> = ({list, setList}) => {
             const target: IPriceListItem[] = JSON.parse(JSON.stringify(list));
             target[ind].name = val;
             setList(target)
+            setError && setError('')
         }
     }
 
@@ -42,6 +46,7 @@ export const PriceListChange: FC<IProps> = ({list, setList}) => {
                     setList(target)
                 }
             }
+            setError && setError('')
         }
     }
 
@@ -49,6 +54,7 @@ export const PriceListChange: FC<IProps> = ({list, setList}) => {
         const target: IPriceListItem[] = [...list]
         target.splice(ind, 1)
         setList(target)
+        setError && setError('')
     }
 
     return (
@@ -95,6 +101,7 @@ export const PriceListChange: FC<IProps> = ({list, setList}) => {
             >
                 <img alt="Добавить" src={plusImg.src} />
             </section>
+            { (error) && <span className={classes.errorText}>*{error}</span> }
         </section>
     )
 }
