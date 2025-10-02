@@ -59,8 +59,24 @@ export const FreelancerForm: FC = () => {
         getSocialNetworks()
     }, [])
 
+    const checkPriceList: () => boolean = () => {
+        let isOk = true;
+        const length = form.priceList.length;
+        for(let i = 0; i < length; i++){
+            if(form.priceList[i].name === ''){
+                isOk = false;
+                setFormError([{field: 'priceList', text: 'Одно из полей пустое'}])
+                break
+            }
+        }
+        return isOk
+    }
+
     const onSubmit = async (e: FormEvent) => {
         e.preventDefault()
+        if(!checkPriceList()){
+            return
+        }
         try{
             setIsLoading(true)
             const res = await freelancerFormService.setForm(form)

@@ -31,7 +31,7 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                     )}
                 </section>
                 {
-                    (true)
+                    (freelancer.experienceWithDoctors || freelancer.hasCommand)
                         &&
                     <section className={classes.flags}>
                         {

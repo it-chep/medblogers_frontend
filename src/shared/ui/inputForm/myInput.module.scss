@@ -2,14 +2,9 @@
 
 
 .wrapper{
-
     display: flex;
     flex-direction: column;
     gap: 4px;
-
-    .label{
-        padding-left: 10px;
-    }
 
     >input{
         background: #242424;

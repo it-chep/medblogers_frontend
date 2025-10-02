@@ -1,1 +1,1 @@
-export { WelcomeWidgetFreelancer } from "./ui/WelcomeWidgetFreelancer";
+export { WelcomeWidgetFreelancer } from "./ui/welcome/WelcomeWidgetFreelancer";

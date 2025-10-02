@@ -11,15 +11,13 @@ export const BannerNewFreelancer: FC = () => {
 
 
     return (
-        <Link href={'welcome_freelancer'} className={classes.container}>  
-            <Image className={classes.designer} src={dImf.src} alt="Дизайнер" height={44} width={132} />
-            <Image className={classes.marketing} src={mImf.src} alt="Маркетолог" height={44} width={134} />
-            <section className={classes.header}>ОСТАВЬТЕ ЗАЯВКУ ДЛЯ РАЗМЕЩЕНИЯ НА САЙТЕ</section>
-            {/* <Link href={'/welcome'}>
+        <section className={classes.container}>  
+            <section className={classes.header}>РАЗМЕЩЕНИЕ НА САЙТЕ</section>
+            <Link href={'/welcome_freelancer'}>
                 <MyButton>
                     Подать заявку
                 </MyButton>
-            </Link> */}
-        </Link>
+            </Link>
+        </section>
     )
 }
