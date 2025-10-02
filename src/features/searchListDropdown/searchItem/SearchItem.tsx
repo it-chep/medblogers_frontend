@@ -33,7 +33,6 @@ export const SearchItemListDropdown: FC<IProps> = (
         const selected: IItem | undefined = items.find(i => selectedItemId === i.id)
         return selected
     }, [selectedItemId])
-
     
     function onClose(e: Event) {
         const target = e.target as HTMLElement
@@ -87,15 +86,7 @@ export const SearchItemListDropdown: FC<IProps> = (
                         />
                     </section>
                     <section className={classes.list}>
-                        {
-                            value.length !== 0 
-                                ?
-                            searchItems.length !== 0
-                                &&
-                            <SearchList itemList={searchItems} onSelected={onSelected} />
-                                :
-                            <span className={classes.sign}>Пожалуйста, введите хотя бы 1 символ</span>
-                        }
+                        <SearchList itemList={searchItems} onSelected={onSelected} />
                     </section>
                 </section>
             }

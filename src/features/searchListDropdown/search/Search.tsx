@@ -14,7 +14,9 @@ interface IProps {
     placeholder: string;
 }
 
-export const SearchListDropdown: FC<IProps> = ({items, setSelected, deleteSelected = () => {}, label, selectedItemsId, placeholder}) => {
+export const SearchListDropdown: FC<IProps> = (
+    {items, setSelected, deleteSelected = () => {}, label, selectedItemsId, placeholder}
+) => {
 
     const inputRef = useRef<HTMLInputElement>(null)
     const [value, setValue] = useState<string>('')  
@@ -80,6 +82,7 @@ export const SearchListDropdown: FC<IProps> = ({items, setSelected, deleteSelect
                     />
                 )}
                 <input 
+                    onFocus={() => setOpen(true)}
                     ref={inputRef} 
                     placeholder={selectedItems.length === 0 ? placeholder : ''} 
                     type="text" 

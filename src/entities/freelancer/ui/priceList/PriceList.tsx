@@ -8,7 +8,6 @@ interface IProps {
 
 export const PriceList: FC<IProps> = ({priceList}) => {
 
-
     return (
         <ul className={classes.list}>
             <li className={classes.top}>

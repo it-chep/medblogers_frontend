@@ -4,6 +4,7 @@ import classes from './priceListChange.module.scss'
 import { MyInputForm } from "@/src/shared/ui/inputForm";
 import plusImg from '../../lib/assets/plus.png'
 import deleteImg from '../../lib/assets/delete.png'
+import { Hint } from "@/src/shared/ui/hint";
 
 
 interface IProps {
@@ -68,12 +69,13 @@ export const PriceListChange: FC<IProps> = ({list, setList, error, setError}) =>
                 <ul className={classes.list}>
                     <li className={classes.title}>
                         <section className={classes.name}>
-                                Название услуги
-                            </section>
-                            <section className={classes.amount}>
-                                Цена ОТ или по договоренности
-                            </section>
-                        </li>
+                            <span className={classes.text}>Название услуги</span>
+                        </section>
+                        <section className={classes.amount}>
+                            <span className={classes.text}>Цена ОТ или по договоренности</span>
+                            <Hint hint="Оставьте 0 если работаете по договоренности" />
+                        </section>
+                    </li>
                     {list.map((l, ind) => 
                         <li 
                             key={ind}

@@ -23,8 +23,6 @@
         }
     }
 
-  
-
     .list{
         list-style: none;
         display: flex;
@@ -36,10 +34,16 @@
             display: grid;
             grid-template-columns: 1fr 1fr 20px;
             gap: 10px;
-            opacity: 0.5;
             font-size: 14px;
             margin-bottom: -9px;
-
+            .text{
+                opacity: 0.5;
+            }
+            .amount{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
         }
         .item{
             display: grid;

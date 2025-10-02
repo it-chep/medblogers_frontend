@@ -1,8 +1,6 @@
 import { FC } from "react";
 import { IFreelancer } from "../../model/types";
 import classes from './priceList.module.scss'
-import Image from "next/image";
-import priceListImg from '../../lib/assets/priceList.png'
 import { PriceList } from "./PriceList";
 
 interface IProps {
@@ -15,10 +13,7 @@ export const PriceListWrap: FC<IProps> = ({priceList, priceCategory}) => {
 
     const priceListForDesctop: IFreelancer['priceList'] = priceList.length % 2 === 0 ? priceList : [...priceList, {name: '', amount: ''}];
 
-
     const price = '₽₽₽₽'
-
-    console.log(priceCategory)
 
     return (
         <section className={classes.container}>
