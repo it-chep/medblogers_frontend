@@ -7,6 +7,7 @@ import { IFreelancerMiniature } from "../../model/types";
 import markImg from '@/src/shared/lib/assets/mark_blue.png';
 import commandImg from '@/src/shared/lib/assets/command_blue_bg.png';
 import withDoctorsImg from '@/src/shared/lib/assets/with_doctors_bg.png';
+import { SocialNetwork } from "../socialNetwork/SocialNetwork";
 
 
 interface IProps {
@@ -33,18 +34,25 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
                             {freelancer.experienceWithDoctors && <Image alt="Работа в команде" height={32} width={36} src={withDoctorsImg.src}  />}
 
                         </section>
-                        <Image src={freelancer.image} alt={'Аватарка фрилансера'} width={260} height={160} />
+                        <Image className={classes.avatar} src={freelancer.image} alt={'Аватарка фрилансера'} width={260} height={160} />
                     </Link>
                 </noindex> }
                 <section className={classes.info}>
                     <section className={classes.name}><Link href={freelancerLink}>{freelancer.name}</Link></section>
                     <section className={classes.userAdditionalInfo}>
-                        <p>{freelancer.speciality}</p>
+                        <p className={classes.speciality}>{freelancer.speciality}</p>
                         <p className={classes.city}> 
                             <Image alt="Метка" width={16} height={16} src={markImg.src} />
                             {freelancer.city}
                         </p>
                     </section>
+                    <p>
+                        {
+                            freelancer.socialNetworks.length > 0
+                                &&
+                            <SocialNetwork socialNetwork={freelancer.socialNetworks} />
+                        }
+                    </p>
                 </section>
             </section>
             <section className={classes.buttonsWrapper}>

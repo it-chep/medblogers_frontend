@@ -55,8 +55,8 @@ export const ActiveFilters: FC = () => {
     }, [filterFreelancer]) 
 
     return (
-        selectedCheckboxesForCities.length && selectedCheckboxesForSpecs.length &&
-        selectedCheckboxesForSocieties.length && selectedCheckboxesForPriceCategories.length
+        !selectedCheckboxesForCities.length && !selectedCheckboxesForSpecs.length &&
+        !selectedCheckboxesForSocieties.length && !selectedCheckboxesForPriceCategories.length
             ?
         <></>
             :

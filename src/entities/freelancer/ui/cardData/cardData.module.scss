@@ -50,10 +50,17 @@
         }
     }
 
-    .link{
-        display: block;
-        width: 200px;
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .link{
+            display: block;
+            width: 200px;
+        }
     }
+
 }
 
 @media (max-width: 750px) {
@@ -110,10 +117,13 @@
             }
         }
 
-        .link{
-            width: 100%;
-            padding: 0 20px;
-            margin-top: 10px;
+        .buttons{
+
+            .link{
+                width: 100%;
+                padding: 0 20px;
+                margin-top: 10px;
+            }
         }
     }
 }

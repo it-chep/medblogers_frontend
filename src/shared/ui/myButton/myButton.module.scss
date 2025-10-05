@@ -16,8 +16,14 @@
   }
 
   &.grayStyle{
-    background-color: transparent;
-    border: 1px solid var(--gray);
-    color: var(--gray);
+    background-color: var(--dark-gray);
+    border: 2px solid var(--dark-gray);
+    color: #FFF;
+    transition: background-color 0.5s ease;
+
+
+    &:hover{
+      background-color: transparent;
+    }
   }
 }

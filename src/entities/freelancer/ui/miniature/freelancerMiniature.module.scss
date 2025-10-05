@@ -9,7 +9,7 @@
   padding: 10px 10px 20px 10px;
   border-radius: 20px;
 
-  img{
+  .avatar{
     object-position: 10% 10%;
     object-fit: cover;
     position: relative;
@@ -20,7 +20,7 @@
   }
 
   .infoWrapper{
-
+    color: #aeaeae;
     .image{
       position: relative;
       .icons{
@@ -59,8 +59,12 @@
         color: #aeaeae;
         text-align: left;
         display: flex;
-        gap: 5px;
+        gap: 8px;
         flex-direction: column;
+
+        .speciality{
+          color: var(--blue);
+        }
 
         .city{
           display: flex;
@@ -104,10 +108,8 @@
           font-size: 22px;
           height: 64px;
         }
-        .userAdditionalInfo{
-          p{
-            font-size: 20px;
-          }
+        p{
+          font-size: 20px;
         }
       }
     }

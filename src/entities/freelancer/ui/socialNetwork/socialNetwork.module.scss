@@ -2,29 +2,31 @@
 .container{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     color: var(--text-gray);
-    .social{
+    .socials{
         display: flex;
         align-items: center;
         gap: 5px;
+        list-style: none;
+        margin-right: 12px;
 
-        img{
-            object-fit: contain;
+        .social{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: var(--light-black);
+            border-radius: 8px;
+            margin-right: -12px;
+            padding: 3px;
+            
+            img{
+                border-radius: 5px;
+                width: 20px;
+                height: 20px;
+                object-fit:cover;
+            }
         }
-    }
-}
-
-
-@media (max-width: 480px) {
-    .container{
-        justify-content: center;
-    }
-}
-
-@media (max-width: 400px) {
-    .container{
-        flex-wrap: wrap;
-        padding: 0 20px;
     }
 }

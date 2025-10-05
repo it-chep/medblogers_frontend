@@ -62,11 +62,18 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                     &&
                 <SocialNetwork socialNetwork={freelancer.socialNetworks} />
             }
-            <Link className={classes.link} href={freelancer.tgUrl}>
-                <MyButton>
-                    Связаться
-                </MyButton>
-            </Link>
+            <section className={classes.buttons}>
+                <Link className={classes.link} href={freelancer.tgUrl}>
+                    <MyButton>
+                        Связаться
+                    </MyButton>
+                </Link>
+                <Link className={classes.link} href={freelancer.portfolioLink}>
+                    <MyButton grayStyle={true}>
+                        Портфолио
+                    </MyButton>
+                </Link>
+            </section>
         </section>
     )
 }
