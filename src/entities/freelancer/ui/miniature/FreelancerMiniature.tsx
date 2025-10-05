@@ -8,6 +8,7 @@ import markImg from '@/src/shared/lib/assets/mark_blue.png';
 import commandImg from '@/src/shared/lib/assets/command_blue_bg.png';
 import withDoctorsImg from '@/src/shared/lib/assets/with_doctors_bg.png';
 import { SocialNetwork } from "../socialNetwork/SocialNetwork";
+import { Hint } from "@/src/shared/ui/hint";
 
 
 interface IProps {
@@ -16,13 +17,11 @@ interface IProps {
 
 export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
 
-    const freelancerLink = `freelancers/${freelancer.slug}`
+    const freelancerLink = `work/${freelancer.slug}`
 
     return (
         <section className={classes.container}>
             <section className={classes.infoWrapper}>
-                { true
-                    && 
                 <noindex>
                     <Link 
                         rel="nofollow" 
@@ -30,15 +29,31 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
                         className={classes.image}
                     >
                         <section className={classes.icons}>
-                            {freelancer.hasCommand && <Image alt="Работа в команде" height={32} width={36} src={commandImg.src}  />}
-                            {freelancer.experienceWithDoctors && <Image alt="Работа в команде" height={32} width={36} src={withDoctorsImg.src}  />}
-
+                            { 
+                                freelancer.hasCommand
+                                    &&
+                                <Hint hint="Есть опыт работы в комаде">
+                                    <Image alt="Есть опыт работы в комаде" height={32} width={36} src={commandImg.src}  />
+                                </Hint>
+                                
+                            }
+                            {    
+                                freelancer.experienceWithDoctors
+                                    &&
+                                <Hint hint="Есть опыт работы с врачами"> 
+                                    <Image alt="Есть опыт работы с врачами" height={32} width={36} src={withDoctorsImg.src}  />
+                                </Hint>
+                            }
                         </section>
                         <Image className={classes.avatar} src={freelancer.image} alt={'Аватарка фрилансера'} width={260} height={160} />
                     </Link>
-                </noindex> }
+                </noindex>
                 <section className={classes.info}>
-                    <section className={classes.name}><Link href={freelancerLink}>{freelancer.name}</Link></section>
+                    <section className={classes.name}>
+                        <Link href={freelancerLink}>
+                            {freelancer.name}
+                        </Link>
+                    </section>
                     <section className={classes.userAdditionalInfo}>
                         <p className={classes.speciality}>{freelancer.speciality}</p>
                         <p className={classes.city}> 
@@ -62,7 +77,6 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
                     </Link>
                 </noindex>
             </section>
-
         </section>
     )
 }

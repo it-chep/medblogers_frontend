@@ -73,7 +73,9 @@ export const PriceListChange: FC<IProps> = ({list, setList, error, setError}) =>
                         </section>
                         <section className={classes.amount}>
                             <span className={classes.text}>Цена ОТ или по договоренности</span>
-                            <Hint hint="Оставьте 0 если работаете по договоренности" />
+                            <section className={classes.hint}>
+                                <Hint hint="Оставьте 0 если работаете по договоренности" />
+                            </section>
                         </section>
                     </li>
                     {list.map((l, ind) => 

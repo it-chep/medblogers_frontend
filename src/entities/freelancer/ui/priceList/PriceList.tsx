@@ -27,7 +27,7 @@ export const PriceList: FC<IProps> = ({priceList}) => {
                         {priceItem.name}
                     </section>
                     <section className={classes.amount}>
-                        {priceItem.amount === "0" ? 'по договоренности' : `От ${priceItem.amount} рублей`}
+                        {priceItem.amount === "0" ? 'по договоренности' : priceItem.amount ? `От ${priceItem.amount} рублей` : ''}
                     </section>
                 </li>
             )}

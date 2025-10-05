@@ -72,6 +72,14 @@ export const freelancerChange = (freelancer: IFreelancerForm, setFreelancer: (fr
                 newSpecialities.splice(targetSpecialityInd, 1)
                 setFreelancer({...freelancer, additionalSpecialties: newSpecialities})
             }
+        },
+        deleteSocialNetworks(id: number){
+            const targetSocialInd = freelancer.socialNetworks.findIndex(socialId => socialId === id)             
+            if(targetSocialInd >= 0){
+                const newSocials = [...freelancer.socialNetworks]
+                newSocials.splice(targetSocialInd, 1)
+                setFreelancer({...freelancer, socialNetworks: newSocials})
+            }
         }
     }
 }

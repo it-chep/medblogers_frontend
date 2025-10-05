@@ -20,7 +20,7 @@ export const WelcomeWidgetFreelancer: FC = () => {
                 {/* <section className={classes.callToAction}>«Залететь на сайт»👇</section> */}
                 <a target="_blank" className={classes.link} href={'https://t.me/m/Bd3jxl2JNjJi'}>
                     <MyButton>
-                        Залететь на сайт
+                        Разместиться в базе
                     </MyButton>
                 </a>
            </section>

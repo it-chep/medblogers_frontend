@@ -31,7 +31,7 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork}) => {
 
     return (
         <section className={classes.container}>
-           Работаю в соц сетях: 
+           Работаю в: 
            <ul className={classes.socials}>
                 {socialNetworkFreelancer.map((s, ind) => 
                     <li 

@@ -30,10 +30,10 @@ export const FreelancerForm: FC = () => {
     const router = useRouter()
 
     const {
-        setEmail, setLastName, setFirstName, setMiddleName, setWorkingExperience,
-        setTelegramUsername, setAgreePolicy, setAdditionalCities, deleteAdditionalCities, 
-        setAdditionalSpecialities, deleteAdditionalSpecialities, setCity, setSpeciality,
-        setPortfolioLink, setSocialNetworks, setExperienceWithDoctors, setHasCommand, setPriceList
+        setEmail, setLastName, setFirstName, setMiddleName, setWorkingExperience, setTelegramUsername, 
+        setAgreePolicy, setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities, 
+        deleteAdditionalSpecialities, setCity, setSpeciality, setPortfolioLink, setSocialNetworks, 
+        deleteSocialNetworks, setExperienceWithDoctors, setHasCommand, setPriceList
     } = freelancerChange(form, setForm)
 
     const {setErrorFieldDelete} = changeFormError(formError, setFormError)
@@ -65,7 +65,7 @@ export const FreelancerForm: FC = () => {
         for(let i = 0; i < length; i++){
             if(form.priceList[i].name === ''){
                 isOk = false;
-                setFormError([{field: 'priceList', text: 'Одно из полей пустое'}])
+                setFormError([{field: 'priceList', text: 'Назвение услуги - обязательное поле'}])
                 break
             }
         }
@@ -222,7 +222,7 @@ export const FreelancerForm: FC = () => {
             <SearchListDropdown
                 label="Соц сети, с которыми вы работаете"
                 selectedItemsId={form.socialNetworks} 
-                deleteSelected={deleteAdditionalCities} 
+                deleteSelected={deleteSocialNetworks} 
                 items={socialNetworkList} 
                 setSelected={setSocialNetworks} 
                 placeholder=""

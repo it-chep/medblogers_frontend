@@ -19,5 +19,12 @@ export const initialStateForm: IFreelancerForm = {
     portfolioLink: '',
     hasCommand: false,
     workingExperience: 0,
-    priceList: [],
+    priceList: [
+        {
+            name: '', amount: 0,
+        },
+        {
+            name: '', amount: 0,
+        }
+    ],
 }

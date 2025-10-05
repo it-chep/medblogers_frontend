@@ -8,6 +8,13 @@
     align-items: center;
     gap: 15px;
 
+    .rubs{
+        display: flex;
+        
+        .rub{
+            fill: #FFF;
+        }
+    }
 }
 
 .loader{
