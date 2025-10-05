@@ -6,12 +6,9 @@ import { ICityFreelancer, ISpecialityFreelancer } from "../../model/types";
 interface IProps {
     label: 'cities' | 'specialities';
     item: ICityFreelancer | ISpecialityFreelancer;
-
 }
 
 export const Item: FC<IProps> = ({label, item}) => {
-
-    
 
     return (
         <section data-id={item.id} className={classes.container}>
