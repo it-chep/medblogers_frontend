@@ -185,12 +185,12 @@
 }
 
 
-@media (max-width: 580px) {
+@media (max-width: 550px) {
     .container{
         .header{
             >h2{
-                font-size: 26px;
-                line-height: 42px;
+                font-size: 24px;
+                line-height: 36px;
             }
         }
         .list{
@@ -204,15 +204,26 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
     .container{
         .header{
             .price{
                 padding: 4px 16px;
             }
             >h2{
-                font-size: 24px;
-                line-height: 38px;
+                font-size: 22px;
+                line-height: 36px;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .container{
+        .header{
+            >h2{
+                font-size: 20px;
+                line-height: 32px;
             }
         }
         .list{
@@ -229,7 +240,7 @@
     }
 }
 
-@media (max-width: 330px) {
+@media (max-width: 300px) {
     .container{
         .header{
             display: flex;

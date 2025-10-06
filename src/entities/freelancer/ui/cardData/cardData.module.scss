@@ -97,8 +97,13 @@
 @media (max-width: 550px) {
     .container{
         .main{
-            gap: 15px;
+            gap: 0;
 
+            .city{
+                margin-top: 15px;
+                margin-bottom: 11px;
+            }
+            
             .name{
                 font-size: 22px;
                 line-height: 28px;
@@ -106,21 +111,22 @@
 
             .specialities{
                 gap: 5px;
-                margin-top: -5px;
+                margin-top: 10px;
             }
 
             .flags{
                 gap: 5px;
-                margin-top: -10px;
+                margin-top: 5px;
             }
 
             .experience{
-                margin-top: 0;
+                margin-top: 13px;
             }
 
             .group{
                 flex-direction: column-reverse;
-                gap: 15px;
+                gap: 0;
+                
             }
         }
     }

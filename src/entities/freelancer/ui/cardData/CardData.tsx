@@ -38,11 +38,11 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                 </section>
                 <section className={classes.group}>
                     {
-                        (freelancer.experienceWithDoctors || true)
+                        (freelancer.experienceWithDoctors || freelancer.hasCommand)
                             &&
                         <section className={classes.flags}>
                             {
-                                true
+                                freelancer.experienceWithDoctors
                                     &&
                                 <section className={classes.flag}>
                                     <Image height={32} width={36} src={withDoctorsImg.src} alt={'Опыт работы с врачами'} />
@@ -50,7 +50,7 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                                 </section>
                             }
                             {
-                                true
+                                freelancer.hasCommand
                                     &&
                                 <section className={classes.flag}>
                                     <Image height={32} width={36} src={commandImg.src} alt={'Есть команда'} />
