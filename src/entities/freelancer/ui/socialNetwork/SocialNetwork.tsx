@@ -10,9 +10,10 @@ import Image from "next/image";
 
 interface IProps {
     socialNetwork: IFreelancer['socialNetworks'];
+    label: string;
 }
 
-export const SocialNetwork: FC<IProps> = ({socialNetwork}) => {
+export const SocialNetwork: FC<IProps> = ({socialNetwork, label}) => {
 
     const socialConsts: {name: string, img: string}[] = [
         {name: 'telegram', img: tg_logo.src}, 
@@ -31,7 +32,7 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork}) => {
 
     return (
         <section className={classes.container}>
-           Работаю в: 
+            {label}
            <ul className={classes.socials}>
                 {socialNetworkFreelancer.map((s, ind) => 
                     <li 

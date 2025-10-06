@@ -185,18 +185,9 @@
 }
 
 
-@media (max-width: 330px) {
+@media (max-width: 580px) {
     .container{
         .header{
-            flex-direction: column;
-            align-items: start;
-            gap: 2px;
-
-            .price{
-                position: relative;
-                font-size: 17px;
-            }
-
             >h2{
                 font-size: 26px;
                 line-height: 42px;
@@ -208,6 +199,46 @@
                 .name{
                     font-size: 17px;
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .container{
+        .header{
+            .price{
+                padding: 4px 16px;
+            }
+            >h2{
+                font-size: 24px;
+                line-height: 38px;
+            }
+        }
+        .list{
+            .item{
+                gap: 2px;
+                .name{
+                    font-size: 16px;
+                }
+                .amount{
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 330px) {
+    .container{
+        .header{
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            gap: 2px;
+
+            .price{
+                position: relative;
             }
         }
     }

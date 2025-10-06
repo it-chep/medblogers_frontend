@@ -65,7 +65,7 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
                         {
                             freelancer.socialNetworks.length > 0
                                 &&
-                            <SocialNetwork socialNetwork={freelancer.socialNetworks} />
+                            <SocialNetwork label="Работаю в:" socialNetwork={freelancer.socialNetworks} />
                         }
                     </p>
                 </section>

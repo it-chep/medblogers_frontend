@@ -30,3 +30,19 @@
         }
     }
 }
+
+
+@media (max-width: 480px) {
+    .container{
+        gap: 6px;
+
+        .socials{
+            .social{
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}

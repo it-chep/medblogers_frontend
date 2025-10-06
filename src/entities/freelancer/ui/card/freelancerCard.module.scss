@@ -71,3 +71,13 @@
         }
     }
 }
+
+
+@media (max-width: 480px) {
+    .wrapper{
+
+        .avatar{
+            aspect-ratio: 5/3;
+        }
+    }
+}

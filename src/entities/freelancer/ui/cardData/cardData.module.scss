@@ -9,13 +9,28 @@
         flex-direction: column;
         gap: 20px;
 
+        .group{
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+        }
+
         .name{
             font-size: 28px;
             line-height: 42px;
         }
-    
+        
         .city{
+            display: flex;
+            align-items: center;
+            gap: 4px;
             color: var(--text-gray);
+            
+            img{
+                object-fit: contain;
+                width: 16px;
+                height: 16px;
+            }
         }
     
         .specialities{
@@ -26,12 +41,12 @@
 
         .flags{
             display: flex;
-            gap: 20px;
+            gap: 15px;
             height: 100%;
             .flag{
                 display: flex;
                 align-items: center;
-                gap: 10px;
+                gap: 7px;
                 color: var(--blue);
             }
         }
@@ -40,7 +55,8 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            color: var(--text-gray);
+            margin-top: -5px;
+            color: var(--blue);
         }
     }
 
@@ -78,51 +94,122 @@
     }
 }
 
-
-@media (max-width: 480px) {
+@media (max-width: 550px) {
     .container{
-        gap: 20px;
         .main{
+            gap: 15px;
+
             .name{
-                font-size: 24px;
-                line-height: 30px;
-                text-align: center;
+                font-size: 22px;
+                line-height: 28px;
             }
 
-            .city{
-                margin-top: 10px;
-                text-align: center;
+            .specialities{
+                gap: 5px;
+                margin-top: -5px;
             }
 
             .flags{
-                justify-content: center;
+                gap: 5px;
+                margin-top: -10px;
+            }
 
+            .experience{
+                margin-top: 0;
+            }
+
+            .group{
+                flex-direction: column-reverse;
+                gap: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        .main{
+            font-size: 15px;
+
+            .name{
+                font-size: 20px;
+                line-height: 26px;
+            }
+
+            .city{
+                img{
+                    width: 15px;
+                    height: 15px;
+                }
+            }
+
+            .flags{
+                font-size: 14px;
                 .flag{
-                    justify-content: center;
+                    gap: 8px;
+                    >img{
+                        height: 25px;
+                        width: 29px;
+                    }
                 }
             }
 
             .experience{
-                justify-content: center;    
-            }
-
-            .specialities{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 10px;
-                flex-wrap: wrap;
-                margin-top: 10px;
-                margin-bottom: 10px;
+                gap: 8px;
+                font-size: 14px;
+                >img{
+                    height: 25px;
+                    width: 29px;
+                }
             }
         }
 
         .buttons{
             gap: 0;
+
             .link{
                 width: 100%;
-                padding: 0 20px;
                 margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .container{
+        .main{
+            font-size: 14px;
+
+            .name{
+                font-size: 18px;
+                line-height: 24px;
+            }
+
+            .city{
+                img{
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+
+            .flags{
+                font-size: 12px;
+                .flag{
+                    gap: 6px;
+                    >img{
+                        height: 23px;
+                        width: 26px;
+                    }
+                }
+            }
+
+            .experience{
+                font-size: 12px;
+                gap: 6px;
+                >img{
+                    height: 23px;
+                    width: 26px;
+                }
             }
         }
     }
