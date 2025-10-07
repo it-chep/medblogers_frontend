@@ -17,24 +17,6 @@
         .price{
             position: absolute;
             left: 0;
-            font-size: 20px;
-            font-weight: 500;
-            color: var(--blue);
-            background-color: var(--dark-blue);
-            padding: 6px 20px;
-            border-radius: 10px;
-
-            span{
-                opacity: 0.4;
-
-                svg{
-                    fill: var(--blue);
-                }
-    
-                &.highlight{
-                    opacity: 1;
-                }
-            }
         }
 
         >h2{
@@ -207,9 +189,7 @@
 @media (max-width: 480px) {
     .container{
         .header{
-            .price{
-                padding: 4px 16px;
-            }
+           
             >h2{
                 font-size: 22px;
                 line-height: 36px;

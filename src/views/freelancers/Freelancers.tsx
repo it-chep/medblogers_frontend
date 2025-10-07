@@ -40,7 +40,7 @@ export default async function FreelancersPage() {
             <aside className={classes.aside}>
                 <BannerNewFreelancer />
                 {
-                    !env.NEXT_PUBLIC_IsFreelancersDone
+                    env.NEXT_PUBLIC_IS_FREELANCERS_DONE
                         &&
                     <Link href={'/'} className={classes.button}>
                         <ButtonDark>Перейти к врачам</ButtonDark>

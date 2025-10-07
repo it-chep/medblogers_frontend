@@ -30,7 +30,7 @@ export const Header: FC = async () => {
                         <OpenMenu mobile={true} />
                     </section>
                 </section>
-                    <Title />
+                    <Title pathname={pathname || ""} />
                 <section className={classes.openMenuDesc}>
                     <OpenMenu />
                 </section>

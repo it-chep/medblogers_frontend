@@ -1,20 +1,44 @@
 import { FC } from "react";
 import classes from './title.module.scss'
 
+interface IProps {
+    pathname: string;
+}
 
+export const Title: FC<IProps> = ({pathname}) => {
 
-
-export const Title: FC = () => {
-
+    const isFreelancer = pathname.includes('work') || pathname.includes('freelancer')
 
     return (
-        <section className={classes.mainTitle}>
+        <section className={classes.mainTitle + (isFreelancer ? ` ${classes.freelancer}` : '')}>
             <h1>
-                <span className={classes.singleBase}>ЕДИНАЯ БАЗА </span>
-                <span className={classes.doctorsBlogers}>ВРАЧЕЙ-БЛОГЕРОВ</span>
+                <span className={classes.singleBase}>
+                    {
+                        !isFreelancer
+                            ?
+                        'ЕДИНАЯ БАЗА '
+                            :
+                        'БАЗА ФРИЛАНСЕРОВ'
+                    } 
+                </span>
+                <span className={classes.doctorsBlogers}>
+                    {
+                        !isFreelancer
+                            ?
+                        'ВРАЧЕЙ-БЛОГЕРОВ'
+                            :
+                        ' ДЛЯ ВРАЧЕЙ-БЛОГЕРОВ'
+                    }
+                </span>
             </h1>
             <h2 className={classes.desc}>  
-                Поиск коллег для реклам и коллабораций по соцсетям, специальностям и городам
+                {
+                    !isFreelancer
+                        ?
+                    'Поиск коллег для реклам и коллабораций по соцсетям, специальностям и городам'
+                        :
+                    'Поиск помощников для ведения медицинского блога'
+                }
             </h2>   
         </section>
     )

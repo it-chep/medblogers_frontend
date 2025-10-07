@@ -72,7 +72,7 @@ export const Hint: FC<IProps & PropsWithChildren> = ({hint, children}) => {
             {
                 children 
                     ?
-                <section onMouseEnter={onEnter} onMouseLeave={onLeave} onClick={onClick}>
+                <section onMouseEnter={onEnter} onMouseLeave={onLeave} onClick={onClick} className={classes.content}>
                     {children}
                 </section>
                     :

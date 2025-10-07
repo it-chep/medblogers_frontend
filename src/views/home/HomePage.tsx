@@ -37,7 +37,7 @@ export default async function HomePage() {
             <aside className={classes.aside}>
                 <BannerNewDoctor />
                 {
-                    !env.NEXT_PUBLIC_IsFreelancersDone
+                    env.NEXT_PUBLIC_IS_FREELANCERS_DONE
                         &&
                     <Link href={'/work'} className={classes.button}>
                         <ButtonDark>Нанять фрилансеров</ButtonDark>

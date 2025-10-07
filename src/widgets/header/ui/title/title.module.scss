@@ -17,6 +17,18 @@
         font-weight: 500;
     }
 
+    &.freelancer{
+        h1{
+            font-size: clamp(18px, 2.4vw, 30px);
+        }
+
+        .desc{
+            font-size: clamp(12px, 1.4vw, 16px);
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+    }
 }
 
 @media (max-width: 900px) {
@@ -26,6 +38,15 @@
         }
         .desc{
             font-size: 2.2vw;
+        }
+
+        &.freelancer{
+            h1{
+                font-size: 3.6vw;
+            }
+            .desc{
+                font-size: 2.1vw;
+            }
         }
     }
 }
@@ -45,6 +66,28 @@
             font-weight: 400;
             width: 85%;
             margin: 14px auto 0 auto;
+        }
+
+        &.freelancer{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+
+            h1{
+                width: 90%;
+                margin-top: 40px;
+                line-height: 110%;
+                font-size: 6.4vw;
+            }
+            .desc{
+                font-size: 3.9vw;
+                line-height: 100%;
+                font-weight: 400;
+                width: 85%;
+                margin: 14px auto 0 auto;
+            }
         }
     }
 }
