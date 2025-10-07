@@ -7,6 +7,7 @@ import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
 import {MyButton} from "@/src/shared/ui/myButton";
 import {SubscriberLink} from "@/src/entities/doctor/ui/subscriberLink/SubscriberLink";
 import Link from "next/link";
+import markImg from '@/src/shared/lib/assets/mark_blue.png'
 
 export const DoctorMiniature: FC<IDoctorMiniature> = ({
     name, image, city, instLink, tgLink, instSubsCount, instSubsCountText, tgSubsCount, tgSubsCountText, slug, speciality
@@ -16,15 +17,30 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
 
     return (
         <section className={classes.container}>
-            <section className={classes.docInfoWrapper}>
-                { image && <noindex><Link rel="nofollow" href={doctorLink}><Image src={image} alt={'Аватарка врача'} width={260} height={160} /></Link></noindex> }
-                <section className={classes.docInfo}>
-                    <section className={classes.name}><Link href={doctorLink}>{name}</Link></section>
+            <section className={classes.header}>
+                { 
+                    image 
+                        && 
+                    <noindex>
+                        <Link rel="nofollow" href={doctorLink}>
+                            <Image src={image} alt={'Аватарка врача'} width={260} height={160} />
+                        </Link>
+                    </noindex> 
+                }
+                <section className={classes.name}>
+                    <Link href={doctorLink}>
+                        {name}
+                    </Link>
+                </section>
+            </section>
+            <section className={classes.docInfo}>
                     <section className={classes.userAdditionalInfo}>
                         <p>{speciality}</p>
-                        <p>📍 {city}</p>
+                        <p className={classes.city}>
+                            <Image alt="Метка" width={16} height={16} src={markImg.src} />
+                            {city}
+                        </p>
                     </section>
-                </section>
             </section>
             <section className={classes.buttonsWrapper}>
                 <section className={classes.subscribersWrapper}>
