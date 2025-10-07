@@ -40,7 +40,7 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork, label}) => {
                         style={{zIndex: ind}} 
                         className={classes.social}
                     >
-                        <Image alt={s.name} height={20} width={20} src={s.img} />
+                        <Image alt={s.name} height={22} width={22} src={s.img} />
                     </li>
                 )}
            </ul>

@@ -2,12 +2,12 @@
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 10px;
   width: 100%;
   background-color: var(--light-black);
   padding: 10px 10px 20px 10px;
   border-radius: 20px;
+  overflow: hidden;
 
   .header{
     display: flex;
@@ -50,6 +50,7 @@
       font-size: 20px;
       padding: 0 9px;
       color: #FFF;
+      overflow: hidden;
     }
   }
 
@@ -59,27 +60,29 @@
     justify-content: space-between;
     color: #aeaeae;
     padding: 0 9px;
+    height: 100%;
+  }
 
-    .speciality{
-      color: var(--blue);
+  .speciality{
+    color: var(--blue);
+    line-height: 115%;
+  }
+
+  .city{
+    display: flex;
+    gap: 4px;
+    margin-top: 13px;
+    line-height: 115%;
+      
+    img{
+      object-fit: contain;
+      width: 15px;
+      height: 17px;
     }
+  }
 
-    .city{
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 13px;
-
-      img{
-        object-fit: contain;
-        width: 16px;
-        height: 16px;
-      }
-    }
-
-    .socialNetworks{
-      margin-top: 15px;
-    }
+  .socialNetworks{
+    margin-top: 11px;
   }
 
   .buttonsWrapper{
@@ -105,18 +108,14 @@
       }
     }
 
-    .infoWrapper{
+    .city{
+      align-items: start;
+      margin-top: 10px;
 
-      .city{
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        margin-top: 10px;
-      }
+    }
 
-      .socialNetworks{
-        margin-top: 10px;
-      }
+    .socialNetworks{
+      margin-top: 10px;
     }
 
     .buttonsWrapper{

@@ -57,27 +57,29 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
                 </section>
             </section>
             <section className={classes.infoWrapper}>
-                <p className={classes.speciality}>
-                    {freelancer.speciality}
-                </p>
-                <section className={classes.city}> 
-                    <Image alt="Метка" width={16} height={16} src={markImg.src} />
-                    {freelancer.city}
+                <section className={classes.info}>
+                    <p className={classes.speciality}>
+                        {freelancer.speciality}
+                    </p>
+                    <section className={classes.city}> 
+                        <Image alt="Метка" width={15} height={17} src={markImg.src} />
+                        <span className={classes.text}>{freelancer.city}</span>
+                    </section>
+                    <section className={classes.socialNetworks}>
+                        {
+                            freelancer.socialNetworks.length > 0
+                                &&
+                            <SocialNetwork label="Работаю в:" socialNetwork={freelancer.socialNetworks} />
+                        }
+                    </section>
                 </section>
-                <section className={classes.socialNetworks}>
-                    {
-                        freelancer.socialNetworks.length > 0
-                            &&
-                        <SocialNetwork label="Работаю в:" socialNetwork={freelancer.socialNetworks} />
-                    }
-                </section>
-                <section className={classes.buttonsWrapper}>
-                    <noindex className={classes.link}>
-                        <Link rel="nofollow" href={freelancerLink} >
-                            <MyButton>Подробнее</MyButton>
-                        </Link>
-                    </noindex>
-                </section>
+                    <section className={classes.buttonsWrapper}>
+                        <noindex className={classes.link}>
+                            <Link rel="nofollow" href={freelancerLink} >
+                                <MyButton>Подробнее</MyButton>
+                            </Link>
+                        </noindex>
+                    </section>
             </section>
         </section>
     )
