@@ -17,7 +17,9 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
     return (
         <section className={classes.socials}>
             {
-                (doctor.tgSubsCount || doctor.instSubsCount)
+                ((doctor.tgSubsCount || doctor.instSubsCount) 
+                    || 
+                (doctor.tgChannelUrl && !doctor.tgSubsCount) || (doctor.instUrl && !doctor.instSubsCount))
                     &&
                 <section className={classes.profiles}>
                     {
@@ -46,12 +48,6 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
                             <LastUpdated lastUpdated={doctor.instLastUpdatedDate} />
                         </section>
                     }
-                </section>
-            }
-            {
-                (doctor.tgChannelUrl && !doctor.tgSubsCount) || (doctor.instUrl && !doctor.instSubsCount)
-                    &&
-                <section className={classes.profiles}>
                     {
                         doctor.tgChannelUrl && !doctor.tgSubsCount
                             &&

@@ -15,17 +15,15 @@
 
         .name{
             font-size: 28px;
-            line-height: 36px;
+            line-height: 32px;
         }
     
         .city{
             display: flex;
-            align-items: center;
             gap: 4px;
             color: var(--text-gray);
-            
+
             img{
-                object-fit: contain;
                 width: 15px;
                 height: 17px;
             }
@@ -63,7 +61,7 @@
         .main{
             .name{
                 font-size: 26px;
-                line-height: 32px;
+                line-height: 30px;
             }
         }
     }
@@ -81,7 +79,7 @@
 
             .name{
                 font-size: 22px;
-                line-height: 28px;
+                line-height: 26px;
             }
         }
     }
@@ -93,7 +91,7 @@
         .main{
             .name{
                 font-size: 20px;
-                line-height: 26px;
+                line-height: 24px;
             }
 
             .city{
@@ -116,7 +114,7 @@
         .main{
             .name{
                 font-size: 18px;
-                line-height: 24px;
+                line-height: 22px;
                 font-weight: 800;
             }
 

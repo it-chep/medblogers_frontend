@@ -4,26 +4,32 @@
 
 .socials{
     --gray-social: #ffffff40;
-
     min-width: 300px;
     width: 300px;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 10px;
     padding-left: 10px;
     border-left: 1px solid var(--gray-social);
 
+    .profiles{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .link{
         display: none;
+        margin-top: 10px;
     }
 }
 
 @media (max-width: 980px) {
     .socials{
-        margin-top: 20px;
+        margin-top: 10px;
         padding-left: 0;
         border-left: 0;
-        padding-top: 10px;
+        padding-top: 20px;
         border-top: 1px solid var(--gray-social);
 
         .link{

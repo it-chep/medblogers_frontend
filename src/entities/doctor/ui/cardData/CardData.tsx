@@ -11,7 +11,7 @@ interface IProps {
     doctor: IDoctor;
 }
 
-export const CardData: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
+export const CardData: FC<IProps> = ({doctor}) => {
 
 
     return (
