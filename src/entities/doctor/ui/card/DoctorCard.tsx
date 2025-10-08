@@ -1,16 +1,14 @@
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import classes from './doctorCard.module.scss'
 import { IDoctor } from "../../model/types";
-import Image from "next/image";
 import { Socials } from "../cardSocials/Socials";
-
 import { CardData } from "../cardData/CardData";
 
 interface IProps{
     doctor: IDoctor;
 }
 
-export const DoctorCard: FC<IProps> = ({doctor}) => {
+export const DoctorCard: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
     
 
     return (
@@ -26,7 +24,9 @@ export const DoctorCard: FC<IProps> = ({doctor}) => {
             }
             <section className={classes.content}>
                 <CardData doctor={doctor} />
-                <Socials doctor={doctor} />
+                <Socials doctor={doctor}>
+                    {children}
+                </Socials>
             </section>
         </section>
     )

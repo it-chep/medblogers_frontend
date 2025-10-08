@@ -1,3 +1,4 @@
+export { OtherSocial } from "./ui/otherSocial/OtherSocial";
 export { SearchResultDoctors } from "./ui/searchResult/SearchResult";
 export { DoctorCard } from "./ui/card/DoctorCard";
 export { SearchMiniature } from "./ui/searchMiniature/SearchMiniature";

@@ -1,0 +1,53 @@
+
+
+.container{
+    background: var(--dark-gray);
+    border-radius: 10px;
+    width: 100%;
+
+    .header{
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 4px;
+        width: 100%;
+        color: white;
+        padding: 10px;  
+
+        &:hover{
+            .text{
+                &::after{
+                    width: 100%;
+                }
+            }
+        }
+       
+        >svg{
+            transform: rotate(180deg);
+        }
+
+        >img{
+            width: 30px;
+            height: 30px;
+            overflow: visible;
+            object-fit: contain;
+        }
+    }
+
+    .content{
+        display: none;
+        flex-direction: column;
+    }
+        
+    &.open{
+        .header{
+            >svg{
+                transform: rotate(0);
+            }
+        }
+        .content{
+            display: flex;
+        }
+    }
+}
