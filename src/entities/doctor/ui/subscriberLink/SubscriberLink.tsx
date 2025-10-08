@@ -2,27 +2,29 @@ import {FC} from "react";
 import classes from './subscriberLink.module.scss'
 import Image from "next/image";
 
-
 interface IProps {
     link: string;
     socialIconSrc: string;
     subsCount?: string;
     text: string;
-
 }
 
 export const SubscriberLink: FC<IProps> = ({socialIconSrc, subsCount = null, text, link}) => {
 
     return (
         <section className={classes.subscriberLinkWrapper}>
-            <a className={classes.subscriberLink} href={link}>
-                <Image src={socialIconSrc} alt="соцсеть" height={24} width={24} />
+            <a 
+                target="_blank"
+                className={classes.subscriberLink} 
+                href={link}
+            >
+                <Image src={socialIconSrc} alt="Соцсеть" height={30} width={30} />
                 <section className={classes.subsText}>
                     { subsCount && <span className={classes.subsCount}>{subsCount}</span> }
                     <span>{text}</span>
                 </section>
-                <svg width="35" height="33" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.686439 29.4918C-0.146497 30.2173 -0.233623 31.4806 0.491837 32.3136C1.2173 33.1465 2.48063 33.2336 3.31356 32.5082L0.686439 29.4918ZM34.9953 4.13761C35.0713 3.03565 34.2396 2.08074 33.1376 2.00474L15.1803 0.766303C14.0783 0.690306 13.1234 1.52201 13.0474 2.62396C12.9714 3.72591 13.8031 4.68083 14.9051 4.75682L30.8671 5.85766L29.7663 21.8197C29.6903 22.9217 30.522 23.8766 31.624 23.9526C32.7259 24.0286 33.6808 23.1969 33.7568 22.095L34.9953 4.13761ZM2 31L3.31356 32.5082L34.3136 5.50817L33 4L31.6864 2.49184L0.686439 29.4918L2 31Z" fill="#B6B6B6"/>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.292893 10.1924C-0.0976311 10.5829 -0.0976311 11.2161 0.292893 11.6066C0.683418 11.9971 1.31658 11.9971 1.70711 11.6066L1 10.8995L0.292893 10.1924ZM11.8995 0.99998C11.8995 0.447695 11.4518 -1.99303e-05 10.8995 -1.95089e-05L1.89949 -1.93824e-05C1.34721 -1.97196e-05 0.899495 0.447695 0.899495 0.99998C0.899495 1.55227 1.34721 1.99998 1.89949 1.99998L9.8995 1.99998L9.89949 9.99998C9.89949 10.5523 10.3472 11 10.8995 11C11.4518 11 11.8995 10.5523 11.8995 9.99998L11.8995 0.99998ZM1 10.8995L1.70711 11.6066L11.6066 1.70709L10.8995 0.99998L10.1924 0.292874L0.292893 10.1924L1 10.8995Z" fill="#ABABAB"/>
                 </svg>
             </a>
         </section>

@@ -10,7 +10,7 @@
     align-items: center;
     column-gap: 4px;
     width: 100%;
-    background: #404040;
+    background: var(--dark-gray);
     color: white;
     border-radius: 16px;
     padding: 10px;
@@ -45,7 +45,5 @@
         text-align: end;
       }
     }
-
   }
-
 }
