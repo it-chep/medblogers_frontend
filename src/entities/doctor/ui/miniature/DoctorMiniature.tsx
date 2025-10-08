@@ -33,45 +33,48 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
                     </Link>
                 </section>
             </section>
-            <section className={classes.docInfo}>
-                    <section className={classes.userAdditionalInfo}>
-                        <p>{speciality}</p>
-                        <p className={classes.city}>
-                            <Image alt="Метка" width={16} height={16} src={markImg.src} />
-                            {city}
-                        </p>
-                    </section>
-            </section>
-            <section className={classes.buttonsWrapper}>
-                <section className={classes.subscribersWrapper}>
-                    {
-                        tgSubsCount
-                            &&
-                        <SubscriberLink
-                            link={tgLink}
-                            socialIconSrc={tg_logo.src}
-                            subsCount={tgSubsCount}
-                            text={tgSubsCountText}
-                        />
-                    }
-                    {
-                        instSubsCount
-                            &&
-                        <SubscriberLink
-                            link={instLink}
-                            socialIconSrc={inst_logo.src}
-                            subsCount={instSubsCount}
-                            text={instSubsCountText}
-                        />
-                    }
+            <section className={classes.infoWrapper}>
+                <section className={classes.info}>
+                    <p className={classes.speciality}>{speciality}</p>
+                    <p className={classes.city}>
+                        <Image alt="Метка" width={15} height={17} src={markImg.src} />
+                        {city}
+                    </p>
                 </section>
-                <noindex className={classes.link}>
-                    <Link rel="nofollow" href={doctorLink} >
-                        <MyButton>Подробнее</MyButton>
-                    </Link>
-                </noindex>
+                <section className={classes.buttonsWrapper}>
+                    {
+                        (tgSubsCount || instSubsCount)
+                            &&
+                        <section className={classes.subscribersWrapper}>
+                            {
+                                tgSubsCount
+                                    &&
+                                <SubscriberLink
+                                    link={tgLink}
+                                    socialIconSrc={tg_logo.src}
+                                    subsCount={tgSubsCount}
+                                    text={tgSubsCountText}
+                                />
+                            }
+                            {
+                                instSubsCount
+                                    &&
+                                <SubscriberLink
+                                    link={instLink}
+                                    socialIconSrc={inst_logo.src}
+                                    subsCount={instSubsCount}
+                                    text={instSubsCountText}
+                                />
+                            }
+                        </section>
+                    }
+                    <noindex className={classes.link}>
+                        <Link rel="nofollow" href={doctorLink} >
+                            <MyButton>Подробнее</MyButton>
+                        </Link>
+                    </noindex>
+                </section>
             </section>
-
         </section>
     )
 }
