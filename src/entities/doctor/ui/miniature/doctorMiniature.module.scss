@@ -1,110 +1,117 @@
 
 
 .container{
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 10px;
   width: 100%;
   background-color: var(--light-black);
   padding: 10px 10px 20px 10px;
   border-radius: 20px;
 
-  img{
-    object-position: 10% 10%;
-    object-fit: cover;
-    position: relative;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1.6 / 1;
-    border-radius: 14px;
-  }
-
-  .docInfoWrapper{
-
-    .docInfo{
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 9px;
-      margin-top: 10px;
-      width: 100%;
-      justify-content: space-between;
-
-      .name{
-        font-weight: 600;
-        line-height: 20px;
-        font-size: 20px;
-        height: 55px;
-      }
-
-      .userAdditionalInfo{
-        font-size: 16px;
-        color: #aeaeae;
-        text-align: left;
-        display: flex;
-        gap: 5px;
-        flex-direction: column;
-
-        .city{
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          img{
-            object-fit: contain;
-            width: 16px;
-            height: 16px;
-          }
-        }
-      }
-    }
-
-  }
-
-  .buttonsWrapper{
-    width: 100%;
+  .header{
     display: flex;
     flex-direction: column;
-    padding: 9px;
+    gap: 20px;
 
-    .subscribersWrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-  }
-
-    .link{
+    img{
+      object-position: 10% 10%;
+      object-fit: cover;
+      position: relative;
       width: 100%;
-      margin-top: 20px;
-      text-align: center;
-      font-size: 16px;
+      height: auto;
+      aspect-ratio: 1.6 / 1;
+      border-radius: 14px;
+    }
+    .name{
+      font-weight: 600;
+      line-height: 20px;
+      font-size: 20px;
+      padding: 0 9px;
+      color: #FFF;
+      overflow: hidden;
     }
   }
 
-}
+  .infoWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #aeaeae;
+    padding: 0 9px;
+    height: 100%;
 
-@media (max-width: 480px) {
-  .container{
+    .info{
 
-    .docInfoWrapper{
+      .speciality{
+        color: var(--blue);
+        line-height: 115%;
+      }
 
-      .docInfo{
-        .name{
-          line-height: 22px;
-          font-size: 22px;
-          height: 64px;
-        }
-        .userAdditionalInfo{
-          p{
-            font-size: 20px;
-          }
+      .city{
+        display: flex;
+        gap: 4px;
+        margin-top: 13px;
+        line-height: 115%;
+          
+        img{
+          object-fit: contain;
+          width: 15px;
+          height: 17px;
         }
       }
     }
 
     .buttonsWrapper{
-      padding: 15px 9px 9px;
-    }
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+      gap: 20px;
 
+      .subscribersWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .link{
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .container{
+
+    .infoWrapper{
+
+      .info{
+        .city{
+          align-items: start;
+          margin-top: 10px;
+        }
+      }
+
+      .buttonsWrapper{
+        margin-top: 20px;
+        gap: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container{
+    .header{
+      .name{
+        font-size: 18px;
+        font-weight: 800;
+      }
+    }
   }
 }

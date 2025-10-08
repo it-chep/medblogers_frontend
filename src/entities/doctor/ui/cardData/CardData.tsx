@@ -4,7 +4,8 @@ import { IDoctor } from "../../model/types";
 import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { SpecialityBadge } from "../specialityBadges/SpecialityBadge";
-
+import Image from "next/image";
+import markImg from '@/src/shared/lib/assets/mark_blue.png'
 
 interface IProps {
     doctor: IDoctor;
@@ -18,6 +19,7 @@ export const CardData: FC<IProps & PropsWithChildren> = ({doctor, children}) => 
             <section className={classes.main}>
                 <h1 className={classes.name}>{doctor.name}</h1>
                 <span className={classes.city}>
+                    <Image alt="Метка" width={15} height={17} src={markImg.src} /> 
                     Город: {doctor.mainCity.name}{doctor.cities.length >= 0 && doctor.cities.map(city => `, ${city.name}`)}
                 </span>
                 <section className={classes.specialities}>

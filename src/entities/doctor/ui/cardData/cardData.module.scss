@@ -4,23 +4,31 @@
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 20px;
 
     --text-gray: #aeaeae;
 
     .main{
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
 
         .name{
-            font-size: 32px;
-            line-height: 42px;
+            font-size: 28px;
+            line-height: 36px;
         }
     
         .city{
+            display: flex;
+            align-items: center;
+            gap: 4px;
             color: var(--text-gray);
+            
+            img{
+                object-fit: contain;
+                width: 15px;
+                height: 17px;
+            }
         }
     
         .specialities{
@@ -54,8 +62,8 @@
     .container{
         .main{
             .name{
-                font-size: 28px;
-                line-height: 36px;
+                font-size: 26px;
+                line-height: 32px;
             }
         }
     }
@@ -63,42 +71,61 @@
 
 @media (max-width: 550px) {
     .container{
+        gap: 10px;
         .main{
+            gap: 0;
+            .city{
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+
             .name{
-                font-size: 28px;
-                line-height: 36px;
-                text-align: center;
+                font-size: 22px;
+                line-height: 28px;
             }
         }
     }
 }
 
-
 @media (max-width: 480px) {
     .container{
-        gap: 20px;
+        font-size: 15px;
         .main{
             .name{
-                font-size: 24px;
-                line-height: 30px;
+                font-size: 20px;
+                line-height: 26px;
             }
 
             .city{
-                margin-top: 10px;
-                text-align: center;
+                img{
+                    width: 15px;
+                    height: 15px;
+                }      
             }
 
             .specialities{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 10px;
-                flex-wrap: wrap;
-                margin-top: 10px;
-                margin-bottom: 10px;
+                gap: 5px;
             }
         }
+    }
+}
 
+@media (max-width: 400px) {
+    .container{
+        font-size: 14px;
+        .main{
+            .name{
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 800;
+            }
 
+            .city{
+                img{
+                    width: 14px;
+                    height: 14px;
+                }      
+            }
+        }
     }
 }
