@@ -1,0 +1,1 @@
+export { BannerNewFreelancer } from "./ui/BannerNewFreelancer";

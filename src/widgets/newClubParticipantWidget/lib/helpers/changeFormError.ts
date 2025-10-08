@@ -17,5 +17,4 @@ export const changeFormError = (formError: IFormError[], setFormError: (formErro
             }
         }
     }
-
 }

@@ -7,6 +7,8 @@ import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
 import {MyButton} from "@/src/shared/ui/myButton";
 import {SubscriberLink} from "@/src/entities/doctor/ui/subscriberLink/SubscriberLink";
 import Link from "next/link";
+import markImg from '@/src/shared/lib/assets/mark_blue.png';
+
 
 export const DoctorMiniature: FC<IDoctorMiniature> = ({
     name, image, city, instLink, tgLink, instSubsCount, instSubsCountText, tgSubsCount, tgSubsCountText, slug, speciality
@@ -22,7 +24,10 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
                     <section className={classes.name}><Link href={doctorLink}>{name}</Link></section>
                     <section className={classes.userAdditionalInfo}>
                         <p>{speciality}</p>
-                        <p>📍 {city}</p>
+                        <p className={classes.city}> 
+                            <Image alt="Метка" width={16} height={16} src={markImg.src} />
+                            {city}
+                        </p>
                     </section>
                 </section>
             </section>

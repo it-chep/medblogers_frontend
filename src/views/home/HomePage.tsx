@@ -9,6 +9,9 @@ import StatisticsLayout from '@/src/widgets/statistics'
 import { PaginationWidget } from '@/src/widgets/pagination'
 import { filterService, IFilter } from '@/src/entities/filter'
 import { SearchDoctors } from '@/src/widgets/searchDoctors'
+import Link from 'next/link'
+import { ButtonDark } from '@/src/shared/ui/buttonDark'
+import { env } from 'process'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -33,6 +36,13 @@ export default async function HomePage() {
         <section className={classes.page + ' wrapper_main'}>
             <aside className={classes.aside}>
                 <BannerNewDoctor />
+                {
+                    env.NEXT_PUBLIC_IS_FREELANCERS_DONE
+                        &&
+                    <Link href={'/work'} className={classes.button}>
+                        <ButtonDark>Нанять фрилансеров</ButtonDark>
+                    </Link>
+                }
                 <section className={classes.filters}>
                     <FiltersLayout forDesk={true} filters={filters} />
                 </section>

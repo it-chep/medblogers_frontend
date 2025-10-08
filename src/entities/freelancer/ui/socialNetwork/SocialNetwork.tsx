@@ -10,9 +10,10 @@ import Image from "next/image";
 
 interface IProps {
     socialNetwork: IFreelancer['socialNetworks'];
+    label: string;
 }
 
-export const SocialNetwork: FC<IProps> = ({socialNetwork}) => {
+export const SocialNetwork: FC<IProps> = ({socialNetwork, label}) => {
 
     const socialConsts: {name: string, img: string}[] = [
         {name: 'telegram', img: tg_logo.src}, 
@@ -23,7 +24,7 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork}) => {
     ]
 
     const socialNetworkFreelancer = socialConsts.filter(socialConst => {
-        if(socialNetwork.findIndex(s => s.name === socialConst.name) >= 0){
+        if(socialNetwork.findIndex(s => (s.slug === socialConst.name) || (s.name === socialConst.name)) >= 0){
             return true
         }
         return false
@@ -31,12 +32,18 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork}) => {
 
     return (
         <section className={classes.container}>
-           Работаю в соц сетях: 
-           <section className={classes.social}>
-                {socialNetworkFreelancer.map(s => 
-                    <Image key={s.name} alt={s.name} height={20} width={20} src={s.img} />
+            {label}
+           <ul className={classes.socials}>
+                {socialNetworkFreelancer.map((s, ind) => 
+                    <li 
+                        key={s.name} 
+                        style={{zIndex: ind}} 
+                        className={classes.social}
+                    >
+                        <Image alt={s.name} height={22} width={22} src={s.img} />
+                    </li>
                 )}
-           </section>
+           </ul>
         </section>
     )
 }

@@ -1,5 +1,3 @@
-import { ICityData } from "@/src/entities/city";
-import { ISpecialityData } from "@/src/entities/speciality/model/types";
 import { IForm } from "../../model/types";
 
 

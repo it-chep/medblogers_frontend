@@ -2,7 +2,6 @@
 
 import { FC, FormEvent, useEffect, useState } from "react";
 import classes from './form.module.scss'
-import { cityService, ICityData } from "@/src/entities/city";
 import { MyCheckbox } from "@/src/shared/ui/myCheckbox";
 import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
@@ -15,7 +14,7 @@ import { changeFormError } from "@/src/widgets/newClubParticipantWidget/lib/help
 import { initialStateForm } from "../../model/initialState";
 import { freelancerChange } from "../../lib/helpers/freelancerChange";
 import { freelancerFormService } from "../../api/FreelancerFormService";
-import { freelancerService, IFreelancerSpeciality } from "@/src/entities/freelancer";
+import { freelancerService, IFreelancerCity, IFreelancerSpeciality } from "@/src/entities/freelancer";
 import { IItem } from "@/src/shared/model/types";
 import { PriceListChange } from "@/src/features/priceListChange";
 
@@ -24,23 +23,23 @@ export const FreelancerForm: FC = () => {
     const [form, setForm] = useState<IFreelancerForm>(initialStateForm)
     const [formError, setFormError] = useState<IFormError[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [cities, setCities] = useState<ICityData[]>([])
     const [socialNetworkList, setSocialNetworkList] = useState<IItem[]>([])
+    const [cities, setCities] = useState<IFreelancerCity[]>([])
     const [specialities, setSpecialities] = useState<IFreelancerSpeciality[]>([])
 
     const router = useRouter()
 
     const {
-        setEmail, setLastName, setFirstName, setMiddleName, setWorkingExperience,
-        setTelegramUsername, setAgreePolicy, setAdditionalCities, deleteAdditionalCities, 
-        setAdditionalSpecialities, deleteAdditionalSpecialities, setCity, setSpeciality,
-        setPortfolioLink, setSocialNetworks, setExperienceWithDoctors, setHasCommand, setPriceList
+        setEmail, setLastName, setFirstName, setMiddleName, setWorkingExperience, setTelegramUsername, 
+        setAgreePolicy, setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities, 
+        deleteAdditionalSpecialities, setCity, setSpeciality, setPortfolioLink, setSocialNetworks, 
+        deleteSocialNetworks, setExperienceWithDoctors, setHasCommand, setPriceList
     } = freelancerChange(form, setForm)
 
     const {setErrorFieldDelete} = changeFormError(formError, setFormError)
 
     const getCities = async () => {
-        const cities = await cityService.getCities()
+        const cities = await freelancerService.getCities()
         setCities(cities)
     }
 
@@ -60,8 +59,24 @@ export const FreelancerForm: FC = () => {
         getSocialNetworks()
     }, [])
 
+    const checkPriceList: () => boolean = () => {
+        let isOk = true;
+        const length = form.priceList.length;
+        for(let i = 0; i < length; i++){
+            if(form.priceList[i].name === ''){
+                isOk = false;
+                setFormError([{field: 'priceList', text: 'Назвение услуги - обязательное поле'}])
+                break
+            }
+        }
+        return isOk
+    }
+
     const onSubmit = async (e: FormEvent) => {
         e.preventDefault()
+        if(!checkPriceList()){
+            return
+        }
         try{
             setIsLoading(true)
             const res = await freelancerFormService.setForm(form)
@@ -207,7 +222,7 @@ export const FreelancerForm: FC = () => {
             <SearchListDropdown
                 label="Соц сети, с которыми вы работаете"
                 selectedItemsId={form.socialNetworks} 
-                deleteSelected={deleteAdditionalCities} 
+                deleteSelected={deleteSocialNetworks} 
                 items={socialNetworkList} 
                 setSelected={setSocialNetworks} 
                 placeholder=""
@@ -222,7 +237,12 @@ export const FreelancerForm: FC = () => {
             >
                 <span className={classes.checkbox}>Есть своя команда</span>
             </MyCheckbox>
-            <PriceListChange list={form.priceList} setList={setPriceList} />
+            <PriceListChange 
+                list={form.priceList} 
+                setList={setPriceList} 
+                error={formError?.find(error => error.field === 'priceList')?.text} 
+                setError={setErrorFieldDelete('priceList')}
+            />
             <MyCheckbox 
                 error={formError?.find(error => error.field === 'agreePolicy')?.text}
                 checkBoxTop={true} 
@@ -232,7 +252,6 @@ export const FreelancerForm: FC = () => {
                     Я ознакомлен (-а) <Link href={'https://docs.google.com/document/d/1gwotwzPEN-fYGmfrnhLP1KvnhTkHmw6IK3quQukhw_8/edit?tab=t.0'}>с политикой в отношении персональных данных</Link> и даю согласие на <Link href={'https://docs.google.com/document/d/1OSUmseHGB625qlRPZ9Icfo7KY3Al_JfmdLkpjmnxFOA/edit?tab=t.0'}>обработку персональных данных.</Link>
                 </section>
             </MyCheckbox>
-
             <section className={classes.button}>
                 <MyButton isLoading={isLoading} error={formError.length > 0 ? "Заполните обязательные поля" : ""}>
                     { 

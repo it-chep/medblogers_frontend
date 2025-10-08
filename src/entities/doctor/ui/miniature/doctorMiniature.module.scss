@@ -45,6 +45,17 @@
         display: flex;
         gap: 5px;
         flex-direction: column;
+
+        .city{
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          img{
+            object-fit: contain;
+            width: 16px;
+            height: 16px;
+          }
+        }
       }
     }
 

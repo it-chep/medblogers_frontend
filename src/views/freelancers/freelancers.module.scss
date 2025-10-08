@@ -4,8 +4,15 @@
   min-height: 100vh;
 
   .aside{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     min-width: 280px;
     width: 280px;
+
+    .button{
+      height: min-content;
+    }
   }
 
   .main{

@@ -1,0 +1,36 @@
+
+
+.container{
+
+    .text{
+        margin-top: 20px;
+
+        .condition{
+            margin-top: 20px;
+
+            &.b{
+                font-weight: 600;
+            }
+        }
+
+        .callToAction{
+            margin-top: 4px;
+        }
+        
+        .link{
+            display: block;
+            max-width: 330px;
+            margin: 40px auto 0;
+        }
+    }
+}   
+
+
+@media (max-width: 520px) {
+    .container{
+
+        .title{
+            font-size: 1.6rem;
+        }
+    }
+}

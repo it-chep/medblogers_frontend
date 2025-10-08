@@ -17,7 +17,7 @@ export const SpecialityBadge: FC<IProps> = ({text, id, main = null}) => {
 
     return (
         <Link 
-            href={`/freelancers/?specialities=${id}`}
+            href={`/work/?specialities=${id}`}
             className={classes.badge + (main ? ` ${classes.main}` : '')}
         >
             {text}

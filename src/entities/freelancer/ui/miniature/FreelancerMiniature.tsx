@@ -7,7 +7,9 @@ import { IFreelancerMiniature } from "../../model/types";
 import markImg from '@/src/shared/lib/assets/mark_blue.png';
 import commandImg from '@/src/shared/lib/assets/command_blue_bg.png';
 import withDoctorsImg from '@/src/shared/lib/assets/with_doctors_bg.png';
-
+import { SocialNetwork } from "../socialNetwork/SocialNetwork";
+import { Hint } from "@/src/shared/ui/hint";
+import { PriceBadge } from "../priceBadge/PriceBadge";
 
 interface IProps {
     freelancer: IFreelancerMiniature;
@@ -15,13 +17,11 @@ interface IProps {
 
 export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
 
-    const freelancerLink = `freelancers/${freelancer.slug}`
+    const freelancerLink = `work/${freelancer.slug}`
 
     return (
         <section className={classes.container}>
-            <section className={classes.infoWrapper}>
-                { true
-                    && 
+            <section className={classes.header}>
                 <noindex>
                     <Link 
                         rel="nofollow" 
@@ -29,32 +29,58 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
                         className={classes.image}
                     >
                         <section className={classes.icons}>
-                            {freelancer.hasCommand && <Image alt="Работа в команде" height={32} width={36} src={commandImg.src}  />}
-                            {freelancer.experienceWithDoctors && <Image alt="Работа в команде" height={32} width={36} src={withDoctorsImg.src}  />}
-
+                            <Hint hint="Ценовая категория">
+                                <PriceBadge priceCategory={+freelancer.priceCategory} />
+                            </Hint>
+                            { 
+                                freelancer.hasCommand
+                                    &&
+                                <Hint hint="Есть своя команда">
+                                    <Image alt="Есть своя команда" height={32} width={36} src={commandImg.src}  />
+                                </Hint>
+                            }
+                            {    
+                                freelancer.experienceWithDoctors
+                                    &&
+                                <Hint hint="Есть опыт работы с врачами"> 
+                                    <Image alt="Есть опыт работы с врачами" height={32} width={36} src={withDoctorsImg.src}  />
+                                </Hint>
+                            }
                         </section>
-                        <Image src={freelancer.image} alt={'Аватарка фрилансера'} width={260} height={160} />
-                    </Link>
-                </noindex> }
-                <section className={classes.info}>
-                    <section className={classes.name}><Link href={freelancerLink}>{freelancer.name}</Link></section>
-                    <section className={classes.userAdditionalInfo}>
-                        <p>{freelancer.speciality}</p>
-                        <p className={classes.city}> 
-                            <Image alt="Метка" width={16} height={16} src={markImg.src} />
-                            {freelancer.city}
-                        </p>
-                    </section>
-                </section>
-            </section>
-            <section className={classes.buttonsWrapper}>
-                <noindex className={classes.link}>
-                    <Link rel="nofollow" href={freelancerLink} >
-                        <MyButton>Подробнее</MyButton>
+                        <Image className={classes.avatar} src={freelancer.image} alt={'Аватарка фрилансера'} width={260} height={160} />
                     </Link>
                 </noindex>
+                <section className={classes.name}>
+                    <Link href={freelancerLink}>
+                        {freelancer.name}
+                    </Link>
+                </section>
             </section>
-
+            <section className={classes.infoWrapper}>
+                <section className={classes.info}>
+                    <p className={classes.speciality}>
+                        {freelancer.speciality}
+                    </p>
+                    <section className={classes.city}> 
+                        <Image alt="Метка" width={15} height={17} src={markImg.src} />
+                        <span className={classes.text}>{freelancer.city}</span>
+                    </section>
+                    <section className={classes.socialNetworks}>
+                        {
+                            freelancer.socialNetworks.length > 0
+                                &&
+                            <SocialNetwork label="Работаю в:" socialNetwork={freelancer.socialNetworks} />
+                        }
+                    </section>
+                </section>
+                    <section className={classes.buttonsWrapper}>
+                        <noindex className={classes.link}>
+                            <Link rel="nofollow" href={freelancerLink} >
+                                <MyButton>Подробнее</MyButton>
+                            </Link>
+                        </noindex>
+                    </section>
+            </section>
         </section>
     )
 }

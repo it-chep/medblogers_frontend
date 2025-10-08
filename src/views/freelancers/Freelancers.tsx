@@ -8,6 +8,10 @@ import { StatisticsFreelancersLayout } from '@/src/widgets/statisticsFreelancers
 import { ActiveFiltersFreelancersLayout } from '@/src/widgets/activeFiltersFreelancers';
 import { FreelancersAll } from '@/src/widgets/freelancers';
 import { PaginationFreelancersWidget } from '@/src/widgets/paginationFreelancers';
+import { BannerNewFreelancer } from '@/src/widgets/bannerNewFreelancer';
+import Link from 'next/link';
+import { ButtonDark } from '@/src/shared/ui/buttonDark';
+import { env } from 'process';
 
 const getData = async () => {
     let filters: IFilterFreelancer | null = null;
@@ -34,12 +38,20 @@ export default async function FreelancersPage() {
     return (
         <section className={classes.page + ' wrapper_main'}>
             <aside className={classes.aside}>
+                <BannerNewFreelancer />
+                {
+                    env.NEXT_PUBLIC_IS_FREELANCERS_DONE
+                        &&
+                    <Link href={'/'} className={classes.button}>
+                        <ButtonDark>Перейти к врачам</ButtonDark>
+                    </Link>
+                }
                 <section className={classes.filters}>
                     <FiltersFreelancersLayout forDesk={true} filters={filters} />
                 </section>
             </aside>
             <main className={classes.main}>
-                <StatisticsFreelancersLayout />
+                {/* <StatisticsFreelancersLayout /> */}
                 <SearchFreelancers>
                     <OpenFiltersModal>
                         <FiltersFreelancersLayout filters={filters} forDesk={false} />

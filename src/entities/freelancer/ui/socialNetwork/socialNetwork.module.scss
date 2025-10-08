@@ -2,15 +2,48 @@
 .container{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     color: var(--text-gray);
-    .social{
+    .socials{
         display: flex;
         align-items: center;
         gap: 5px;
+        list-style: none;
+        margin-right: 12px;
 
-        img{
-            object-fit: contain;
+        .social{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: var(--light-black);
+            border-radius: 8px;
+            margin-right: -14px;
+            padding: 3px;
+            
+            img{
+                border-radius: 5px;
+                width: 22px;
+                height: 22px;
+                object-fit:cover;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container{
+        gap: 6px;
+
+        .socials{
+            .social{
+                margin-right: -12px;
+                img{
+                    width: 18px;
+                    height: 18px;
+                }
+            }
         }
     }
 }

@@ -35,7 +35,28 @@ export async function FreelancerDetail(props: IProps){
     return (
         <section className={classes.container}>
             <FreelancerCard freelancer={freelancer} />
-            <OpenPriceList priceList={freelancer.priceList} />
+            {
+                freelancer.priceList.length > 0
+                    &&
+                <>
+                    <section className={classes.desctop}>
+                        <OpenPriceList 
+                            heightConst={300} 
+                            darkenHeightConst={120} 
+                            priceList={freelancer.priceList} 
+                            priceCategory={freelancer.priceCategory}
+                        />
+                    </section>
+                    <section className={classes.mobile}>
+                        <OpenPriceList 
+                            heightConst={600} 
+                            darkenHeightConst={260} 
+                            priceList={freelancer.priceList} 
+                            priceCategory={freelancer.priceCategory}
+                        />
+                    </section>
+                </>
+            }
         </section>
     )
 }

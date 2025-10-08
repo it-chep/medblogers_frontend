@@ -4,20 +4,24 @@ import classes from './priceListChange.module.scss'
 import { MyInputForm } from "@/src/shared/ui/inputForm";
 import plusImg from '../../lib/assets/plus.png'
 import deleteImg from '../../lib/assets/delete.png'
+import { Hint } from "@/src/shared/ui/hint";
 
 
 interface IProps {
     list: IPriceListItem[];
     setList: (list: IPriceListItem[]) => void;
+    error?: string;
+    setError?: (err: string) => void;
 }
 
-export const PriceListChange: FC<IProps> = ({list, setList}) => {
+export const PriceListChange: FC<IProps> = ({list, setList, error, setError}) => {
 
 
     const addItem = () => {
         const target: IPriceListItem[] = [...list]
         target.push({name: '', amount: 0})
         setList(target)
+        setError && setError('')
     }
 
     const setName = (ind: number) => {
@@ -25,6 +29,7 @@ export const PriceListChange: FC<IProps> = ({list, setList}) => {
             const target: IPriceListItem[] = JSON.parse(JSON.stringify(list));
             target[ind].name = val;
             setList(target)
+            setError && setError('')
         }
     }
 
@@ -42,6 +47,7 @@ export const PriceListChange: FC<IProps> = ({list, setList}) => {
                     setList(target)
                 }
             }
+            setError && setError('')
         }
     }
 
@@ -49,6 +55,7 @@ export const PriceListChange: FC<IProps> = ({list, setList}) => {
         const target: IPriceListItem[] = [...list]
         target.splice(ind, 1)
         setList(target)
+        setError && setError('')
     }
 
     return (
@@ -62,12 +69,15 @@ export const PriceListChange: FC<IProps> = ({list, setList}) => {
                 <ul className={classes.list}>
                     <li className={classes.title}>
                         <section className={classes.name}>
-                                Название услуги
+                            <span className={classes.text}>Название услуги</span>
+                        </section>
+                        <section className={classes.amount}>
+                            <span className={classes.text}>Цена ОТ или по договоренности</span>
+                            <section className={classes.hint}>
+                                <Hint hint="Оставьте 0 если работаете по договоренности" />
                             </section>
-                            <section className={classes.amount}>
-                                Цена ОТ или по договоренности
-                            </section>
-                        </li>
+                        </section>
+                    </li>
                     {list.map((l, ind) => 
                         <li 
                             key={ind}
@@ -95,6 +105,7 @@ export const PriceListChange: FC<IProps> = ({list, setList}) => {
             >
                 <img alt="Добавить" src={plusImg.src} />
             </section>
+            { (error) && <span className={classes.errorText}>*{error}</span> }
         </section>
     )
 }

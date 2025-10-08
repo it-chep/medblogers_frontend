@@ -9,6 +9,7 @@ import commandImg from '@/src/shared/lib/assets/command_blue_bg.png'
 import workingExperienceImg from '@/src/shared/lib/assets/speciality_blue_bg.png'
 import Image from "next/image";
 import { SocialNetwork } from "../socialNetwork/SocialNetwork";
+import markImg from '@/src/shared/lib/assets/mark_blue.png';
 
 interface IProps {
     freelancer: IFreelancer;
@@ -20,38 +21,67 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
     return (
         <section className={classes.container}>
             <section className={classes.main}>
-                <h1 className={classes.name}>{freelancer.name}</h1>
-                <span className={classes.city}>Город: {freelancer.mainCity.name}
-                    {freelancer.cities.length >= 0 && freelancer.cities.map(city => `, ${city.name}`)}
-                </span>
-                <section className={classes.specialities}>
-                    <SpecialityBadge id={freelancer.mainSpeciality.id} text={freelancer.mainSpeciality.name} main={true} />
-                    {freelancer.specialities.map((speciality, ind) => 
-                        <SpecialityBadge key={ind} id={speciality.id} text={speciality.name} />
-                    )}
-                </section>
-                <section className={classes.flags}>
-                    <section className={classes.flag}>
-                        <Image height={32} width={36} src={withDoctorsImg.src} alt={'Опыт работы с врачами'} />
-                        <span className={classes.text}>Есть опыт работы с врачами</span>
-                    </section>
-                    <section className={classes.flag}>
-                        <Image height={32} width={36} src={commandImg.src} alt={'Есть команда'} />
-                        <span className={classes.text}>Есть команда</span>
+                <h1 className={classes.name}>
+                    {freelancer.name}
+                </h1>
+                <section className={classes.group}>
+                    <span className={classes.city}>
+                        <Image alt="Метка" width={16} height={16} src={markImg.src} /> Город: {freelancer.mainCity.name}
+                        {freelancer.cities.length >= 0 && freelancer.cities.map(city => `, ${city.name}`)}
+                    </span>
+                    <section className={classes.specialities}>
+                        <SpecialityBadge id={freelancer.mainSpeciality.id} text={freelancer.mainSpeciality.name} main={true} />
+                        {freelancer.specialities.map((speciality, ind) => 
+                            <SpecialityBadge key={ind} id={speciality.id} text={speciality.name} />
+                        )}
                     </section>
                 </section>
-                <section className={classes.experience}>
-                    <Image height={32} width={36} src={workingExperienceImg.src} alt={'Опыт работы'} />
-                        <span className={classes.text}>Опыт работы</span>
+                <section className={classes.group}>
+                    {
+                        (freelancer.experienceWithDoctors || freelancer.hasCommand)
+                            &&
+                        <section className={classes.flags}>
+                            {
+                                freelancer.experienceWithDoctors
+                                    &&
+                                <section className={classes.flag}>
+                                    <Image height={32} width={36} src={withDoctorsImg.src} alt={'Опыт работы с врачами'} />
+                                    <span className={classes.text}>Есть опыт работы с врачами</span>
+                                </section>
+                            }
+                            {
+                                freelancer.hasCommand
+                                    &&
+                                <section className={classes.flag}>
+                                    <Image height={32} width={36} src={commandImg.src} alt={'Есть команда'} />
+                                    <span className={classes.text}>Есть команда</span>
+                                </section>
+                            }
+                        </section>
+                    }
+                    <section className={classes.experience}>
+                        <Image height={32} width={36} src={workingExperienceImg.src} alt={'Опыт работы'} />
+                        <span className={classes.text}>Опыт работы {freelancer.workingExperience}</span>
+                    </section>
+                    {
+                        freelancer.socialNetworks.length > 0
+                            &&
+                        <SocialNetwork label="Работаю в соц сетях:" socialNetwork={freelancer.socialNetworks} />
+                    }
                 </section>
             </section>
-            <SocialNetwork socialNetwork={freelancer.socialNetworks} />
-
-            <Link className={classes.link} href={freelancer.tgUrl}>
-                <MyButton>
-                    Связаться
-                </MyButton>
-            </Link>
+            <section className={classes.buttons}>
+                <Link className={classes.link} href={freelancer.tgUrl}>
+                    <MyButton>
+                        Связаться
+                    </MyButton>
+                </Link>
+                <Link className={classes.link} href={freelancer.portfolioLink}>
+                    <MyButton grayStyle={true}>
+                        Портфолио
+                    </MyButton>
+                </Link>
+            </section>
         </section>
     )
 }

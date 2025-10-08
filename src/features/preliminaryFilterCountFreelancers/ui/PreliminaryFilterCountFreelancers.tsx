@@ -1,5 +1,5 @@
 import { useAppSelector } from "@/src/app/store/store"
-import { FC, useEffect, useState } from "react"
+import { FC, useEffect, useRef, useState } from "react"
 import { preliminaryFilterCountFreelancersService } from "../api/PreliminaryFilterCountService"
 
 
@@ -40,7 +40,12 @@ export const PreliminaryFilterCountFreelancers: FC = () => {
         setCount(data)
     }
 
+    const isOne = useRef<boolean>(true)
     useEffect(() => {
+        if(isOne.current){
+            isOne.current = false;
+            return
+        }
         getCount()
     }, [filterFreelancer])
 

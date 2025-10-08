@@ -5,6 +5,11 @@ export interface IFreelancerSpeciality {
     specialityName: string;
 }
 
+export interface IFreelancerCity {
+    cityId: number;
+    cityName: string;
+}
+
 export interface IPriceListItem {
     name: string;
     amount: number;
@@ -18,6 +23,7 @@ interface IPriceListItemRes {
 interface ISocialNetworkItem {
     id: string;
     name: string;
+    slug: string;
 } 
 
 export interface ICityFreelancer{
