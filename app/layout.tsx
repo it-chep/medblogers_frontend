@@ -12,7 +12,14 @@ export const metadata: Metadata = {
     template: '%s | MEDBLOGERS BASE - Единая база врачей-блогеров для поиска рекламы',
     default: 'MEDBLOGERS BASE - Единая база врачей-блогеров для поиска рекламы', 
   },
-  description: 'Единая база врачей-блогеров для поиска рекламы'
+  description: 'Единая база врачей-блогеров для поиска рекламы',
+  openGraph: {
+    title: 'MEDBLOGERS BASE - Единая база врачей-блогеров для поиска рекламы',
+    description: 'Единая база врачей-блогеров для поиска рекламы',
+    images: 'https://storage.yandexcloud.net/medblogers-photos/seo.png',
+    url: 'https://medblogers-base.ru/',
+    type: 'website'
+  },
 };
 
 

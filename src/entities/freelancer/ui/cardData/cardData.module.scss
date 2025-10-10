@@ -22,14 +22,13 @@
         
         .city{
             display: flex;
-            align-items: center;
             gap: 4px;
             color: var(--text-gray);
             
             img{
-                object-fit: contain;
-                width: 16px;
-                height: 16px;
+                margin-top: 2px;
+                width: 11px;
+                height: 13px;
             }
         }
     
@@ -142,13 +141,6 @@
                 line-height: 26px;
             }
 
-            .city{
-                img{
-                    width: 15px;
-                    height: 15px;
-                }
-            }
-
             .flags{
                 font-size: 14px;
                 .flag{
@@ -194,8 +186,7 @@
 
             .city{
                 img{
-                    width: 14px;
-                    height: 14px;
+                    margin-top: 1px;
                 }
             }
 

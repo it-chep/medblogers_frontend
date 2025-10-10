@@ -26,7 +26,7 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                 </h1>
                 <section className={classes.group}>
                     <span className={classes.city}>
-                        <Image alt="Метка" width={16} height={16} src={markImg.src} /> Город: {freelancer.mainCity.name}
+                        <Image alt="Метка" width={11} height={13} src={markImg.src} /> Город: {freelancer.mainCity.name}
                         {freelancer.cities.length >= 0 && freelancer.cities.map(city => `, ${city.name}`)}
                     </span>
                     <section className={classes.specialities}>

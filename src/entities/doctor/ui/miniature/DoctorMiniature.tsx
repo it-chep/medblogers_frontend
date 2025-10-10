@@ -37,7 +37,7 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
                 <section className={classes.info}>
                     <p className={classes.speciality}>{speciality}</p>
                     <p className={classes.city}>
-                        <Image alt="Метка" width={15} height={17} src={markImg.src} />
+                        <Image alt="Метка" width={11} height={13} src={markImg.src} />
                         {city}
                     </p>
                 </section>
