@@ -40,9 +40,13 @@ export const MyInputForm: FC<IProps & ComponentProps<'input'>> = (
 
     return (
         <section className={classes.wrapper + (error ? ` ${classes.error}` : '')}>
-            <span className={classes.label}>
-                {label}
-            </span>
+            {
+                label
+                    &&
+                <span className={classes.label}>
+                    {label}
+                </span>
+            }
             <input 
                 {...props} 
                 value={value} 

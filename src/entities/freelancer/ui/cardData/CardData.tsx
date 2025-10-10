@@ -76,11 +76,15 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                         Связаться
                     </MyButton>
                 </Link>
-                <Link className={classes.link} href={freelancer.portfolioLink}>
-                    <MyButton grayStyle={true}>
-                        Портфолио
-                    </MyButton>
-                </Link>
+                {
+                    freelancer.portfolioLink
+                        &&
+                    <Link className={classes.link} href={freelancer.portfolioLink}>
+                        <MyButton grayStyle={true}>
+                            Портфолио
+                        </MyButton>
+                    </Link>
+                }
             </section>
         </section>
     )

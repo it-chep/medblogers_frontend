@@ -63,7 +63,7 @@ class FreelancerService {
     async get(slug: string): Promise<IFreelancer> {
         const response = await fetch(SERVER_URL_API + '/v1/freelancers/card/' + slug,
             {
-                cache: "no-cache"
+                cache: "no-store"
             }
         )
         const freelancer = await response.json()
