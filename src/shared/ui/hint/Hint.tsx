@@ -5,11 +5,12 @@ import classes from './hint.module.scss'
 
 interface IProps {
     hint: string;
+    width?: number;
 }
 
 const HINT_WIDTH = 240;
 
-export const Hint: FC<IProps & PropsWithChildren> = ({hint, children}) => {
+export const Hint: FC<IProps & PropsWithChildren> = ({hint, width: hintWidth = HINT_WIDTH, children}) => {
 
     const [open, setOpen] = useState<boolean>(false)
     const hintRef = useRef<HTMLDivElement>(null)
@@ -27,14 +28,14 @@ export const Hint: FC<IProps & PropsWithChildren> = ({hint, children}) => {
          if(hintRef.current && containerRef.current){
             const containerData = containerRef.current.getBoundingClientRect()
             const right = window.innerWidth - (containerData.left + 20);
-            const left = containerData.right - HINT_WIDTH - 20;
-            hintRef.current.style.width = HINT_WIDTH + 'px'
+            const left = containerData.right - hintWidth - 20;
+            hintRef.current.style.width = hintWidth + 'px'
            
-            if(right < HINT_WIDTH){
+            if(right < hintWidth){
                 hintRef.current.style.right = '0';
                 hintRef.current.style.left = 'auto';
                 if(left < 0){
-                    hintRef.current.style.width = HINT_WIDTH + left + 'px';
+                    hintRef.current.style.width = hintWidth + left + 'px';
                 }
             }
             else {
@@ -84,7 +85,7 @@ export const Hint: FC<IProps & PropsWithChildren> = ({hint, children}) => {
             }
             <section 
                 ref={hintRef} 
-                style={{width: HINT_WIDTH}}
+                style={{width: hintWidth}}
                 className={classes.hint + (open ? ` ${classes.open}` : '')}
             >
                 {hint}

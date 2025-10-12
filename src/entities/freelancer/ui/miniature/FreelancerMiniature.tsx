@@ -29,20 +29,20 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
                         className={classes.image}
                     >
                         <section className={classes.icons}>
-                            <Hint hint="Ценовая категория">
+                            <Hint width={172} hint="Ценовая категория">
                                 <PriceBadge priceCategory={+freelancer.priceCategory} />
                             </Hint>
                             { 
                                 freelancer.hasCommand
                                     &&
-                                <Hint hint="Есть своя команда">
+                                <Hint width={166} hint="Есть своя команда">
                                     <Image alt="Есть своя команда" height={32} width={36} src={commandImg.src}  />
                                 </Hint>
                             }
                             {    
                                 freelancer.experienceWithDoctors
                                     &&
-                                <Hint hint="Есть опыт работы с врачами"> 
+                                <Hint width={160} hint="Есть опыт работы с врачами"> 
                                     <Image alt="Есть опыт работы с врачами" height={32} width={36} src={withDoctorsImg.src}  />
                                 </Hint>
                             }
