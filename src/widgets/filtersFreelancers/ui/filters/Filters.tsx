@@ -42,7 +42,6 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                     const targetInd = filter[labelSlug].findIndex(item => {
                         return item.id === value
                     }) 
-                    console.log(filter[labelSlug], values)
                     if(targetInd >= 0){
                         filter[labelSlug][targetInd].selected = true
                     }     

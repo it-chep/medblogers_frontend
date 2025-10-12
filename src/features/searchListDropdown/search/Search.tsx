@@ -61,13 +61,6 @@ export const SearchListDropdown: FC<IProps> = (
         }
     }, [open])
 
-    // useEffect(() => {
-    //     if(resultRef.current && inputRef.current){
-    //         inputRef.current.addEventListener('focus', () => resultRef.current?.classList.add(classes.focus))
-    //         inputRef.current.addEventListener('blur', () => resultRef.current?.classList.remove(classes.focus))
-    //     }
-    // }, [])
-
     return (
         <section className={classes.wrapper}>
             <span className={classes.label}>

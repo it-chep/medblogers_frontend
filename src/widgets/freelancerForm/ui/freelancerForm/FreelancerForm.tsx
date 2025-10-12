@@ -50,7 +50,7 @@ export const FreelancerForm: FC = () => {
 
     const getSocialNetworks = async () => {
         const socialNetworks = await freelancerService.getSocialNetworks()
-        setSocialNetworkList(socialNetworks)
+        setSocialNetworkList([{id: 0, name: 'Любая'}, ...socialNetworks])
     }
 
     useEffect(() => {
@@ -72,6 +72,14 @@ export const FreelancerForm: FC = () => {
         return isOk
     }
 
+    const checkSocialNetworks = (): number[] => {
+        const targetInd = form.socialNetworks.findIndex(s => s === 0)
+        if(targetInd >= 0){
+            return socialNetworkList.map(s => s.id).filter(s => s !== 0)
+        }
+        return form.socialNetworks
+    }
+
     const onSubmit = async (e: FormEvent) => {
         e.preventDefault()
         if(!checkPriceList()){
@@ -79,7 +87,7 @@ export const FreelancerForm: FC = () => {
         }
         try{
             setIsLoading(true)
-            const res = await freelancerFormService.setForm(form)
+            const res = await freelancerFormService.setForm({...form, socialNetworks: checkSocialNetworks()})
             if(res.errors.length === 0){
                 router.push('/spasibo_club_participant')
             }
