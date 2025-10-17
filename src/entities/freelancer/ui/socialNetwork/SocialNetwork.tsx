@@ -33,7 +33,7 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork, label}) => {
     return (
         <section className={classes.container}>
             {label}
-           <ul className={classes.socials}>
+            <ul className={classes.socials}>
                 {socialNetworkFreelancer.map((s, ind) => 
                     <li 
                         key={s.name} 
@@ -43,7 +43,7 @@ export const SocialNetwork: FC<IProps> = ({socialNetwork, label}) => {
                         <Image alt={s.name} height={22} width={22} src={s.img} />
                     </li>
                 )}
-           </ul>
+            </ul>
         </section>
     )
 }

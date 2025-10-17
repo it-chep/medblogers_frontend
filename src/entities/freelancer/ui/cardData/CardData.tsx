@@ -21,9 +21,9 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
     return (
         <section className={classes.container}>
             <section className={classes.main}>
-                <h1 className={classes.name}>
+                <h2 className={classes.name}>
                     {freelancer.name}
-                </h1>
+                </h2>
                 <section className={classes.group}>
                     <span className={classes.city}>
                         <Image alt="Метка" width={11} height={13} src={markImg.src} /> Город: {freelancer.mainCity.name}

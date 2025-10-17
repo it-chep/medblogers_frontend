@@ -104,8 +104,8 @@
             }
             
             .name{
-                font-size: 22px;
-                line-height: 28px;
+                font-size: 24px;
+                line-height: 30px;
             }
 
             .specialities{
@@ -133,6 +133,49 @@
 
 @media (max-width: 480px) {
     .container{
+
+        .main{
+
+            .name{
+                font-size: 22px;
+                line-height: 28px;
+            }
+
+            .flags{
+                font-size: 15px;
+                .flag{
+                    gap: 9px;
+                    >img{
+                        height: 26px;
+                        width: 30px;
+                    }
+                }
+            }
+
+            .experience{
+                gap: 9px;
+                font-size: 15px;
+                >img{
+                    height: 26px;
+                    width: 30px;
+                }
+            }
+        }
+
+        .buttons{
+            gap: 0;
+            margin-bottom: 10px;
+
+            .link{
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 440px) {
+    .container{
         .main{
             font-size: 15px;
 
@@ -159,16 +202,6 @@
                     height: 25px;
                     width: 29px;
                 }
-            }
-        }
-
-        .buttons{
-            gap: 0;
-            margin-bottom: 10px;
-
-            .link{
-                width: 100%;
-                margin-top: 10px;
             }
         }
     }

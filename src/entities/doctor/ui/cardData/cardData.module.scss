@@ -79,14 +79,30 @@
             }
 
             .name{
-                font-size: 22px;
-                line-height: 26px;
+                font-size: 24px;
+                line-height: 28px;
             }
         }
     }
 }
 
 @media (max-width: 480px) {
+    .container{
+        .main{
+            .name{
+                font-size: 22px;
+                line-height: 26px;
+            }
+
+            .specialities{
+                gap: 6px;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 440px) {
     .container{
         font-size: 15px;
         .main{

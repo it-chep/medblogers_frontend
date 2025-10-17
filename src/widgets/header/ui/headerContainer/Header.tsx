@@ -1,3 +1,5 @@
+"use client"
+
 import { FC } from "react";
 import classes from './header.module.scss'
 import Image from "next/image";
@@ -5,13 +7,12 @@ import logo from '../../lib/assets/medblogers_logo.png'
 import { Title } from "../title/Title";
 import { OpenMenu } from "@/src/features/menu";
 import Link from "next/link";
-import { headers } from "next/headers";
 import { noPages } from "../../lib/const/noPages";
+import { usePathname } from "next/navigation";
 
 export const Header: FC = async () => {
 
-    const headerList = await headers();
-    const pathname = headerList.get("x-current-path");
+    const pathname = usePathname()
 
     if(pathname && noPages.includes(pathname)){
         return (

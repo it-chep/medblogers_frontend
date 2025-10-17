@@ -19,7 +19,7 @@
             left: 0;
         }
 
-        >h2{
+        >h3{
             font-size: 32px;
             line-height: 42px;
         }
@@ -45,12 +45,27 @@
 }
 
 .list{
+    position: relative;
     list-style: none;
-    width: 50%;
+    width: 100%;
 
-    &:first-child{
-        border-right: 1px solid var(--dark-gray);
+    &::after{
+        content: "";
+        display: block;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        background-color: var(--dark-gray);
+        position: absolute;
     }
+
+    .section{
+        display: flex;
+        gap: 10px;
+        width: 50%;
+    }
+
 
     .top{
         display: flex;
@@ -77,9 +92,10 @@
     .item{
         display: flex;
         width: 100%;
-        gap: 16px;
         border-bottom: 1px solid var(--dark-gray);
         padding: 10px 20px;
+        gap: 16px;
+
 
         &:last-child{
             border-bottom: none;
@@ -100,21 +116,53 @@
     .container{
         .content{
             flex-direction: column;
-
-            .desctop{
-                display: none;
-                width: 100%;
-            }
-
-            .mobile{
-                display: flex;
-            }
         }
+
         .list{
-            width: 100%;
-            
-            &:first-child{
-                border-right: none;
+        
+            &::after{
+                display: none;
+            }
+
+            .section{
+                width: 100%;
+                gap: 16px;
+                border-bottom: 1px solid var(--dark-gray);
+                padding: 8px 20px;
+
+                &.empty{
+                    display: none;
+                }
+
+                &.last{
+                    border-bottom: none;
+                }
+
+            }
+
+            .top{
+                padding: 12px 0 2px 0;
+                .section{
+                    border-bottom: none;
+                    &:last-child{
+                        display: none;
+                    }
+                }
+            }
+
+            .item{
+                flex-direction: column;
+                border-bottom: none;
+                gap: 0;
+                padding: 0;
+
+                &:last-child{
+                    .section{
+                        &:last-child{
+                            border-bottom: none;
+                        }
+                    }
+                }
             }
         }
     }
@@ -133,53 +181,36 @@
                 left: auto;
                 right: 0;
             }
-
             
-            >h2{
-                font-size: 26px;
-                line-height: 42px;
-            }
-        }
-    }
-
-    .list{
-        .top{
-            display: none;
-        }
-
-        .item{
-            flex-direction: column;
-            gap: 4px;
-
-            .name{
-                width: 100%;
-                text-align: left;
-                font-weight: 600;
-                font-size: 18px;
-            }
-            .amount{
-                text-align: left;
-                width: 100%;
-                color: var(--blue);
-            }
-        }
-    }
-}
-
-
-@media (max-width: 550px) {
-    .container{
-        .header{
-            >h2{
-                font-size: 24px;
+            >h3{
+                font-size: 25px;
                 line-height: 36px;
             }
         }
+
         .list{
+            .top{
+                display: none;
+            }
+
+            .section{
+                flex-direction: column;
+                gap: 4px;
+            }
+
             .item{
-                gap: 3px;
+                gap: 0px;
+
                 .name{
-                    font-size: 17px;
+                    width: 100%;
+                    text-align: left;
+                    font-weight: 600;
+                    font-size: 18px;
+                }
+                .amount{
+                    text-align: left;
+                    width: 100%;
+                    color: var(--blue);
                 }
             }
         }
@@ -190,7 +221,7 @@
     .container{
         .header{
            
-            >h2{
+            >h3{
                 font-size: 22px;
                 line-height: 36px;
             }
@@ -201,7 +232,7 @@
 @media (max-width: 400px) {
     .container{
         .header{
-            >h2{
+            >h3{
                 font-size: 20px;
                 line-height: 32px;
             }

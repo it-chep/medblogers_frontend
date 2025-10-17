@@ -42,8 +42,6 @@ export const OpenPriceList: FC<IProps> = ({priceList, heightConst, darkenHeightC
         }
     }
 
-    
-
     return (
         <section className={classes.openPriceList}>
             {

@@ -2,6 +2,8 @@
 
 
 .mainTitle{
+    margin-left: 32px;
+    margin-right: 10px;
 
     h1{
         color: white;
@@ -19,7 +21,7 @@
 
     &.freelancer{
         h1{
-            font-size: clamp(18px, 2.4vw, 30px);
+            font-size: clamp(18px, 2.4vw, 32px);
         }
 
         .desc{
@@ -33,6 +35,8 @@
 
 @media (max-width: 900px) {
     .mainTitle{
+        margin: 0;
+
         h1{
             font-size: 5.2vw;
         }
@@ -87,6 +91,26 @@
                 font-weight: 400;
                 width: 85%;
                 margin: 14px auto 0 auto;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .mainTitle{
+        &.freelancer{
+            h1{
+                width: 100%;
+                margin-top: 40px;
+                line-height: 110%;
+                font-size: 7.2vw;
+            }
+            .desc{
+                font-size: 4.4vw;
+                line-height: 100%;
+                font-weight: 400;
+                width: 85%;
+                margin: 10px auto 0 auto;
             }
         }
     }
