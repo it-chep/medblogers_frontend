@@ -43,7 +43,7 @@ export default async function FreelancersPage() {
                     env.NEXT_PUBLIC_IS_FREELANCERS_DONE
                         &&
                     <Link href={'/'} className={classes.button}>
-                        <ButtonDark>Перейти к врачам</ButtonDark>
+                        <ButtonDark><span className={classes.doctorsLink}>Перейти к базе врачей</span></ButtonDark>
                     </Link>
                 }
                 <section className={classes.filters}>

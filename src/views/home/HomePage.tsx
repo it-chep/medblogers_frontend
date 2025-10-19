@@ -40,7 +40,7 @@ export default async function HomePage() {
                     env.NEXT_PUBLIC_IS_FREELANCERS_DONE
                         &&
                     <Link href={'/helpers'} className={classes.button}>
-                        <ButtonDark>Нанять фрилансеров</ButtonDark>
+                        <ButtonDark><span className={classes.helpersLink}>Перейти к базе помощников</span></ButtonDark>
                     </Link>
                 }
                 <section className={classes.filters}>

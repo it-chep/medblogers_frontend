@@ -80,7 +80,7 @@
 
             .name{
                 font-size: 24px;
-                line-height: 28px;
+                line-height: 30px;
             }
         }
     }
@@ -89,11 +89,6 @@
 @media (max-width: 480px) {
     .container{
         .main{
-            .name{
-                font-size: 22px;
-                line-height: 26px;
-            }
-
             .specialities{
                 gap: 6px;
             }
@@ -104,11 +99,10 @@
 
 @media (max-width: 440px) {
     .container{
-        font-size: 15px;
         .main{
             .name{
-                font-size: 20px;
-                line-height: 24px;
+                font-size: 22px;
+                line-height: 26px;
             }
 
             .specialities{
@@ -120,11 +114,11 @@
 
 @media (max-width: 400px) {
     .container{
-        font-size: 14px;
+        font-size: 15px;
         .main{
             .name{
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 20px;
+                line-height: 24px;
                 font-weight: 800;
             }
 

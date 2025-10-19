@@ -134,34 +134,6 @@
 @media (max-width: 480px) {
     .container{
 
-        .main{
-
-            .name{
-                font-size: 22px;
-                line-height: 28px;
-            }
-
-            .flags{
-                font-size: 15px;
-                .flag{
-                    gap: 9px;
-                    >img{
-                        height: 26px;
-                        width: 30px;
-                    }
-                }
-            }
-
-            .experience{
-                gap: 9px;
-                font-size: 15px;
-                >img{
-                    height: 26px;
-                    width: 30px;
-                }
-            }
-        }
-
         .buttons{
             gap: 0;
             margin-bottom: 10px;
@@ -177,17 +149,17 @@
 @media (max-width: 440px) {
     .container{
         .main{
-            font-size: 15px;
 
             .name{
-                font-size: 20px;
+                font-size: 22px;
                 line-height: 26px;
             }
 
             .flags{
-                font-size: 14px;
+                font-size: 15px;
                 .flag{
                     gap: 8px;
+
                     >img{
                         height: 25px;
                         width: 29px;
@@ -197,7 +169,8 @@
 
             .experience{
                 gap: 8px;
-                font-size: 14px;
+                font-size: 15px;
+
                 >img{
                     height: 25px;
                     width: 29px;
@@ -210,10 +183,10 @@
 @media (max-width: 400px) {
     .container{
         .main{
-            font-size: 14px;
+            font-size: 15px;
 
             .name{
-                font-size: 18px;
+                font-size: 20px;
                 line-height: 24px;
                 font-weight: 800;
             }
@@ -225,9 +198,11 @@
             }
 
             .flags{
-                font-size: 12px;
+                font-size: 14px;
+
                 .flag{
                     gap: 6px;
+
                     >img{
                         height: 23px;
                         width: 26px;
@@ -236,8 +211,9 @@
             }
 
             .experience{
-                font-size: 12px;
+                font-size: 14px;
                 gap: 6px;
+
                 >img{
                     height: 23px;
                     width: 26px;
