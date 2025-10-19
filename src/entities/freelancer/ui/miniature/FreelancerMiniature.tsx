@@ -17,7 +17,7 @@ interface IProps {
 
 export const FreelancerMiniature: FC<IProps> = ({freelancer}) => {
 
-    const freelancerLink = `work/${freelancer.slug}`
+    const freelancerLink = `helpers/${freelancer.slug}`
 
     return (
         <section className={classes.container}>

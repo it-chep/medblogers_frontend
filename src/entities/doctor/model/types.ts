@@ -57,6 +57,7 @@ export interface IDoctor {
 export interface IDoctorSeo{
     title: string;
     description: string;
+    image: string;
 }
 
 

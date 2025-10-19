@@ -17,6 +17,11 @@ export async function generateMetadata({ params }: any) {
     return {
         title: seo?.title || '',
         description: seo?.description || '',
+        openGraph: {
+            title: seo?.title || '',
+            description: seo?.description || '',
+            images: seo?.image,
+        },
     }
 }
 

@@ -25,7 +25,6 @@ class DoctorService {
     }
 
     async seo(slug: string){
-        console.log(SERVER_URL_API + '/v1/seo/' + slug)
         const response = await fetch(SERVER_URL_API + '/v1/seo/' + slug,
             {
                 cache: 'no-store',

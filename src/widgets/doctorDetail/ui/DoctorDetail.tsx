@@ -3,6 +3,7 @@ import { IDoctor } from "@/src/entities/doctor/model/types";
 import { OtherSocialMediaDropdown } from "@/src/features/otherSocialMediaDropdown";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
+import { DoctorImage } from "./image/DoctorImage";
 
 interface IProps{
     slug: string;
@@ -33,7 +34,7 @@ export async function DoctorDetail(props: IProps){
     }
 
     return (
-        <DoctorCard doctor={doctor}>
+        <DoctorCard image={ <DoctorImage slug={props.slug}/> } doctor={doctor}>
             <OtherSocialMediaDropdown>
                 <OtherSocial doctor={doctor} />
             </OtherSocialMediaDropdown>

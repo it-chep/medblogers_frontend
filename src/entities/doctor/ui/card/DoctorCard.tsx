@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import React, { FC, PropsWithChildren } from "react";
 import classes from './doctorCard.module.scss'
 import { IDoctor } from "../../model/types";
 import { Socials } from "../cardSocials/Socials";
@@ -6,22 +6,15 @@ import { CardData } from "../cardData/CardData";
 
 interface IProps{
     doctor: IDoctor;
+    image: React.ReactNode;
 }
 
-export const DoctorCard: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
+export const DoctorCard: FC<IProps & PropsWithChildren> = ({doctor, image, children}) => {
     
 
     return (
         <section className={classes.wrapper}>
-            {
-                <img 
-                    className={classes.avatar} 
-                    src={doctor.image} 
-                    height={300} 
-                    width={300} 
-                    alt="Фото врача" 
-                />
-            }
+            {image}
             <section className={classes.content}>
                 <CardData doctor={doctor} />
                 <Socials doctor={doctor}>

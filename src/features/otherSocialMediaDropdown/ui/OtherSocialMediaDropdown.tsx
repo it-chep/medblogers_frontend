@@ -39,7 +39,7 @@ export const OtherSocialMediaDropdown: FC<PropsWithChildren> = ({children}) => {
                 <Image src={internet_logo} alt="Соцсеть" height={30} width={30} />
                 Другие соц сети
                 <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 8L7.5 2L1 8" stroke="#ABABAB" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M14 8L7.5 2L1 8" stroke="#ABABAB" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
             </section>
             {children}

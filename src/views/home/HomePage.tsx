@@ -39,7 +39,7 @@ export default async function HomePage() {
                 {
                     env.NEXT_PUBLIC_IS_FREELANCERS_DONE
                         &&
-                    <Link href={'/work'} className={classes.button}>
+                    <Link href={'/helpers'} className={classes.button}>
                         <ButtonDark>Нанять фрилансеров</ButtonDark>
                     </Link>
                 }

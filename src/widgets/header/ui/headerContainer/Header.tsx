@@ -10,7 +10,7 @@ import Link from "next/link";
 import { noPages } from "../../lib/const/noPages";
 import { usePathname } from "next/navigation";
 
-export const Header: FC = async () => {
+export const Header: FC = () => {
 
     const pathname = usePathname()
 

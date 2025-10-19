@@ -10,7 +10,11 @@ export const menuLinks: IMenu[] = [
         link: 'https://t.me/readydog'
     },
     {
-        name: 'Как пользоваться базой?',
+        name: 'База врачей - как пользоваться?',
         link: 'https://doc.readyschool.ru/base'
+    },
+    {
+        name: 'База помощников - инструкция для рационального выбора подрядчика',
+        link: 'https://doc.readyschool.ru/freelancers'
     }
 ]
