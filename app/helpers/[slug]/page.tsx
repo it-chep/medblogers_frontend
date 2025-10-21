@@ -8,19 +8,15 @@ type TParams = {
 
 export const dynamicParams = true 
 
-interface Props {
-  params: { slug: string };
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  
+export async function generateMetadata({ params }: any) {
+    const { slug }: TParams = await params;
   return {
     title: `Помогаю врачам-блогерам`,
     description: `Профессиональный помощник для ведения медицинского блога`,
     openGraph: {
       title: `Помогаю врачам-блогерам`,
       description: `Профессиональный помощник для ведения медицинского блога`,
-      url: `https://medblogers-base.ru/helpers/${params.slug}`,
+      url: `https://medblogers-base.ru/helpers/${slug}`,
     },
   };
 }
