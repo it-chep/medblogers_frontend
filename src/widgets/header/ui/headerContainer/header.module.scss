@@ -1,13 +1,12 @@
 
 
-
 .header{
     margin: 50px auto 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
+    overflow: visible;
     z-index: 19;
     position: relative;
     
