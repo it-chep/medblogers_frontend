@@ -11,7 +11,7 @@ import { filterService, IFilter } from '@/src/entities/filter'
 import { SearchDoctors } from '@/src/widgets/searchDoctors'
 import Link from 'next/link'
 import { ButtonDark } from '@/src/shared/ui/buttonDark'
-import { env } from 'process'
+import { IS_FREELANCERS_DONE } from '@/src/app/env/env'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -37,7 +37,7 @@ export default async function HomePage() {
             <aside className={classes.aside}>
                 <BannerNewDoctor />
                 {
-                    env.NEXT_PUBLIC_IS_FREELANCERS_DONE
+                    IS_FREELANCERS_DONE
                         &&
                     <Link href={'/helpers'} className={classes.button}>
                         <ButtonDark><span className={classes.helpersLink}>Перейти к базе помощников</span></ButtonDark>

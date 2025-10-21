@@ -2,4 +2,4 @@
 
 
 export const SERVER_URL_API = ""
-export const CLIENT_URL = ""
+export const IS_FREELANCERS_DONE: true | false = true

@@ -1,25 +1,29 @@
 import { doctorService, IDoctorSeo } from "@/src/entities/doctor";
-import DoctorPage from "@/src/views/doctor/Doctor"
 import FreelancerPage from "@/src/views/freelancer/Freelancer";
+import { Metadata } from "next";
 
 type TParams = {
     slug: string;
 };
 
-// export const dynamicParams = true 
+export const dynamicParams = true 
 
-// export async function generateMetadata({ params }: any) {
-//     const { slug }: TParams = await params;
-//     let seo: IDoctorSeo | null = null;
-//     try{
-//       seo = await doctorService.seo(slug)
-//     }
-//     catch(e){}
-//     return {
-//         title: seo?.title || '',
-//         description: seo?.description || '',
-//     }
-// }
+interface Props {
+  params: { slug: string };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  
+  return {
+    title: `Помогаю врачам-блогерам`,
+    description: `Профессиональный помощник для ведения медицинского блога`,
+    openGraph: {
+      title: `Помогаю врачам-блогерам`,
+      description: `Профессиональный помощник для ведения медицинского блога`,
+      url: `https://medblogers-base.ru/helpers/${params.slug}`,
+    },
+  };
+}
 
 export default async function Freelancer({ params }: any) {
 

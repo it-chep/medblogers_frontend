@@ -11,7 +11,7 @@ import { PaginationFreelancersWidget } from '@/src/widgets/paginationFreelancers
 import { BannerNewFreelancer } from '@/src/widgets/bannerNewFreelancer';
 import Link from 'next/link';
 import { ButtonDark } from '@/src/shared/ui/buttonDark';
-import { env } from 'process';
+import { IS_FREELANCERS_DONE } from '@/src/app/env/env';
 
 const getData = async () => {
     let filters: IFilterFreelancer | null = null;
@@ -40,7 +40,7 @@ export default async function FreelancersPage() {
             <aside className={classes.aside}>
                 <BannerNewFreelancer />
                 {
-                    env.NEXT_PUBLIC_IS_FREELANCERS_DONE
+                    IS_FREELANCERS_DONE
                         &&
                     <Link href={'/'} className={classes.button}>
                         <ButtonDark><span className={classes.doctorsLink}>Перейти к базе врачей</span></ButtonDark>
