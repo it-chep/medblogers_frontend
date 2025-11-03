@@ -14,8 +14,8 @@ export const BannerNewDoctor: FC = () => {
             <span className={classes.sign}>
                 Ознакомьтесь с правилами и заполните анкету чтобы ваша карточка появилась на нашем сайте
             </span>
-            <img className={classes.img + ` ${classes.desc}`} src={img.src} />
-            <img className={classes.img + ` ${classes.mobile}`} src={imgMobile.src} />
+            <img className={classes.img + ` ${classes.desc}`} src={img.src} alt="" />
+            <img className={classes.img + ` ${classes.mobile}`} src={imgMobile.src} alt="" />
             <Link className={classes.button} href="/welcome">
                 <MyButton>
                     Подать заявку

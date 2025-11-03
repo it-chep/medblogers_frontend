@@ -7,12 +7,14 @@ import { Metadata } from "next";
 import { VerifiedCookies } from "@/src/widgets/verifiedCookies";
 import { YandexMetrika } from "@/src/app/metrika/YandexMetrika";
 
+const DESCRIPTION = "Единая база врачей-блогеров для поиска рекламы | Открытый реестр докторов с блогами | Единый реестр медицинских блогеров | Cписок врачей-блогеров | Подборка медицинских блогеров | Реестр для медблогеров"
+
 export const metadata: Metadata = {
   title: {
-    template: '%s | MEDBLOGERS BASE - Единая база врачей-блогеров для поиска рекламы',
-    default: 'MEDBLOGERS BASE - Единая база врачей-блогеров для поиска рекламы', 
+    template: '%s | MEDBLOGERS BASE - ' + DESCRIPTION,
+    default: 'MEDBLOGERS BASE - ' + DESCRIPTION, 
   },
-  description: 'Единая база врачей-блогеров для поиска рекламы',
+  description: DESCRIPTION,
   openGraph: {
     title: 'MEDBLOGERS BASE - Единая база врачей-блогеров для поиска рекламы',
     description: 'Единая база врачей-блогеров для поиска рекламы',
@@ -29,17 +31,17 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
 
-    return (
-        <Suspense fallback={<></>} >
-            <html lang="en">
-                <body>
-                    <Header />
-                    {children}
-                    <Footer />
-                    <VerifiedCookies />
-                </body>
-            </html>
-            <YandexMetrika counterId={99369042} />
-        </Suspense>
+  return (
+    <Suspense fallback={<></>} >
+      <html lang="en">
+        <body>
+          <Header />
+          {children}
+          <Footer />
+          <VerifiedCookies />
+        </body>
+      </html>
+      <YandexMetrika counterId={99369042} />
+    </Suspense>
   );
 }

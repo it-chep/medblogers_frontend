@@ -31,7 +31,7 @@ export const VerifiedCookies: FC = () => {
         !verified
             &&
         <section className={classes.container}>
-            <Image src={cookieImg.src} width={30} height={30} alt="Cookie" />
+            <Image src={cookieImg.src} width={28} height={32} alt="Cookie" />
             <span>
                 Мы используем файлы cookie, шаришь?
             </span>
