@@ -13,7 +13,9 @@ export async function generateMetadata({ params }: any) {
     try{
       seo = await doctorService.seo(slug)
     }
-    catch(e){}
+    catch(e){
+        console.log(e)
+    }
     return {
         title: seo?.title || '',
         description: seo?.description || '',

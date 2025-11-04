@@ -1,6 +1,5 @@
-import { doctorService, IDoctorSeo } from "@/src/entities/doctor";
+import { freelancerService, IFreelancerSeo } from "@/src/entities/freelancer";
 import FreelancerPage from "@/src/views/freelancer/Freelancer";
-import { Metadata } from "next";
 
 type TParams = {
     slug: string;
@@ -10,15 +9,22 @@ export const dynamicParams = true
 
 export async function generateMetadata({ params }: any) {
     const { slug }: TParams = await params;
-  return {
-    title: `Помогаю врачам-блогерам`,
-    description: `Профессиональный помощник для ведения медицинского блога`,
-    openGraph: {
-      title: `Помогаю врачам-блогерам`,
-      description: `Профессиональный помощник для ведения медицинского блога`,
-      url: `https://medblogers-base.ru/helpers/${slug}`,
-    },
-  };
+    let seo: IFreelancerSeo | null = null;
+    try{
+        seo = await freelancerService.seo(slug)
+    }
+    catch(e){
+        console.log(e)
+    }
+    return {
+        title: seo?.title || 'Помогаю врачам-блогерам',
+        description: seo?.description || 'Профессиональный помощник для ведения медицинского блога',
+        openGraph: {
+            title: seo?.title || 'Помогаю врачам-блогерам',
+            description: seo?.description || 'Профессиональный помощник для ведения медицинского блога',
+            images: seo?.image || '',
+        },
+    };
 }
 
 export default async function Freelancer({ params }: any) {

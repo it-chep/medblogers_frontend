@@ -60,7 +60,6 @@ export interface IDoctorSeo{
     image: string;
 }
 
-
 export interface ISearchDoctor {
     id: string;
     name: string;
