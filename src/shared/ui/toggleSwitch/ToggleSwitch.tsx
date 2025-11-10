@@ -15,14 +15,11 @@ export const ToggleSwitch: FC<IProps & PropsWithChildren> = (
     {label, checked, onSelected, elemTop, children}
 ) => {
 
-    const toggleSwitchRef = useRef<HTMLDivElement>(null)
-
     const cancelSelection = (e: MouseEvent) => {
         e.preventDefault()
     }
 
     const onClick = () => {
-        console.log(!checked)
         onSelected(!checked)
     }
 
