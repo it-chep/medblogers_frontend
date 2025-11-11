@@ -5,4 +5,4 @@ export { SearchResultFreelancer } from "./ui/searchResult/SearchResult";
 export { freelancerService } from "./api/FreelancerService";
 
 export {type ISearchFreelancers, type IFreelancerSpeciality, type IFreelancerCity, type IFreelancerMiniature, 
-    type IPriceListItem, type IStatisticFreelancers, type IFreelancer} from './model/types'
+    type IPriceListItem, type IStatisticFreelancers, type IFreelancer, type IFreelancerSeo} from './model/types'

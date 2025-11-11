@@ -1,6 +1,6 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
 import { ISpecialityData } from "../../speciality/model/types"
-import { IFreelancer, IFreelancerCity, IFreelancerMiniature, IFreelancerSpeciality, IStatisticFreelancers } from "../model/types"
+import { IFreelancer, IFreelancerCity, IFreelancerMiniature, IFreelancerSeo, IFreelancerSpeciality, IStatisticFreelancers } from "../model/types"
 import { IItem } from "@/src/shared/model/types"
 
 
@@ -68,6 +68,16 @@ class FreelancerService {
         )
         const freelancer = await response.json()
         return freelancer
+    }
+
+    async seo(slug: string){
+        const response = await fetch(SERVER_URL_API + '/v1/freelancers/seo/' + slug,
+            {
+                cache: 'no-store',
+            }
+        )
+        const seo: IFreelancerSeo = await response.json()
+        return seo
     }
 
 } 

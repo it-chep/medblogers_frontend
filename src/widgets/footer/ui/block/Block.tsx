@@ -11,7 +11,7 @@ export const Block: FC<IProps & PropsWithChildren> = ({title, textCenter, childr
 
     return (
         <section className={classes.wrapper + (textCenter ? ` ${ classes.textCenter}` : '')}>
-            <h4 className={classes.title}>{title}</h4>
+            <section className={classes.title}>{title}</section>
             <section className={classes.container}>
                 {children}
             </section>

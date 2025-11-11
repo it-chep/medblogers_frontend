@@ -11,7 +11,6 @@ import { BannerNewDoctor } from "../bannerNewDoctor/BannerNewDoctor";
 export const Footer: FC = () => {
 
 
-
     return (
         <footer className={classes.wrapper}>
             <section className="wrapper_main">

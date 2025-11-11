@@ -5,6 +5,12 @@ export interface IFreelancerSpeciality {
     specialityName: string;
 }
 
+export interface IFreelancerSeo{
+    title: string;
+    description: string;
+    image: string;
+}
+
 export interface IFreelancerCity {
     cityId: number;
     cityName: string;
