@@ -66,8 +66,6 @@ export interface IStatisticFreelancers {
     freelancersCount: number; 
 }
 
-
-
 export interface IFreelancerMiniature {
     name: string;
     slug: string;
@@ -99,4 +97,12 @@ export interface IFreelancer {
     workingExperience: string;
     hasCommand: boolean;
     experienceWithDoctors: boolean;
+}
+
+export interface IRecommendation {
+    name: string;
+    slug: string;
+    speciality: string;
+    city: string;
+    image: string
 }

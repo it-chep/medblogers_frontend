@@ -1,1 +1,1 @@
-export { FreelancerDetail } from "./ui/FreelancerDetail";
+export { FreelancerDetail } from "./ui/detail/FreelancerDetail";

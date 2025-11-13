@@ -1,6 +1,6 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
 import { ISpecialityData } from "../../speciality/model/types"
-import { IFreelancer, IFreelancerCity, IFreelancerMiniature, IFreelancerSeo, IFreelancerSpeciality, IStatisticFreelancers } from "../model/types"
+import { IFreelancer, IFreelancerCity, IFreelancerMiniature, IFreelancerSeo, IFreelancerSpeciality, IRecommendation, IStatisticFreelancers } from "../model/types"
 import { IItem } from "@/src/shared/model/types"
 
 
@@ -28,7 +28,6 @@ class FreelancerService {
         return cities   
     }
     
-
     async getSocialNetworks(){
         const response = await fetch(SERVER_URL_API + '/v1/freelancers/networks_list',                                     
             {
@@ -48,7 +47,6 @@ class FreelancerService {
         const {freelancers}: {freelancers: IFreelancerMiniature[]} = await response.json()
         return freelancers
     }
-
     
     async getStatistics(): Promise<IStatisticFreelancers> {
         const response = await fetch(SERVER_URL_API + '/v1/freelancers/counters_info',
@@ -69,6 +67,17 @@ class FreelancerService {
         const freelancer = await response.json()
         return freelancer
     }
+
+    async getRecommendations(slug: string): Promise<IRecommendation[]> {
+        const response = await fetch(SERVER_URL_API + '/v1/freelancers/card/' + slug + '/recommendations',
+            {
+                cache: "no-store"
+            }
+        )
+        const {doctors}: {doctors: IRecommendation[]} = await response.json()
+        return doctors
+    }
+
 
     async seo(slug: string){
         const response = await fetch(SERVER_URL_API + '/v1/freelancers/seo/' + slug,

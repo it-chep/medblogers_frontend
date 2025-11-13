@@ -2,7 +2,7 @@ import { FreelancerCard, freelancerService, IFreelancer } from "@/src/entities/f
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
 import classes from './detail.module.scss'
-import { OpenPriceList } from "@/src/features/openPriceList";
+import { PriceList } from "../priceList/PriceList";
 
 interface IProps{
     slug: string;
@@ -32,30 +32,23 @@ export async function FreelancerDetail(props: IProps){
         )
     }
 
+    const additionalPercentage = 0.2;
+    const speed = (freelancer.priceList.length + (freelancer.priceList.length * additionalPercentage)) / 30;
+
     return (
         <section className={classes.container}>
-            <FreelancerCard freelancer={freelancer} />
+            <FreelancerCard 
+                freelancer={freelancer} 
+            />
             {
                 freelancer.priceList.length > 0
-                    &&
-                <>
-                    <section className={classes.desctop}>
-                        <OpenPriceList 
-                            heightConst={300} 
-                            darkenHeightConst={120} 
-                            priceList={freelancer.priceList} 
-                            priceCategory={freelancer.priceCategory}
-                        />
-                    </section>
-                    <section className={classes.mobile}>
-                        <OpenPriceList 
-                            heightConst={600} 
-                            darkenHeightConst={260} 
-                            priceList={freelancer.priceList} 
-                            priceCategory={freelancer.priceCategory}
-                        />
-                    </section>
-                </>
+                    ?
+                <PriceList 
+                    priceCategory={freelancer.priceCategory} 
+                    priceList={freelancer.priceList} 
+                />
+                    :
+                <></>
             }
         </section>
     )
