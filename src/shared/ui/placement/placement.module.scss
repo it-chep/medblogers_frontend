@@ -1,0 +1,38 @@
+
+
+.container{
+    width: 320px;
+    max-width: 100%;
+
+    .title{
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .desc{
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 110%;
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 10px;
+    }
+    
+    a{
+        display: block;
+        height: 50px;
+        width: 290px;
+        margin-top: 30px;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .container{
+        .title{
+            font-size: 18px;
+        }
+        .desc{
+            font-size: 16px;
+        }
+    }
+}

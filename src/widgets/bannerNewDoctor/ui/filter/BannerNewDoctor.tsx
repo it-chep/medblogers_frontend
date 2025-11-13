@@ -4,9 +4,7 @@ import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
 
 
-
 export const BannerNewDoctor: FC = () => {
-
 
 
     return (

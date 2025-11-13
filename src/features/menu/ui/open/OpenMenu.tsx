@@ -7,6 +7,7 @@ import burgerImg from '../../lib/assets/burger.png'
 import { MyModal } from "@/src/shared/ui/myModal";
 import { Menu } from "../menu/Menu";
 import { Close } from "@/src/shared/ui/close/Close";
+import { usePathname } from "next/navigation";
 
 interface IProps {
     mobile?: boolean;
@@ -17,6 +18,12 @@ export const OpenMenu: FC<IProps> = ({mobile}) => {
     const [open, setOpen] = useState<boolean>(false)
 
     const onClick = () => setOpen(true)
+
+    const pathname = usePathname()
+
+    useEffect(() => {
+        setOpen(false)
+    }, [pathname])
 
     useEffect(() => {
         if(mobile){
@@ -48,11 +55,13 @@ export const OpenMenu: FC<IProps> = ({mobile}) => {
                 transitionSec={.3} 
                 open={open} 
                 setOpen={setOpen}
+                glass
             >
                 <section className={classes.close + (mobile ? ` ${classes.mobile}` : '')}>
-                    <Menu open={open}>
-                        <Close setOpen={setOpen} />
-                    </Menu>
+                    <Menu 
+                        open={open} 
+                        setOpen={setOpen}
+                    />
                 </section>
             </MyModal>
         </>

@@ -6,7 +6,7 @@ import { contacts, infs, requisites } from "../../lib/const/lists";
 import { Sign } from "../list/sign";
 import { ListRequisites } from "../list/ListRequisites";
 import logo from '../../lib/assets/footer_logo.png'
-import { BannerNewDoctor } from "../bannerNewDoctor/BannerNewDoctor";
+import { BannerNewClient } from "../bannerNewClient/BannerNewClient";
 
 export const Footer: FC = () => {
 
@@ -32,7 +32,7 @@ export const Footer: FC = () => {
                     </Block>
                     <Block textCenter={true} title="Размещение на сайте">
                         <>
-                            <BannerNewDoctor />
+                            <BannerNewClient />
                         </>
                     </Block>
                 </section>
