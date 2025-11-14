@@ -11,83 +11,76 @@ interface IProps {
 }
 
 export const Selected: FC<IProps> = ({recommendations}) => {
+    const [isMobile, setIsMobile] = useState<boolean | null>(null);
+    const [speedSec, setSpeedSec] = useState<number>(0);
+    const [heights, setHeights] = useState<{one: number, two: number}>({one: 0, two: 0});
 
-    const [use, setUse] = useState<boolean>(true)
-    const [mobile, setMobile] = useState<boolean>(false)
-
-    const additionalPercentage = 0.2;
-    const speedInit = (recommendations.length + (recommendations.length * additionalPercentage)) / 30;  
-
-    const [height, setHeight] = useState<{one: number, two: number}>({one: 0, two: 0})
-    const [speed, setSpeed] = useState<number>(0)
+    const shouldUseContainer = isMobile ? recommendations.length > 2 : recommendations.length > 4;
+    const speed = (recommendations.length * 1.2) / 30;
     
-    function checkUse() {
-        if(window.innerWidth < 490){
-            setUse(recommendations.length > 2)
-            setMobile(true)
-        }
-        else{
-            setUse(recommendations.length > 4)
-            setMobile(false)
-        }
-    }
+    const containerHeight = (
+        heights.one > 0 
+            ? 
+        isMobile 
+            ? 
+        heights.one + (heights.two ? (12 + heights.two) : 0) + 75
+            : 
+        heights.one + 70
+            : 
+            0
+        )
+
+    const margin = speed ? (isMobile ? '16px' : '20px') : 0;
 
     useEffect(() => {
-        if(height.one){
-            setSpeed(speedInit)
-        }
-    }, [height])
-    
-    useEffect(() => {
-        checkUse()
-
-        window.addEventListener('resize', checkUse)
+        function checkMobile() {
+            setIsMobile(window.innerWidth < 490);
+        };
         
-        return () => {
-            window.removeEventListener('resize', checkUse)
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    useEffect(() => {
+        if(heights.one){
+            setTimeout(() => setSpeedSec(isMobile ? speed * 4: speed), 0)
         }
-    }, [])
+    }, [heights])
+
+    if(isMobile === null){
+        return <></>
+    }
 
     return (
         <section 
             className={classes.container} 
-            style={{height: speed ? 'auto' : 0, margin: speed ? (mobile ? '20px 16px' : '20px') : 0}}
+            style={{
+                height: speedSec ? 'auto' : 0, 
+                margin: speedSec ? margin : 0,
+                opacity: speedSec ? 1 : 0
+            }}
         >
-        {
-            use
-                ?
-            <>
-                <section className={classes.desctop}>
-                    <OpenContainer
-                        heightConst={(height.one === 0) ? 0 : (height.one + 75)} 
-                        darkenHeightConst={0} 
-                        speedSec={speed}
-                    >
-                        <RecommendationsContainer  
-                            setHeight={setHeight}
-                            recommendations={recommendations} 
-                        />
-                    </OpenContainer>
-                </section>
-                <section className={classes.mobile}>
-                    <OpenContainer
-                        heightConst={(height.one === 0) ? 0 : ((height.one + (height.two ? 20 + height.two : 0)) + 75)} 
-                        darkenHeightConst={0} 
-                        speedSec={speed * 4}
-                    >
-                        <RecommendationsContainer  
-                            setHeight={setHeight}
-                            recommendations={recommendations} 
-                        />
-                    </OpenContainer>
-                </section>
-            </>
-                :
-            <RecommendationsContainer 
-                setHeight={setHeight}
-                recommendations={recommendations} 
-            />
-        }
+            {
+                shouldUseContainer 
+                    ? 
+                <OpenContainer
+                    heightConst={containerHeight} 
+                    darkenHeightConst={0} 
+                    speedSec={speedSec}
+                >
+                    <RecommendationsContainer  
+                        setHeight={setHeights}
+                        recommendations={recommendations} 
+                    />
+                </OpenContainer>
+                    : 
+                <RecommendationsContainer 
+                    setHeight={setHeights}
+                    recommendations={recommendations} 
+                />
+            }
         </section>
-    )
-}
+    );
+};

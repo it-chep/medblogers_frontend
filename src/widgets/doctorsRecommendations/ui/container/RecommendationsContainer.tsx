@@ -12,44 +12,41 @@ interface IProps {
 
 export const RecommendationsContainer: FC<IProps> = ({recommendations, setHeight}) => {
 
-    const contentRef = useRef<HTMLDivElement>(null)
+        const contentRef = useRef<HTMLDivElement>(null)
 
-    function heightOneRow() {
+    function calculateHeights() {
         if(contentRef.current){
-            const oneCard = contentRef.current.firstElementChild;
-            if(oneCard){
-                const oneHeightCard = oneCard.scrollHeight;
-                const siblingCard = oneCard.nextElementSibling;
+            const cards = contentRef.current.children;
+            if(cards.length > 0) {
+                const firstCard = cards[0] as HTMLElement;
+                const firstCardHeight = firstCard.offsetHeight;
                 
-                if(siblingCard){
-                    const twoHeightCard = siblingCard.scrollHeight;
-                    if(twoHeightCard){
-                        setHeight({one: oneHeightCard, two: twoHeightCard})
-                    }
-                    else if(oneHeightCard){
-                        setHeight({one: oneHeightCard, two: 0})
-                    }
+                let secondCardHeight = 0;
+                if(cards.length > 1) {
+                    secondCardHeight = (cards[1] as HTMLElement).offsetHeight;
                 }
-                else if(oneHeightCard){
-                    setHeight({one: oneHeightCard, two: 0})
-                }
+                
+                setHeight({one: firstCardHeight, two: secondCardHeight});
             }
         }
     }
 
     useEffect(() => {
-        heightOneRow()
-        window.addEventListener('resize', heightOneRow)
+        calculateHeights();
+        
+        const resizeObserver = new ResizeObserver(calculateHeights);
+        if (contentRef.current) {
+            resizeObserver.observe(contentRef.current);
+        }
         
         return () => {
-            window.removeEventListener('resize', heightOneRow)
-        }
-    }, [contentRef.current])
+            resizeObserver.disconnect();
+        };
+    }, [recommendations]); // Добавьте зависимости по необходимости
 
     return (
         <section className={classes.container}>
             <h3>Меня могут порекомендовать</h3>
-
             <section ref={contentRef} className={classes.content}>
                 {recommendations.map(recommendation => 
                     <RecommendationCard 

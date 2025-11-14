@@ -12,8 +12,7 @@
     .content{
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        column-gap: 12px;
-        row-gap: 20px;
+        gap: 12px;
         margin-top: 20px;
     }
 }
@@ -56,10 +55,7 @@
 @media (max-width: 370px) {
     .container{
         >h3{
-            font-size: 18px;
-            overflow: hidden;
-            text-wrap: nowrap;
-            text-overflow: ellipsis;
+            font-size: 5.3vw;
         }
     }
 }
