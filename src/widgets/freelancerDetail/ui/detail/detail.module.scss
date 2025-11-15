@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .desctop{
+        display: block;
+    }
+
+    .mobile{
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        .desctop{
+            display: none;
+        }
+
+        .mobile{
+            display: block;
+        }
+    }
+}

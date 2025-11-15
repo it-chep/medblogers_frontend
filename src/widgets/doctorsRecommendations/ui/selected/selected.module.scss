@@ -1,23 +1,24 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+
+
+
+.container {
+    overflow: hidden;
 
     .desctop{
         display: block;
     }
-
     .mobile{
         display: none;
     }
 }
 
-@media (max-width: 480px) {
-    .container{
+@media (max-width: 490px) {
+    .container {
+        overflow: hidden;
+
         .desctop{
             display: none;
         }
-
         .mobile{
             display: block;
         }
