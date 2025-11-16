@@ -33,13 +33,13 @@
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 490px) {
     .container{
         >h3{
             font-size: 22px;
         }
         .content{
-            grid-template-columns: repeat(1, 1fr);
+            gap: 2vw;
         }
     }
 }

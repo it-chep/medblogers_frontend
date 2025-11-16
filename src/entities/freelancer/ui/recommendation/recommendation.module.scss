@@ -79,12 +79,55 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 490px) {
   .container{
-
+    font-size: 2.5vw;
+    padding: 2vw;
+    gap: 1vw;
+    border-radius: 1.5vw;
+    .header{
+      gap: 2vw;
+      .image{
+        .avatar{
+          border-radius: 1.2vw;
+        }
+      }
+      .name{
+        font-size: 3.3vw;
+        line-height: 110%;
+        padding: 0 1vw;
+      }
+    }
+    .infoWrapper{
+      padding: 0 1vw;
+    }
+    .speciality{
+      font-size: 2.5vw;
+    }
+    .city{
+      margin-top: 1vw;
+      img{
+        margin-top: 0px;
+        width: 1.8vw;
+        height: 2.1vw;
+      }
+    }
     .buttonsWrapper{
+      width: calc(100% + 2vw);
+      margin-left: -1vw;
       .link{
-        margin-top: 20px;
+        margin-top: 3vw;
+
+        a{
+          display: flex;
+          align-items: center;
+          height: 100%;
+
+        }
+
+        .textButton{
+          font-size: 2.5vw;
+        }
       }
     }
   }
@@ -94,7 +137,6 @@
   .container{
     .header{
       .name{
-        font-size: 18px;
         font-weight: 800;
       }
     }

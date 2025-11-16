@@ -3,19 +3,15 @@ import classes from './recommendation.module.scss'
 import Image from "next/image";
 import {MyButton} from "@/src/shared/ui/myButton";
 import Link from "next/link";
-import { IFreelancerMiniature, IRecommendation } from "../../model/types";
+import { IRecommendation } from "../../model/types";
 import markImg from '@/src/shared/lib/assets/mark_blue.png';
-import commandImg from '@/src/shared/lib/assets/command_blue_bg.png';
-import withDoctorsImg from '@/src/shared/lib/assets/with_doctors_bg.png';
-import { SocialNetwork } from "../socialNetwork/SocialNetwork";
-import { Hint } from "@/src/shared/ui/hint";
-import { PriceBadge } from "../priceBadge/PriceBadge";
 
 interface IProps {
     recommendation: IRecommendation;
+    isMobile?: boolean;
 }
 
-export const RecommendationCard: FC<IProps> = ({recommendation}) => {
+export const RecommendationCard: FC<IProps> = ({recommendation, isMobile}) => {
 
     const doctorLink = `/doctors/${recommendation.slug}`
 
@@ -50,7 +46,20 @@ export const RecommendationCard: FC<IProps> = ({recommendation}) => {
                     <section className={classes.buttonsWrapper}>
                         <noindex className={classes.link}>
                             <Link rel="nofollow" href={doctorLink} >
-                                <MyButton>Подробнее</MyButton>
+                                <MyButton 
+                                    style={
+                                        isMobile 
+                                            ? 
+                                        {
+                                            padding: window.innerWidth / 100 * 2,
+                                            borderRadius: window.innerWidth / 100 * 1.2,
+                                        } 
+                                            : 
+                                        {}
+                                    }
+                                >
+                                    <section className={classes.textButton}>Подробнее</section>
+                                </MyButton>
                             </Link>
                         </noindex>
                     </section>

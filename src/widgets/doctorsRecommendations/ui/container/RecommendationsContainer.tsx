@@ -4,15 +4,15 @@ import { FC, useEffect, useRef } from "react";
 import classes from './recommendationsContainer.module.scss'
 import { IRecommendation, RecommendationCard } from "@/src/entities/freelancer";
 
-
 interface IProps {
     recommendations: IRecommendation[];
     setHeight: ({one, two}: {one: number, two: number}) => void;
+    isMobile?: boolean;
 }
 
-export const RecommendationsContainer: FC<IProps> = ({recommendations, setHeight}) => {
+export const RecommendationsContainer: FC<IProps> = ({recommendations, setHeight, isMobile}) => {
 
-        const contentRef = useRef<HTMLDivElement>(null)
+    const contentRef = useRef<HTMLDivElement>(null)
 
     function calculateHeights() {
         if(contentRef.current){
@@ -22,8 +22,8 @@ export const RecommendationsContainer: FC<IProps> = ({recommendations, setHeight
                 const firstCardHeight = firstCard.offsetHeight;
                 
                 let secondCardHeight = 0;
-                if(cards.length > 1) {
-                    secondCardHeight = (cards[1] as HTMLElement).offsetHeight;
+                if(cards.length > 2) {
+                    secondCardHeight = (cards[2] as HTMLElement).offsetHeight;
                 }
                 
                 setHeight({one: firstCardHeight, two: secondCardHeight});
@@ -52,6 +52,7 @@ export const RecommendationsContainer: FC<IProps> = ({recommendations, setHeight
                     <RecommendationCard 
                         key={recommendation.slug}
                         recommendation={recommendation} 
+                        isMobile={isMobile}
                     />
                 )}
             </section>

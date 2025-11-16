@@ -2,7 +2,7 @@
 
 import { IRecommendation } from "@/src/entities/freelancer";
 import { OpenContainer } from "@/src/features/openContainer";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useLayoutEffect, useState } from "react";
 import { RecommendationsContainer } from "../container/RecommendationsContainer";
 import classes from './selected.module.scss'
 
@@ -15,24 +15,20 @@ export const Selected: FC<IProps> = ({recommendations}) => {
     const [speedSec, setSpeedSec] = useState<number>(0);
     const [heights, setHeights] = useState<{one: number, two: number}>({one: 0, two: 0});
 
-    const shouldUseContainer = isMobile ? recommendations.length > 2 : recommendations.length > 4;
+    const shouldUseContainer =  recommendations.length > 4;
     const speed = (recommendations.length * 1.2) / 30;
     
     const containerHeight = (
         heights.one > 0 
             ? 
-        isMobile 
-            ? 
-        heights.one + (heights.two ? (12 + heights.two) : 0) + 75
+        heights.one + (isMobile && heights.two && window ? ((window.innerWidth / 100 * 2) + heights.two) : 0) + 70
             : 
-        heights.one + 70
-            : 
-            0
-        )
+        0
+    )
+    
+    const margin = speed ? (isMobile ? '20px 10px' : '20px') : 0;
 
-    const margin = speed ? (isMobile ? '16px' : '20px') : 0;
-
-    useEffect(() => {
+    useLayoutEffect(() => {
         function checkMobile() {
             setIsMobile(window.innerWidth < 490);
         };
@@ -45,13 +41,9 @@ export const Selected: FC<IProps> = ({recommendations}) => {
 
     useEffect(() => {
         if(heights.one){
-            setTimeout(() => setSpeedSec(isMobile ? speed * 4: speed), 0)
+            setSpeedSec(isMobile ? speed * 4: speed)
         }
     }, [heights])
-
-    if(isMobile === null){
-        return <></>
-    }
 
     return (
         <section 
@@ -73,12 +65,16 @@ export const Selected: FC<IProps> = ({recommendations}) => {
                     <RecommendationsContainer  
                         setHeight={setHeights}
                         recommendations={recommendations} 
+                        isMobile={isMobile || false}
+                        
                     />
                 </OpenContainer>
                     : 
                 <RecommendationsContainer 
                     setHeight={setHeights}
                     recommendations={recommendations} 
+                    isMobile={isMobile || false}
+
                 />
             }
         </section>
