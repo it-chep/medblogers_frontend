@@ -1,17 +1,26 @@
 "use client"
 
-import { FC, PropsWithChildren, useEffect, useRef } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import classes from './menu.module.scss'
 import { menuLinks } from "../../lib/const";
-
+import Image from "next/image";
+import logo from '@/src/shared/lib/assets/medblogers_logo.png'
+import { Close } from "@/src/shared/ui/close/Close";
+import { Placement } from "@/src/shared/ui/placement";
+import { usePathname } from "next/navigation";
 
 interface IProps {
     open: boolean;
+    setOpen: (open: boolean) => void;
 }
 
-export const Menu: FC<IProps & PropsWithChildren> = ({open, children}) => {
+export const Menu: FC<IProps> = ({open, setOpen}) => {
 
     const refMenu = useRef<HTMLDivElement>(null)
+
+    const pathname = usePathname()
+    const isFreelancer = pathname.includes('helpers') || pathname.includes('freelancer')
+
 
     useEffect(() => {
         if(refMenu.current){
@@ -26,17 +35,24 @@ export const Menu: FC<IProps & PropsWithChildren> = ({open, children}) => {
 
     return (
         <nav ref={refMenu} className={classes.menu}>
-            <section className={classes.header}>
-                <span>Меню</span>
-                {children}
+            <section>
+                <section className={classes.header}>
+                    <Image src={logo.src} width={190} height={49} alt="Логотип Medblogers" />
+                    <Close setOpen={setOpen} />
+                </section>
+                <ul className={classes.list}>
+                    {menuLinks.map((menuLink, ind) => 
+                        <li key={ind}>
+                            <a target='_blank' href={menuLink.link}>{menuLink.name}</a>
+                        </li>
+                    )}
+                </ul>
             </section>
-            <ul>
-                {menuLinks.map((menuLink, ind) => 
-                    <li key={ind}>
-                        <a target='_blank' href={menuLink.link}>{menuLink.name}</a>
-                    </li>
-                )}
-            </ul>
+            <section className={classes.placement}>
+                <Placement 
+                    link={isFreelancer ? '/welcome_freelancer' : '/welcome'}
+                />
+            </section>
         </nav>
     )
 }

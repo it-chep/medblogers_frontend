@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import { SubscriberLink } from "../subscriberLink/SubscriberLink";
 import { IDoctor } from "../../model/types";
 import classes from './socials.module.scss'
-import tg_logo from '@/src/shared/lib/assets/telegram_logo.png'
+import tg_logo from '@/src/shared/lib/assets/telegram_logo_nobackground.png'
 import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
 import { LastUpdated } from "../lastUpdated/LastUpdated";
 import Link from "next/link";

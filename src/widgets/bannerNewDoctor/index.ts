@@ -1,1 +1,1 @@
-export { BannerNewDoctor } from "./ui/BannerNewDoctor";
+export { BannerNewDoctor } from "./ui/filter/BannerNewDoctor";

@@ -13,7 +13,6 @@ interface IProps {
 
 export const OtherSocial: FC<IProps> = ({doctor}) => {
 
-
     return (
         (doctor.vkUrl || doctor.dzenUrl || doctor.youtubeUrl || doctor.tiktokUrl || doctor.siteLink)
             ?
