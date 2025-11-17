@@ -2,7 +2,7 @@ import {FC} from "react";
 import {IDoctorMiniature} from "@/src/entities/doctor";
 import classes from './doctorMiniature.module.scss'
 import Image from "next/image";
-import tg_logo from '@/src/shared/lib/assets/telegram_logo.png'
+import tg_logo from '@/src/shared/lib/assets/telegram_logo_nobackground.png'
 import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
 import {MyButton} from "@/src/shared/ui/myButton";
 import {SubscriberLink} from "@/src/entities/doctor/ui/subscriberLink/SubscriberLink";
