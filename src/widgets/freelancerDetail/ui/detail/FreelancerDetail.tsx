@@ -32,9 +32,6 @@ export async function FreelancerDetail(props: IProps){
         )
     }
 
-    const additionalPercentage = 0.2;
-    const speed = (freelancer.priceList.length + (freelancer.priceList.length * additionalPercentage)) / 30;
-
     return (
         <section className={classes.container}>
             <FreelancerCard 

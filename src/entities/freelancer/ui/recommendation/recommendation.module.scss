@@ -81,10 +81,14 @@
 
 @media (max-width: 490px) {
   .container{
-    font-size: 2.5vw;
     padding: 2vw;
-    gap: 1vw;
+    gap: 2vw;
     border-radius: 1.5vw;
+
+    --textSize: 2.8vw;
+    --NameSize: 3.3vw;
+
+    font-size: var(--textSize);
     .header{
       gap: 2vw;
       .image{
@@ -93,7 +97,7 @@
         }
       }
       .name{
-        font-size: 3.3vw;
+        font-size: var(--NameSize);
         line-height: 110%;
         padding: 0 1vw;
       }
@@ -102,12 +106,12 @@
       padding: 0 1vw;
     }
     .speciality{
-      font-size: 2.5vw;
+      font-size: var(--textSize);
     }
     .city{
-      margin-top: 1vw;
+      margin-top: 2vw;
       img{
-        margin-top: 0px;
+        margin-top: 0.3vw;
         width: 1.8vw;
         height: 2.1vw;
       }
@@ -116,7 +120,7 @@
       width: calc(100% + 2vw);
       margin-left: -1vw;
       .link{
-        margin-top: 3vw;
+        margin-top: 4vw;
 
         a{
           display: flex;
@@ -126,7 +130,7 @@
         }
 
         .textButton{
-          font-size: 2.5vw;
+          font-size: var(--textSize);
         }
       }
     }

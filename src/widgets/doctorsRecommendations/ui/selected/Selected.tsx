@@ -26,7 +26,7 @@ export const Selected: FC<IProps> = ({recommendations}) => {
         0
     )
     
-    const margin = speed ? (isMobile ? '20px 10px' : '20px') : 0;
+    const margin = speed ? '20px' : 0;
 
     useLayoutEffect(() => {
         function checkMobile() {
@@ -41,7 +41,7 @@ export const Selected: FC<IProps> = ({recommendations}) => {
 
     useEffect(() => {
         if(heights.one){
-            setSpeedSec(isMobile ? speed * 4: speed)
+            setSpeedSec(isMobile ? speed * 3 : speed)
         }
     }, [heights])
 
