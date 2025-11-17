@@ -1,0 +1,21 @@
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    justify-content: center;
+    gap: 20px;
+    background: var(--light-black);
+    
+    margin-top: 20px;
+
+    .desctop{
+        display: block;
+    }
+    .mobile{
+        display: none;
+    }
+}
