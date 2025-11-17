@@ -3,9 +3,13 @@
 
 .menu{
     position: fixed;
-    width: 50%;
-    background-color: var(--black);
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 80px;
+    width: 440px;
+    background-color: rgba(26, 26, 26, 1);
+    padding: 40px 30px;
     right: 0;
     z-index: 999;
     top: 0;
@@ -15,7 +19,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 20px 0;
 
         span{
             font-size: 32px;
@@ -23,17 +26,19 @@
         }
     }
 
-    ul{
+    .list{
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 0;
-        margin: 0;
+        padding: 0 40px 0 0;
+        margin: 40px 0 0 0;
         list-style: none;
 
         li{
             font-size: 20px;
             color: #FFFFFF;
+            // font-weight: 600;
+            line-height: 110%;
 
             transition: color .15s ease;
 
@@ -42,13 +47,22 @@
             }
         }
     }
+
+    .placement{
+        bottom: 0;
+    }
 }
 
 @media (max-width: 900px) {
     .menu{
-      .header{
-        margin: 12.5px 6px 20px 0;
-      }
+        padding: 20px;
+        overflow: auto;
+        .header{
+            margin: 12.5px 6px 20px 0;
+        }
+        .placement{
+            margin-bottom: 30px;
+        }
     }
 }
 
@@ -58,10 +72,24 @@
     }
 }
 
+
+@media (max-width: 400px) {
+    .menu{
+        .list{
+            li{
+                font-size: 18px;
+            }
+        }
+    }
+}
+
 @media (max-width: 350px) {
     .menu{
       .header{
         margin: 11.5px 1px 20px 0;
+      }
+      .list{
+        padding: 0;
       }
     }
 }

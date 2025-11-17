@@ -7,9 +7,10 @@ interface IProps {
     open: boolean;
     setOpen: (open: boolean) => void;
     transitionSec?: number; // seconds
+    glass?: boolean;
 }
 
-export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transitionSec, children}) => {
+export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transitionSec, glass, children}) => {
 
     const refWrap = useRef<HTMLDivElement>(null)
     const refDarken = useRef<HTMLDivElement>(null)
@@ -19,12 +20,14 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
     }
 
     useEffect(() => {
-        if(refWrap.current){
+        if(refWrap.current && refDarken.current){
             if(open){
                 refWrap.current.classList.add(classes.open)
+                refDarken.current.classList.add(classes.open)
             }
             else{
                 refWrap.current.classList.remove(classes.open)
+                refDarken.current.classList.remove(classes.open)
             }
         }
     }, [open])
@@ -40,17 +43,21 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
             let currentOpacity = open ? 0 : 1;
 
             function animateOpacity() {
-                if(transitionSec && refWrap.current){
+                if(transitionSec && refWrap.current && refDarken.current){
                     refWrap.current.style.opacity = String(currentOpacity);
-    
+                    refDarken.current.style.opacity = String(currentOpacity);
+
                     if(open && currentOpacity >= 1){
                         refWrap.current.style.opacity = '1';
+                        refDarken.current.style.opacity = '1';
                         return
                     }
     
                     if(!open && currentOpacity <= 0){
                         refWrap.current.style.opacity = '0';
                         refWrap.current.style.display = 'none'
+                        refDarken.current.style.opacity = '0';
+                        refDarken.current.style.display = 'none'
                         return
                     }
     
@@ -62,26 +69,35 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
 
             if(open){
                 refWrap.current!.style.display = 'block'
-
+                refDarken.current!.style.display = 'block'
             }
             animateOpacity()
         }
         else{
             if(open){
                 refWrap.current!.style.display = 'block'
+                refDarken.current!.style.display = 'block'
             }
             else{
                 refWrap.current!.style.display = 'none'
+                refDarken.current!.style.display = 'none'
             }
         }
     }, [open])
 
     return (
+    <>
+        <section 
+            style={{display: 'none'}}
+            ref={refDarken} 
+            className={classes.darken + (glass ? ` ${classes.glass}` : '')} 
+            onClick={close}
+        />
         <section style={{display: 'none'}} ref={refWrap} className={classes.wrapper}>
-            <section ref={refDarken} className={classes.darken} onClick={close}></section>
             <section className={classes.container}>
                 {children}
             </section>
         </section>
+    </>
     )
 }
