@@ -25,9 +25,18 @@
         }
     }
 
+    .hr{
+        position: absolute;
+        display: block;
+        height: 4px;
+        background-color: transparent;
+        width: 100%;
+    }
+
     .hint{
         position: absolute;
-        background-color: var(--sign-gray);
+        background-color: rgba(68, 68, 68, 0.5);
+        backdrop-filter: blur(14px);
         border-radius: 8px;
         padding: 12px 14px;
         display: none;

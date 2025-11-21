@@ -68,6 +68,7 @@ export const DoctorsAll: FC = () => {
                             tgLink={doctor.tgLink}
                             tgSubsCount={doctor.tgSubsCount}
                             tgSubsCountText={doctor.tgSubsCountText}
+                            isKfDoctor={doctor.isKfDoctor}
                         />
                     )
                 }

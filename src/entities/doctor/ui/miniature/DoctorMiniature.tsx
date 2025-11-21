@@ -8,13 +8,16 @@ import {MyButton} from "@/src/shared/ui/myButton";
 import {SubscriberLink} from "@/src/entities/doctor/ui/subscriberLink/SubscriberLink";
 import Link from "next/link";
 import markImg from '@/src/shared/lib/assets/mark_blue.png'
+import { ClinicHint } from "../clinicHint/ClinicHint";
 
 export const DoctorMiniature: FC<IDoctorMiniature> = ({
-    name, image, city, instLink, tgLink, instSubsCount, instSubsCountText, tgSubsCount, tgSubsCountText, slug, speciality
+    name, image, city, instLink, tgLink, instSubsCount, instSubsCountText, tgSubsCount, tgSubsCountText, slug, speciality, isKfDoctor
 }) => {
 
     const doctorLink = `doctors/${slug}`
 
+    const fio = name.split(' ')
+        
     return (
         <section className={classes.container}>
             <section className={classes.header}>
@@ -23,13 +26,24 @@ export const DoctorMiniature: FC<IDoctorMiniature> = ({
                         && 
                     <noindex>
                         <Link rel="nofollow" href={doctorLink}>
-                            <Image src={image} alt={'Аватарка врача'} width={260} height={160} />
+                            <Image className={classes.avatar} src={image} alt={'Аватарка врача'} width={260} height={160} />
                         </Link>
                     </noindex> 
                 }
                 <section className={classes.name}>
                     <Link href={doctorLink}>
-                        {name}
+                        {
+                            isKfDoctor
+                                ?
+                            <>
+                                {fio.slice(0, -1).join(' ')}&nbsp;
+                                <ClinicHint name={fio[2]} />
+                            </>
+                                :
+                            <>
+                                {name}
+                            </>
+                        }
                     </Link>
                 </section>
             </section>

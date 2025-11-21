@@ -17,6 +17,11 @@
     }
 
     .data{
+
+        h5{
+            display: flex;
+            flex-wrap: wrap;
+        }
         
         p{
             color: var(--sign-gray);

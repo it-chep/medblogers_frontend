@@ -18,6 +18,7 @@ export interface IDoctorMiniature {
     tgLink: string;
     tgSubsCount: string;
     tgSubsCountText: string;
+    isKfDoctor: boolean;
 }
 
 
@@ -52,6 +53,8 @@ export interface IDoctor {
     mainBlogTheme: string;
     image: string;
     cities: IItem[],
+
+    isKfDoctor: boolean;
 }
 
 export interface IDoctorSeo{
@@ -67,6 +70,7 @@ export interface ISearchDoctor {
     slug: string;
     specialityName: string;
     image: string;
+    isKfDoctor: boolean;
 }
 
 

@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { FC } from "react";
 import classes from './cardData.module.scss'
 import { IDoctor } from "../../model/types";
 import Link from "next/link";
@@ -6,6 +6,7 @@ import { MyButton } from "@/src/shared/ui/myButton";
 import { SpecialityBadge } from "../specialityBadges/SpecialityBadge";
 import Image from "next/image";
 import markImg from '@/src/shared/lib/assets/mark_blue.png'
+import { ClinicHint } from "../clinicHint/ClinicHint";
 
 interface IProps {
     doctor: IDoctor;
@@ -13,11 +14,25 @@ interface IProps {
 
 export const CardData: FC<IProps> = ({doctor}) => {
 
+    const fio = doctor.name.split(' ')
 
     return (
         <section className={classes.container}>
             <section className={classes.main}>
-                <h2 className={classes.name}>{doctor.name}</h2>
+                <h2 className={classes.name}>
+                    {
+                        doctor.isKfDoctor
+                            ?
+                        <>
+                            {fio.slice(0, 2).join(' ')}&nbsp;
+                            <ClinicHint name={fio[2]} sizeIcon={20} gap={8} />
+                        </>
+                            :
+                        <>
+                            {doctor.name}
+                        </>
+                    }
+                </h2>
                 <span className={classes.city}>
                     <Image alt="Метка" width={11} height={13} src={markImg.src} /> 
                     Город: {doctor.mainCity.name}{doctor.cities.length >= 0 && doctor.cities.map(city => `, ${city.name}`)}
