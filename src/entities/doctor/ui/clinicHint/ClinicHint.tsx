@@ -16,22 +16,25 @@ interface IProps {
 export const ClinicHint: FC<IProps> = ({name, sizeIcon = 16, gap = 4}) => {
 
     return (
-        <span 
-            onClick={e => {
-                e.preventDefault()
-            }} 
+        <span
             className={classes.clinicLogoWrap}
             style={{gap}}
         >
             {name} 
-            <Hint width={180} hint={<ClinicContent />}>
-                <Image 
-                    src={is_kf_doctor_img.src} 
-                    width={sizeIcon} 
-                    height={sizeIcon} 
-                    alt="Клиника Фомина. Лого" 
-                />
-            </Hint>
+            <span 
+                onClick={e => {
+                    e.preventDefault()
+                }} 
+            >
+                <Hint width={180} hint={<ClinicContent />}>
+                    <Image 
+                        src={is_kf_doctor_img.src} 
+                        width={sizeIcon} 
+                        height={sizeIcon} 
+                        alt="Клиника Фомина. Лого" 
+                    />
+                </Hint>                
+            </span>
         </span>
     )
 }

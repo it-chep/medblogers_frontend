@@ -13,7 +13,7 @@ export const ClinicContent: FC = () => {
         <section className={classes.container}>
             <section className={classes.text}>Этот доктор работает в Клинике Фомина</section>
             <Link onClick={onClick} target="_blank" href={'https://t.me/m/r4HG18B9Nzdi'}>
-                Хочу так же
+                Хочу также
             </Link>
         </section>
     )

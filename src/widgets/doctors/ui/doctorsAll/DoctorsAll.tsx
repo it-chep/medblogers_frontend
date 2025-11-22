@@ -45,7 +45,6 @@ export const DoctorsAll: FC = () => {
         getDoctors()
     }, [searchParams])
 
-
     return (
         <section>
             <section className={classes.container}>
