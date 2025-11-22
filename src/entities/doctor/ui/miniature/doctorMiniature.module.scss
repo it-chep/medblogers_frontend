@@ -15,7 +15,7 @@
     flex-direction: column;
     gap: 20px;
 
-    img{
+    .avatar{
       object-position: 10% 10%;
       object-fit: cover;
       position: relative;
@@ -30,7 +30,12 @@
       font-size: 20px;
       padding: 0 5px;
       color: #FFF;
-      overflow: hidden;
+
+      a{
+        line-height: 20px;
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
   }
 

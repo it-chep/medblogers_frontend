@@ -1,0 +1,30 @@
+
+
+
+.clinicLogoWrap{
+    display: flex;
+    align-items: center;
+}
+
+.container{
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 93%;
+    letter-spacing: 0;
+    
+    .text{
+        opacity: .78;
+    }
+
+    >a{
+        display: block;
+        margin-top: 6px;
+        text-decoration: underline;
+        color: var(--blue);
+        transition: all .15s ease;
+
+        &:hover{
+            color: var(--blue-hover);
+        }
+    }
+}

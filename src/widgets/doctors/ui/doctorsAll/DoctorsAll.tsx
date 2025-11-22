@@ -45,7 +45,6 @@ export const DoctorsAll: FC = () => {
         getDoctors()
     }, [searchParams])
 
-
     return (
         <section>
             <section className={classes.container}>
@@ -68,6 +67,7 @@ export const DoctorsAll: FC = () => {
                             tgLink={doctor.tgLink}
                             tgSubsCount={doctor.tgSubsCount}
                             tgSubsCountText={doctor.tgSubsCountText}
+                            isKfDoctor={doctor.isKfDoctor}
                         />
                     )
                 }
