@@ -31,7 +31,12 @@ export default async function Doctor({ params }: any) {
 
     const { slug }: TParams = await params;
 
+    const seo = await doctorService.seo(slug)
+
     return (
-        <DoctorPage slug={slug} />
+        <DoctorPage 
+            title={seo.title} 
+            slug={slug} 
+        />
     )
 }

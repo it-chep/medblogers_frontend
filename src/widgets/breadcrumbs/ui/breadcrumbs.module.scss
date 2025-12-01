@@ -1,0 +1,35 @@
+
+
+
+.breadcrumbs{
+    overflow: auto;
+    width: 100%;
+
+    .list{
+        display: flex;
+        padding: 0;
+        color: #AEAEAE;
+        
+        .breadcrumb{
+            display: flex;
+            list-style: none;
+            text-wrap: nowrap;
+            .separator{
+                padding: 0 15px;
+            }
+
+            .label{
+                // color: #cacaca;
+            }
+
+            .link{
+                text-decoration: none;
+                transition: color .15s ease-in-out;
+
+                &:hover{
+                    color: var(--blue);
+                }
+            }
+        }
+    }
+}
