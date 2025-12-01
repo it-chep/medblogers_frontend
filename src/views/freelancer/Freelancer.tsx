@@ -18,10 +18,12 @@ export default async function FreelancerPage(props: IProps) {
                 {
                     props.title
                         &&
-                    <Breadcrumbs breadcrumbs={[
-                        {path: '/helpers', label: 'Вернуться к базе'},
-                        {path: '', label: props.title},
-                    ]} />
+                    <section className={classes.breadcrumbs}>
+                        <Breadcrumbs breadcrumbs={[
+                            {path: '/helpers', label: 'Вернуться к базе'},
+                            {path: '', label: props.title},
+                        ]} />
+                    </section>
                 }
                 <Suspense 
                     fallback={<section className={classes.loader}><LoaderSpinner /></section>}

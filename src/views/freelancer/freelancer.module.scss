@@ -25,5 +25,11 @@
 @media (max-width: 490px) {
     .page{
         padding: 0;
+
+        .main{
+            .breadcrumbs{
+                margin: 0 20px;
+            }
+        }
     }
 }

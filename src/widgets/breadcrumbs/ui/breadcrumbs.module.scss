@@ -14,6 +14,7 @@
             display: flex;
             list-style: none;
             text-wrap: nowrap;
+
             .separator{
                 padding: 0 15px;
             }
@@ -28,6 +29,32 @@
 
                 &:hover{
                     color: var(--blue);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 490px) {
+    .breadcrumbs{
+        font-size: 15px;
+        .list{
+            .breadcrumb{
+                .separator{
+                    padding: 0 12px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .breadcrumbs{
+        font-size: 14px;
+        .list{
+            .breadcrumb{
+                .separator{
+                    padding: 0 10px;
                 }
             }
         }
