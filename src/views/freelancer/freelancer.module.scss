@@ -7,6 +7,9 @@
     margin-bottom: 300px;
 
     .main{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
         min-height: calc(100vh - 75px);
 
         .loader{
@@ -22,5 +25,11 @@
 @media (max-width: 490px) {
     .page{
         padding: 0;
+
+        .main{
+            .breadcrumbs{
+                margin: 0 20px;
+            }
+        }
     }
 }

@@ -31,7 +31,12 @@ export default async function Freelancer({ params }: any) {
 
     const { slug }: TParams = await params;
 
+    const seo = await freelancerService.seo(slug)
+
     return (
-        <FreelancerPage slug={slug} />
+        <FreelancerPage 
+            title={seo.title}    
+            slug={slug} 
+        />
     )
 }
