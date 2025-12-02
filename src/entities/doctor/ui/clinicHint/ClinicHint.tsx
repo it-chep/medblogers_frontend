@@ -26,7 +26,7 @@ export const ClinicHint: FC<IProps> = ({name, sizeIcon = 16, gap = 4}) => {
                     e.preventDefault()
                 }} 
             >
-                <Hint width={180} hint={<ClinicContent />}>
+                <Hint width={230} hint={<ClinicContent />}>
                     <Image 
                         src={is_kf_doctor_img.src} 
                         width={sizeIcon} 

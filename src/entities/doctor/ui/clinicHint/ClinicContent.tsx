@@ -10,9 +10,9 @@ export const ClinicContent: FC = () => {
 
     return (
         <section className={classes.container}>
-            <section className={classes.text}>Этот доктор работает в Клинике Фомина</section>
+            <section className={classes.text}>Этот доктор работает <br></br>в Клинике Фомина</section>
             <span onClick={onClick}>
-                Хочу также
+                Хочу поставить свой логотип
             </span>
         </section>
     )
