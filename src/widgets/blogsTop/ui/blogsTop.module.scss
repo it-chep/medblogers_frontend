@@ -1,0 +1,15 @@
+
+
+
+.loader{
+    width: 100%;
+    height: 120px;
+    min-height: 120px;
+}
+
+.miniatures{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}

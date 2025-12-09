@@ -12,6 +12,7 @@ import { SearchDoctors } from '@/src/widgets/searchDoctors'
 import Link from 'next/link'
 import { ButtonDark } from '@/src/shared/ui/buttonDark'
 import { IS_FREELANCERS_DONE } from '@/src/app/env/env'
+import { BlogsTopLayout } from '@/src/widgets/blogsTop'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -58,6 +59,10 @@ export default async function HomePage() {
                 <ActiveFiltersLayout />
                 <DoctorsAll />
                 <PaginationWidget />
+                <section className={classes.blogsTop}>
+                    <h2 className={classes.blogs}>Полезные статьи для блога</h2>
+                    <BlogsTopLayout />
+                </section>
             </main>
         </section>
     )
