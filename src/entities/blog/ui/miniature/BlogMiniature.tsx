@@ -21,14 +21,16 @@ export const BlogMiniature: FC<IProps> = ({blog}) => {
                 }
             </section>
             <section className={classes.wrap}>
-                <section className={classes.date}>
-                    {blog.createdAt}
-                </section>
-                <section className={classes.title}>
-                    {blog.title}
-                </section>
-                <section className={classes.description}>
-                    {blog.previewText}
+                <section className={classes.data}>
+                    <section className={classes.date}>
+                        {blog.createdAt}
+                    </section>
+                    <section className={classes.title}>
+                        {blog.title}
+                    </section>
+                    <section className={classes.description}>
+                        {blog.previewText}
+                    </section>
                 </section>
                 <Link className={classes.link} href={'/blogs/' + blog.slug}>
                     <MyButtonBlog>

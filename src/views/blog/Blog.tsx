@@ -41,7 +41,7 @@ export default async function BlogPage(props: IProps) {
                     <Breadcrumbs breadcrumbs={[
                         {path: '/', label: 'Вернуться к базе'},
                         {path: '/blogs', label: 'Статьи'},
-                        {path: '', label: getShortTitle(blog.title)},
+                        {path: '', label: getShortTitle(blog.title, 80)},
                     ]} />
                 </section>
                 <Blog blog={blog} >
@@ -49,6 +49,11 @@ export default async function BlogPage(props: IProps) {
                         <ShareBlog />
                     </Share>
                 </Blog>
+                <section className={classes.share}>
+                    <Share>
+                        <ShareBlog />
+                    </Share>
+                </section>
                 <section className={classes.blogsTop}>
                     <h2 className={classes.other}>Читать другие статьи</h2>
                     <BlogsTopLayout />

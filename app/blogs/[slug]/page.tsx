@@ -1,5 +1,6 @@
 import { blogService, IBlogDetail } from "@/src/entities/blog";
 import BlogPage from "@/src/views/blog/Blog";
+import "./page.css";
 
 type TParams = {
     slug: string;

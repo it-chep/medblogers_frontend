@@ -1,7 +1,14 @@
 .page{
   display: flex;
+  flex-direction: column;
   gap: 20px;
   min-height: 100vh;
+
+  .content{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
 
   .aside{
     display: flex;
@@ -26,16 +33,16 @@
     gap: 20px;
     width: 100%;
 
-    .blogsTop{
-      display: flex;
-      flex-direction: column;
-      margin-top: 120px;
+  }
+  .blogsTop{
+    display: flex;
+    flex-direction: column;
+    margin-top: 120px;
 
-      h2{
-          text-align: center;
-          font-size: 28px;
-          font-weight: 700;
-      }
+    h2{
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
     }
   }
 }

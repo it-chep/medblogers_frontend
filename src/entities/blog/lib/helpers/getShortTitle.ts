@@ -1,8 +1,8 @@
 
 
 
-export const getShortTitle = (title: string): string => {
-    if(title.length < 100){
+export const getShortTitle = (title: string, maxSize: number): string => {
+    if(title.length < maxSize){
         return title
     }
     const words = title.split(' ')
@@ -11,11 +11,11 @@ export const getShortTitle = (title: string): string => {
     let length = words.length;
     while (i < length){
         const shortTitleLength = shortTitle.length + words[i].length;
-        if(shortTitleLength > 50){
+        if(shortTitleLength > maxSize){
             break
         }   
-        shortTitle += words[i++]
+        shortTitle += ' ' + words[i++]
     }
     
-    return shortTitle + '...'
+    return shortTitle.trim() + '...'
 }
