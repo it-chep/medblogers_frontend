@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { ButtonDark } from '@/src/shared/ui/buttonDark'
 import { IS_FREELANCERS_DONE } from '@/src/app/env/env'
 import { BlogsTopLayout } from '@/src/widgets/blogsTop'
+import { FAQ } from '@/src/widgets/FAQ'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -66,6 +67,7 @@ export default async function HomePage() {
                 <h2 className={classes.blogs}>Полезные статьи для блога</h2>
                 <BlogsTopLayout />
             </section>
+            <FAQ />
         </section>
     )
 }
