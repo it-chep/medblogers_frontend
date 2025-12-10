@@ -13,11 +13,12 @@ export const Blog: FC<IProps & PropsWithChildren> = ({blog, children}) => {
         <section className={classes.container}>
             <section className={classes.header}>
                 <section className={classes.date}>{blog.createdAt}</section>
-                {children}
+                <section className={classes.share}>
+                    {children}
+                </section>
             </section>
             <section className={classes.content}>
                 <h1>{blog.title}</h1>
-
                 <section 
                     dangerouslySetInnerHTML={{__html: blog.body}} 
                 />

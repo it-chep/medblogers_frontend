@@ -57,3 +57,29 @@
         }
     }
 }
+
+@media (max-width: 480px) {
+    .container{
+        .wrap{
+            padding: 0 20px 20px 20px;
+
+            .data{
+                .date{
+                    font-size: 14px;
+                }
+                .title{
+                    margin-top: 15px;
+                    font-size: 18px;
+                    line-height: 112%;
+                }
+                .description{
+                    font-size: 15px;
+                    line-height: 110%;
+                }   
+            }
+        }
+        .link{
+            margin-top: 20px;
+        }
+    }
+}

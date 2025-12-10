@@ -36,9 +36,8 @@
     flex-direction: column;
     gap: 20px;
     width: 100%;
-
-
   }
+
   .blogsTop{
     display: flex;
     flex-direction: column;
@@ -54,7 +53,10 @@
 
 @media (max-width: 650px) {
   .page{
+
+  .content{
     flex-direction: column;
+  }
 
     .aside{
       width: 100%;
@@ -67,6 +69,13 @@
   .page{
     .aside .filters{
       display: none;
+    }
+    .blogsTop{
+      margin-top: 70px;
+      
+      h2{
+        font-size: 24px;
+      }
     }
   }
 }
