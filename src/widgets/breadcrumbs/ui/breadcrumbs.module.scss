@@ -13,7 +13,7 @@
         .breadcrumb{
             display: flex;
             list-style: none;
-            text-wrap: nowrap;
+            white-space: nowrap;
 
             .separator{
                 padding: 0 15px;

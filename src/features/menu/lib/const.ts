@@ -16,5 +16,10 @@ export const menuLinks: IMenu[] = [
     {
         name: 'База помощников - инструкция для рационального выбора подрядчика',
         link: 'https://doc.readyschool.ru/freelancers'
+    },
+    {
+        name: 'Полезные статьи для медблога',
+        link: '/blogs',
+        site: true,
     }
 ]

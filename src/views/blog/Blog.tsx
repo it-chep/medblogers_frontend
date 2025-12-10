@@ -36,13 +36,11 @@ export default async function BlogPage(props: IProps) {
 
     return (
         <section className={classes.page + ' wrapper_main'}>
-            <section className={classes.breadcrumbs}>
-                <Breadcrumbs breadcrumbs={[
-                    {path: '/', label: 'Вернуться к базе'},
-                    {path: '/blogs', label: 'Статьи'},
-                    {path: '', label: blog.title},
-                ]} />
-            </section>
+            <Breadcrumbs breadcrumbs={[
+                {path: '/', label: 'Вернуться к базе'},
+                {path: '/blogs', label: 'Статьи'},
+                {path: '', label: blog.title},
+            ]} />
             <main className={classes.main}>
                 <Blog blog={blog} >
                     <Share>
