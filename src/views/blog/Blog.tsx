@@ -41,7 +41,7 @@ export default async function BlogPage(props: IProps) {
                     <Breadcrumbs breadcrumbs={[
                         {path: '/', label: 'Вернуться к базе'},
                         {path: '/blogs', label: 'Статьи'},
-                        {path: '', label: getShortTitle(blog.title, 80)},
+                        {path: '', label: blog.title},
                     ]} />
                 </section>
                 <Blog blog={blog} >

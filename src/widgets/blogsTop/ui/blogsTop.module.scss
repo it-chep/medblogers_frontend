@@ -1,11 +1,23 @@
 
 
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 
-.loader{
-    width: 100%;
-    height: 120px;
-    min-height: 120px;
+    .loader{
+        width: 100%;
+        height: 120px;
+        min-height: 120px;
+    }
+
+    .button{
+        width: 280px;
+        height: 55px;
+    }
 }
+
 
 .miniatures{
     display: grid;

@@ -7,7 +7,7 @@ interface IProps {
 
 export const Title: FC<IProps> = ({pathname}) => {
 
-    const isFreelancer = pathname.includes('helpers') || pathname.includes('freelancer')
+    const isFreelancer = (pathname.includes('helpers') || pathname.includes('freelancer')) && !(pathname.includes('blogs'))
 
     return (
         <section className={classes.mainTitle + (isFreelancer ? ` ${classes.freelancer}` : '')}>
