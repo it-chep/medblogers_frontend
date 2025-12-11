@@ -12,7 +12,9 @@ export const Blog: FC<IProps & PropsWithChildren> = ({blog, children}) => {
     return (
         <section className={classes.container}>
             <section className={classes.header}>
-                <section className={classes.date}>{blog.createdAt}</section>
+                <section className={classes.date}>
+                    {blog.createdAt}
+                </section>
                 <section className={classes.share}>
                     {children}
                 </section>

@@ -17,11 +17,24 @@
     }
 
     .content{
-        margin-top: 20px;
+        margin-top: 30px;
+
+        a {
+            text-decoration: underline;
+            color: var(--blue);
+            transition: all .15s ease;
+            cursor: pointer;
+        }
+
+        a:hover{
+            color: var(--blue-hover);
+        }
 
         h1{
-            margin-bottom: 40px;
-            font-size: 32px;
+            margin-bottom: 20px;
+            font-size: 40px;
+            line-height: 101%;
+            font-weight: 600;
         }
 
         img{
@@ -30,10 +43,10 @@
     
         p, h2, h3, ul, ol {
             min-height: 1em;
-            font-size: 16px;
+            font-size: 18px;
             margin: 15px 0;
             white-space: pre-wrap;
-            line-height: 140%;
+            line-height: 118%;
         }
     
         h2{
@@ -45,7 +58,7 @@
         }
     
         figure{
-            margin: 30px 0;
+            margin: 20px 0;
             
             img{
                 display: block;
@@ -54,7 +67,6 @@
         }
         
         figcaption{
-            min-height: 1.5em;
             font-size: 0.8rem;
             margin-top: 4px;
             color: #676767;
@@ -71,12 +83,11 @@
             }
         }
     }
-
 }
 
 @media (max-width: 480px) {
     .container{
-        margin-top: 40px;
+
         .header{
             .share{
                 display: none;
@@ -84,15 +95,13 @@
         }
 
         .content{
-            margin-top: 15px;
 
             h1{
-                margin-bottom: 30px;
                 font-size: 24px;
             }   
 
             p, h2, h3, ul, ol {
-                font-size: 15px;
+                font-size: 16px;
             }
     
             h2{
@@ -102,10 +111,6 @@
             h3{
                 font-size: 18px;
             }
-        
-            figure{
-                margin: 20px 0;
-            }
         }
     }
 }
@@ -114,9 +119,20 @@
     .container{
         .content{
             h1{
-                margin-bottom: 20px;
-                font-size: 18px;
+                font-size: 20px;
             }   
+
+            p, h2, h3, ul, ol {
+                font-size: 15px;
+            }
+    
+            h2{
+                font-size: 18px;
+            }
+            
+            h3{
+                font-size: 16px;
+            }
         }
     }
 }

@@ -1,6 +1,24 @@
 .color-blue{
-    padding: 20px;
+    padding: 30px;
     border-radius: 20px;
     margin: 20px 0;
     background-color: rgba(15, 54, 87, 1);
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .color-blue{
+        padding: 20px;
+    }
 }
