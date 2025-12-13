@@ -7,7 +7,6 @@ button{
   font-size: 16px;
   font-family: 'Proxima Nova';
   font-weight: 400;
-  
 }
 
 body {
@@ -36,7 +35,7 @@ body {
 }
 
 .wrapper_main{
-  width: 1200px;
+  width: 1240px;
   max-width: 100%;
   margin: 0 auto;
   padding: 0 20px;

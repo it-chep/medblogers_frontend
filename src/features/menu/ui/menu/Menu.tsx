@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef } from "react";
 import classes from './menu.module.scss'
 import { menuLinks } from "../../lib/const";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import logo from '@/src/shared/lib/assets/medblogers_logo.png'
 import { Close } from "@/src/shared/ui/close/Close";
 import { Placement } from "@/src/shared/ui/placement";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 interface IProps {
     open: boolean;
@@ -43,7 +44,13 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
                 <ul className={classes.list}>
                     {menuLinks.map((menuLink, ind) => 
                         <li key={ind}>
-                            <a target='_blank' href={menuLink.link}>{menuLink.name}</a>
+                            {
+                                menuLink.site
+                                    ?
+                                <Link href={menuLink.link}>{menuLink.name}</Link>
+                                    :
+                                <a target='_blank' href={menuLink.link}>{menuLink.name}</a>
+                            }
                         </li>
                     )}
                 </ul>

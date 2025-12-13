@@ -12,6 +12,8 @@ import { SearchDoctors } from '@/src/widgets/searchDoctors'
 import Link from 'next/link'
 import { ButtonDark } from '@/src/shared/ui/buttonDark'
 import { IS_FREELANCERS_DONE } from '@/src/app/env/env'
+import { BlogsTopLayout } from '@/src/widgets/blogsTop'
+import { FAQ } from '@/src/widgets/FAQ'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -34,31 +36,38 @@ export default async function HomePage() {
 
     return (
         <section className={classes.page + ' wrapper_main'}>
-            <aside className={classes.aside}>
-                <BannerNewDoctor />
-                {
-                    IS_FREELANCERS_DONE
-                        &&
-                    <Link href={'/helpers'} className={classes.button}>
-                        <ButtonDark><span className={classes.helpersLink}>Перейти к базе помощников</span></ButtonDark>
-                    </Link>
-                }
-                <section className={classes.filters}>
-                    <FiltersLayout forDesk={true} filters={filters} />
-                </section>
-            </aside>
-            <main className={classes.main}>
-                <StatisticsLayout />
-                <SearchDoctors>
-                    <OpenFiltersModal>
-                        <FiltersLayout filters={filters} forDesk={false} />
-                    </OpenFiltersModal>
-                </SearchDoctors>
-                <Sort />
-                <ActiveFiltersLayout />
-                <DoctorsAll />
-                <PaginationWidget />
-            </main>
+            <section className={classes.content}>
+                <aside className={classes.aside}>
+                    <BannerNewDoctor />
+                    {
+                        IS_FREELANCERS_DONE
+                            &&
+                        <Link href={'/helpers'} className={classes.button}>
+                            <ButtonDark><span className={classes.helpersLink}>Перейти к базе помощников</span></ButtonDark>
+                        </Link>
+                    }
+                    <section className={classes.filters}>
+                        <FiltersLayout forDesk={true} filters={filters} />
+                    </section>
+                </aside>
+                <main className={classes.main}>
+                    <StatisticsLayout />
+                    <SearchDoctors>
+                        <OpenFiltersModal>
+                            <FiltersLayout filters={filters} forDesk={false} />
+                        </OpenFiltersModal>
+                    </SearchDoctors>
+                    <Sort />
+                    <ActiveFiltersLayout />
+                    <DoctorsAll />
+                    <PaginationWidget />
+                </main>
+            </section>
+            <section className={classes.blogsTop}>
+                <h2 className={classes.blogs}>Полезные статьи для блога</h2>
+                <BlogsTopLayout />
+            </section>
+            <FAQ />
         </section>
     )
 }

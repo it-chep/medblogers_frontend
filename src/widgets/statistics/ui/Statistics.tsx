@@ -2,9 +2,6 @@ import { IStatistic, StatisticItem, statisticService } from "@/src/entities/stat
 import classes from './statistics.module.scss'
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 
-// ISR надо
-
-
 const getData = async () => {
     let statistics: IStatistic | null = null;
     try{

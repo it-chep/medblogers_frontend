@@ -39,18 +39,16 @@ export const PaginationFreelancersWidget: FC = () => {
     }, [paramsKey])
 
     return (
+        isLoading
+            ?
+        <section className={classes.loader}><LoaderContainer /></section>
+            :
+        pagesCount <= 1
+            ?
+        <></>
+            :
         <section className={classes.wrapper}>
-            {
-                isLoading
-                    ?
-                <section className={classes.loader}><LoaderContainer /></section>
-                    :
-                pagesCount <= 1
-                    ?
-                <></>
-                    :
-                <Pagination totalPages={pagesCount} />
-            }
+            <Pagination totalPages={pagesCount} />
         </section>
     )
 }

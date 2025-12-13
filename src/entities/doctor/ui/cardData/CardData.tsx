@@ -51,7 +51,7 @@ export const CardData: FC<IProps> = ({doctor}) => {
 
             <Link className={classes.link} href={doctor.tgUrl}>
                 <MyButton>
-                    Связаться
+                    Написать в TG
                 </MyButton>
             </Link>
         </section>

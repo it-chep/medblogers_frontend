@@ -12,6 +12,7 @@ import { BannerNewFreelancer } from '@/src/widgets/bannerNewFreelancer';
 import Link from 'next/link';
 import { ButtonDark } from '@/src/shared/ui/buttonDark';
 import { IS_FREELANCERS_DONE } from '@/src/app/env/env';
+import { BlogsTopLayout } from '@/src/widgets/blogsTop';
 
 const getData = async () => {
     let filters: IFilterFreelancer | null = null;
@@ -37,30 +38,36 @@ export default async function FreelancersPage() {
 
     return (
         <section className={classes.page + ' wrapper_main'}>
-            <aside className={classes.aside}>
-                <BannerNewFreelancer />
-                {
-                    IS_FREELANCERS_DONE
-                        &&
-                    <Link href={'/'} className={classes.button}>
-                        <ButtonDark><span className={classes.doctorsLink}>Перейти к базе врачей</span></ButtonDark>
-                    </Link>
-                }
-                <section className={classes.filters}>
-                    <FiltersFreelancersLayout forDesk={true} filters={filters} />
-                </section>
-            </aside>
-            <main className={classes.main}>
-                {/* <StatisticsFreelancersLayout /> */}
-                <SearchFreelancers>
-                    <OpenFiltersModal>
-                        <FiltersFreelancersLayout filters={filters} forDesk={false} />
-                    </OpenFiltersModal>
-                </SearchFreelancers>
-                <ActiveFiltersFreelancersLayout />
-                <FreelancersAll />
-                <PaginationFreelancersWidget />
-            </main>
+            <section className={classes.content}>
+                <aside className={classes.aside}>
+                    <BannerNewFreelancer />
+                    {
+                        IS_FREELANCERS_DONE
+                            &&
+                        <Link href={'/'} className={classes.button}>
+                            <ButtonDark><span className={classes.doctorsLink}>Перейти к базе врачей</span></ButtonDark>
+                        </Link>
+                    }
+                    <section className={classes.filters}>
+                        <FiltersFreelancersLayout forDesk={true} filters={filters} />
+                    </section>
+                </aside>
+                <main className={classes.main}>
+                    {/* <StatisticsFreelancersLayout /> */}
+                    <SearchFreelancers>
+                        <OpenFiltersModal>
+                            <FiltersFreelancersLayout filters={filters} forDesk={false} />
+                        </OpenFiltersModal>
+                    </SearchFreelancers>
+                    <ActiveFiltersFreelancersLayout />
+                    <FreelancersAll />
+                    <PaginationFreelancersWidget />
+                </main>
+            </section>
+            <section className={classes.blogsTop}>
+                <h2 className={classes.blogs}>Полезные статьи для блога</h2>
+                <BlogsTopLayout />
+            </section>
         </section>
     )
 }
