@@ -5,8 +5,6 @@ import { OpenBlockFAQ } from '@/src/features/openBlockFAQ'
 
 export const FAQ: FC = () => {
 
-    
-
     return (
         <section className={classes.wrapper}>
             <h2>Ответы на частые вопросы</h2>
@@ -43,7 +41,7 @@ export const FAQ: FC = () => {
                             title='Есть ли успешные кейсы использования базы?' 
                             text=''
                         >
-                            Да! Уже есть примеры, когда с помощью базы бренды находили подходящих врачей и блогеров, а врачи — надёжных партнёров для коллабораций. С ними можно ознакомиться по <a href='https://doc.readyschool.ru/base2case' target="_blank">ссылке</a>
+                            Да! Уже есть примеры, когда с помощью базы бренды находили подходящих врачей и блогеров, а врачи — надёжных партнёров для коллабораций. С ними можно ознакомиться по <a href='https://doc.readyschool.ru/base2case' target="_blank">ссылке</a>.
                         </OpenBlockFAQ>
                     </section>   
                 </section>
