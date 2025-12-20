@@ -10,7 +10,7 @@ export const initialState: IFilterState = {
         maxSubscribers: '',
         minSubscribers: '',
     },
-    isLoading: false,
+    isLoading: true,
     error: '',
 }
 

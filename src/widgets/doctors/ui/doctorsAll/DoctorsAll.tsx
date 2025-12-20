@@ -6,6 +6,8 @@ import {DoctorMiniature, doctorService, IDoctorMiniature} from "@/src/entities/d
 import classes from './doctorsAll.module.scss'
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 import { sortValues } from "@/src/features/sort";
+import { SetCitiesSearch } from "@/src/features/setCitiesSearch";
+import { SetSpecialitiesSearch } from "@/src/features/setSpecialitiesSearch";
 
 export const DoctorsAll: FC = () => {
 
@@ -53,21 +55,20 @@ export const DoctorsAll: FC = () => {
                         ?
                     <section className={classes.loader}><LoaderSpinner /></section>
                         :                
-                    doctors?.map((doctor, ind) =>
+                    doctors.map((doctor, ind) =>
                         <DoctorMiniature
                             key={ind}
-                            image={doctor.image}
-                            city={doctor.city}
-                            instLink={doctor.instLink}
-                            instSubsCount={doctor.instSubsCount}
-                            instSubsCountText={doctor.instSubsCountText}
-                            name={doctor.name}
-                            slug={doctor.slug}
-                            speciality={doctor.speciality}
-                            tgLink={doctor.tgLink}
-                            tgSubsCount={doctor.tgSubsCount}
-                            tgSubsCountText={doctor.tgSubsCountText}
-                            isKfDoctor={doctor.isKfDoctor}
+                            doctor={doctor}
+                            setCitiesSearch={
+                                <SetCitiesSearch 
+                                    cities={doctor.city}
+                                />
+                            }
+                            setSpecialitiesSearch={
+                                <SetSpecialitiesSearch 
+                                    specialities={doctor.speciality}
+                                />
+                            }
                         />
                     )
                 }

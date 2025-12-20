@@ -1,4 +1,13 @@
 
+interface ICity {
+    id: number;
+    name: string;
+}
+
+interface ISpeciality {
+    id: number;
+    name: string;
+}
 
 export interface IDoctorMiniatureResponse {
     doctors: IDoctorMiniature[];
@@ -8,13 +17,28 @@ export interface IDoctorMiniatureResponse {
 
 export interface IDoctorMiniature {
     image: string;
-    city: string;
+    city: ICity[];
+    speciality: ISpeciality[];
     instSubsCount: string;
     instSubsCountText: string;
     instLink: string;
     name: string;
     slug: string;
+    tgLink: string;
+    tgSubsCount: string;
+    tgSubsCountText: string;
+    isKfDoctor: boolean;
+}
+
+export interface IDoctorMiniatureRes {
+    image: string;
+    city: string;
     speciality: string;
+    instSubsCount: string;
+    instSubsCountText: string;
+    instLink: string;
+    name: string;
+    slug: string;
     tgLink: string;
     tgSubsCount: string;
     tgSubsCountText: string;

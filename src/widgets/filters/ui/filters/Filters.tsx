@@ -86,6 +86,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
         setValueMin(+copy.minSubscribers)
         setValueMax(+copy.maxSubscribers)
         setFilter(copy)
+        setIsLoading(false)
     }
 
     useEffect(() => {
@@ -105,28 +106,30 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
         onBlurSlider(initialMin, initialMax)
     }
 
-    const isOne = useRef<boolean>(true)
+    const count = useRef<number>(0)
     useEffect(() => {
-        if(isOne.current){
-            isOne.current = false;
-            return
+        if(count.current < 2){
+            count.current++;
         }
-        window.scrollTo({top: 0})
-        const copy: IFilter = JSON.parse(JSON.stringify(filter))
-        initialFilterSelected(copy, 'cities')
-        initialFilterSelected(copy, 'specialities')
-        initialFilterSelected(copy, 'filterInfo')
-        setFilter(copy)
-        updateSlider()
+        else{
+            window.scrollTo({top: 0})
+            const copy: IFilter = JSON.parse(JSON.stringify(filter))
+            initialFilterSelected(copy, 'cities')
+            initialFilterSelected(copy, 'specialities')
+            initialFilterSelected(copy, 'filterInfo')
+            setFilter(copy)
+            updateSlider()
+        }
     }, [paramsKey])
     
-
     return (
         isLoading
             ?
         <section className={classes.loader}><LoaderContainer /></section>
             :
-        <section className={classes.container}>
+        <section 
+            className={classes.container}
+        >
             <FilterItem 
                 mobile={!forDesk} 
                 label="Город" 

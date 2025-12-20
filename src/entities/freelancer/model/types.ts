@@ -1,4 +1,13 @@
 
+interface ICity {
+    id: number;
+    name: string;
+}
+
+interface ISpeciality {
+    id: number;
+    name: string;
+}
 
 export interface IFreelancerSpeciality {
     specialityId: number;
@@ -69,8 +78,8 @@ export interface IStatisticFreelancers {
 export interface IFreelancerMiniature {
     name: string;
     slug: string;
-    speciality: string;
-    city: string;
+    speciality: ISpeciality[];
+    city: ICity[];
     image: string;
     experienceWithDoctors: boolean;
     hasCommand: boolean;

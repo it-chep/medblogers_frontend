@@ -9,6 +9,7 @@
   background-color: var(--light-black);
   padding: 15px 15px 30px 15px;
   border-radius: 20px;
+  position: relative;
 
   .header{
     display: flex;
@@ -49,24 +50,7 @@
 
     .info{
 
-      .speciality{
-        color: var(--blue);
-        line-height: 115%;
-      }
-
-      .city{
-        display: flex;
-        gap: 4px;
-        margin-top: 10px;
-        line-height: 115%;
-          
-        img{
-          margin-top: 2px;
-          object-fit: contain;
-          width: 11px;
-          height: 13px;
-        }
-      }
+      
     }
 
     .buttonsWrapper{

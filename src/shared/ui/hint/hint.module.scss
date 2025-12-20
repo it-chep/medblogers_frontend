@@ -1,8 +1,6 @@
-
-
-
 .container{
     position: relative;
+    z-index: 11;
     
     .content{
         display: flex;
@@ -13,6 +11,7 @@
         min-height: 20px;
         width: 20px;
         height: 20px;
+        
         cursor: pointer;
         position: relative;
         opacity: 0.5;

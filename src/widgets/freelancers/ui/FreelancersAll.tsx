@@ -7,6 +7,8 @@ import classes from './freelancersAll.module.scss'
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 import { sortValues } from "@/src/features/sort";
 import { FreelancerMiniature, freelancerService, IFreelancerMiniature } from '@/src/entities/freelancer';
+import { SetCitiesSearch } from '@/src/features/setCitiesSearch';
+import { SetSpecialitiesSearch } from '@/src/features/setSpecialitiesSearch';
 
 export const FreelancersAll: FC = () => {
 
@@ -44,7 +46,6 @@ export const FreelancersAll: FC = () => {
         getDoctors()
     }, [searchParams])
 
-
     return (
         <section>
             <section className={classes.container}>
@@ -57,6 +58,16 @@ export const FreelancersAll: FC = () => {
                         <FreelancerMiniature 
                             key={freelancer.slug}
                             freelancer={freelancer}
+                            setCitiesSearch={
+                                <SetCitiesSearch 
+                                    cities={freelancer.city}
+                                />
+                            }
+                            setSpecialitiesSearch={
+                                <SetSpecialitiesSearch
+                                    specialities={freelancer.speciality}
+                                />
+                            }
                         />
                     )
                 }
