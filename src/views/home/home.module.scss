@@ -21,9 +21,14 @@
     min-width: 280px;
     width: 280px;
 
+    .filters{
+      height: 100%;
+    }
+
     .button{
       height: min-content;
       height: 55px;
+      min-height: 55px;
 
       .helpersLink{
         font-size: 17px;

@@ -35,8 +35,6 @@ export const FiltersLayout: FC<IProps> = ({forDesk, filters}) => {
         setIsLoading(false)
     }, [])
 
-    
-        
     return(
         isLoading
             ?

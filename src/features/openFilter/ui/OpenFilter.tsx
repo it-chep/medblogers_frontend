@@ -19,10 +19,10 @@ export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, mobile = null
         if(targetSvg && targetContainer){
             targetSvg.classList.toggle(classes.open)
             targetContainer.classList.toggle(classes.open)
+            targetContainer.classList.toggle('open')
         }
     }
     
-
     const isOne = useRef<boolean>(true)
     useEffect(() => {
         if(isOne.current && mobile && refSvg && refContainer){
@@ -45,7 +45,7 @@ export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, mobile = null
                 </section>
                 <p>{label}</p>
             </section>
-            <section ref={refContainer} className={classes.container}>
+            <section ref={refContainer} className={classes.container + (' open_filter')}>
                 {children}
             </section>
         </section>

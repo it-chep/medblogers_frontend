@@ -13,7 +13,7 @@ import { PreliminaryFilterCount } from "@/src/features/preliminaryFilterCount"
 import { IFilter, useFilterActions } from "@/src/entities/filter"
 import { useAppSelector } from "@/src/app/store/store"
 import { clearParamsFilter } from "@/src/shared/lib/helpers/clearParamsFilter"
-
+import { FilterScroll } from "@/src/features/filterScroll/ui/FilterScroll"
 
 interface IProps {
     forDesk: boolean;
@@ -127,48 +127,50 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
             ?
         <section className={classes.loader}><LoaderContainer /></section>
             :
-        <section 
-            className={classes.container}
-        >
-            <FilterItem 
-                mobile={!forDesk} 
-                label="Город" 
-                labelSlug="cities" 
-                items={filter?.cities || []} 
-            />
-            <MyHr />
-            <FilterItem 
-                mobile={!forDesk} 
-                label="Специальность" 
-                labelSlug="specialities" 
-                items={filter?.specialities || []} 
-            />
-            <MyHr />
-            <FilterItem 
-                mobile={!forDesk} 
-                label="Подписчики" 
-                search={false} 
-                labelSlug="filterInfo" 
-                items={filter?.filterInfo.map(info => ({id: info.slug, ...info})) || []}
+        <FilterScroll>
+            <section 
+                className={classes.container}
             >
-                <Slider 
-                    max={MAX}
-                    min={MIN}
-                    valueMax={valueMax} 
-                    valueMin={valueMin}
-                    setValueMax={setValueMax} 
-                    setValueMin={setValueMin} 
-                    onBlur={onBlurSlider}
+                <FilterItem 
+                    mobile={!forDesk} 
+                    label="Город" 
+                    labelSlug="cities" 
+                    items={filter?.cities || []} 
                 />
-            </FilterItem>
-            <MyHr />
-            <ApplyFilters 
-                currentMin={+filter.minSubscribers}
-                currentMax={+filter.maxSubscribers}
-            >
-                <PreliminaryFilterCount />
-            </ApplyFilters>
-            <ResetFilters clearParams={clearParamsFilter} />
-        </section>
+                <MyHr />
+                <FilterItem 
+                    mobile={!forDesk} 
+                    label="Специальность" 
+                    labelSlug="specialities" 
+                    items={filter?.specialities || []} 
+                />
+                <MyHr />
+                <FilterItem 
+                    mobile={!forDesk} 
+                    label="Подписчики" 
+                    search={false} 
+                    labelSlug="filterInfo" 
+                    items={filter?.filterInfo.map(info => ({id: info.slug, ...info})) || []}
+                >
+                    <Slider 
+                        max={MAX}
+                        min={MIN}
+                        valueMax={valueMax} 
+                        valueMin={valueMin}
+                        setValueMax={setValueMax} 
+                        setValueMin={setValueMin} 
+                        onBlur={onBlurSlider}
+                    />
+                </FilterItem>
+                <MyHr />
+                <ApplyFilters 
+                    currentMin={+filter.minSubscribers}
+                    currentMax={+filter.maxSubscribers}
+                >
+                    <PreliminaryFilterCount />
+                </ApplyFilters>
+                <ResetFilters clearParams={clearParamsFilter} />
+            </section>
+        </FilterScroll>
     )
 }
