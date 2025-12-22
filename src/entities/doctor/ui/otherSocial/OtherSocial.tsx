@@ -36,15 +36,6 @@ export const OtherSocial: FC<IProps> = ({doctor}) => {
                 />
             }
             {
-                doctor.youtubeUrl
-                    &&
-                <SubscriberLink  
-                    text="Профиль в Youtube"
-                    link={doctor.youtubeUrl}
-                    socialIconSrc={youtube_logo.src}
-                />
-            }
-            {
                 doctor.tiktokUrl
                     &&
                 <SubscriberLink  

@@ -28,6 +28,9 @@ export interface IDoctorMiniature {
     tgSubsCount: string;
     tgSubsCountText: string;
     isKfDoctor: boolean;
+    youtubeLink: string;
+    youtubeSubsCount: string;
+    youtubeSubsCountText: string;
 }
 
 export interface IDoctorMiniatureRes {
@@ -54,7 +57,7 @@ interface IItem {
 export interface IDoctor {
 
     code?: number;
-    
+
     name: string;
     slug: string;
     instUrl: string;
@@ -74,6 +77,9 @@ export interface IDoctor {
     instSubsCount: string;
     instSubsCountText: string;
     instLastUpdatedDate: string;
+    youtubeSubsCount: string;
+    youtubeSubsCountText: string;
+    youtubeLastUpdatedDate: string;
     mainBlogTheme: string;
     image: string;
     cities: IItem[],
