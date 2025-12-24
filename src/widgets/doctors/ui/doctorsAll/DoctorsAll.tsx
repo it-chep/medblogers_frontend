@@ -48,7 +48,6 @@ export const DoctorsAll: FC = () => {
     }, [searchParams])
 
     return (
-        <section>
             <section className={classes.container}>
                 {
                     isLoading
@@ -73,6 +72,5 @@ export const DoctorsAll: FC = () => {
                     )
                 }
             </section>
-        </section>
     )
 }

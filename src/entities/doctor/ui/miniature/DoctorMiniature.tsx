@@ -32,7 +32,7 @@ export const DoctorMiniature: FC<IProps> = ({
             <section className={classes.header}>
                 {
                     doctor.image
-                    &&
+                        &&
                     <Image
                         className={classes.avatar}
                         src={doctor.image}
@@ -45,14 +45,14 @@ export const DoctorMiniature: FC<IProps> = ({
                     {
                         doctor.isKfDoctor
                             ?
-                            <>
-                                {fio.slice(0, -1).join(' ')}&nbsp;
-                                <ClinicHint name={fio[2]}/>
-                            </>
-                            :
-                            <>
-                                {doctor.name}
-                            </>
+                        <>
+                            {fio.slice(0, -1).join(' ')}&nbsp;
+                            <ClinicHint name={fio[2]}/>
+                        </>
+                        :
+                        <>
+                            {doctor.name}
+                        </>
                     }
                 </section>
             </section>
@@ -63,37 +63,40 @@ export const DoctorMiniature: FC<IProps> = ({
                 </section>
                 <section className={classes.buttonsWrapper}>
                     {
-                        (doctor.tgSubsCount || doctor.instSubsCount)
-                        &&
+                        (doctor.tgSubsCount || doctor.instSubsCount || doctor.youtubeSubsCount)
+                            &&
                         <section className={classes.subscribersWrapper}>
                             {
                                 doctor.tgSubsCount
-                                &&
+                                    &&
                                 <SubscriberLink
                                     link={doctor.tgLink}
                                     socialIconSrc={tg_logo.src}
                                     subsCount={doctor.tgSubsCount}
                                     text={doctor.tgSubsCountText}
+                                    useA={false} // убираем вложенность тега a
                                 />
                             }
                             {
                                 doctor.instSubsCount
-                                &&
+                                    &&
                                 <SubscriberLink
                                     link={doctor.instLink}
                                     socialIconSrc={inst_logo.src}
                                     subsCount={doctor.instSubsCount}
                                     text={doctor.instSubsCountText}
+                                    useA={false}
                                 />
                             }
                             {
                                 doctor.youtubeSubsCount
-                                &&
+                                    &&
                                 <SubscriberLink
                                     link={doctor.youtubeLink}
                                     socialIconSrc={youtube_logo.src}
                                     subsCount={doctor.youtubeSubsCount}
                                     text={doctor.youtubeSubsCountText}
+                                    useA={false}
                                 />
                             }
                         </section>

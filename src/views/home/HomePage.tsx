@@ -14,6 +14,7 @@ import { ButtonDark } from '@/src/shared/ui/buttonDark'
 import { IS_FREELANCERS_DONE } from '@/src/app/env/env'
 import { BlogsTopLayout } from '@/src/widgets/blogsTop'
 import { FAQ } from '@/src/widgets/FAQ'
+import { CheckBlacklist } from '@/src/features/checkBlacklist'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -62,6 +63,9 @@ export default async function HomePage() {
                     <DoctorsAll />
                     <PaginationWidget />
                 </main>
+            </section>
+            <section className={classes.checkBlacklist}>
+                <CheckBlacklist />
             </section>
             <section className={classes.blogsTop}>
                 <h2 className={classes.blogs}>Полезные статьи для блога</h2>

@@ -13,7 +13,6 @@ export const Footer: FC = () => {
 
     return (
         <footer className={classes.wrapper}>
-            <section className="wrapper_main">
                 <section className={classes.container}>
                     <Block title="Информация">
                         <>
@@ -37,7 +36,6 @@ export const Footer: FC = () => {
                     </Block>
                 </section>
                 <img className={classes.logo} src={logo.src} />
-            </section>
         </footer>
     )
 }

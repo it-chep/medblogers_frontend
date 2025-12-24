@@ -1,0 +1,169 @@
+
+
+.container {
+    position: relative;
+    background: url('../lib/assets/backgrounds-sprite.png') center / contain no-repeat;
+    background-size: 300% 100%;
+    background-position: left center;
+    width: 100%;
+    border-radius: 20px;
+    padding: 40px 0;
+    overflow: hidden;
+
+    &.false{
+        background-position: center center;
+    }
+
+    &.ok{
+        background-position: right center;
+    }
+
+    .glass{
+        position: absolute;
+        left: 2px;
+        right: 2px;
+        top: 2px;
+        bottom: 2px;
+        border-radius: 20px;
+        background-color: rgba(26, 26, 26, 0.1);
+        backdrop-filter: blur(2px);
+        z-index: 1;
+    }
+
+    .isLoading{
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+    }
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        width: 880px;
+        margin: 0 auto;
+        max-width: 90%;
+
+        .title{
+            text-align: center;
+            font-size: 32px;
+            line-height: 120%;
+            font-weight: 800;
+        }
+
+        .data{
+            margin-top: 20px;
+            
+            .sign{
+                font-size: 20px;
+            }
+
+            .wrapInput{
+                display: flex;
+                gap: 10px;
+                margin-top: 20px;
+                height: 60px;
+                width: 100%;
+
+                .button{
+                    min-width: 270px;
+                }
+
+                .input{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 830px) {
+    .container {
+        .wrapper{
+            .title{
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .container {
+        .wrapper{
+            .data{
+                .wrapInput{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    margin-top: 20px;
+                    height: 100%;
+                    
+                    .input{
+                        height: 50px;
+                    }
+
+                    .button{
+                        min-width: 270px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .container {
+        background: url('../lib/assets/backgroundsMobile-sprite.png') center / contain no-repeat;
+        background-size: 300% 100%;
+        background-position: left center;
+        padding: 20px;
+
+        &.false{
+            background-position: center center;
+            .wrapper{
+                opacity: 0;
+            }
+        }
+
+        &.ok{
+            background-position: right center;
+            .wrapper{
+                opacity: 0;
+            }
+        }
+
+        .glass{
+            opacity: 0;
+        }
+
+
+        .wrapper{
+            width: 100%;
+            max-width: 100%;
+
+            .title{
+                font-size: min(6vw, 24px);
+                max-width: 320px;
+                margin: 0 auto;
+                line-height: 110%;
+                font-weight: 800;
+            }
+
+            .data{
+                margin-top: 15px;
+                
+                .sign{
+                    margin: 0 auto;
+                    line-height: 110%;
+                    text-align: center;
+                    max-width: 200px;
+                    width: 70%;
+                    font-size: min(4.1vw, 16px);
+                }
+            }
+        }
+    }
+
+}
