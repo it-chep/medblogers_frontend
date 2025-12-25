@@ -10,11 +10,11 @@ class BlacklistService {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(telegram),
+            body: JSON.stringify({"telegram": telegram}),
             cache: "no-cache"
         })
-        const {is_in_blacklist}: {is_in_blacklist: boolean} = await res.json()
-        return is_in_blacklist
+        const {isInBlacklist}: {isInBlacklist: boolean} = await res.json()
+        return isInBlacklist
     }
 
 }

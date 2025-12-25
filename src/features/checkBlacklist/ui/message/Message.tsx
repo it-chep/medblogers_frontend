@@ -3,7 +3,7 @@ import classes from './message.module.scss'
 
 interface IProps {
     onClose: () => void;
-    status: 'normal' | 'true' | 'false'; 
+    status: 'normal' | 'true' | 'false';
 }
 
 export const Message: FC<IProps> = ({onClose, status}) => {
@@ -38,7 +38,7 @@ export const Message: FC<IProps> = ({onClose, status}) => {
                 {
                     status === 'false'
                         ?
-                    'Вероятно, есть накрутки'
+                    'мы не замечали сомнительной деятельности у этого канала '
                         :
                     'мы не рекомендуем этот канал '
                 }

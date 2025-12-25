@@ -11,7 +11,7 @@ interface IProps{
     isLoading?: boolean;
     error?: string;
     sign?: string;
-    styleBox: CSSProperties;
+    styleBox?: CSSProperties;
 }
 
 export const MyInput: FC<IProps & ComponentProps<'input'>> = (
