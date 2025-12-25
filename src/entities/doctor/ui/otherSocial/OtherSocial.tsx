@@ -24,6 +24,7 @@ export const OtherSocial: FC<IProps> = ({doctor}) => {
                     text="Профиль в VK"
                     link={doctor.vkUrl}
                     socialIconSrc={vk_logo.src}
+                    useA
                 />
             }
             {
@@ -33,6 +34,7 @@ export const OtherSocial: FC<IProps> = ({doctor}) => {
                     text="Профиль в Dzen"
                     link={doctor.dzenUrl}
                     socialIconSrc={dzen_logo.src}
+                    useA
                 />
             }
             {
@@ -42,6 +44,7 @@ export const OtherSocial: FC<IProps> = ({doctor}) => {
                     text="Профиль в Tiktok"
                     link={doctor.tiktokUrl}
                     socialIconSrc={tiktok_logo.src}
+                    useA
                 />
             }
             {
@@ -51,6 +54,7 @@ export const OtherSocial: FC<IProps> = ({doctor}) => {
                     text="Сайт врача"
                     link={doctor.siteLink}
                     socialIconSrc={internet_logo.src}
+                    useA
                 />
             }
         </>

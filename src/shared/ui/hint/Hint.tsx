@@ -7,12 +7,15 @@ interface IProps {
     hint: string | ReactNode;
     width?: number;
     setOpenWrap?: (open: boolean) => void;
+    useHr?: boolean;
+    staticWidth?: boolean;
+    paddingAbsolute?: number;
 }
 
 const HINT_WIDTH = 240;
 
 export const Hint: FC<IProps & PropsWithChildren> = (
-    {hint, width: hintWidth = HINT_WIDTH, setOpenWrap, children}
+    {hint, width: hintWidth = HINT_WIDTH, setOpenWrap, useHr, staticWidth, paddingAbsolute = 10, children}
 ) => {
 
     const [open, setOpen] = useState<boolean>(false)
@@ -26,15 +29,21 @@ export const Hint: FC<IProps & PropsWithChildren> = (
     const checkPosAndSize = () => {
          if(hintRef.current && containerRef.current){
             const containerData = containerRef.current.getBoundingClientRect()
-            const right = window.innerWidth - (containerData.left + 20);
-            const left = containerData.right - hintWidth - 20;
+            const right = window.innerWidth - (containerData.left + paddingAbsolute);
+            const left = containerData.right - hintWidth - paddingAbsolute;
             hintRef.current.style.width = hintWidth + 'px'
            
             if(right < hintWidth){
-                hintRef.current.style.right = '0';
-                hintRef.current.style.left = 'auto';
-                if(left < 0){
-                    hintRef.current.style.width = hintWidth + left + 'px';
+                if(staticWidth){ // просто сдвигаем на hintWidth - right пикселей левее (главое не уйти за границу уже слева, но это маловероятно)
+                    hintRef.current.style.right = 'auto';
+                    hintRef.current.style.left = - (hintWidth - right) + 'px';
+                }
+                else{
+                    hintRef.current.style.right = '0';
+                    hintRef.current.style.left = 'auto';
+                    if(left < 0){
+                        hintRef.current.style.width = hintWidth + left + 'px';
+                    }
                 }
             }
             else {
@@ -87,7 +96,13 @@ export const Hint: FC<IProps & PropsWithChildren> = (
                     <path d="M16 18V17C16.6922 17 17.3689 16.7947 17.9445 16.4101C18.5201 16.0256 18.9687 15.4789 19.2336 14.8394C19.4985 14.1999 19.5678 13.4961 19.4327 12.8172C19.2977 12.1383 18.9644 11.5146 18.4749 11.0251C17.9854 10.5356 17.3617 10.2023 16.6828 10.0673C16.0039 9.9322 15.3001 10.0015 14.6606 10.2664C14.0211 10.5313 13.4744 10.9799 13.0899 11.5555C12.7053 12.1311 12.5 12.8078 12.5 13.5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
             }
-            <section className={classes.hr}></section>
+            <section className={classes.hr}>
+                {
+                    useHr
+                        &&
+                    <section className={classes.blurClip + (open ? ` ${classes.open}` : '')} />
+                }
+            </section>
             <section 
                 ref={hintRef} 
                 style={{width: hintWidth}}

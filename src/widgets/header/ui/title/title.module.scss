@@ -5,7 +5,7 @@
     margin-left: 32px;
     margin-right: 10px;
 
-    h1{
+    .title{
         color: white;
         font-weight: 900;
         font-size: clamp(20px, 3.2vw, 41px);
@@ -20,7 +20,7 @@
     }
 
     &.freelancer{
-        h1{
+        .title{
             font-size: clamp(18px, 2.4vw, 32px);
         }
 
@@ -37,7 +37,7 @@
     .mainTitle{
         margin: 0;
 
-        h1{
+        .title{
             font-size: 5.2vw;
         }
         .desc{
@@ -45,7 +45,7 @@
         }
 
         &.freelancer{
-            h1{
+            .title{
                 font-size: 3.6vw;
             }
             .desc{
@@ -58,7 +58,7 @@
 @media (max-width: 650px) {
     .mainTitle{
         text-align: center;
-        h1{
+        .title{
             margin-top: 40px;
             line-height: 110%;
             font-size: 8.4vw;
@@ -79,7 +79,7 @@
             width: 100%;
             text-align: center;
 
-            h1{
+            .title{
                 width: 90%;
                 margin-top: 40px;
                 line-height: 110%;
@@ -99,7 +99,7 @@
 @media (max-width: 480px) {
     .mainTitle{
         &.freelancer{
-            h1{
+            .title{
                 width: 100%;
                 margin-top: 40px;
                 line-height: 110%;

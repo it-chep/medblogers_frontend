@@ -49,28 +49,28 @@ export const DoctorsAll: FC = () => {
 
     return (
             <section className={classes.container}>
-                {
-                    isLoading
-                        ?
-                    <section className={classes.loader}><LoaderSpinner /></section>
-                        :                
-                    doctors.map((doctor, ind) =>
-                        <DoctorMiniature
-                            key={ind}
-                            doctor={doctor}
-                            setCitiesSearch={
-                                <SetCitiesSearch 
-                                    cities={doctor.city}
-                                />
-                            }
-                            setSpecialitiesSearch={
-                                <SetSpecialitiesSearch 
-                                    specialities={doctor.speciality}
-                                />
-                            }
-                        />
-                    )
-                }
-            </section>
+            {
+                isLoading
+                    ?
+                <section className={classes.loader}><LoaderSpinner /></section>
+                    :                
+                doctors.map((doctor, ind) =>
+                    <DoctorMiniature
+                        key={ind}
+                        doctor={doctor}
+                        setCitiesSearch={
+                            <SetCitiesSearch 
+                                cities={doctor.city}
+                            />
+                        }
+                        setSpecialitiesSearch={
+                            <SetSpecialitiesSearch 
+                                specialities={doctor.speciality}
+                            />
+                        }
+                    />
+                )
+            }
+        </section>
     )
 }

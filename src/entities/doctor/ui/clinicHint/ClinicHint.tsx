@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import classes from './clinicHint.module.scss'
 import { ClinicContent } from "./ClinicContent";
 import Image from "next/image";
@@ -12,12 +12,33 @@ interface IProps {
     name: string;
     sizeIcon?: number;
     gap?: number;
+    paddingAbsolute?: number;
 }
 
-export const ClinicHint: FC<IProps> = ({name, sizeIcon = 16, gap = 4}) => {
+export const ClinicHint: FC<IProps> = ({name, sizeIcon = 16, gap = 4, paddingAbsolute}) => {
 
     const refClinicLogoWrap = useRef<HTMLSpanElement>(null)
     const [open, setOpen] = useState<boolean>(false)
+
+    const [isMobile, setIsMobile] = useState<boolean>(false)
+
+    const onResize = () => {
+        if(window.innerWidth <= 480){
+            setIsMobile(true)
+        }
+        else{
+            setIsMobile(false)
+        }
+    }
+
+    useEffect(() => {
+        onResize()
+
+        window.addEventListener('resize', onResize)
+
+        return () => window.removeEventListener('resize', onResize)
+    }, [])
+
 
     return (
         <>
@@ -36,6 +57,9 @@ export const ClinicHint: FC<IProps> = ({name, sizeIcon = 16, gap = 4}) => {
                     width={180} 
                     hint={<ClinicContent />}
                     setOpenWrap={setOpen}
+                    useHr={isMobile}
+                    staticWidth
+                    paddingAbsolute={paddingAbsolute}
                 >
                     <Image 
                         src={is_kf_doctor_img.src} 

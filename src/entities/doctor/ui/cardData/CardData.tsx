@@ -19,7 +19,7 @@ export const CardData: FC<IProps> = ({doctor}) => {
     return (
         <section className={classes.container}>
             <section className={classes.main}>
-                <h2 className={classes.name}>
+                <h1 className={classes.name}>
                     {
                         doctor.isKfDoctor
                             ?
@@ -32,7 +32,7 @@ export const CardData: FC<IProps> = ({doctor}) => {
                             {doctor.name}
                         </>
                     }
-                </h2>
+                </h1>
                 <span className={classes.city}>
                     <Image alt="Метка" width={11} height={13} src={markImg.src} /> 
                     Город: {doctor.mainCity.name}{doctor.cities.length >= 0 && doctor.cities.map(city => `, ${city.name}`)}

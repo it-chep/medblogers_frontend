@@ -27,9 +27,19 @@
     .hr{
         position: absolute;
         display: block;
-        height: 4px;
-        background-color: transparent;
         width: 100%;
+        height: 10px;
+
+        .blurClip.open{
+            position: absolute;
+            width: 100%;
+            margin: 0 auto;
+            left: 0%;
+            height: 100%;
+            background-color: rgba(68, 68, 68, 0.5);
+            backdrop-filter: blur(14px);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
     }
 
     .hint{

@@ -1,17 +1,16 @@
 "use client"
 
-import { FC, PropsWithChildren, useEffect, useState } from "react";
+import { FC, PropsWithChildren, useEffect, useRef, useState } from "react";
 import classes from './openFiltersModal.module.scss'
 import { MyModal } from "@/src/shared/ui/myModal";
 import { useSearchParams } from "next/navigation";
 import { Close } from "@/src/shared/ui/close/Close";
 
-
-
 export const OpenFiltersModal: FC<PropsWithChildren> = ({children}) => {
 
     const searchParams = useSearchParams()
     const [open, setOpen] = useState<boolean>(false)
+    const openRef = useRef<boolean>(false)
 
     const onOpen = () => setOpen(true)
     const onClose = () => setOpen(false)
@@ -27,11 +26,27 @@ export const OpenFiltersModal: FC<PropsWithChildren> = ({children}) => {
         else{
             document.body.style.overflow = ''
         }
+        openRef.current = open;
+    }, [open])
+
+    useEffect(() => {
+        const onResize = () => {
+            if(window.innerWidth > 480){
+                document.body.style.overflow = ''
+            }
+            else if(openRef.current){
+                document.body.style.overflow = 'hidden'
+            }
+        }
+
+        window.addEventListener('resize', onResize)
 
         return () => {
             document.body.style.overflow = ''
+            window.removeEventListener('resize', onResize)
         }
-    }, [open])
+    }, [])
+
 
     return (
         <section className={classes.container}>

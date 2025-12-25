@@ -20,10 +20,16 @@
     .button{
       height: min-content;
       height: 55px;
-
+      min-height: 55px;
+      display: block;
+      
       .doctorsLink{
         font-size: 17px;
       }
+    }
+    
+    .filters{
+      height: 100%;
     }
   }
 

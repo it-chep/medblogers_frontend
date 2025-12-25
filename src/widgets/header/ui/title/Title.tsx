@@ -2,44 +2,31 @@ import { FC } from "react";
 import classes from './title.module.scss'
 
 interface IProps {
-    pathname: string;
+    isFreelancer: boolean;
 }
 
-export const Title: FC<IProps> = ({pathname}) => {
-
-    const isFreelancer = (pathname.includes('helpers') || pathname.includes('freelancer')) && !(pathname.includes('blogs'))
+export const Title: FC<IProps> = ({isFreelancer}) => {
 
     return (
-        <section className={classes.mainTitle + (isFreelancer ? ` ${classes.freelancer}` : '')}>
-            <h1>
-                <span className={classes.singleBase}>
-                    {
-                        !isFreelancer
-                            ?
-                        'ЕДИНАЯ БАЗА '
-                            :
-                        'БАЗА ПОМОЩНИКОВ'
-                    } 
-                </span>
-                <span className={classes.doctorsBlogers}>
-                    {
-                        !isFreelancer
-                            ?
-                        'ВРАЧЕЙ-БЛОГЕРОВ'
-                            :
-                        ' ДЛЯ ВРАЧЕЙ-БЛОГЕРОВ'
-                    }
-                </span>
-            </h1>
-            <h2 className={classes.desc}>  
+        <>
+            <span className={classes.singleBase}>
                 {
                     !isFreelancer
                         ?
-                    'Поиск коллег для реклам и коллабораций по соцсетям, специальностям и городам'
+                    'ЕДИНАЯ БАЗА '
                         :
-                    'Поиск SMM, дизайнеров, маркетологов и других помощников для ведения медицинского блога'
+                    'БАЗА ПОМОЩНИКОВ'
+                } 
+            </span>
+            <span className={classes.doctorsBlogers}>
+                {
+                    !isFreelancer
+                        ?
+                    'ВРАЧЕЙ-БЛОГЕРОВ'
+                        :
+                    ' ДЛЯ ВРАЧЕЙ-БЛОГЕРОВ'
                 }
-            </h2>   
-        </section>
+            </span>
+        </>
     )
 }

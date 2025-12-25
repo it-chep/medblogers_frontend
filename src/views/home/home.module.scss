@@ -9,8 +9,8 @@
   min-height: 100vh;
 
   .content{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 280px 1fr;
     gap: 20px;
   }
 
@@ -24,19 +24,21 @@
     gap: 20px;
     min-width: 280px;
     width: 280px;
-
-    .filters{
-      height: 100%;
-    }
+    height: calc(100% - 50px);
 
     .button{
+      display: block;
       height: min-content;
       height: 55px;
       min-height: 55px;
-
+      
       .helpersLink{
         font-size: 17px;
       }
+    }
+
+    .filters{
+      height: 100%;
     }
   }
 
@@ -62,9 +64,9 @@
 @media (max-width: 650px) {
   .page{
 
-  .content{
-    flex-direction: column;
-  }
+    .content{
+      grid-template-columns: 1fr;
+    }
 
     .aside{
       width: 100%;

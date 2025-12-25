@@ -12,14 +12,39 @@
         object-fit: cover;
     }
 
+    .avatar{
+        min-height: 100px;
+        min-width: 100px;
+        width: 100px;
+        height: 100px;
+    }
+
     &:hover{
         background-color: var(--blue);
     }
 
     .data{
         
-        p{
+        .name{
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .specialityName{
             color: var(--sign-gray);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        padding: 20px 16px;
+        gap: 20px;
+        position: relative;
+
+        img{
+            border-radius: 18px;
+            object-fit: cover;
         }
     }
 }

@@ -1,21 +1,8 @@
 "use client"
 
-import { CSSProperties, FC, HTMLAttributes, PropsWithChildren, useEffect, useRef, useState } from "react";
+import { CSSProperties, FC, PropsWithChildren, useEffect, useRef, useState } from "react";
 import classes from './filterScroll.module.scss'
 
-type TVisibleSection = {
-    start: boolean;
-    end: boolean;
-    f_start: boolean;
-    f_end: boolean;
-}
-
-const visibleSectionInit = {
-    start: false,
-    end: false,
-    f_start: false,
-    f_end: false,
-}
 
 export const FilterScroll: FC<PropsWithChildren> = ({children}) => {
 
@@ -30,10 +17,7 @@ export const FilterScroll: FC<PropsWithChildren> = ({children}) => {
     const [position, setPosition] = useState<'top' | 'end' | 'relative' | 'bottom'>('relative');
     const positionRef = useRef<'top' | 'end' | 'relative' | 'bottom'>('relative');
     const useScroll = useRef<boolean>(true);
-    const [visibleSection, setVisibleSection] = useState<TVisibleSection>(visibleSectionInit)
     const [style, setStyle] = useState<CSSProperties>({})
-
-
 
     const isElementVisible = (element: HTMLElement | null): boolean => {
         if (!element) return false;
@@ -60,8 +44,8 @@ export const FilterScroll: FC<PropsWithChildren> = ({children}) => {
         const setFilterBottom = (
             bottomTriggerBottom: number, filterWrapRect: DOMRect, end: DOMRect, filterRect: DOMRect, start: DOMRect
         ) => {
-            if(bottomTriggerBottom <= (filterWrapRect.bottom + 50)){
-                setStyle({position: 'relative', top: end.top - filterRect.height - start.top - 70 + 'px', bottom: 'auto'})
+            if(bottomTriggerBottom <= (filterWrapRect.bottom)){
+                setStyle({position: 'relative', top: end.top - filterRect.height - start.top - 20 + 'px', bottom: 'auto'})
                 setPosition('bottom')
             }
         } 
@@ -162,7 +146,7 @@ export const FilterScroll: FC<PropsWithChildren> = ({children}) => {
             const topTriggerTop = start.top;
             const bottomTriggerBottom = end.bottom;
                 
-            if(((bottomTriggerBottom < filterWrapRect.bottom + 40)) || (bottomTriggerBottom < 0)){
+            if(((bottomTriggerBottom < filterWrapRect.bottom - 3)) || (bottomTriggerBottom < 0)){
                 setFilterBottom(bottomTriggerBottom, filterWrapRect, end, filterRect, start)
             }
             else if ((topTriggerTop < 0)) {
@@ -198,19 +182,28 @@ export const FilterScroll: FC<PropsWithChildren> = ({children}) => {
             prevScroll = newScroll;
         };
 
+        const noUseWidth = 651;  // при 649 почему-то window.innerWidth = 650
+
         // Используем requestAnimationFrame для плавности
         let rafId: number;
         const handleScroll = () => {
-            useScroll.current = true;
-            if (rafId) cancelAnimationFrame(rafId);
-            rafId = requestAnimationFrame(calculatePosition);
+            if(window.innerWidth < noUseWidth){
+                setStyle({})
+            }
+            else{
+                useScroll.current = true;
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = requestAnimationFrame(calculatePosition);
+            }
         };
 
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleScroll, { passive: true });
                 
         // Первоначальный расчет
-        calculatePosition();
+        if(window.innerWidth >= noUseWidth){
+            calculatePosition();
+        }
 
         return () => {
             window.removeEventListener('scroll', handleScroll);

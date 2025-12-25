@@ -2,15 +2,15 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    absolute: '',
-    template: '',
+    absolute: 'Статьи о продвижении медицинских блогов',
+    template: '%s | Статьи о продвижении медицинских блогов',
   },
-  description: '',
+  description: 'Как врачу вести блог и набрать подписчиков в телеграм, инстаграм и других соцсетях',
   openGraph: {
-    title: '',
-    description: '',
+    title: 'Статьи о продвижении медицинских блогов',
+    description: 'Как врачу вести блог и набрать подписчиков в телеграм, инстаграм и других соцсетях',
     images: '',
-    url: '',
+    url: 'https://medblogers-base.ru/blogs',
     type: 'website'
   },
 };

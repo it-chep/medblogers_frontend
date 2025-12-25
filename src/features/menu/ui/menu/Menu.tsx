@@ -38,7 +38,9 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
         <nav ref={refMenu} className={classes.menu}>
             <section>
                 <section className={classes.header}>
-                    <Image src={logo.src} width={190} height={49} alt="Логотип Medblogers" />
+                    <Link href={'/'} className={classes.linkToHome}>
+                        <Image src={logo.src} width={190} height={49} alt="Логотип Medblogers" />
+                    </Link>
                     <Close setOpen={setOpen} />
                 </section>
                 <ul className={classes.list}>
