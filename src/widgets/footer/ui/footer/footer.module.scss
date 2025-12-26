@@ -9,10 +9,8 @@
     overflow: hidden;
     max-width: 100%;
     text-align: left;
-    margin: 100px auto;
-    width: 1200px;
-    max-width: calc(100% - 40px);
-    padding: 60px 50px;
+    margin: 100px 40px 40px 40px;
+    padding: 60px 0;
 
     .logo{
         position: relative;
@@ -47,6 +45,7 @@
 
 @media (max-width: 1100px) {
     .wrapper{
+        margin: 100px 20px 20px 20px;
         .container {
             grid-template-columns: repeat(2, 1fr);
             gap: 0;
@@ -73,15 +72,11 @@
 @media (max-width: 480px) {
     .wrapper{
         background: center / cover no-repeat url('../../lib/assets/footer_mobile_background.png');
-        padding: 40px 24px;
     }
 }
 
 
 @media (max-width: 350px) {
-    .wrapper{
-          padding: 40px 14px;
-    }
     .nowrap{
         text-wrap: wrap;
     }
