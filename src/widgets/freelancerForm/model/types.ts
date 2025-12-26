@@ -8,16 +8,15 @@ export interface IFreelancerForm {
     middleName: string;
     telegramUsername: string;
     agreePolicy: boolean;
-    experienceWithDoctors: boolean;
     cityId: number;
     specialityId: number;
     additionalCities: number[];
     additionalSpecialties: number[];
     socialNetworks: number[];
     portfolioLink: string;
-    hasCommand: boolean;
     workingExperience: number;
     priceList: IPriceListItem[];
+    agencyRepresentative: boolean;
 }
 
 export interface IFormError {

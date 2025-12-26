@@ -5,7 +5,6 @@ import {MyButton} from "@/src/shared/ui/myButton";
 import Link from "next/link";
 import { IFreelancerMiniature } from "../../model/types";
 import commandImg from '@/src/shared/lib/assets/command_blue_bg.png';
-import withDoctorsImg from '@/src/shared/lib/assets/with_doctors_bg.png';
 import { PriceBadge } from "../priceBadge/PriceBadge";
 import { HintWrap } from "../hintWrap/HintWrap";
 
@@ -31,26 +30,14 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer, setCitiesSearch, se
                             <PriceBadge priceCategory={+freelancer.priceCategory} />
                         </HintWrap>
                         { 
-                            freelancer.hasCommand
+                            freelancer.agencyRepresentative
                                 &&
-                            <HintWrap width={166} hint="Есть своя команда">
+                            <HintWrap width={216} hint="Представитель агентства">
                                 <Image 
-                                    alt="Есть своя команда" 
+                                    alt="Представитель агентства" 
                                     height={32} 
                                     width={36} 
                                     src={commandImg.src}  
-                                />
-                            </HintWrap>
-                        }
-                        {    
-                            freelancer.experienceWithDoctors
-                                &&
-                            <HintWrap width={160} hint="Есть опыт работы с врачами"> 
-                                <Image 
-                                    alt="Есть опыт работы с врачами" 
-                                    height={32} 
-                                    width={36} 
-                                    src={withDoctorsImg.src}  
                                 />
                             </HintWrap>
                         }

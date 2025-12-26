@@ -6,6 +6,9 @@ export const freelancerChange = (freelancer: IFreelancerForm, setFreelancer: (fr
         setEmail(email: string){
             setFreelancer({...freelancer, email})
         },
+        setAgencyRepresentative(agencyRepresentative: boolean){
+            setFreelancer({...freelancer, agencyRepresentative})
+        },
         setFirstName(firstName: string){
             setFreelancer({...freelancer, firstName})
         },
@@ -26,12 +29,6 @@ export const freelancerChange = (freelancer: IFreelancerForm, setFreelancer: (fr
         },
         setWorkingExperience(workingExperience: number){
             setFreelancer({...freelancer, workingExperience})
-        },
-        setExperienceWithDoctors(experienceWithDoctors: boolean){
-            setFreelancer({...freelancer, experienceWithDoctors})
-        },
-        setHasCommand(hasCommand: boolean){
-            setFreelancer({...freelancer, hasCommand})
         },
         setPriceList(priceList: IPriceListItem[]){
             setFreelancer({...freelancer, priceList})

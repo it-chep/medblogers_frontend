@@ -60,7 +60,6 @@ export interface ISearchFreelancer {
     slug: string;
     specialityName: string;
     image: string;
-    experienceWithDoctors: boolean;
     priceCategory: number;
     socialNetworks: ISocialNetworkItem[];
 }
@@ -81,8 +80,7 @@ export interface IFreelancerMiniature {
     speciality: ISpeciality[];
     city: ICity[];
     image: string;
-    experienceWithDoctors: boolean;
-    hasCommand: boolean;
+    agencyRepresentative : boolean;
     priceCategory: string;
     socialNetworks: ISocialNetworkItem[];
 }
@@ -104,8 +102,7 @@ export interface IFreelancer {
     socialNetworks: ISocialNetworkItem[];
     priceList: IPriceListItemRes[];
     workingExperience: string;
-    hasCommand: boolean;
-    experienceWithDoctors: boolean;
+    agencyRepresentative: boolean;
 }
 
 export interface IRecommendation {

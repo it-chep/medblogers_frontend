@@ -15,9 +15,8 @@ export const initialStateForm: IFreelancerForm = {
     cityId: -1,
     socialNetworks: [],
     specialityId: -1,
-    experienceWithDoctors: false,
+    agencyRepresentative: false,
     portfolioLink: '',
-    hasCommand: false,
     workingExperience: 0,
     priceList: [
         {

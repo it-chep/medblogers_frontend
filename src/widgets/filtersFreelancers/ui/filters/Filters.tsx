@@ -10,12 +10,9 @@ import { MyHr } from "@/src/shared/ui/myHr";
 import { ApplyFiltersFreelancers } from "@/src/features/applyFiltersFreelancers";
 import { ResetFilters } from "@/src/features/resetFilters";
 import { clearParamsFilterFreelancer } from "@/src/shared/lib/helpers/clearParamsFilterFreelancer";
-import { ToggleSwitch } from "@/src/shared/ui/toggleSwitch";
 import { IFilterFreelancer, useFilterFreelancerActions } from "@/src/entities/filterFreelancer";
 import { PreliminaryFilterCountFreelancers } from "@/src/features/preliminaryFilterCountFreelancers";
 import { FilterScroll } from "@/src/features/filterScroll/ui/FilterScroll";
-
-
 
 interface IProps {
     forDesk: boolean;
@@ -25,28 +22,23 @@ interface IProps {
 export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
     
     const {filterFreelancer, isLoading} = useAppSelector(s => s.filterFreelancerReducer)
-    const {setFilter, setExperienceWithDoctors, setIsLoading} = useFilterFreelancerActions()
+    const {setFilter, setIsLoading} = useFilterFreelancerActions()
 
     const searchParams = useSearchParams()
 
     const initialFilterSelected = (filter: IFilterFreelancer, labelSlug: keyof IFilterFreelancer) => {
         const params = new URLSearchParams(searchParams);
         const values = params.getAll(labelSlug === 'priceCategories' ? 'price_category' : labelSlug)
-        if(labelSlug === 'experience_with_doctors') {
-            filter.experience_with_doctors = values[0] === 'true' ? true : false
-        }
-        else{
-            filter[labelSlug].forEach(item => item.selected = false)
-            if(values){
-                values.forEach(value => {
-                    const targetInd = filter[labelSlug].findIndex(item => {
-                        return item.id === value
-                    }) 
-                    if(targetInd >= 0){
-                        filter[labelSlug][targetInd].selected = true
-                    }     
-                })
-            }
+        filter[labelSlug].forEach(item => item.selected = false)
+        if(values){
+            values.forEach(value => {
+                const targetInd = filter[labelSlug].findIndex(item => {
+                    return item.id === value
+                }) 
+                if(targetInd >= 0){
+                    filter[labelSlug][targetInd].selected = true
+                }     
+            })
         }
     }
     
@@ -56,7 +48,6 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
         initialFilterSelected(copy, 'specialities')
         initialFilterSelected(copy, 'priceCategories')
         initialFilterSelected(copy, 'societies')
-        initialFilterSelected(copy, 'experience_with_doctors')
         setFilter(copy)
         setIsLoading(false)
     }
@@ -84,7 +75,6 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
         initialFilterSelected(copy, 'specialities')
         initialFilterSelected(copy, 'priceCategories')
         initialFilterSelected(copy, 'societies')
-        initialFilterSelected(copy, 'experience_with_doctors')
         setFilter(copy)
     }, [paramsKey])
 
@@ -121,12 +111,6 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                     label="Работа в соц сетях" 
                     labelSlug="societies" 
                     items={filterFreelancer.societies} 
-                />
-                <MyHr />
-                <ToggleSwitch 
-                    checked={filterFreelancer.experience_with_doctors}
-                    label="Опыт работы с врачами"
-                    onSelected={setExperienceWithDoctors}
                 />
                 <MyHr />
                 <ApplyFiltersFreelancers>

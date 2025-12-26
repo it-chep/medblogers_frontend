@@ -4,7 +4,6 @@ import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { SpecialityBadge } from "../specialityBadges/SpecialityBadges";
 import { IFreelancer } from "../../model/types";
-import withDoctorsImg from '@/src/shared/lib/assets/with_doctors_bg.png'
 import commandImg from '@/src/shared/lib/assets/command_blue_bg.png'
 import workingExperienceImg from '@/src/shared/lib/assets/speciality_blue_bg.png'
 import Image from "next/image";
@@ -38,23 +37,15 @@ export const CardData: FC<IProps & PropsWithChildren> = ({freelancer, children})
                 </section>
                 <section className={classes.group}>
                     {
-                        (freelancer.experienceWithDoctors || freelancer.hasCommand)
+                        (freelancer.agencyRepresentative)
                             &&
                         <section className={classes.flags}>
                             {
-                                freelancer.experienceWithDoctors
+                                freelancer.agencyRepresentative
                                     &&
                                 <section className={classes.flag}>
-                                    <Image height={32} width={36} src={withDoctorsImg.src} alt={'Опыт работы с врачами'} />
-                                    <span className={classes.text}>Есть опыт работы с врачами</span>
-                                </section>
-                            }
-                            {
-                                freelancer.hasCommand
-                                    &&
-                                <section className={classes.flag}>
-                                    <Image height={32} width={36} src={commandImg.src} alt={'Есть команда'} />
-                                    <span className={classes.text}>Есть команда</span>
+                                    <Image height={32} width={36} src={commandImg.src} alt={'Представитель агентства'} />
+                                    <span className={classes.text}>Представитель агентства</span>
                                 </section>
                             }
                         </section>

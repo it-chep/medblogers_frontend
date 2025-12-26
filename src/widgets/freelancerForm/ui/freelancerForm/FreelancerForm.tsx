@@ -17,6 +17,7 @@ import { freelancerFormService } from "../../api/FreelancerFormService";
 import { freelancerService, IFreelancerCity, IFreelancerSpeciality } from "@/src/entities/freelancer";
 import { IItem } from "@/src/shared/model/types";
 import { PriceListChange } from "@/src/features/priceListChange";
+import { Choose } from "../choose/Choose";
 
 export const FreelancerForm: FC = () => {
 
@@ -33,7 +34,7 @@ export const FreelancerForm: FC = () => {
         setEmail, setLastName, setFirstName, setMiddleName, setWorkingExperience, setTelegramUsername, 
         setAgreePolicy, setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities, 
         deleteAdditionalSpecialities, setCity, setSpeciality, setPortfolioLink, setSocialNetworks, 
-        deleteSocialNetworks, setExperienceWithDoctors, setHasCommand, setPriceList
+        deleteSocialNetworks, setPriceList, setAgencyRepresentative
     } = freelancerChange(form, setForm)
 
     const {setErrorFieldDelete} = changeFormError(formError, setFormError)
@@ -113,6 +114,10 @@ export const FreelancerForm: FC = () => {
 
     return (
         <form onSubmit={onSubmit} className={classes.container}>
+            <Choose 
+                agencyRepresentative={form.agencyRepresentative}
+                setAgencyRepresentative={setAgencyRepresentative}
+            />
             <MyInputForm
                 label="Почта *" 
                 value={form.email} 
@@ -235,16 +240,6 @@ export const FreelancerForm: FC = () => {
                 setSelected={setSocialNetworks} 
                 placeholder=""
             />
-            <MyCheckbox
-                onSelected={setExperienceWithDoctors}
-            >
-                <span className={classes.checkbox}>Опыт работы с врачами</span>
-            </MyCheckbox>
-            <MyCheckbox
-                onSelected={setHasCommand}
-            >
-                <span className={classes.checkbox}>Есть своя команда</span>
-            </MyCheckbox>
             <PriceListChange 
                 list={form.priceList} 
                 setList={setPriceList} 
