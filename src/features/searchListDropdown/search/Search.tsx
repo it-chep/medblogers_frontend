@@ -12,10 +12,12 @@ interface IProps {
     deleteSelected?: (id: number) => void;
     selectedItemsId: number[];
     placeholder: string;
+    error?: string;
+    setError?: () => void;
 }
 
 export const SearchListDropdown: FC<IProps> = (
-    {items, setSelected, deleteSelected = () => {}, label, selectedItemsId, placeholder}
+    {items, setSelected, deleteSelected = () => {}, label, selectedItemsId, placeholder, error, setError}
 ) => {
 
     const inputRef = useRef<HTMLInputElement>(null)
@@ -36,6 +38,7 @@ export const SearchListDropdown: FC<IProps> = (
     }, [selectedItemsId])
 
     const onSelected = (selectedId: number) => {
+        setError && setError()
         setSelected(selectedId)
         setValue('')
         if(inputRef.current) inputRef.current.focus()
@@ -61,6 +64,13 @@ export const SearchListDropdown: FC<IProps> = (
         }
     }, [open])
 
+    const deleteSelectedWrap = (id: number) => {
+        if(deleteSelected){
+            deleteSelected(id)
+            setError && setError()
+        }
+    }
+
     return (
         <section className={classes.wrapper}>
             <span className={classes.label}>
@@ -71,7 +81,7 @@ export const SearchListDropdown: FC<IProps> = (
                     <BadgeDelete
                         key={item.id} 
                         item={item} 
-                        onSelected={deleteSelected} 
+                        onSelected={deleteSelectedWrap} 
                     />
                 )}
                 <input 
@@ -91,6 +101,7 @@ export const SearchListDropdown: FC<IProps> = (
                     onSelected={onSelected} 
                 />
             }
+            { (error) && <span className={classes.errorText}>*{error}</span> }
         </section>
     )
 }

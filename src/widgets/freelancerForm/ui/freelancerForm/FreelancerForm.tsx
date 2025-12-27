@@ -213,6 +213,8 @@ export const FreelancerForm: FC = () => {
                 items={specialities.map(speciality => ({id: speciality.specialityId, name: speciality.specialityName}))} 
                 setSelected={setAdditionalSpecialities} 
                 placeholder="Введите название специализации..."
+                error={formError?.find(error => error.field === 'additionalSpecialities')?.text} 
+                setError={setErrorFieldDelete('additionalSpecialities')}
             />
             <SearchItemListDropdown 
                 label="Город работы *"
