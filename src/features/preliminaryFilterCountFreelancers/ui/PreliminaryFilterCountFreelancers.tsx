@@ -15,7 +15,6 @@ export const PreliminaryFilterCountFreelancers: FC = () => {
         const specialities = filterFreelancer.specialities.filter(speciality => speciality.selected)
         const societies = filterFreelancer.societies.filter(society => society.selected)
         const priceCategories = filterFreelancer.priceCategories.filter(priceCategory => priceCategory.selected)
-        const experienceWithDoctors = filterFreelancer.experience_with_doctors;
 
         cities.forEach(city => {
             searchParams.append('cities', city.id)
@@ -29,9 +28,6 @@ export const PreliminaryFilterCountFreelancers: FC = () => {
         priceCategories.forEach(priceCategory => {
             searchParams.append('price_category', priceCategory.id)
         })
-        if(experienceWithDoctors){
-            searchParams.append('experience_with_doctors', 'true')
-        }
         return searchParams
     }
 

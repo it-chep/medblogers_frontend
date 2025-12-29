@@ -1,0 +1,17 @@
+
+
+
+.city{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 10px;
+    line-height: 115%;
+          
+    img{
+        margin-top: 2px;
+        object-fit: contain;
+        width: 11px;
+        height: 13px;
+    }
+}

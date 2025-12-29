@@ -17,6 +17,7 @@ import { freelancerFormService } from "../../api/FreelancerFormService";
 import { freelancerService, IFreelancerCity, IFreelancerSpeciality } from "@/src/entities/freelancer";
 import { IItem } from "@/src/shared/model/types";
 import { PriceListChange } from "@/src/features/priceListChange";
+import { Choose } from "../choose/Choose";
 
 export const FreelancerForm: FC = () => {
 
@@ -33,7 +34,7 @@ export const FreelancerForm: FC = () => {
         setEmail, setLastName, setFirstName, setMiddleName, setWorkingExperience, setTelegramUsername, 
         setAgreePolicy, setAdditionalCities, deleteAdditionalCities, setAdditionalSpecialities, 
         deleteAdditionalSpecialities, setCity, setSpeciality, setPortfolioLink, setSocialNetworks, 
-        deleteSocialNetworks, setExperienceWithDoctors, setHasCommand, setPriceList
+        deleteSocialNetworks, setPriceList, setAgencyRepresentative
     } = freelancerChange(form, setForm)
 
     const {setErrorFieldDelete} = changeFormError(formError, setFormError)
@@ -111,8 +112,26 @@ export const FreelancerForm: FC = () => {
         setErrorFieldDelete('agreePolicy')()
     }
 
+    const removeErrorsFreelancer = () => {
+        const newFormError: IFormError[] = JSON.parse(JSON.stringify(formError))
+        const targetIndSpecs = newFormError.findIndex(error => error.field === 'additionalSpecialities')
+        if(targetIndSpecs >= 0){
+            newFormError.splice(targetIndSpecs, 1)
+        }   
+        const targetIndCities = newFormError.findIndex(error => error.field === "additionalCities")
+        if(targetIndCities >= 0){
+            newFormError.splice(targetIndCities, 1)
+        }   
+        setFormError(newFormError)
+    }
+
     return (
         <form onSubmit={onSubmit} className={classes.container}>
+            <Choose 
+                agencyRepresentative={form.agencyRepresentative}
+                setAgencyRepresentative={setAgencyRepresentative}
+                setError={removeErrorsFreelancer}
+            />
             <MyInputForm
                 label="Почта *" 
                 value={form.email} 
@@ -208,6 +227,8 @@ export const FreelancerForm: FC = () => {
                 items={specialities.map(speciality => ({id: speciality.specialityId, name: speciality.specialityName}))} 
                 setSelected={setAdditionalSpecialities} 
                 placeholder="Введите название специализации..."
+                error={formError?.find(error => error.field === 'additionalSpecialities')?.text} 
+                setError={setErrorFieldDelete('additionalSpecialities')}
             />
             <SearchItemListDropdown 
                 label="Город работы *"
@@ -226,6 +247,8 @@ export const FreelancerForm: FC = () => {
                 items={cities.map(city => ({id: city.cityId, name: city.cityName}))} 
                 setSelected={setAdditionalCities} 
                 placeholder="Введите название города..."
+                error={formError?.find(error => error.field === 'additionalCities')?.text} 
+                setError={setErrorFieldDelete('additionalCities')}
             />
             <SearchListDropdown
                 label="Соц сети, с которыми вы работаете"
@@ -235,16 +258,6 @@ export const FreelancerForm: FC = () => {
                 setSelected={setSocialNetworks} 
                 placeholder=""
             />
-            <MyCheckbox
-                onSelected={setExperienceWithDoctors}
-            >
-                <span className={classes.checkbox}>Опыт работы с врачами</span>
-            </MyCheckbox>
-            <MyCheckbox
-                onSelected={setHasCommand}
-            >
-                <span className={classes.checkbox}>Есть своя команда</span>
-            </MyCheckbox>
             <PriceListChange 
                 list={form.priceList} 
                 setList={setPriceList} 

@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useRef } from "react";
+import { ComponentProps, CSSProperties, FC, useRef } from "react";
 import classes from './myInput.module.scss'
 
 interface IProps{
@@ -11,9 +11,12 @@ interface IProps{
     isLoading?: boolean;
     error?: string;
     sign?: string;
+    styleBox?: CSSProperties;
 }
 
-export const MyInput: FC<IProps> = ({value, setValue, typeInput, onBlur = () => {}, sign}) => {
+export const MyInput: FC<IProps & ComponentProps<'input'>> = (
+    {value, setValue, typeInput, onBlur = () => {}, sign, styleBox, ...props}
+) => {
 
     const refBox = useRef<HTMLDivElement>(null)
 
@@ -31,7 +34,11 @@ export const MyInput: FC<IProps> = ({value, setValue, typeInput, onBlur = () => 
     }
 
     return (
-        <section ref={refBox} className={classes.inputBox}>
+        <section 
+            ref={refBox} 
+            className={classes.inputBox}
+            style={styleBox}
+        >
             <div className={classes.sign}>{sign}&nbsp;</div>
             <input 
                 onFocus={onFocus}
@@ -39,6 +46,7 @@ export const MyInput: FC<IProps> = ({value, setValue, typeInput, onBlur = () => 
                 type={typeInput || 'text'} 
                 value={value} 
                 onChange={e => setValue(e.target.value)}
+                {...props}
             />
         </section>
     )

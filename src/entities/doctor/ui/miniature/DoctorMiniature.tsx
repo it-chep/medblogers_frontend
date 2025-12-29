@@ -1,94 +1,111 @@
-import {FC} from "react";
+import React, {FC} from "react";
 import {IDoctorMiniature} from "@/src/entities/doctor";
 import classes from './doctorMiniature.module.scss'
 import Image from "next/image";
 import tg_logo from '@/src/shared/lib/assets/telegram_logo_nobackground.png'
 import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
+import youtube_logo from '@/src/shared/lib/assets/Youtube_logo.png'
 import {MyButton} from "@/src/shared/ui/myButton";
 import {SubscriberLink} from "@/src/entities/doctor/ui/subscriberLink/SubscriberLink";
 import Link from "next/link";
-import markImg from '@/src/shared/lib/assets/mark_blue.png'
-import { ClinicHint } from "../clinicHint/ClinicHint";
+import {ClinicHint} from "../clinicHint/ClinicHint";
 
-export const DoctorMiniature: FC<IDoctorMiniature> = ({
-    name, image, city, instLink, tgLink, instSubsCount, instSubsCountText, tgSubsCount, tgSubsCountText, slug, speciality, isKfDoctor
+interface IProps {
+    doctor: IDoctorMiniature;
+    setCitiesSearch: React.ReactElement;
+    setSpecialitiesSearch: React.ReactElement;
+}
+
+export const DoctorMiniature: FC<IProps> = ({
+    doctor, setCitiesSearch, setSpecialitiesSearch
 }) => {
 
-    const doctorLink = `doctors/${slug}`
+    const doctorLink = `doctors/${doctor.slug}`
 
-    const fio = name.split(' ')
-        
+    const fio = doctor.name.split(' ')
+
     return (
-        <section className={classes.container}>
+        <Link
+            className={classes.container}
+            href={doctorLink}
+        >
             <section className={classes.header}>
-                { 
-                    image 
-                        && 
-                    <noindex>
-                        <Link rel="nofollow" href={doctorLink}>
-                            <Image className={classes.avatar} src={image} alt={'Аватарка врача'} width={260} height={160} />
-                        </Link>
-                    </noindex> 
+                {
+                    doctor.image
+                        &&
+                    <Image
+                        className={classes.avatar}
+                        src={doctor.image}
+                        alt={'Аватарка врача'}
+                        width={260}
+                        height={160}
+                    />
                 }
                 <section className={classes.name}>
-                    <Link href={doctorLink}>
-                        {
-                            isKfDoctor
-                                ?
-                            <>
-                                {fio.slice(0, -1).join(' ')}&nbsp;
-                                <ClinicHint name={fio[2]} />
-                            </>
-                                :
-                            <>
-                                {name}
-                            </>
-                        }
-                    </Link>
+                    {
+                        doctor.isKfDoctor
+                            ?
+                        <>
+                            {fio.slice(0, -1).join(' ')}&nbsp;
+                            <ClinicHint name={fio[2]}/>
+                        </>
+                        :
+                        <>
+                            {doctor.name}
+                        </>
+                    }
                 </section>
             </section>
             <section className={classes.infoWrapper}>
                 <section className={classes.info}>
-                    <p className={classes.speciality}>{speciality}</p>
-                    <p className={classes.city}>
-                        <Image alt="Метка" width={11} height={13} src={markImg.src} />
-                        {city}
-                    </p>
+                    {setSpecialitiesSearch}
+                    {setCitiesSearch}
                 </section>
                 <section className={classes.buttonsWrapper}>
                     {
-                        (tgSubsCount || instSubsCount)
+                        (doctor.tgSubsCount || doctor.instSubsCount || doctor.youtubeSubsCount)
                             &&
                         <section className={classes.subscribersWrapper}>
                             {
-                                tgSubsCount
+                                doctor.tgSubsCount
                                     &&
                                 <SubscriberLink
-                                    link={tgLink}
+                                    link={doctor.tgLink}
                                     socialIconSrc={tg_logo.src}
-                                    subsCount={tgSubsCount}
-                                    text={tgSubsCountText}
+                                    subsCount={doctor.tgSubsCount}
+                                    text={doctor.tgSubsCountText}
+                                    useA={false} // убираем вложенность тега a
                                 />
                             }
                             {
-                                instSubsCount
+                                doctor.instSubsCount
                                     &&
                                 <SubscriberLink
-                                    link={instLink}
+                                    link={doctor.instLink}
                                     socialIconSrc={inst_logo.src}
-                                    subsCount={instSubsCount}
-                                    text={instSubsCountText}
+                                    subsCount={doctor.instSubsCount}
+                                    text={doctor.instSubsCountText}
+                                    useA={false}
+                                />
+                            }
+                            {
+                                doctor.youtubeSubsCount
+                                    &&
+                                <SubscriberLink
+                                    link={doctor.youtubeLink}
+                                    socialIconSrc={youtube_logo.src}
+                                    subsCount={doctor.youtubeSubsCount}
+                                    text={doctor.youtubeSubsCountText}
+                                    useA={false}
                                 />
                             }
                         </section>
                     }
-                    <noindex className={classes.link}>
-                        <Link rel="nofollow" href={doctorLink} >
-                            <MyButton>Подробнее</MyButton>
-                        </Link>
-                    </noindex>
+                    <MyButton>
+                        Подробнее
+                    </MyButton>
                 </section>
             </section>
-        </section>
+        </Link>
     )
 }

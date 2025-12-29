@@ -35,6 +35,9 @@ export default async function BlogsPage() {
                         {path: '', label: 'Статьи'},
                     ]} />
                 </section>
+                <h1>
+                    Полезные статьи для медблога
+                </h1>
                 <BlogsWidget blogs={blogs} />
             </main>
         </section>

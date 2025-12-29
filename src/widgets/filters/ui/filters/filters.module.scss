@@ -6,11 +6,29 @@
 }
 
 .container{
-    width: 100%;
+    width: 280px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     background-color: var(--dark-background);
     padding: 20px;
     border-radius: 20px;
+
+    &.top{
+        transform: translate3d(0px, 0px, 0px);
+        position: fixed;
+        top: 20px;
+    }
+
+    &.bottom{
+        transform: translate3d(0px, 0px, 0px);
+        position: fixed;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    .container{
+        width: 100%;
+    }
 }

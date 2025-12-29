@@ -1,4 +1,13 @@
 
+interface ICity {
+    id: number;
+    name: string;
+}
+
+interface ISpeciality {
+    id: number;
+    name: string;
+}
 
 export interface IDoctorMiniatureResponse {
     doctors: IDoctorMiniature[];
@@ -8,13 +17,31 @@ export interface IDoctorMiniatureResponse {
 
 export interface IDoctorMiniature {
     image: string;
-    city: string;
+    city: ICity[];
+    speciality: ISpeciality[];
     instSubsCount: string;
     instSubsCountText: string;
     instLink: string;
     name: string;
     slug: string;
+    tgLink: string;
+    tgSubsCount: string;
+    tgSubsCountText: string;
+    isKfDoctor: boolean;
+    youtubeLink: string;
+    youtubeSubsCount: string;
+    youtubeSubsCountText: string;
+}
+
+export interface IDoctorMiniatureRes {
+    image: string;
+    city: string;
     speciality: string;
+    instSubsCount: string;
+    instSubsCountText: string;
+    instLink: string;
+    name: string;
+    slug: string;
     tgLink: string;
     tgSubsCount: string;
     tgSubsCountText: string;
@@ -30,7 +57,7 @@ interface IItem {
 export interface IDoctor {
 
     code?: number;
-    
+
     name: string;
     slug: string;
     instUrl: string;
@@ -50,6 +77,9 @@ export interface IDoctor {
     instSubsCount: string;
     instSubsCountText: string;
     instLastUpdatedDate: string;
+    youtubeSubsCount: string;
+    youtubeSubsCountText: string;
+    youtubeLastUpdatedDate: string;
     mainBlogTheme: string;
     image: string;
     cities: IItem[],

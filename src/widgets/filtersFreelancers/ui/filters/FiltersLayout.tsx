@@ -36,7 +36,6 @@ export const FiltersFreelancersLayout: FC<IProps> = ({forDesk, filters}) => {
         setIsLoading(false)
     }, [])
 
-    
         
     return(
         isLoading

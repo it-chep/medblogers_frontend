@@ -4,11 +4,11 @@ import { FC } from "react";
 import classes from './header.module.scss'
 import Image from "next/image";
 import logo from '@/src/shared/lib/assets/medblogers_logo.png'
-import { Title } from "../title/Title";
 import { OpenMenu } from "@/src/features/menu";
 import Link from "next/link";
 import { noPages } from "../../lib/const/noPages";
 import { usePathname } from "next/navigation";
+import { TitleWrap } from "../title/TitleWrap";
 
 export const Header: FC = () => {
 
@@ -31,7 +31,7 @@ export const Header: FC = () => {
                         <OpenMenu mobile={true} />
                     </section>
                 </section>
-                    <Title pathname={pathname || ""} />
+                    <TitleWrap pathname={pathname || ""} />
                 <section className={classes.openMenuDesc}>
                     <OpenMenu />
                 </section>

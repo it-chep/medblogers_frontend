@@ -1,0 +1,24 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: -20px;
+    height: calc(100% + 20px);
+
+    .filterWrap{
+        .filter{
+            position: relative;
+        }
+    }
+
+    .start, .end, .f_start, .f_end{
+        height: 1px;
+        width: 100%;
+    }
+
+    .end{
+        margin-top: auto;
+    }
+}

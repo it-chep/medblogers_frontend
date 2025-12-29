@@ -12,11 +12,20 @@ export const SearchMiniature: FC<IProps> = ({freelancer}) => {
 
 
     return (
-        <Link href={`/helpers/${freelancer.slug}`} className={classes.container}>
-            <Image width={100} height={100} src={freelancer.image} alt="Фото фрилансера" />
+        <Link 
+            href={`/helpers/${freelancer.slug}`} 
+            className={classes.container}
+        >
+            <Image 
+                width={100} 
+                height={100} 
+                src={freelancer.image} 
+                alt="Фото фрилансера" 
+                className={classes.avatar}
+            />
             <section className={classes.data}>
-                <h5>{freelancer.name}</h5>
-                <p>{freelancer.specialityName}, г. {freelancer.cityName}</p>
+                <p className={classes.name}>{freelancer.name}</p>
+                <p className={classes.specialityName}>{freelancer.specialityName}, г. {freelancer.cityName}</p>
             </section>
         </Link>
     )

@@ -1,4 +1,13 @@
 
+interface ICity {
+    id: number;
+    name: string;
+}
+
+interface ISpeciality {
+    id: number;
+    name: string;
+}
 
 export interface IFreelancerSpeciality {
     specialityId: number;
@@ -51,7 +60,6 @@ export interface ISearchFreelancer {
     slug: string;
     specialityName: string;
     image: string;
-    experienceWithDoctors: boolean;
     priceCategory: number;
     socialNetworks: ISocialNetworkItem[];
 }
@@ -69,11 +77,10 @@ export interface IStatisticFreelancers {
 export interface IFreelancerMiniature {
     name: string;
     slug: string;
-    speciality: string;
-    city: string;
+    speciality: ISpeciality[];
+    city: ICity[];
     image: string;
-    experienceWithDoctors: boolean;
-    hasCommand: boolean;
+    agencyRepresentative : boolean;
     priceCategory: string;
     socialNetworks: ISocialNetworkItem[];
 }
@@ -95,8 +102,7 @@ export interface IFreelancer {
     socialNetworks: ISocialNetworkItem[];
     priceList: IPriceListItemRes[];
     workingExperience: string;
-    hasCommand: boolean;
-    experienceWithDoctors: boolean;
+    agencyRepresentative: boolean;
 }
 
 export interface IRecommendation {

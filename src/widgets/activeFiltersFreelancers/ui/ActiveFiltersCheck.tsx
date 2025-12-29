@@ -9,7 +9,7 @@ import { useAppSelector } from "@/src/app/store/store";
 
 export const ActiveFiltersLoading: FC = () => {
 
-    const {isLoading} = useAppSelector(s => s.filterReducer)
+    const {isLoading} = useAppSelector(s => s.filterFreelancerReducer)
 
     return (
         !isLoading

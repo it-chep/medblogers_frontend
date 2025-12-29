@@ -32,7 +32,6 @@ export interface IFilterFreelancer {
     cities: ICity[];
     specialities: ISpeciality[];
     priceCategories: IPriceCategoryItem[];
-    experience_with_doctors: boolean;
 }
 
 export interface IFilterState{

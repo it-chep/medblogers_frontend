@@ -24,7 +24,8 @@ export const Form: FC = () => {
     const [formError, setFormError] = useState<IFormError[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [cities, setCities] = useState<ICityData[]>([])
-    const [specialities, setSpecialities] = useState<ISpecialityData[]>([])
+    const [specialitiesMain, setSpecialitiesMain] = useState<ISpecialityData[]>([])
+    const [specialitiesAdditional, setSpecialitiesAdditional] = useState<ISpecialityData[]>([])
 
     const router = useRouter()
 
@@ -43,14 +44,20 @@ export const Form: FC = () => {
         setCities(cities)
     }
 
-    const getSpecialities = async () => {
-        const specialities = await specialityService.getSpecialities()
-        setSpecialities(specialities)
+    const getSpecialitiesMain = async () => {
+        const specialities = await specialityService.getSpecialitiesMain()
+        setSpecialitiesMain(specialities)
+    }
+
+    const getSpecialitiesAdditional = async () => {
+        const specialities = await specialityService.getSpecialitiesAdditional()
+        setSpecialitiesAdditional(specialities)
     }
 
     useEffect(() => {
         getCities()
-        getSpecialities()
+        getSpecialitiesMain()
+        getSpecialitiesAdditional()
     }, [])
 
     const onSubmit = async (e: FormEvent) => {
@@ -205,7 +212,7 @@ export const Form: FC = () => {
             />
             <SearchItemListDropdown 
                 label="Выберите вашу специальность (Если ее нет, напишите в бота) *"
-                items={specialities.map(speciality => ({id: speciality.specialityId, name: speciality.specialityName}))} 
+                items={specialitiesMain.map(speciality => ({id: speciality.specialityId, name: speciality.specialityName}))} 
                 selectedItemId={form.specialityId} 
                 setSelectedId={setSpeciality} 
                 placeholder="Нажмите чтобы открыть поиск специальности"
@@ -217,7 +224,7 @@ export const Form: FC = () => {
                 label="Дополнительные специальности"
                 selectedItemsId={form.additionalSpecialties} 
                 deleteSelected={deleteAdditionalSpecialities} 
-                items={specialities.map(s => ({id: s.specialityId, name: s.specialityName}))} 
+                items={specialitiesAdditional.map(s => ({id: s.specialityId, name: s.specialityName}))} 
                 setSelected={setAdditionalSpecialities} 
                 placeholder="Введите название специальности..."
             />

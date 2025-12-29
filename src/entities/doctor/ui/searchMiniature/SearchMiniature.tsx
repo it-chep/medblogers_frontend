@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ISearchDoctor } from "../../model/types";
 import { ClinicHint } from "../clinicHint/ClinicHint";
 
-
 interface IProps {
     doctor: ISearchDoctor;
 }
@@ -15,24 +14,37 @@ export const SearchMiniature: FC<IProps> = ({doctor}) => {
     const fio = doctor.name.split(' ')
 
     return (
-        <Link href={`/doctors/${doctor.slug}`} className={classes.container}>
-            { doctor.image && <Image width={100} height={100} src={doctor.image} alt="Фото врача" /> }
+        <Link 
+            href={`/doctors/${doctor.slug}`} 
+            className={classes.container}
+        >
+            { 
+                doctor.image 
+                    && 
+                <Image 
+                    className={classes.avatar} 
+                    width={100} 
+                    height={100} 
+                    src={doctor.image} 
+                    alt="Фото врача" 
+                /> 
+            }
             <section className={classes.data}>
-                <h5>
+                <p className={classes.name}> 
                     {
                         doctor.isKfDoctor
                             ?
                         <>
                             {fio.slice(0, 2).join(' ')}&nbsp;
-                            <ClinicHint name={fio[2]} />
+                            <ClinicHint name={fio[2]} paddingAbsolute={30} />
                         </>
                             :
                         <>
                             {doctor.name}
                         </>
                     }
-                </h5>
-                <p>{doctor.specialityName}, г. {doctor.cityName}</p>
+                </p>
+                <p className={classes.specialityName}>{doctor.specialityName}, г. {doctor.cityName}</p>
             </section>
         </Link>
     )

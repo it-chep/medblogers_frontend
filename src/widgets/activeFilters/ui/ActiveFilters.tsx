@@ -37,8 +37,6 @@ export const ActiveFilters: FC = () => {
         return items
     }
 
-    
-
     useEffect(() => {
         if(filter){
             const citites = selectedCheckboxes('cities')
@@ -46,7 +44,6 @@ export const ActiveFilters: FC = () => {
             setSelectedCheckboxesForCities([...citites])
             setSelectedCheckboxesForSpecs([...specs])
         }
-
     }, [searchParams]) 
 
     return (

@@ -12,7 +12,7 @@ export const ClinicContent: FC = () => {
         <section className={classes.container}>
             <section className={classes.text}>Этот доктор работает в Клинике Фомина</section>
             <span onClick={onClick}>
-                Хочу также
+                Хочу поставить<br /> свой логотип
             </span>
         </section>
     )

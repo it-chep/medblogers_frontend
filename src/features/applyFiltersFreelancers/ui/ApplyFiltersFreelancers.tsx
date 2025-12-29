@@ -71,10 +71,6 @@ export const ApplyFiltersFreelancers: FC<PropsWithChildren> = ({children}) => {
             })
         }
 
-        if(filterFreelancer.experience_with_doctors){
-            params.append('experience_with_doctors', String(filterFreelancer.experience_with_doctors))
-        }
-
         setNewUrl(params)
     }   
 

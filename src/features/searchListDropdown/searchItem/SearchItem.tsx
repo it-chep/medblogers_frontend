@@ -5,7 +5,6 @@ import { MyInputForm } from "@/src/shared/ui/inputForm";
 import { SearchList } from "@/src/shared/ui/searchList";
 import { IItem } from "@/src/shared/model/types";
 
-
 interface IProps {
     setSelectedId: (id: number) => void;
     selectedItemId: number;
