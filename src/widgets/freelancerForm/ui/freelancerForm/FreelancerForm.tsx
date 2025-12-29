@@ -117,7 +117,10 @@ export const FreelancerForm: FC = () => {
             <Choose 
                 agencyRepresentative={form.agencyRepresentative}
                 setAgencyRepresentative={setAgencyRepresentative}
-                setError={setErrorFieldDelete('additionalSpecialities')}
+                setError={() => {
+                    setErrorFieldDelete('additionalSpecialities')
+                    setErrorFieldDelete('additionalCities')
+                }}
             />
             <MyInputForm
                 label="Почта *" 
@@ -234,6 +237,8 @@ export const FreelancerForm: FC = () => {
                 items={cities.map(city => ({id: city.cityId, name: city.cityName}))} 
                 setSelected={setAdditionalCities} 
                 placeholder="Введите название города..."
+                error={formError?.find(error => error.field === 'additionalCities')?.text} 
+                setError={setErrorFieldDelete('additionalCities')}
             />
             <SearchListDropdown
                 label="Соц сети, с которыми вы работаете"
