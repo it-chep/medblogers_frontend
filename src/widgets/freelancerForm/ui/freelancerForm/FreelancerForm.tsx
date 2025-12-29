@@ -112,15 +112,25 @@ export const FreelancerForm: FC = () => {
         setErrorFieldDelete('agreePolicy')()
     }
 
+    const removeErrorsFreelancer = () => {
+        const newFormError: IFormError[] = JSON.parse(JSON.stringify(formError))
+        const targetIndSpecs = newFormError.findIndex(error => error.field === 'additionalSpecialities')
+        if(targetIndSpecs >= 0){
+            newFormError.splice(targetIndSpecs, 1)
+        }   
+        const targetIndCities = newFormError.findIndex(error => error.field === "additionalCities")
+        if(targetIndCities >= 0){
+            newFormError.splice(targetIndCities, 1)
+        }   
+        setFormError(newFormError)
+    }
+
     return (
         <form onSubmit={onSubmit} className={classes.container}>
             <Choose 
                 agencyRepresentative={form.agencyRepresentative}
                 setAgencyRepresentative={setAgencyRepresentative}
-                setError={() => {
-                    setErrorFieldDelete('additionalSpecialities')()
-                    setErrorFieldDelete('additionalCities')()
-                }}
+                setError={removeErrorsFreelancer}
             />
             <MyInputForm
                 label="Почта *" 
