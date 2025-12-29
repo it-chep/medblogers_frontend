@@ -117,6 +117,7 @@ export const FreelancerForm: FC = () => {
             <Choose 
                 agencyRepresentative={form.agencyRepresentative}
                 setAgencyRepresentative={setAgencyRepresentative}
+                setError={setErrorFieldDelete('additionalSpecialities')}
             />
             <MyInputForm
                 label="Почта *" 

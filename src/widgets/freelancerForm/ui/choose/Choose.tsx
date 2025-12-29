@@ -4,22 +4,27 @@ import classes from './choose.module.scss'
 interface IProps {
     setAgencyRepresentative: (agencyRepresentative: boolean) => void;
     agencyRepresentative: boolean;
+    setError: () => void; 
 }
 
-export const Choose: FC<IProps> = ({agencyRepresentative, setAgencyRepresentative}) => {
+export const Choose: FC<IProps> = ({agencyRepresentative, setAgencyRepresentative, setError}) => {
 
+    const onChoose = (agencyRepresentative: boolean) => {
+        setAgencyRepresentative(agencyRepresentative)
+        setError()
+    }
 
     return (
         <section className={classes.container}>
             <section 
                 className={classes.button + (!agencyRepresentative ? ` ${classes.active}` : '')}
-                onClick={() => setAgencyRepresentative(false)} 
+                onClick={() => onChoose(false)} 
             >
                 Фрилансер
             </section>
             <section 
                 className={classes.button + (agencyRepresentative ? ` ${classes.active}` : '')}
-                onClick={() => setAgencyRepresentative(true)} 
+                onClick={() => onChoose(true)} 
             >
                 Представитель агенства
             </section>
