@@ -13,7 +13,6 @@ export const DoctorsAll: FC = () => {
 
     const searchParams = useSearchParams()
     const [doctors, setDoctors] = useState<IDoctorMiniature[]>([])
-    const [totalPages, setTotalPages] = useState<number | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
     const checkSearchParams = () => {
@@ -32,7 +31,6 @@ export const DoctorsAll: FC = () => {
         try{
             setIsLoading(true)
             const doctorsRes = await doctorService.getAll(checkSearchParams().toString())
-            setTotalPages(doctorsRes.pages)
             setDoctors(doctorsRes.doctors)
         }
         catch (e){
@@ -48,7 +46,7 @@ export const DoctorsAll: FC = () => {
     }, [searchParams])
 
     return (
-            <section className={classes.container}>
+        <section className={classes.container}>
             {
                 isLoading
                     ?

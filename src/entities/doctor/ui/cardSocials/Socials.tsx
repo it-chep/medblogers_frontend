@@ -100,7 +100,7 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
             {children}
             <Link className={classes.link} href={doctor.tgUrl}>
                 <MyButton>
-                    Связаться
+                    Написать в ТG
                 </MyButton>
             </Link>
         </section>
