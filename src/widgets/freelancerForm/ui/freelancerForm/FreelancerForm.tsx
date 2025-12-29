@@ -118,8 +118,8 @@ export const FreelancerForm: FC = () => {
                 agencyRepresentative={form.agencyRepresentative}
                 setAgencyRepresentative={setAgencyRepresentative}
                 setError={() => {
-                    setErrorFieldDelete('additionalSpecialities')
-                    setErrorFieldDelete('additionalCities')
+                    setErrorFieldDelete('additionalSpecialities')()
+                    setErrorFieldDelete('additionalCities')()
                 }}
             />
             <MyInputForm
