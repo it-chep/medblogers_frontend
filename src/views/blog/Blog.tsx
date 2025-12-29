@@ -52,11 +52,11 @@ export default async function BlogPage(props: IProps) {
                         <ShareBlog />
                     </Share>
                 </section>
-                <section className={classes.blogsTop}>
-                    <h2 className={classes.other}>Читать другие статьи</h2>
-                    <BlogsTopLayout />
-                </section>
             </main>
+            <section className={classes.blogsTop}>
+                <h2 className={classes.other}>Читать другие статьи</h2>
+                <BlogsTopLayout />
+            </section>
         </section>
     )
 }
