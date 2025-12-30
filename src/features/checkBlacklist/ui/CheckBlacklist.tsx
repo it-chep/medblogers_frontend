@@ -93,7 +93,7 @@ export const CheckBlacklist: FC = () => {
                                 style={{
                                     fontSize: isMobile ? '14px' : '20px'
                                 }}
-                                placeholder="@username телегарм канала"
+                                placeholder="@username телеграм канала"
                             />
                         </section>
                         <section className={classes.button}>
