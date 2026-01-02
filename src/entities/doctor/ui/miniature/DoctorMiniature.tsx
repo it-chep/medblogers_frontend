@@ -5,6 +5,7 @@ import Image from "next/image";
 import tg_logo from '@/src/shared/lib/assets/telegram_logo_nobackground.png'
 import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
 import youtube_logo from '@/src/shared/lib/assets/Youtube_logo.png'
+import vk_logo from '@/src/shared/lib/assets/vk_logo.png'
 import {MyButton} from "@/src/shared/ui/myButton";
 import {SubscriberLink} from "@/src/entities/doctor/ui/subscriberLink/SubscriberLink";
 import Link from "next/link";
@@ -63,7 +64,7 @@ export const DoctorMiniature: FC<IProps> = ({
                 </section>
                 <section className={classes.buttonsWrapper}>
                     {
-                        (doctor.tgSubsCount || doctor.instSubsCount || doctor.youtubeSubsCount)
+                        (doctor.tgSubsCount || doctor.instSubsCount || doctor.youtubeSubsCount || doctor.vkSubsCount)
                             &&
                         <section className={classes.subscribersWrapper}>
                             {
@@ -96,6 +97,17 @@ export const DoctorMiniature: FC<IProps> = ({
                                     socialIconSrc={youtube_logo.src}
                                     subsCount={doctor.youtubeSubsCount}
                                     text={doctor.youtubeSubsCountText}
+                                    useA={false}
+                                />
+                            }
+                            {
+                                doctor.vkSubsCount
+                                &&
+                                <SubscriberLink
+                                    link={doctor.vkLink}
+                                    socialIconSrc={vk_logo.src}
+                                    subsCount={doctor.vkSubsCount}
+                                    text={doctor.vkSubsCountText}
                                     useA={false}
                                 />
                             }

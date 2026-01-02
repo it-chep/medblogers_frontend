@@ -14,19 +14,9 @@ interface IProps {
 export const OtherSocial: FC<IProps> = ({doctor}) => {
 
     return (
-        (doctor.vkUrl || doctor.dzenUrl || doctor.youtubeUrl || doctor.tiktokUrl || doctor.siteLink)
+        (doctor.dzenUrl || doctor.tiktokUrl || doctor.siteLink)
             ?
         <>
-            {
-                doctor.vkUrl
-                    &&
-                <SubscriberLink
-                    text="Профиль в VK"
-                    link={doctor.vkUrl}
-                    socialIconSrc={vk_logo.src}
-                    useA
-                />
-            }
             {
                 doctor.dzenUrl
                     &&

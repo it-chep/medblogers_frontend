@@ -1,4 +1,3 @@
-
 interface ICity {
     id: number;
     name: string;
@@ -31,6 +30,9 @@ export interface IDoctorMiniature {
     youtubeLink: string;
     youtubeSubsCount: string;
     youtubeSubsCountText: string;
+    vkLink: string;
+    vkSubsCount: string;
+    vkSubsCountText: string;
 }
 
 export interface IDoctorMiniatureRes {
@@ -80,6 +82,9 @@ export interface IDoctor {
     youtubeSubsCount: string;
     youtubeSubsCountText: string;
     youtubeLastUpdatedDate: string;
+    vkSubsCount: string;
+    vkSubsCountText: string;
+    vkLastUpdatedDate: string;
     mainBlogTheme: string;
     image: string;
     cities: IItem[],
@@ -87,7 +92,7 @@ export interface IDoctor {
     isKfDoctor: boolean;
 }
 
-export interface IDoctorSeo{
+export interface IDoctorSeo {
     title: string;
     description: string;
     image: string;
@@ -102,7 +107,6 @@ export interface ISearchDoctor {
     image: string;
     isKfDoctor: boolean;
 }
-
 
 
 export interface ICityDoctor {

@@ -5,6 +5,7 @@ import classes from './socials.module.scss'
 import tg_logo from '@/src/shared/lib/assets/telegram_logo_nobackground.png'
 import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
 import youtube_logo from '@/src/shared/lib/assets/Youtube_logo.png'
+import vk_logo from '@/src/shared/lib/assets/vk_logo.png'
 import {LastUpdated} from "../lastUpdated/LastUpdated";
 import Link from "next/link";
 import {MyButton} from "@/src/shared/ui/myButton";
@@ -18,14 +19,14 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
     return (
         <section className={classes.socials}>
             {
-                ((doctor.tgSubsCount || doctor.instSubsCount || doctor.youtubeSubsCountText)
+                ((doctor.tgSubsCount || doctor.instSubsCount || doctor.youtubeSubsCount || doctor.vkSubsCount)
                     ||
-                (doctor.tgChannelUrl && !doctor.tgSubsCount) || (doctor.instUrl && !doctor.instSubsCount) || (doctor.youtubeUrl && !doctor.youtubeSubsCount))
-                    &&
+                    (doctor.tgChannelUrl && !doctor.tgSubsCount) || (doctor.instUrl && !doctor.instSubsCount) || (doctor.youtubeUrl && !doctor.youtubeSubsCount) || (doctor.vkUrl && !doctor.vkSubsCount))
+                &&
                 <section className={classes.profiles}>
                     {
                         doctor.tgSubsCount
-                            &&
+                        &&
                         <section>
                             <SubscriberLink
                                 link={doctor.tgChannelUrl}
@@ -39,7 +40,7 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
                     }
                     {
                         doctor.instSubsCount
-                            &&
+                        &&
                         <section>
                             <SubscriberLink
                                 link={doctor.instUrl}
@@ -53,7 +54,7 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
                     }
                     {
                         doctor.youtubeSubsCount
-                            &&
+                        &&
                         <section>
                             <SubscriberLink
                                 link={doctor.youtubeUrl}
@@ -66,8 +67,22 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
                         </section>
                     }
                     {
+                        doctor.vkSubsCount
+                        &&
+                        <section>
+                            <SubscriberLink
+                                link={doctor.vkUrl}
+                                subsCount={doctor.vkSubsCount}
+                                text={doctor.vkSubsCountText}
+                                socialIconSrc={vk_logo.src}
+                                useA
+                            />
+                            <LastUpdated lastUpdated={doctor.vkLastUpdatedDate}/>
+                        </section>
+                    }
+                    {
                         doctor.tgChannelUrl && !doctor.tgSubsCount
-                            &&
+                        &&
                         <SubscriberLink
                             text="Канал в Telegram"
                             link={doctor.tgChannelUrl}
@@ -77,7 +92,7 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
                     }
                     {
                         doctor.instUrl && !doctor.instSubsCount
-                            &&
+                        &&
                         <SubscriberLink
                             text="Профиль в Instagram*"
                             link={doctor.instUrl}
@@ -87,11 +102,21 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, children}) => {
                     }
                     {
                         doctor.youtubeUrl && !doctor.youtubeSubsCount
-                            &&
+                        &&
                         <SubscriberLink
                             text="Профиль в YouTube"
                             link={doctor.youtubeUrl}
                             socialIconSrc={youtube_logo.src}
+                            useA
+                        />
+                    }
+                    {
+                        doctor.vkUrl && !doctor.vkSubsCount
+                        &&
+                        <SubscriberLink
+                            text="Профиль сообщества в VK"
+                            link={doctor.vkUrl}
+                            socialIconSrc={vk_logo.src}
                             useA
                         />
                     }
