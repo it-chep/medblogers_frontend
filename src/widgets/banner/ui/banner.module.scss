@@ -1,0 +1,28 @@
+
+.containerMobile{
+    display: none;
+}
+
+.container, .containerMobile{
+    margin-bottom: 20px;
+    max-width: 100%;
+    width: 100%;
+    
+    >svg{
+        min-width: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 650px) {
+    .container{
+        display: none;
+    }
+    .containerMobile{
+        display: block;
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+}
