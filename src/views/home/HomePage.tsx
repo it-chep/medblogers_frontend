@@ -15,6 +15,7 @@ import { IS_FREELANCERS_DONE } from '@/src/app/env/env'
 import { BlogsTopLayout } from '@/src/widgets/blogsTop'
 import { FAQ } from '@/src/widgets/FAQ'
 import { CheckBlacklist } from '@/src/features/checkBlacklist'
+import { Banner10 } from '@/src/widgets/banner'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -37,6 +38,7 @@ export default async function HomePage() {
 
     return (
         <section className={classes.page + ' wrapper_main'}>
+            <Banner10 />
             <section className={classes.content}>
                 <aside className={classes.aside}>
                     <BannerNewDoctor />

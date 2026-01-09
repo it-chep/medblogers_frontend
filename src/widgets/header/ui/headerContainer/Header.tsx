@@ -1,6 +1,6 @@
 "use client"
 
-import { FC } from "react";
+import { FC, PropsWithChildren } from "react";
 import classes from './header.module.scss'
 import Image from "next/image";
 import logo from '@/src/shared/lib/assets/medblogers_logo.png'
@@ -10,7 +10,7 @@ import { noPages } from "../../lib/const/noPages";
 import { usePathname } from "next/navigation";
 import { TitleWrap } from "../title/TitleWrap";
 
-export const Header: FC = () => {
+export const Header: FC<PropsWithChildren> = ({children}) => {
 
     const pathname = usePathname()
 
@@ -31,7 +31,8 @@ export const Header: FC = () => {
                         <OpenMenu mobile={true} />
                     </section>
                 </section>
-                    <TitleWrap pathname={pathname || ""} />
+                {children}
+                <TitleWrap pathname={pathname || ""} />
                 <section className={classes.openMenuDesc}>
                     <OpenMenu />
                 </section>

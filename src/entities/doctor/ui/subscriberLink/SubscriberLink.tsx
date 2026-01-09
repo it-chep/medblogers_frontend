@@ -1,6 +1,6 @@
 "use client"
 
-import {FC} from "react";
+import {FC, MouseEvent} from "react";
 import classes from './subscriberLink.module.scss'
 import { Content } from "./Content";
 
@@ -14,7 +14,10 @@ interface IProps {
 
 export const SubscriberLink: FC<IProps> = ({socialIconSrc, subsCount = '', text, link, useA}) => {
 
-    const onClick = () => window.open(link)
+    const onClick = (e: MouseEvent) => {
+        e.preventDefault()
+        window.open(link)
+    }
 
     return (
         <section className={classes.subscriberLinkWrapper}>
