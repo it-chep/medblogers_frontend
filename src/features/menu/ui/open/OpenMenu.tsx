@@ -1,12 +1,11 @@
 "use client"
 
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import classes from './openMenu.module.scss'
 import Image from "next/image";
 import burgerImg from '../../lib/assets/burger.png'
 import { MyModal } from "@/src/shared/ui/myModal";
 import { Menu } from "../menu/Menu";
-import { Close } from "@/src/shared/ui/close/Close";
 import { usePathname } from "next/navigation";
 
 interface IProps {
@@ -16,6 +15,7 @@ interface IProps {
 export const OpenMenu: FC<IProps> = ({mobile}) => {
 
     const [open, setOpen] = useState<boolean>(false)
+    const openRef = useRef<boolean>(false)
 
     const onClick = () => setOpen(true)
 
@@ -25,21 +25,32 @@ export const OpenMenu: FC<IProps> = ({mobile}) => {
         setOpen(false)
     }, [pathname])
 
-    useEffect(() => {
+    const check = () => {
         if(mobile){
-            if(open){
+            if(openRef.current){
                 document.body.style.overflow = 'hidden'
             }
             else{
                 document.body.style.overflow = ''
             }
-    
-            return () => {
-                document.body.style.overflow = ''
-            }
         }
+    }
+
+    useEffect(() => {
+        openRef.current = open;
+        check()
     }, [open])
 
+    useEffect(() => {
+        if(mobile){
+            window.addEventListener('resize', check)
+        }
+
+        return () => {
+            document.body.style.overflow = ''
+            window.removeEventListener('resize', check)
+        }
+    }, [])
 
     return (
         <>

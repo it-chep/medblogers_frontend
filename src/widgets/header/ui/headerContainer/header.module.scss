@@ -11,19 +11,26 @@
     position: relative;
     
     .top{
+        display: flex;
+        align-items: center;
+        width: 100%;
+
         >a{
             display: flex;
             align-items: center;
         }
 
-        .openMenuMobile{
-            display: none;
+        .titleDesc{
+            display: block;
+        }
+
+        .menu{
+            margin-left: auto;
         }
     }
 
-    .openMenuDesc{
-        display: block;
-        margin-left: auto;
+    .titleMobile{
+        display: none;
     }
 }
 
@@ -42,24 +49,20 @@
             justify-content: space-between;
             align-items: center;
 
-            .openMenuMobile{
-                display: block;
-                
+             .titleDesc{
+                display: none;
             }
         }
 
-        .openMenuDesc{
-            display: none;
+        .titleMobile{
+            display: block;
         }
     }
 }
 
 @media (max-width: 480px){
     .header{
-
         width: 100%;
-        
-        
         .top{
             gap: 20px;
             >a{

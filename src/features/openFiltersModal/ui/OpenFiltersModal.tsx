@@ -31,7 +31,7 @@ export const OpenFiltersModal: FC<PropsWithChildren> = ({children}) => {
 
     useEffect(() => {
         const onResize = () => {
-            if(window.innerWidth > 480){
+            if(window.innerWidth > 480 && openRef.current){
                 document.body.style.overflow = ''
             }
             else if(openRef.current){
@@ -46,7 +46,6 @@ export const OpenFiltersModal: FC<PropsWithChildren> = ({children}) => {
             window.removeEventListener('resize', onResize)
         }
     }, [])
-
 
     return (
         <section className={classes.container}>

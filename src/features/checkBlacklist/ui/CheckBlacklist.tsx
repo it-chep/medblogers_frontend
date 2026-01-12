@@ -7,6 +7,7 @@ import { MyButton } from "@/src/shared/ui/myButton";
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 import { blacklistService } from "../api/BlacklistService";
 import { Message } from "./message/Message";
+import { Info } from "./info/Info";
 
 
 export const CheckBlacklist: FC = () => {
@@ -76,38 +77,34 @@ export const CheckBlacklist: FC = () => {
         >
             <section className={classes.wrapper}>
                 <section className={classes.title}>
-                    ПРОВЕРИТЬ TELEGRAM КАНАЛ НА НАКРУТКИ
+                    РАССТРЕЛЬНЫЙ СПИСОК КАНАЛОВ
                 </section>
-                <section className={classes.data}>
-                    <section className={classes.sign}>
-                        Введите название канала или username через @
+                <section className={classes.wrapInput}>
+                    <section className={classes.input}>
+                        <MyInput 
+                            value={telegram} 
+                            setValue={setTelegram} 
+                            styleBox={{
+                                borderRadius: isMobile ? '8px' : '14px',
+                            }}
+                            style={{
+                                fontSize: isMobile ? '14px' : '20px'
+                            }}
+                            placeholder="название канала или @username"
+                        />
                     </section>
-                    <section className={classes.wrapInput}>
-                        <section className={classes.input}>
-                            <MyInput 
-                                value={telegram} 
-                                setValue={setTelegram} 
-                                styleBox={{
-                                    borderRadius: isMobile ? '8px' : '14px',
-                                }}
-                                style={{
-                                    fontSize: isMobile ? '14px' : '20px'
-                                }}
-                                placeholder="@username телеграм канала"
-                            />
-                        </section>
-                        <section className={classes.button}>
-                            <MyButton
-                                style={{
-                                    borderRadius: isMobile ? '8px' : '14px',
-                                }}
-                                onClick={onCheck}
-                            >
-                                Проверить канал
-                            </MyButton>
-                        </section>
+                    <section className={classes.button}>
+                        <MyButton
+                            style={{
+                                borderRadius: isMobile ? '8px' : '14px',
+                            }}
+                            onClick={onCheck}
+                        >
+                            Проверить на накрутки
+                        </MyButton>
                     </section>
                 </section>
+                <Info />
             </section>
             {
                 isLoading
