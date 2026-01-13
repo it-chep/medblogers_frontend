@@ -22,7 +22,6 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
     const pathname = usePathname()
     const isFreelancer = pathname.includes('helpers') || pathname.includes('freelancer')
 
-
     useEffect(() => {
         if(refMenu.current){
             if(open){
@@ -49,7 +48,16 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
                             {
                                 menuLink.site
                                     ?
-                                <Link href={menuLink.link}>{menuLink.name}</Link>
+                                <Link 
+                                    href={menuLink.link}
+                                    onClick={e => {
+                                        if(menuLink.close){
+                                            setTimeout(() => setOpen(false), 300)
+                                        }
+                                    }}
+                                >
+                                    {menuLink.name}
+                                </Link>
                                     :
                                 <a target='_blank' href={menuLink.link}>{menuLink.name}</a>
                             }

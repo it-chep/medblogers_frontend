@@ -21,5 +21,11 @@ export const menuLinks: IMenu[] = [
         name: 'Полезные статьи для медблога',
         link: '/blogs',
         site: true,
+    },
+    {
+        name: 'Расстрельный список каналов',
+        link: "#blacklist",
+        site: true,
+        close: true,
     }
 ]

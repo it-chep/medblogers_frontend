@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import classes from './info.module.scss'
 import infImg from '../../lib/assets/info.png'
 import Image from "next/image";
@@ -9,15 +9,26 @@ import { MyModalBody } from "@/src/shared/ui/myModalBody";
 export const Info: FC = () => {
 
     const [open, setOpen] = useState<boolean>(false)
-
+    const openRef = useRef<boolean>(false)
+        
     useEffect(() => {
-        if(open){
+        openRef.current = open;
+    }, [open])
+
+    const handleResize = () => {
+        if(openRef.current){
             document.body.style.overflow = 'hidden'
         }
         else{
             document.body.style.overflow = ''
         }
-    }, [open])
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize)
+
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     return (
         <section className={classes.container}>
