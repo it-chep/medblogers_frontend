@@ -51,27 +51,19 @@
             font-weight: 800;
         }
 
-        .data{
+        .wrapInput{
+            display: flex;
+            gap: 10px;
             margin-top: 20px;
-            
-            .sign{
-                font-size: 20px;
+            height: 60px;
+            width: 100%;
+
+            .button{
+                min-width: 270px;
             }
 
-            .wrapInput{
-                display: flex;
-                gap: 10px;
-                margin-top: 20px;
-                height: 60px;
+            .input{
                 width: 100%;
-
-                .button{
-                    min-width: 270px;
-                }
-
-                .input{
-                    width: 100%;
-                }
             }
         }
     }
@@ -90,21 +82,19 @@
 @media (max-width: 750px) {
     .container {
         .wrapper{
-            .data{
-                .wrapInput{
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    margin-top: 20px;
-                    height: 100%;
+            .wrapInput{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px;
+                height: 100%;
                     
-                    .input{
-                        height: 50px;
-                    }
-
-                    .button{
-                        min-width: 270px;
-                    }
+                .input{
+                    height: 50px;
+                }
+        
+                .button{
+                    min-width: 270px;
                 }
             }
         }
@@ -151,7 +141,7 @@
                 font-weight: 800;
             }
 
-            .data{
+            .wrapInput{
                 margin-top: 15px;
                 
                 .sign{
@@ -165,5 +155,4 @@
             }
         }
     }
-
 }

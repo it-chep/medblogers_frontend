@@ -27,14 +27,16 @@ export const Header: FC<PropsWithChildren> = ({children}) => {
                     <Link href={'/'}>
                         <Image src={logo.src} width={268} height={75} alt="логотип" />
                     </Link>
-                    <section className={classes.openMenuMobile}>
+                    <section className={classes.titleDesc}>
+                        <TitleWrap pathname={pathname || ""} />
+                    </section>
+                    <section className={classes.menu}>
                         <OpenMenu mobile={true} />
                     </section>
                 </section>
                 {children}
-                <TitleWrap pathname={pathname || ""} />
-                <section className={classes.openMenuDesc}>
-                    <OpenMenu />
+                <section className={classes.titleMobile}>
+                    <TitleWrap pathname={pathname || ""} />
                 </section>
             </section>
         </header>
