@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
 import { BlogsTopLayout } from '@/src/widgets/blogsTop';
+import { MyButton } from '@/src/shared/ui/myButton';
 
 const getData = async (slug: string) => {
     let blog: IBlogDetail | null = null;
@@ -44,7 +45,7 @@ export default async function BlogPage(props: IProps) {
             <main className={classes.main}>
                 <Blog blog={blog} >
                     <Share>
-                        <ShareBlog />
+                        <ShareBlog isBlue />
                     </Share>
                 </Blog>
                 <section className={classes.share}>
