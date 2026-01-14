@@ -33,6 +33,8 @@ export const FiltersLayout: FC<IProps> = ({forDesk, filters}) => {
         checkMobile()
         window.addEventListener('resize', onSize)
         setIsLoading(false)
+
+        return () => window.removeEventListener('resize', onSize)
     }, [])
 
     return(

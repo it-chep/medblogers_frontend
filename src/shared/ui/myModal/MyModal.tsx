@@ -73,14 +73,14 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
             }
             animateOpacity()
         }
-        else{
+        else if(refWrap.current && refDarken.current){
             if(open){
-                refWrap.current!.style.display = 'block'
-                refDarken.current!.style.display = 'block'
+                refWrap.current.style.display = 'block'
+                refDarken.current.style.display = 'block'
             }
             else{
-                refWrap.current!.style.display = 'none'
-                refDarken.current!.style.display = 'none'
+                refWrap.current.style.display = 'none'
+                refDarken.current.style.display = 'none'
             }
         }
     }, [open])

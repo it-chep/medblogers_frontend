@@ -1,7 +1,13 @@
 
-
-.share{
+.container{
     display: flex;
-    align-items: center;
-    gap: 15px;
+    width: 190px;
+
+    .share{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
 }

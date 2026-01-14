@@ -1,6 +1,6 @@
 import classes from './blog.module.scss'
 import { isDynamicServerError } from 'next/dist/client/components/hooks-server-context'
-import { Blog, blogService, getShortTitle, IBlogDetail, ShareBlog } from '@/src/entities/blog';
+import { Blog, blogService, IBlogDetail, ShareBlog } from '@/src/entities/blog';
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';

@@ -67,6 +67,7 @@ export default async function HomePage() {
                 </main>
             </section>
             <section className={classes.checkBlacklist}>
+                <section id="blacklist"></section>
                 <CheckBlacklist />
             </section>
             <section className={classes.blogsTop}>
