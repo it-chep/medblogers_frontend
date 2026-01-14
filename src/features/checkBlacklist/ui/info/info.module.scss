@@ -63,6 +63,11 @@
 }
 
 @media (max-width: 480px) {
+    .container{
+        .question{
+            font-size: 16px;
+        }
+    }
     .content{
         padding: 20px;    
     }

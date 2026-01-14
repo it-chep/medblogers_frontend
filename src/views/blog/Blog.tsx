@@ -44,7 +44,7 @@ export default async function BlogPage(props: IProps) {
             <main className={classes.main}>
                 <Blog blog={blog} >
                     <Share>
-                        <ShareBlog isBlue />
+                        <ShareBlog />
                     </Share>
                 </Blog>
                 <section className={classes.share}>

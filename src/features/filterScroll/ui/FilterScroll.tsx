@@ -3,7 +3,6 @@
 import { CSSProperties, FC, PropsWithChildren, useEffect, useRef, useState } from "react";
 import classes from './filterScroll.module.scss'
 
-
 export const FilterScroll: FC<PropsWithChildren> = ({children}) => {
 
     const containerRef = useRef<HTMLDivElement>(null);
@@ -44,7 +43,7 @@ export const FilterScroll: FC<PropsWithChildren> = ({children}) => {
         const setFilterBottom = (
             bottomTriggerBottom: number, filterWrapRect: DOMRect, end: DOMRect, filterRect: DOMRect, start: DOMRect
         ) => {
-            if(bottomTriggerBottom <= (filterWrapRect.bottom)){
+            if(bottomTriggerBottom <= (filterWrapRect.bottom) || (filterWrapRect.bottom < 0)) {
                 setStyle({position: 'relative', top: end.top - filterRect.height - start.top - 20 + 'px', bottom: 'auto'})
                 setPosition('bottom')
             }
@@ -146,7 +145,7 @@ export const FilterScroll: FC<PropsWithChildren> = ({children}) => {
             const topTriggerTop = start.top;
             const bottomTriggerBottom = end.bottom;
                 
-            if(((bottomTriggerBottom < filterWrapRect.bottom - 3)) || (bottomTriggerBottom < 0)){
+            if(((bottomTriggerBottom < filterWrapRect.bottom - 3)) || (bottomTriggerBottom < 0) || (filterWrapRect.bottom < 0)){
                 setFilterBottom(bottomTriggerBottom, filterWrapRect, end, filterRect, start)
             }
             else if ((topTriggerTop < 0)) {
@@ -157,7 +156,7 @@ export const FilterScroll: FC<PropsWithChildren> = ({children}) => {
                 else if(positionRef.current !== 'bottom'){
                     if((isElementVisible(f_startRef.current) && isElementVisible(f_endRef.current) && (filterRect.height < viewportHeight - 40)) || (
                         (f_start.top < 20) && isElementVisible(f_endRef.current) && (positionRef.current === 'relative') && (filterRect.height < viewportHeight - 40)) || (
-                        (!isElementVisible(f_startRef.current) && !isElementVisible(f_endRef.current) && (filterRect.height < viewportHeight - 40))
+                        (!isElementVisible(f_startRef.current) && !isElementVisible(f_endRef.current) && (filterRect.height < viewportHeight - 40)) 
                     )){
                         setStyle({position: 'fixed', top: '20px'})
                         setPosition('top')
