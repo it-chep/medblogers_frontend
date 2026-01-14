@@ -12,7 +12,10 @@ interface IProps {
 export const BlogMiniature: FC<IProps> = ({blog}) => {
 
     return (
-        <section className={classes.container}>
+        <Link 
+            href={'/blogs/' + blog.slug} 
+            className={classes.container}
+        >
             <section className={classes.imageBox}>
                 {
                     blog.photoLink
@@ -32,12 +35,12 @@ export const BlogMiniature: FC<IProps> = ({blog}) => {
                         {blog.previewText}
                     </section>
                 </section>
-                <Link className={classes.link} href={'/blogs/' + blog.slug}>
+                <section className={classes.button}>
                     <MyButtonBlog>
                         Читать статью
                     </MyButtonBlog>
-                </Link>
+                </section>
             </section>
-        </section>
+        </Link>
     )
 }
