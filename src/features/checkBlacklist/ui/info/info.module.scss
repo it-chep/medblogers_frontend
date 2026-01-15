@@ -28,6 +28,10 @@
     max-height: 90%;
     overflow: auto;
 
+    p{
+        font-size: 17px;
+    }
+
     &::-webkit-scrollbar {
         width: 6px;
     }
@@ -69,6 +73,10 @@
         }
     }
     .content{
-        padding: 20px;    
+        padding: 20px;   
+        
+        p{
+            font-size: 16px;
+        }
     }
 }
