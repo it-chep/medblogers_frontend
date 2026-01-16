@@ -22,7 +22,7 @@
     background: var(--dark-gray);
     color: white;
     border-radius: 8px;
-    padding: 10px;
+    padding: 10px 8px;
 
     >img{
       width: 30px;
@@ -35,7 +35,7 @@
       align-self: start;
       width: 10px;
       height: 9px;
-      fill: var(--dark-gray);
+      fill: #9b9b9b;
       transition: all .2s ease;
     }
 
@@ -47,6 +47,7 @@
       column-gap: 5px;
       align-items: center;
       text-align: center;
+      font-size: 14px;
 
       .subsCount{
         font-weight: 700;
