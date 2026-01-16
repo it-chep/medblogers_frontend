@@ -3,15 +3,17 @@
 import { IFilter, IItemFilter, useFilterActions } from "@/src/entities/filter";
 import { FC, useMemo } from "react";
 import classes from './selectedFilter.module.scss'
+import { IFilterFreelancer, IItemFilterFreelancer, useFilterFreelancerActions } from "@/src/entities/filterFreelancer";
 
 interface IProps {
-    items: IItemFilter[];
-    labelSlug: keyof Omit<IFilter, 'minSubscribers' | 'maxSubscribers'>;
+    items: IItemFilter[] | IItemFilterFreelancer[];
+    labelSlug: keyof Omit<IFilter, 'minSubscribers' | 'maxSubscribers' | "filterInfo"> | keyof Omit<IFilterFreelancer, "societies" | "priceCategories">;
+    isDoctor?: boolean;
 }
 
-export const SelectedFilter: FC<IProps> = ({items, labelSlug}) => {
+export const SelectedFilter: FC<IProps> = ({items, isDoctor = false, labelSlug}) => {
 
-    const {setSelected} = useFilterActions()
+    const {setSelected} = isDoctor ? useFilterActions() : useFilterFreelancerActions()
 
     const selectedItems = useMemo(() => {
         return items.filter(item => item.selected)

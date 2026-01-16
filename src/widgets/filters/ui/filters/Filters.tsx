@@ -137,7 +137,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                     label="Город" 
                     labelSlug="cities" 
                     items={filter?.cities || []} 
-                    selectedFilter={<SelectedFilter items={filter?.cities || []} labelSlug={"cities"} />}
+                    selectedFilter={<SelectedFilter isDoctor items={filter?.cities || []} labelSlug={"cities"} />}
                 />
                 <MyHr />
                 <FilterItem 
@@ -145,7 +145,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                     label="Специальность" 
                     labelSlug="specialities" 
                     items={filter?.specialities || []} 
-                    selectedFilter={<SelectedFilter items={filter?.specialities || []} labelSlug={"specialities"} />}
+                    selectedFilter={<SelectedFilter isDoctor items={filter?.specialities || []} labelSlug={"specialities"} />}
                 />
                 <MyHr />
                 <FilterItem 
