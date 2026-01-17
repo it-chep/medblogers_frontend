@@ -29,7 +29,7 @@ export const ButtonUp: FC = () => {
 
     return (
         <section 
-            style={{opacity: visible ? '1' : '0'}} 
+            style={{display: visible ? 'block' : 'none'}} 
             className={classes.container}
             onClick={onClick}
         >
