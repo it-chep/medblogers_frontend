@@ -7,13 +7,6 @@ html{
   scroll-behavior: smooth;
 }
 
-@supports (-apple-liquid-glass: auto) {
-  html, body, div, section, button, a {
-    -apple-liquid-glass: none !important;
-    -webkit-liquid-glass: none !important;
-  }
-}
-
 button{
   font-size: 16px;
   font-family: 'Proxima Nova';
