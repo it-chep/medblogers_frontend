@@ -2,15 +2,17 @@
 
 .container{
     position: fixed;
-    top: 30px;
+    bottom: 30px;
     right: 30px;
     cursor: pointer;
     z-index: 1;
-
+    backdrop-filter: blur(10px);
+    
     transition: all .2s ease;
 
     svg{
         width: 64px;
+        backdrop-filter: blur(10px);
         height: 64px;
     }
 }
