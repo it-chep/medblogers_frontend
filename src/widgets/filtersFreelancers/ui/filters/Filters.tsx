@@ -13,6 +13,7 @@ import { clearParamsFilterFreelancer } from "@/src/shared/lib/helpers/clearParam
 import { IFilterFreelancer, useFilterFreelancerActions } from "@/src/entities/filterFreelancer";
 import { PreliminaryFilterCountFreelancers } from "@/src/features/preliminaryFilterCountFreelancers";
 import { FilterScroll } from "@/src/features/filterScroll/ui/FilterScroll";
+import { SelectedFilter } from "@/src/features/selectedFilter";
 
 interface IProps {
     forDesk: boolean;
@@ -90,6 +91,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                     label="Город" 
                     labelSlug="cities" 
                     items={filterFreelancer.cities} 
+                    selectedFilter={<SelectedFilter items={filterFreelancer.cities} labelSlug={"cities"} />}
                 />
                 <MyHr />
                 <FilterItem 
@@ -97,6 +99,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                     label="Специальность" 
                     labelSlug="specialities" 
                     items={filterFreelancer.specialities} 
+                    selectedFilter={<SelectedFilter items={filterFreelancer.specialities} labelSlug={"specialities"} />}
                 />
                 <MyHr />
                 <FilterItem 

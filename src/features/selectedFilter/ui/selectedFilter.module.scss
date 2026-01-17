@@ -1,0 +1,29 @@
+
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    margin-top: 10px;
+
+    .item{
+        display: flex;
+        gap: 8px;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--light-black);
+        border-radius: 8px;
+        padding: 4px 10px;
+        
+        .close{
+            stroke: var(--gray);
+            cursor: pointer;
+            transition: all .25s ease;
+
+            &:hover{
+                stroke: #fff;
+            }
+        }
+    }
+}
