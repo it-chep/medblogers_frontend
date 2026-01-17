@@ -25,8 +25,6 @@ export const DoctorMiniature: FC<IProps> = ({
 
     const fio = doctor.name.split(' ')
 
-    const count = (doctor.tgSubsCount ? 1 : 0) + (doctor.instSubsCount ? 1 : 0) + (doctor.youtubeSubsCount ? 1 : 0) + (doctor.vkSubsCount ? 1 : 0)
-
     return (
         <Link
             className={classes.container}
@@ -72,7 +70,7 @@ export const DoctorMiniature: FC<IProps> = ({
                             <section className={classes.sign}>
                                 Количество подписчиков в соц. сетях:
                             </section>
-                            <section className={classes.subscribersWrapper + (count === 1 ? ` ${classes.oneColumn}` : '')}>
+                            <section className={classes.subscribersWrapper}>
                                 {
                                     doctor.tgSubsCount
                                         &&
