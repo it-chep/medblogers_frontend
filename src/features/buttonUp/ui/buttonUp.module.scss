@@ -6,14 +6,16 @@
     right: 30px;
     cursor: pointer;
     z-index: 1;
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
     
     transition: all .2s ease;
 
     svg{
         width: 64px;
-        backdrop-filter: blur(10px);
         height: 64px;
+        -webkit-backdrop-filter: none !important;
+        backdrop-filter: none !important;
     }
 }
 
