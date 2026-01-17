@@ -6,16 +6,20 @@
     right: 30px;
     cursor: pointer;
     z-index: 1;
-    -webkit-backdrop-filter: none !important;
+    -apple-liquid-glass: none !important;
+    -webkit-liquid-glass: none !important;
     backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     
     transition: all .2s ease;
 
     svg{
         width: 64px;
         height: 64px;
-        -webkit-backdrop-filter: none !important;
+        -apple-liquid-glass: none !important;
+        -webkit-liquid-glass: none !important;
         backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 }
 
