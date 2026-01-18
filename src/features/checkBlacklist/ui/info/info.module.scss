@@ -24,14 +24,14 @@
     background-color: var(--light-black);
     border-radius: 20px;
     padding: 20px 0;
-    height: 90vh;
+    max-height: 90vh;
     overflow: hidden;
 
     .wrapper{
         padding: 0 40px;
         overflow: auto;
         width: 500px;
-        height: calc(90vh - 40px);
+        max-height: calc(90vh - 40px);
 
         &::-webkit-scrollbar {
             width: 6px;
@@ -82,8 +82,12 @@
         padding: 5px 0;
         
         .wrapper{
-            height: calc(90vh - 10px);
+            max-height: calc(90vh - 10px);
             padding: 0 20px;
+
+            &::-webkit-scrollbar-track {
+                margin: 10px 0;
+            }
         }
         
         p{
