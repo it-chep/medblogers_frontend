@@ -66,56 +66,67 @@ export const DoctorMiniature: FC<IProps> = ({
                     {
                         (doctor.tgSubsCount || doctor.instSubsCount || doctor.youtubeSubsCount || doctor.vkSubsCount)
                             &&
-                        <section className={classes.subscribersWrapper}>
-                            {
-                                doctor.tgSubsCount
-                                    &&
-                                <SubscriberLink
-                                    link={doctor.tgLink}
-                                    socialIconSrc={tg_logo.src}
-                                    subsCount={doctor.tgSubsCount}
-                                    text={doctor.tgSubsCountText}
-                                    useA={false} // убираем вложенность тега a
-                                />
-                            }
-                            {
-                                doctor.instSubsCount
-                                    &&
-                                <SubscriberLink
-                                    link={doctor.instLink}
-                                    socialIconSrc={inst_logo.src}
-                                    subsCount={doctor.instSubsCount}
-                                    text={doctor.instSubsCountText}
-                                    useA={false}
-                                />
-                            }
-                            {
-                                doctor.youtubeSubsCount
-                                    &&
-                                <SubscriberLink
-                                    link={doctor.youtubeLink}
-                                    socialIconSrc={youtube_logo.src}
-                                    subsCount={doctor.youtubeSubsCount}
-                                    text={doctor.youtubeSubsCountText}
-                                    useA={false}
-                                />
-                            }
-                            {
-                                doctor.vkSubsCount
-                                &&
-                                <SubscriberLink
-                                    link={doctor.vkLink}
-                                    socialIconSrc={vk_logo.src}
-                                    subsCount={doctor.vkSubsCount}
-                                    text={doctor.vkSubsCountText}
-                                    useA={false}
-                                />
-                            }
-                        </section>
-                    }
-                    <MyButton>
-                        Подробнее
-                    </MyButton>
+                        <>
+                            <section className={classes.sign}>
+                                Количество подписчиков в соц. сетях:
+                            </section>
+                            <section className={classes.subscribersWrapper}>
+                                {
+                                    doctor.tgSubsCount
+                                        &&
+                                    <SubscriberLink
+                                        link={doctor.tgLink}
+                                        socialIconSrc={tg_logo.src}
+                                        subsCount={doctor.tgSubsCount}
+                                        text={''}
+                                        useA={false} // убираем вложенность тега a
+                                        fontSize={14}
+                                    />
+                                }
+                                {
+                                    doctor.instSubsCount
+                                        &&
+                                    <SubscriberLink
+                                        link={doctor.instLink}
+                                        socialIconSrc={inst_logo.src}
+                                        subsCount={doctor.instSubsCount}
+                                        text={''}
+                                        useA={false}
+                                        fontSize={14}
+                                    />
+                                }
+                                {
+                                    doctor.youtubeSubsCount
+                                        &&
+                                    <SubscriberLink
+                                        link={doctor.youtubeLink}
+                                        socialIconSrc={youtube_logo.src}
+                                        subsCount={doctor.youtubeSubsCount}
+                                        text={''}
+                                        useA={false}
+                                        fontSize={14}
+                                    />
+                                }
+                                {
+                                    doctor.vkSubsCount
+                                        &&
+                                    <SubscriberLink
+                                        link={doctor.vkLink}
+                                        socialIconSrc={vk_logo.src}
+                                        subsCount={doctor.vkSubsCount}
+                                        text={''}
+                                        useA={false}
+                                        fontSize={14}
+                                    />
+                                }
+                            </section>
+                            </>
+                        }
+                    <section className={classes.link}>
+                        <MyButton>
+                            Подробнее
+                        </MyButton>
+                    </section>
                 </section>
             </section>
         </Link>

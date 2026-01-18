@@ -1,0 +1,27 @@
+
+
+.container{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 1;
+    
+    transition: all .2s ease;
+
+    svg{
+        width: 64px;
+        height: 64px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        display: none;
+        svg{
+            width: 54px;
+            height: 54px;
+        }
+    }
+}
+

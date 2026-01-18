@@ -56,20 +56,24 @@
     .buttonsWrapper{
       width: 100%;
       display: flex;
+      justify-content: end;
       flex-direction: column;
       margin-top: 30px;
-      gap: 20px;
+      gap: 10px;
+
+      .sign{
+        color: #AEAEAE;
+        font-size: 14px;
+      }
 
       .subscribersWrapper {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 5px;
       }
 
       .link{
-        width: 100%;
-        text-align: center;
-        font-size: 16px;
+        margin-top: 10px;
       }
     }
   }
@@ -77,9 +81,7 @@
 
 @media (max-width: 480px) {
   .container{
-
     .infoWrapper{
-
       .info{
         .city{
           align-items: start;
@@ -89,7 +91,6 @@
 
       .buttonsWrapper{
         margin-top: 20px;
-        gap: 20px;
 
         .link{
           height: 50px;

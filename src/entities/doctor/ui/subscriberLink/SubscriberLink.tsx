@@ -10,9 +10,10 @@ interface IProps {
     subsCount?: string;
     text: string;
     useA: boolean;
+    fontSize?: number;
 }
 
-export const SubscriberLink: FC<IProps> = ({socialIconSrc, subsCount = '', text, link, useA}) => {
+export const SubscriberLink: FC<IProps> = ({socialIconSrc, subsCount = '', text, link, useA, fontSize}) => {
 
     const onClick = (e: MouseEvent) => {
         e.preventDefault()
@@ -33,6 +34,7 @@ export const SubscriberLink: FC<IProps> = ({socialIconSrc, subsCount = '', text,
                         socialIconSrc={socialIconSrc}
                         subsCount={subsCount}
                         text={text}
+                        fontSize={fontSize}
                     />
                 </a>
                     :
@@ -44,6 +46,7 @@ export const SubscriberLink: FC<IProps> = ({socialIconSrc, subsCount = '', text,
                         socialIconSrc={socialIconSrc}
                         subsCount={subsCount}
                         text={text}
+                        fontSize={fontSize}
                     />
                 </section>
             }

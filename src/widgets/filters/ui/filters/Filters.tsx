@@ -14,6 +14,7 @@ import { IFilter, useFilterActions } from "@/src/entities/filter"
 import { useAppSelector } from "@/src/app/store/store"
 import { clearParamsFilter } from "@/src/shared/lib/helpers/clearParamsFilter"
 import { FilterScroll } from "@/src/features/filterScroll/ui/FilterScroll"
+import { SelectedFilter } from "@/src/features/selectedFilter"
 
 interface IProps {
     forDesk: boolean;
@@ -108,7 +109,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
 
     const count = useRef<number>(0)
     useEffect(() => {
-        if(count.current < 2){
+        if(count.current < 1){
             count.current++;
         }
         else{
@@ -136,6 +137,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                     label="Город" 
                     labelSlug="cities" 
                     items={filter?.cities || []} 
+                    selectedFilter={<SelectedFilter isDoctor items={filter?.cities || []} labelSlug={"cities"} />}
                 />
                 <MyHr />
                 <FilterItem 
@@ -143,6 +145,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                     label="Специальность" 
                     labelSlug="specialities" 
                     items={filter?.specialities || []} 
+                    selectedFilter={<SelectedFilter isDoctor items={filter?.specialities || []} labelSlug={"specialities"} />}
                 />
                 <MyHr />
                 <FilterItem 

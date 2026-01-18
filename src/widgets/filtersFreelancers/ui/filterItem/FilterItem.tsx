@@ -10,10 +10,10 @@ interface IProps{
     search?: boolean;
     items: IItemFilterFreelancer[];
     mobile?: boolean;
-
+    selectedFilter?: React.ReactElement;
 }
 
-export const FilterItem: FC<IProps & PropsWithChildren> = ({label, mobile, labelSlug, items, search = true, children}) => {
+export const FilterItem: FC<IProps & PropsWithChildren> = ({label, mobile, labelSlug, items, search = true, selectedFilter, children}) => {
 
 
     const [value, setValue] = useState<string>('')
@@ -28,7 +28,11 @@ export const FilterItem: FC<IProps & PropsWithChildren> = ({label, mobile, label
 
     return (
         <section className={classes.filterItem}>
-            <OpenFilter mobile={mobile} label={label}>
+            <OpenFilter 
+                mobile={mobile} 
+                label={label} 
+                selectedFilter={selectedFilter}
+            >
                 { search && <SearchFilter value={value} setValue={setValue} /> }
                 <FilterFreelancerList
                     labelSlug={labelSlug} 

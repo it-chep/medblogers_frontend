@@ -1,42 +1,43 @@
 "use client"
 
-import { FC, MouseEvent, PropsWithChildren, useEffect, useRef } from "react";
+import React, { FC, MouseEvent, PropsWithChildren, useEffect, useRef } from "react";
 import classes from './openFilter.module.scss'
 
 interface IProps {
     label: string;
+    selectedFilter?: React.ReactElement;
     mobile?: boolean;
 }
 
-export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, mobile = null, children}) => {
+export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, mobile = null, selectedFilter, children}) => {
 
     const refSvg = useRef<SVGSVGElement>(null)
-    const refContainer = useRef<HTMLDivElement>(null)
+    const refWrapper = useRef<HTMLDivElement>(null)
 
     const onClick = () => {
         const targetSvg = refSvg.current;
-        const targetContainer = refContainer.current;
-        if(targetSvg && targetContainer){
+        const targetWrapper = refWrapper.current;
+        if(targetSvg && targetWrapper){
             targetSvg.classList.toggle(classes.open)
-            targetContainer.classList.toggle(classes.open)
-            targetContainer.classList.toggle('open')
+            targetWrapper.classList.toggle(classes.open)
+            targetWrapper.classList.toggle('open')
         }
     }
     
     const isOne = useRef<boolean>(true)
     useEffect(() => {
-        if(isOne.current && mobile && refSvg && refContainer){
+        if(isOne.current && mobile && refSvg && refWrapper){
             onClick()
             isOne.current = false;
         }
-    }, [refSvg, refContainer])
+    }, [refSvg, refWrapper])
 
     const cancelSelection = (e: MouseEvent) => {
         e.preventDefault()
     }
 
     return (
-        <section className={classes.wrapper + (mobile ? ` ${classes.mobile}` : '')}>
+        <section ref={refWrapper} className={classes.wrapper + (mobile ? ` ${classes.mobile}` : '')}>
             <section className={classes.label} onMouseDown={cancelSelection} onClick={onClick}>
                 <section className={classes.svgBox}>
                     <svg ref={refSvg}  className={classes.arrow} width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +46,10 @@ export const OpenFilter: FC<IProps & PropsWithChildren> = ({label, mobile = null
                 </section>
                 <p>{label}</p>
             </section>
-            <section ref={refContainer} className={classes.container + (' open_filter')}>
+            <section className={classes.selectedFilter}>
+                {selectedFilter}    
+            </section>
+            <section className={classes.container + (' open_filter')}>
                 {children}
             </section>
         </section>

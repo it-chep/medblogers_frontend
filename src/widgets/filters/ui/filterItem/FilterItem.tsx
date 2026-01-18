@@ -1,5 +1,5 @@
 import { OpenFilter } from "@/src/features/openFilter";
-import { FC, PropsWithChildren, useState } from "react";
+import React, { FC, PropsWithChildren, useState } from "react";
 import classes from './filterItem.module.scss'
 import { SearchFilter, useSearchItems } from "@/src/features/searchFilter";
 import { FilterList, IFilter, IItemFilter, useFilterActions } from "@/src/entities/filter";
@@ -10,16 +10,18 @@ interface IProps{
     search?: boolean;
     items: IItemFilter[];
     mobile?: boolean;
-
+    selectedFilter?: React.ReactElement;
 }
 
-export const FilterItem: FC<IProps & PropsWithChildren> = ({label, mobile, labelSlug, items, search = true, children}) => {
-
+export const FilterItem: FC<IProps & PropsWithChildren> = (
+    {label, mobile, labelSlug, items, search = true, selectedFilter, children}
+) => {
 
     const [value, setValue] = useState<string>('')
     const searchItems = useSearchItems(value, items)
 
     const {setSelected} = useFilterActions()
+    
     const onSelected = (name: string) => {
         return (selected: boolean) => {
             setSelected({field: labelSlug, name: name, selected})
@@ -28,8 +30,13 @@ export const FilterItem: FC<IProps & PropsWithChildren> = ({label, mobile, label
 
     return (
         <section className={classes.filterItem}>
-            <OpenFilter mobile={mobile} label={label}>
+            <OpenFilter 
+                selectedFilter={selectedFilter} 
+                mobile={mobile} 
+                label={label}
+            >
                 { search && <SearchFilter value={value} setValue={setValue} /> }
+               
                 <FilterList 
                     labelSlug={labelSlug} 
                     mobile={mobile} 
