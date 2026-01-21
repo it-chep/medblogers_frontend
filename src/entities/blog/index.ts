@@ -1,3 +1,5 @@
+export { BlogDoctor } from './ui/doctor/BlogDoctor'
+export { BlogCategories } from './ui/categories/BlogCategories'
 export { ShareBlog } from './ui/shareBlog/ShareBlog'
 export { Blog } from './ui/blog/Blog'
 export { getShortTitle } from './lib/helpers/getShortTitle'

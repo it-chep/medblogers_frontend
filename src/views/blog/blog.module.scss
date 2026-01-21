@@ -3,15 +3,16 @@
 .page{
     min-height: 100vh;
     
-    .share{
-        width: fit-content;
-        margin-top: 40px;
-    }
-
     .main{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
         width: 770px;
         max-width: 100%;
-        margin: 0 auto;
+        margin: 30px auto 0 auto;
+        border-radius: 20px;
+        background: #2A2A2A;
+        padding: 35px;
     }
 
     .blogsTop{
@@ -27,6 +28,9 @@
 
 @media (max-width: 480px) {
     .page{
+        .main{
+            padding: 20px;
+        }
         .blogsTop{
             .other{
                 font-size: 28px;

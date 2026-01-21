@@ -9,8 +9,21 @@ export interface IBlogMiniature {
     photoLink: string;
 }
 
+export interface IBlogDoctor {
+    name: string;
+    slug: string;
+    image: string;
+    specialityName: string; 
+}
 
-export interface IBlogDetail{
+export interface IBlogCategory {
+    id: number;
+    name: string;
+    fontColor : string;
+    bgColor : string; 
+}
+
+export interface IBlogDetail {
 
     code?: number;
 
@@ -22,4 +35,7 @@ export interface IBlogDetail{
     additionalSeoText: string;
     createdAt: string;
     photoLink: string;
+
+    doctor: IBlogDoctor;
+    categories: IBlogCategory[];
 }
