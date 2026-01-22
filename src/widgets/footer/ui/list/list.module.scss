@@ -7,17 +7,22 @@
     gap: 20px;
     opacity: 0.9;
     
+    a{
+        transition: all .15s ease;
+        &:hover{
+            opacity: .7;
+        }
+    }
+    
     .bold{
         font-weight: 800;
     }
 }
 
-
 .sign{
     display: block;
     opacity: 0.4;
     line-height: 120%;
-
 }
 
 .listRequisites{

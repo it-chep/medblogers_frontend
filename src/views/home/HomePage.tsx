@@ -38,13 +38,12 @@ export default async function HomePage() {
 
     return (
         <section className={classes.page + ' wrapper_main'}>
-            <Banner10 />
             <section className={classes.content}>
                 <aside className={classes.aside}>
                     <BannerNewDoctor />
                     {
                         IS_FREELANCERS_DONE
-                            &&
+                        &&
                         <Link href={'/helpers'} className={classes.button}>
                             <ButtonDark><span className={classes.helpersLink}>Перейти к базе помощников</span></ButtonDark>
                         </Link>
@@ -54,6 +53,7 @@ export default async function HomePage() {
                     </section>
                 </aside>
                 <main className={classes.main}>
+                    <Banner10 />
                     <StatisticsLayout />
                     <SearchDoctors>
                         <OpenFiltersModal>

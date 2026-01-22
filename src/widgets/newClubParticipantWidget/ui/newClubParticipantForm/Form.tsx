@@ -198,7 +198,7 @@ export const Form: FC = () => {
                 name="youtubeUsername"
             />
             <SearchItemListDropdown 
-                label={<span style={{zIndex: 4}} className={classes.hint}>Выберите город * <Hint hint={getHint(true)} /></span>}
+                label={<span style={{zIndex: 4}} className={classes.hint}>Выберите город * <Hint staticWidth hint={getHint(true)} /></span>}
                 emptyLabel={getHint(true)}
                 items={cities.map(city => ({id: city.cityId, name: city.cityName}))} 
                 selectedItemId={form.cityId} 
@@ -209,7 +209,7 @@ export const Form: FC = () => {
                 setError={setErrorFieldDelete('cityId')}
             />
             <SearchListDropdown
-                label={<span style={{zIndex: 3}} className={classes.hint}>Дополнительные города <Hint hint={getHint(true)} /></span>}
+                label={<span style={{zIndex: 3}} className={classes.hint}>Дополнительные города <Hint staticWidth hint={getHint(true)} /></span>}
                 emptyLabel={getHint(true)}
                 selectedItemsId={form.additionalCities} 
                 deleteSelected={deleteAdditionalCities} 
@@ -218,7 +218,7 @@ export const Form: FC = () => {
                 placeholder="Введите название города..."
             />
             <SearchItemListDropdown 
-                label={<span style={{zIndex: 2}} className={classes.hint}>Выберите вашу специальность * <Hint hint={getHint()} /></span>}
+                label={<span style={{zIndex: 2}} className={classes.hint}>Выберите вашу специальность * <Hint staticWidth hint={getHint()} /></span>}
                 emptyLabel={getHint()}
                 items={specialitiesMain.map(speciality => ({id: speciality.specialityId, name: speciality.specialityName}))} 
                 selectedItemId={form.specialityId} 
