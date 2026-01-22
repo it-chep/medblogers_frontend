@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, KeyboardEvent, useEffect, useRef, useState } from "react";
 import classes from './chckBlacklist.module.scss'
 import { MyInput } from "@/src/shared/ui/myInput";
 import { MyButton } from "@/src/shared/ui/myButton";
@@ -71,6 +71,12 @@ export const CheckBlacklist: FC = () => {
         }
     }
 
+    const onEnter = (e: KeyboardEvent) => {
+        if(e.key === 'Enter'){
+            onCheck()
+        }
+    }
+
     return (
         <section 
             className={classes.container + (status === 'false' ? ` ${classes.false}` : status === 'true' ? ` ${classes.ok}` : '')}
@@ -80,7 +86,9 @@ export const CheckBlacklist: FC = () => {
                     РАССТРЕЛЬНЫЙ СПИСОК КАНАЛОВ
                 </section>
                 <section className={classes.wrapInput}>
-                    <section className={classes.input}>
+                    <section onKeyDown={onEnter}
+                        className={classes.input}
+                    >
                         <MyInput 
                             value={telegram} 
                             setValue={setTelegram} 
