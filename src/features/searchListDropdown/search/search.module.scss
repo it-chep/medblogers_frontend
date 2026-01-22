@@ -36,9 +36,14 @@
         }
     }
 
+    .empty{
+        font-size: 15px;
+        opacity: .8;
+        padding: 8px 12px;
+    }
+
     .errorText{
         color: #ff4141;
         font-size: 14px;
     }
-   
 }

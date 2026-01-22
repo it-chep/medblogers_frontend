@@ -1,6 +1,6 @@
 import classes from './blog.module.scss'
 import { isDynamicServerError } from 'next/dist/client/components/hooks-server-context'
-import { Blog, blogService, IBlogDetail, ShareBlog } from '@/src/entities/blog';
+import { Blog, BlogCategories, BlogDoctor, blogService, IBlogDetail, ShareBlog } from '@/src/entities/blog';
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
@@ -42,16 +42,28 @@ export default async function BlogPage(props: IProps) {
                 {path: '', label: blog.title},
             ]} />
             <main className={classes.main}>
-                <Blog blog={blog} >
+                <Blog 
+                    blog={blog} 
+                    categories={
+                        <BlogCategories 
+                            categories={blog.categories}
+                        />
+                    }
+                >
                     <Share>
                         <ShareBlog />
                     </Share>
                 </Blog>
-                <section className={classes.share}>
-                    <Share>
-                        <ShareBlog />
-                    </Share>
-                </section>
+                <Share>
+                    <ShareBlog />
+                </Share>
+                {
+                    blog.doctor.name 
+                        &&
+                    <BlogDoctor 
+                        doctor={blog.doctor}
+                    />
+                }
             </main>
             <section className={classes.blogsTop}>
                 <h2 className={classes.other}>Читать другие статьи</h2>

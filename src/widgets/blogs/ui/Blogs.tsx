@@ -2,7 +2,6 @@ import { FC } from "react";
 import classes from './blogs.module.scss'
 import { BlogMiniature, IBlogMiniature } from "@/src/entities/blog";
 
-
 interface IProps {
     blogs: IBlogMiniature[];
 }

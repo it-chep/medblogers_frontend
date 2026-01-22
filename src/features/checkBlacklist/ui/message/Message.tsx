@@ -14,7 +14,7 @@ export const Message: FC<IProps> = ({onClose, status}) => {
             <svg className={classes.close} onClick={onClose} width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M13 1L1 13Z" fill="#D9D9D9"/>
                 <path d="M1 1L13 13Z" fill="#D9D9D9"/>
-                <path d="M13 1L1 13M1 1L13 13" stroke="white" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 1L1 13M1 1L13 13" stroke="white" strokeOpacity="0.8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
             <section className={classes.icon}>
                 {

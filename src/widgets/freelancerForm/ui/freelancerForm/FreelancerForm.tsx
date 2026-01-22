@@ -18,6 +18,7 @@ import { freelancerService, IFreelancerCity, IFreelancerSpeciality } from "@/src
 import { IItem } from "@/src/shared/model/types";
 import { PriceListChange } from "@/src/features/priceListChange";
 import { Choose } from "../choose/Choose";
+import { Hint } from "@/src/shared/ui/hint";
 
 export const FreelancerForm: FC = () => {
 
@@ -125,6 +126,10 @@ export const FreelancerForm: FC = () => {
         setFormError(newFormError)
     }
 
+    const getHint = (city: boolean = false) => {
+        return `Если не нашли ${city ? 'свой город' : 'свою специализацию'}, выберите ${city ? 'любой' : 'любую'} и после отправки анкеты попросите отдел заботы поменять ${city ? 'этот город ' : 'эту специализацию'} на вашу`
+    }
+
     return (
         <form onSubmit={onSubmit} className={classes.container}>
             <Choose 
@@ -211,7 +216,8 @@ export const FreelancerForm: FC = () => {
                 required
             />
             <SearchItemListDropdown 
-                label="Ваша специализация *"
+                label={<span style={{zIndex: 4}} className={classes.hint}>Ваша специализация * <Hint staticWidth hint={getHint()} /></span>}
+                emptyLabel={getHint()}
                 items={specialities.map(speciality => ({id: speciality.specialityId, name: speciality.specialityName}))} 
                 selectedItemId={form.specialityId} 
                 setSelectedId={setSpeciality} 
@@ -221,7 +227,8 @@ export const FreelancerForm: FC = () => {
                 setError={setErrorFieldDelete('specialityId')}
             />
             <SearchListDropdown 
-                label="Дополнительные специализации"
+                label={<span style={{zIndex: 3}} className={classes.hint}>Дополнительные специализации <Hint staticWidth hint={getHint()} /></span>}
+                emptyLabel={getHint()}
                 selectedItemsId={form.additionalSpecialties} 
                 deleteSelected={deleteAdditionalSpecialities} 
                 items={specialities.map(speciality => ({id: speciality.specialityId, name: speciality.specialityName}))} 
@@ -231,7 +238,8 @@ export const FreelancerForm: FC = () => {
                 setError={setErrorFieldDelete('additionalSpecialities')}
             />
             <SearchItemListDropdown 
-                label="Город работы *"
+                label={<span style={{zIndex: 2}} className={classes.hint}>Город работы * <Hint staticWidth hint={getHint(true)} /></span>}
+                emptyLabel={getHint(true)}
                 items={cities.map(city => ({id: city.cityId, name: city.cityName}))} 
                 selectedItemId={form.cityId} 
                 setSelectedId={setCity} 
@@ -241,7 +249,8 @@ export const FreelancerForm: FC = () => {
                 setError={setErrorFieldDelete('cityId')}
             />
             <SearchListDropdown
-                label="Дополнительные города работы"
+                label={<span style={{zIndex: 1}} className={classes.hint}>Дополнительные города работы <Hint staticWidth hint={getHint(true)} /></span>}
+                emptyLabel={getHint(true)}
                 selectedItemsId={form.additionalCities} 
                 deleteSelected={deleteAdditionalCities} 
                 items={cities.map(city => ({id: city.cityId, name: city.cityName}))} 

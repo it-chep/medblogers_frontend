@@ -4,6 +4,7 @@ import { LoaderSpinner } from '@/src/shared/ui/loaderSpinner'
 import { FreelancerDetail } from '@/src/widgets/freelancerDetail'
 import { DoctorsRecommendations } from '@/src/widgets/doctorsRecommendations'
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs'
+import { SearchFreelancers } from '@/src/widgets/searchFreelancers'
 
 interface IProps {
     slug: string
@@ -15,6 +16,7 @@ export default async function FreelancerPage(props: IProps) {
     return (
         <section className={classes.page + ' wrapper_main'}>
             <main className={classes.main}>
+                <SearchFreelancers />
                 {
                     props.title
                         &&

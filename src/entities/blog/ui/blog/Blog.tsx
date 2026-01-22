@@ -1,12 +1,14 @@
-import { FC, PropsWithChildren } from "react";
+import React, { FC, PropsWithChildren } from "react";
 import classes from './blog.module.scss'
 import { IBlogDetail } from "../../model/types";
 
 interface IProps{
     blog: IBlogDetail;
+
+    categories: React.ReactElement;
 }
 
-export const Blog: FC<IProps & PropsWithChildren> = ({blog, children}) => {
+export const Blog: FC<IProps & PropsWithChildren> = ({blog, categories, children}) => {
 
 
     return (
@@ -19,6 +21,9 @@ export const Blog: FC<IProps & PropsWithChildren> = ({blog, children}) => {
                     {children}
                 </section>
             </section>
+            {
+                categories
+            }
             <section className={classes.content}>
                 <h1>{blog.title}</h1>
                 <section 

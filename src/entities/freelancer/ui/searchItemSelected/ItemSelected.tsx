@@ -21,7 +21,7 @@ export const ItemSelected: FC<IProps & PropsWithChildren> = ({labelUrl, id, setO
         const params = new URLSearchParams(searchParams)
         clearParamsFilter(params)
         params.set(labelUrl, String(id))
-        const newUrl = `${pathname}?${params.toString()}`
+        const newUrl = `/helpers/?${params.toString()}`
         setOpen(false)
         router.push(newUrl)
     }

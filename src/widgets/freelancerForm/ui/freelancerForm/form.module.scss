@@ -6,6 +6,12 @@
     flex-direction: column;
     gap: 15px;
     margin-bottom: 160px;
+    
+    .hint{
+        position: relative;
+        display: flex;
+        gap: 4px;
+    }
 
     .checkbox{
         font-size: 18px;

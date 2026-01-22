@@ -1,5 +1,18 @@
-  
-  
+
+
+export interface IBlogDoctor {
+    name: string;
+    slug: string;
+    image: string;
+    specialityName: string; 
+}
+
+export interface IBlogCategory {
+    id: number;
+    name: string;
+    fontColor : string;
+    bgColor : string; 
+}
   
 export interface IBlogMiniature {
     title: string;
@@ -7,10 +20,10 @@ export interface IBlogMiniature {
     previewText: string;
     createdAt: string;
     photoLink: string;
+    categories: IBlogCategory[];
 }
 
-
-export interface IBlogDetail{
+export interface IBlogDetail {
 
     code?: number;
 
@@ -22,4 +35,7 @@ export interface IBlogDetail{
     additionalSeoText: string;
     createdAt: string;
     photoLink: string;
+
+    doctor: IBlogDoctor;
+    categories: IBlogCategory[];
 }
