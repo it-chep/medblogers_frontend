@@ -37,6 +37,12 @@
 
         .list{
             position: relative;
+
+            .empty{
+                font-size: 15px;
+                opacity: .8;
+                padding: 8px 12px;
+            }
         }
 
         .sign{

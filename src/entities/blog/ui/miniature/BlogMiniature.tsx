@@ -3,6 +3,7 @@ import classes from './miniature.module.scss'
 import { IBlogMiniature } from "../../model/types";
 import Link from "next/link";
 import { MyButtonBlog } from "../button/MyButton";
+import { BlogCategories } from "../categories/BlogCategories";
 
 
 interface IProps {
@@ -24,21 +25,33 @@ export const BlogMiniature: FC<IProps> = ({blog}) => {
                 }
             </section>
             <section className={classes.wrap}>
-                <section className={classes.data}>
-                    <section className={classes.date}>
-                        {blog.createdAt}
+                {
+                    blog.categories.length > 0
+                        &&
+                    <section className={classes.categories}>
+                        <BlogCategories 
+                            categories={blog.categories} 
+                            miniature 
+                        />
                     </section>
-                    <section className={classes.title}>
-                        {blog.title}
+                }
+                <section className={classes.wrapData}>
+                    <section className={classes.data}>
+                        <section className={classes.date}>
+                            {blog.createdAt}
+                        </section>
+                        <section className={classes.title}>
+                            {blog.title}
+                        </section>
+                        <section className={classes.description}>
+                            {blog.previewText}
+                        </section>
                     </section>
-                    <section className={classes.description}>
-                        {blog.previewText}
+                    <section className={classes.button}>
+                        <MyButtonBlog>
+                            Читать статью
+                        </MyButtonBlog>
                     </section>
-                </section>
-                <section className={classes.button}>
-                    <MyButtonBlog>
-                        Читать статью
-                    </MyButtonBlog>
                 </section>
             </section>
         </Link>

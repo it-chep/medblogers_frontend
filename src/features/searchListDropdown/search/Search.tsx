@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useRef, useState } from "react";
+import { FC, ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import classes from './search.module.scss'
 import { useSearchItems } from "../../../shared/lib/hooks/useSearchItems";
 import { SearchList } from "@/src/shared/ui/searchList";
@@ -6,7 +6,7 @@ import { BadgeDelete } from "../badgeDelete/BadgeDelete";
 import { IItem } from "@/src/shared/model/types";
 
 interface IProps {
-    label: string;
+    label: string | ReactElement;
     items: IItem[];
     setSelected: (selectedId: number) => void;
     deleteSelected?: (id: number) => void;
@@ -14,10 +14,11 @@ interface IProps {
     placeholder: string;
     error?: string;
     setError?: () => void;
+    emptyLabel?: string;
 }
 
 export const SearchListDropdown: FC<IProps> = (
-    {items, setSelected, deleteSelected = () => {}, label, selectedItemsId, placeholder, error, setError}
+    {items, setSelected, deleteSelected = () => {}, label, selectedItemsId, placeholder, error, setError, emptyLabel}
 ) => {
 
     const inputRef = useRef<HTMLInputElement>(null)
@@ -93,6 +94,13 @@ export const SearchListDropdown: FC<IProps> = (
                     onChange={e => setValue(e.target.value)} 
                 />
             </section>
+            {
+                emptyLabel && (!searchItems.length)
+                    &&
+                <section className={classes.empty}>
+                    {emptyLabel}
+                </section>
+            }
             {
                 searchItems.length !== 0 && open
                     &&

@@ -11,6 +11,16 @@
         border-radius: 8px;
         padding: 10px 18px;
     }
+
+    &.miniature{
+        gap: 6px;
+        font-size: 14px;
+
+        .item{
+            border-radius: 6px;
+            padding: 6px 10px;
+        }
+    }
 }
 
 @media (max-width: 480px) {

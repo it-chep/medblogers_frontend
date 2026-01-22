@@ -17,6 +17,7 @@ import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 import { specialityService } from "@/src/entities/speciality";
 import { MyInputForm } from "@/src/shared/ui/inputForm";
 import { SearchItemListDropdown, SearchListDropdown } from "@/src/features/searchListDropdown";
+import { Hint } from "@/src/shared/ui/hint";
 
 export const Form: FC = () => {
 
@@ -86,6 +87,10 @@ export const Form: FC = () => {
     const setSelectedAgreePolicy = () => {
         setAgreePolicy(!form.agreePolicy)
         setErrorFieldDelete('agreePolicy')()
+    }
+
+    const getHint = (city: boolean = false) => {
+        return `Если не нашли ${city ? 'свой город' : 'свою специальность'}, выберите ${city ? 'любой' : 'любую'} и после отправки анкеты попросите отдел заботы поменять ${city ? 'этот город ' : 'эту специальность'} на вашу`
     }
 
     return (
@@ -193,7 +198,8 @@ export const Form: FC = () => {
                 name="youtubeUsername"
             />
             <SearchItemListDropdown 
-                label="Выберите город (Если вашего нет, напишите об этом в бота) *"
+                label={<span style={{zIndex: 4}} className={classes.hint}>Выберите город * <Hint hint={getHint(true)} /></span>}
+                emptyLabel={getHint(true)}
                 items={cities.map(city => ({id: city.cityId, name: city.cityName}))} 
                 selectedItemId={form.cityId} 
                 setSelectedId={setCity} 
@@ -203,7 +209,8 @@ export const Form: FC = () => {
                 setError={setErrorFieldDelete('cityId')}
             />
             <SearchListDropdown
-                label="Дополнительные города"
+                label={<span style={{zIndex: 3}} className={classes.hint}>Дополнительные города <Hint hint={getHint(true)} /></span>}
+                emptyLabel={getHint(true)}
                 selectedItemsId={form.additionalCities} 
                 deleteSelected={deleteAdditionalCities} 
                 items={cities.map(c => ({id: c.cityId, name: c.cityName}))} 
@@ -211,7 +218,8 @@ export const Form: FC = () => {
                 placeholder="Введите название города..."
             />
             <SearchItemListDropdown 
-                label="Выберите вашу специальность (Если ее нет, напишите в бота) *"
+                label={<span style={{zIndex: 2}} className={classes.hint}>Выберите вашу специальность * <Hint hint={getHint()} /></span>}
+                emptyLabel={getHint()}
                 items={specialitiesMain.map(speciality => ({id: speciality.specialityId, name: speciality.specialityName}))} 
                 selectedItemId={form.specialityId} 
                 setSelectedId={setSpeciality} 
@@ -221,7 +229,8 @@ export const Form: FC = () => {
                 setError={setErrorFieldDelete('specialityId')}
             />
             <SearchListDropdown 
-                label="Дополнительные специальности"
+                label={<span style={{zIndex: 1}} className={classes.hint}>Дополнительные специальности <Hint hint={getHint()} /></span>}
+                emptyLabel={getHint()}
                 selectedItemsId={form.additionalSpecialties} 
                 deleteSelected={deleteAdditionalSpecialities} 
                 items={specialitiesAdditional.map(s => ({id: s.specialityId, name: s.specialityName}))} 

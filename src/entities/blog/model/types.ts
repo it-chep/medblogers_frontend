@@ -1,13 +1,4 @@
-  
-  
-  
-export interface IBlogMiniature {
-    title: string;
-    slug: string;
-    previewText: string;
-    createdAt: string;
-    photoLink: string;
-}
+
 
 export interface IBlogDoctor {
     name: string;
@@ -21,6 +12,15 @@ export interface IBlogCategory {
     name: string;
     fontColor : string;
     bgColor : string; 
+}
+  
+export interface IBlogMiniature {
+    title: string;
+    slug: string;
+    previewText: string;
+    createdAt: string;
+    photoLink: string;
+    categories: IBlogCategory[];
 }
 
 export interface IBlogDetail {

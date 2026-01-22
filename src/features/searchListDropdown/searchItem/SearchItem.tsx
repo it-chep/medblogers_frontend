@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo, useRef, useState } from "react";
+import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 import classes from './searchItem.module.scss'
 import { useSearchItems } from "@/src/shared/lib/hooks/useSearchItems";
 import { MyInputForm } from "@/src/shared/ui/inputForm";
@@ -9,7 +9,8 @@ interface IProps {
     setSelectedId: (id: number) => void;
     selectedItemId: number;
     items: IItem[]
-    label: string;
+    label: string | React.ReactElement;
+    emptyLabel?: string;
     placeholder: string;
     placeholderSearch: string;
     error?: string;
@@ -17,7 +18,7 @@ interface IProps {
 }
 
 export const SearchItemListDropdown: FC<IProps> = (
-    {selectedItemId, setSelectedId, items, label, placeholder, placeholderSearch, error, setError}
+    {selectedItemId, setSelectedId, items, label, placeholder, placeholderSearch, error, setError, emptyLabel}
 ) => {
 
     const [value, setValue] = useState<string>('')
@@ -85,6 +86,13 @@ export const SearchItemListDropdown: FC<IProps> = (
                         />
                     </section>
                     <section className={classes.list}>
+                        {
+                            emptyLabel && (!searchItems.length)
+                                &&
+                            <section className={classes.empty}>
+                                {emptyLabel}
+                            </section>
+                        }
                         <SearchList itemList={searchItems} onSelected={onSelected} />
                     </section>
                 </section>

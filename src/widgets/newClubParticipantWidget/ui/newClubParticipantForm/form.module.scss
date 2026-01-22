@@ -7,6 +7,12 @@
     gap: 15px;
     margin-bottom: 160px;
 
+    .hint{
+        position: relative;
+        display: flex;
+        gap: 4px;
+    }
+
     .agreePolicy{
 
         font-size: 18px;

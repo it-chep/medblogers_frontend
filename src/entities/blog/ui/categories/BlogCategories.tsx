@@ -5,14 +5,15 @@ import { IBlogCategory } from "../../model/types";
 
 interface IProps {
     categories: IBlogCategory[];
+    miniature?: boolean;
 }
 
-export const BlogCategories: FC<IProps> = ({categories}) => {
+export const BlogCategories: FC<IProps> = ({categories, miniature = false}) => {
 
     return (
         categories.length > 0
             ?
-        <ul className={classes.list}>
+        <ul className={classes.list + (miniature ? ` ${classes.miniature}` : '')}>
             {categories.map(category => 
                 <li
                     style={{
