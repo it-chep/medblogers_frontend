@@ -16,7 +16,9 @@ export default async function FreelancerPage(props: IProps) {
     return (
         <section className={classes.page + ' wrapper_main'}>
             <main className={classes.main}>
-                <SearchFreelancers />
+                <section className={classes.searchFreelancers}>
+                    <SearchFreelancers />
+                </section>
                 {
                     props.title
                         &&

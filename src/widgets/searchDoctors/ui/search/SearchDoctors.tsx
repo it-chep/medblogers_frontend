@@ -7,7 +7,6 @@ import { SearchInput } from "@/src/features/searchInput";
 import { ISearchDoctors, SearchResultDoctors } from "@/src/entities/doctor";
 import { searchDoctorsService } from "../../api/SearchDoctorsService";
 
-
 export const SearchDoctors: FC<PropsWithChildren> = ({children}) => {
 
     const [open, setOpen] = useState<boolean>(false)
@@ -44,13 +43,19 @@ export const SearchDoctors: FC<PropsWithChildren> = ({children}) => {
 
     return (
         <section className={classes.wrapper}>
-            <SearchInput onChange={onChange} onFocus={onOpen} />
-            <MyModal open={open} setOpen={setOpen}>
-                <SearchResultDoctors isLoading={isLoading} setOpen={setOpen} result={searchResult} />     
-            </MyModal>
-            <section className={classes.openFilterForMobile}>
-                {children}
+            <section className={classes.search}>
+                <SearchInput onChange={onChange} onFocus={onOpen} />
+                {
+                    children
+                        &&
+                    <section className={classes.openFilterForMobile}>
+                        {children}
+                    </section>
+                }
             </section>
+                <MyModal open={open} setOpen={setOpen}>
+                    <SearchResultDoctors isLoading={isLoading} setOpen={setOpen} result={searchResult} />     
+                </MyModal>
         </section>
     )
 }
