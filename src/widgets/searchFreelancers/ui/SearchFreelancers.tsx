@@ -46,9 +46,13 @@ export const SearchFreelancers: FC<PropsWithChildren> = ({children}) => {
         <section className={classes.wrapper}>
             <section className={classes.search}>
                 <SearchInput onChange={onChange} onFocus={onOpen} />
-                <section className={classes.openFilterForMobile}>
-                    {children}
-                </section>
+                {
+                    children
+                        &&
+                    <section className={classes.openFilterForMobile}>
+                        {children}
+                    </section>
+                }
             </section>
             <MyModal open={open} setOpen={setOpen}>
                 <SearchResultFreelancer 
