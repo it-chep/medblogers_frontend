@@ -19,19 +19,6 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
         setOpen(false)
     }
 
-    // useEffect(() => {
-    //     if(refWrap.current && refDarken.current){
-    //         if(open){
-    //             refWrap.current.classList.add(classes.open)
-    //             refDarken.current.classList.add(classes.open)
-    //         }
-    //         else{
-    //             refWrap.current.classList.remove(classes.open)
-    //             refDarken.current.classList.remove(classes.open)
-    //         }
-    //     }
-    // }, [open])
-
     const isOne = useRef<boolean>(true)
     useEffect(() => {
         if(isOne.current){

@@ -22,10 +22,14 @@
 
 @media (max-width: 480px) {
     .wrapper{
-        display: flex;
-        align-items: center;
-        gap: 10px;
         margin-top: 20px;
+
+        .search{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
 
         .openFilterForMobile{
             display: block;
