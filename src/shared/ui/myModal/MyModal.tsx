@@ -51,7 +51,6 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
                     currentOpacity = open ? currentOpacity + 0.025 : currentOpacity - 0.025;
                     setTimeout(animateOpacity, transitionSec * 1000 / 40)
                 }
-
             }
 
             if(open){

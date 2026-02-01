@@ -14,7 +14,7 @@ export interface IFreelancerSpeciality {
     specialityName: string;
 }
 
-export interface IFreelancerSeo{
+export interface IFreelancerSeo {
     title: string;
     description: string;
     image: string;
