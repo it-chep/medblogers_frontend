@@ -19,19 +19,6 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
         setOpen(false)
     }
 
-    useEffect(() => {
-        if(refWrap.current && refDarken.current){
-            if(open){
-                refWrap.current.classList.add(classes.open)
-                refDarken.current.classList.add(classes.open)
-            }
-            else{
-                refWrap.current.classList.remove(classes.open)
-                refDarken.current.classList.remove(classes.open)
-            }
-        }
-    }, [open])
-
     const isOne = useRef<boolean>(true)
     useEffect(() => {
         if(isOne.current){
@@ -64,7 +51,6 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
                     currentOpacity = open ? currentOpacity + 0.025 : currentOpacity - 0.025;
                     setTimeout(animateOpacity, transitionSec * 1000 / 40)
                 }
-
             }
 
             if(open){
@@ -94,9 +80,7 @@ export const MyModal: FC<IProps & PropsWithChildren> = ({open, setOpen, transiti
             onClick={close}
         />
         <section style={{display: 'none'}} ref={refWrap} className={classes.wrapper}>
-            <section className={classes.container}>
-                {children}
-            </section>
+            {children}
         </section>
     </>
     )

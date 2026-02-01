@@ -44,7 +44,16 @@ export const SearchFreelancers: FC<PropsWithChildren> = ({children}) => {
 
     return (
         <section className={classes.wrapper}>
-            <SearchInput onChange={onChange} onFocus={onOpen} />
+            <section className={classes.search}>
+                <SearchInput onChange={onChange} onFocus={onOpen} />
+                {
+                    children
+                        &&
+                    <section className={classes.openFilterForMobile}>
+                        {children}
+                    </section>
+                }
+            </section>
             <MyModal open={open} setOpen={setOpen}>
                 <SearchResultFreelancer 
                     result={searchResult} 
@@ -52,9 +61,6 @@ export const SearchFreelancers: FC<PropsWithChildren> = ({children}) => {
                     isLoading={isLoading}
                 />
             </MyModal>
-            <section className={classes.openFilterForMobile}>
-                {children}
-            </section>
         </section>
     )
 }

@@ -13,8 +13,6 @@ interface IProps {
 
 export const SearchResultDoctors: FC<IProps> = ({result, setOpen, isLoading}) => {
 
-
-    
     return (
         <section className={classes.wrapper}>
             {
