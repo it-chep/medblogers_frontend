@@ -49,6 +49,7 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
                                 menuLink.site
                                     ?
                                 <Link 
+                                    scroll={false}
                                     href={menuLink.link}
                                     onClick={e => {
                                         if(menuLink.close){

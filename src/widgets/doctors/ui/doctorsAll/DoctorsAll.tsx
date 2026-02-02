@@ -8,6 +8,7 @@ import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 import { sortValues } from "@/src/features/sort";
 import { SetCitiesSearch } from "@/src/features/setCitiesSearch";
 import { SetSpecialitiesSearch } from "@/src/features/setSpecialitiesSearch";
+import { scrollingBL } from "@/src/features/checkBlacklist";
 
 export const DoctorsAll: FC = () => {
 
@@ -32,6 +33,7 @@ export const DoctorsAll: FC = () => {
             setIsLoading(true)
             const doctorsRes = await doctorService.getAll(checkSearchParams().toString())
             setDoctors(doctorsRes.doctors)
+            setTimeout(scrollingBL(), 1)
         }
         catch (e){
             console.log(e)

@@ -1,7 +1,7 @@
 "use client"
 
 import { FC, KeyboardEvent, useEffect, useRef, useState } from "react";
-import classes from './chckBlacklist.module.scss'
+import classes from './checkBlacklist.module.scss'
 import { MyInput } from "@/src/shared/ui/myInput";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
