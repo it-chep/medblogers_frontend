@@ -6,11 +6,11 @@ export const BannerImg: FC = () => {
 
     return (
         <svg width="896" height="170" viewBox="0 0 896 170" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
-            <g clip-path="url(#clip0_2153_35445)">
+            <g clipPath="url(#clip0_2153_35445)">
             <rect x="769.07" y="-587.508" width="771.301" height="771.301" transform="rotate(28.1818 769.07 -587.508)" fill="url(#pattern0_2153_35445)"/>
             <rect x="-441.088" y="-466.73" width="840.892" height="840.892" transform="rotate(-1.89122 -441.088 -466.73)" fill="url(#pattern1_2153_35445)"/>
             <rect x="448.193" y="-823.845" width="861.734" height="861.734" transform="rotate(30.5012 448.193 -823.845)" fill="url(#pattern2_2153_35445)"/>
-            <rect width="896" height="170" rx="15.625" fill="#01284B" fill-opacity="0.2"/>
+            <rect width="896" height="170" rx="15.625" fill="#01284B" fillOpacity="0.2"/>
             <rect x="0.390625" y="0.390625" width="895.219" height="169.219" rx="15.2344" stroke="#2F9BFF" strokeOpacity="0.3" strokeWidth="0.78125"/>
             <g opacity="0.14" filter="url(#filter0_f_2153_35445)">
             <path d="M-242.106 -641.465C-206.649 -640.871 -212.425 -701.917 -124.138 -595.7C-57.5831 -515.63 -103.262 -267.239 -126.726 -116.475C-142.646 -14.1878 -90.3954 99.9569 8.44747 170.936C159.615 279.49 527.612 340.575 507.203 429.849C479.667 550.297 68.5723 511.739 24.3985 511C-52.5161 509.714 -394.999 170.764 -390.151 -119.046C-385.303 -408.857 -319.021 -642.751 -242.106 -641.465Z" fill="#2F9BFF"/>
