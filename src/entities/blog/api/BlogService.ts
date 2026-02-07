@@ -15,6 +15,16 @@ class BlogService {
         return blogs
     }
 
+    async getBlogsDoctor(doctorSlug: string): Promise<IBlogMiniature[]> {
+        const response = await fetch(SERVER_URL_API + '/v1/blogs/doctor/' + doctorSlug,
+            {
+                next: {revalidate: 60}
+            }
+        )
+        const {blogs}: {blogs: IBlogMiniature[]} = await response.json()
+        return blogs
+    }
+
     async getTop(){
         const res = await fetch(SERVER_URL_API + '/v1/blogs/top', 
             {

@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import { LoaderSpinner } from '@/src/shared/ui/loaderSpinner'
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs'
 import { SearchDoctors } from '@/src/widgets/searchDoctors'
+import { DoctorBlogs } from '@/src/widgets/doctorBlogs'
 
 interface IProps {
     slug: string
@@ -26,6 +27,11 @@ export default async function DoctorPage(props: IProps) {
                 }
                 <Suspense fallback={<section className={classes.loader}><LoaderSpinner /></section>}>
                     <DoctorDetail 
+                        slug={props.slug} 
+                    />
+                </Suspense>
+                <Suspense fallback={<section className={classes.loader}><LoaderSpinner /></section>}>
+                    <DoctorBlogs 
                         slug={props.slug} 
                     />
                 </Suspense>
