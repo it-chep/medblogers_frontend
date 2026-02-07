@@ -69,7 +69,7 @@ export default async function HomePage() {
             <section className={classes.checkBlacklist}>
                 <section id="black_list_scroll"></section>
                 <CheckBlacklist />
-            </section>
+            </section> 
             <section className={classes.blogsTop}>
                 <h2 className={classes.blogs}>Полезные статьи для блога</h2>
                 <BlogsTopLayout />
