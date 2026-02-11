@@ -1,6 +1,7 @@
 import { FC } from "react";
 import classes from './categories.module.scss'
 import { IBlogCategory } from "../../model/types";
+import Link from "next/link";
 
 
 interface IProps {
@@ -23,7 +24,12 @@ export const BlogCategories: FC<IProps> = ({categories, miniature = false}) => {
                     key={category.id}
                     className={classes.item}
                 >   
-                    {category.name}
+                    <Link 
+                        className={classes.link} 
+                        href={miniature ? `?category=${category.id}` : `/blogs?category=${category.id}`}
+                    >
+                        {category.name}
+                    </Link>
                 </li>
             )}
         </ul>

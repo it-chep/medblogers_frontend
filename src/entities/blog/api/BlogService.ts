@@ -1,5 +1,5 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
-import { IBlogDetail, IBlogMiniature } from "../model/types"
+import { IBlogCategory, IBlogDetail, IBlogMiniature } from "../model/types"
 
 
 
@@ -13,6 +13,31 @@ class BlogService {
         )
         const {blogs}: {blogs: IBlogMiniature[]} = await res.json()
         return blogs
+    }
+
+    async getAllFilter(categoriesIds: number[]){
+        const res = await fetch(SERVER_URL_API + '/v1/blogs/filter', 
+            {
+                method: "POST",
+                body: JSON.stringify({categoriesIds}),
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                },
+                cache: "no-cache"
+            }
+        )
+        const {blogs}: {blogs: IBlogMiniature[]} = await res.json()
+        return blogs
+    }
+
+    async getCategories(){
+        const res = await fetch(SERVER_URL_API + '/v1/blogs/categories', 
+            {
+                cache: "no-cache"
+            }
+        )
+        const {categories}: {categories: IBlogCategory[]} = await res.json()
+        return categories
     }
 
     async getBlogsDoctor(doctorSlug: string): Promise<IBlogMiniature[]> {
