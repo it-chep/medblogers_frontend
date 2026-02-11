@@ -72,6 +72,9 @@ export default async function HomePage() {
             </section> 
             <section className={classes.blogsTop}>
                 <h2 className={classes.blogs}>Полезные статьи для блога</h2>
+                <section className={classes.sign}>
+                    Есть идея для статьи? <a href='https://t.me/m/FIqVfvb9ZmEy' target="_blank">Напишите нам</a>
+                </section>
                 <BlogsTopLayout />
             </section>
             <FAQ />

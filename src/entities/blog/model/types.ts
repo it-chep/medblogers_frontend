@@ -8,7 +8,7 @@ export interface IBlogDoctor {
 }
 
 export interface IBlogCategory {
-    id: number;
+    id: string;
     name: string;
     fontColor : string;
     bgColor : string; 

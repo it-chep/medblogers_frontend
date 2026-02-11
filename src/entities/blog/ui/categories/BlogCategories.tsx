@@ -1,7 +1,9 @@
+"use client"
+
 import { FC } from "react";
 import classes from './categories.module.scss'
 import { IBlogCategory } from "../../model/types";
-
+import { useRouter } from "next/navigation";
 
 interface IProps {
     categories: IBlogCategory[];
@@ -9,6 +11,8 @@ interface IProps {
 }
 
 export const BlogCategories: FC<IProps> = ({categories, miniature = false}) => {
+
+    const router = useRouter()
 
     return (
         categories.length > 0
@@ -22,6 +26,10 @@ export const BlogCategories: FC<IProps> = ({categories, miniature = false}) => {
                     }}
                     key={category.id}
                     className={classes.item}
+                    onClick={(e) => {
+                        e.preventDefault()
+                        router.push(`/blogs?category=${category.id}`)
+                    }}
                 >   
                     {category.name}
                 </li>
