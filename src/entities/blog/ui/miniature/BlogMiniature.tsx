@@ -5,7 +5,6 @@ import Link from "next/link";
 import { MyButtonBlog } from "../button/MyButton";
 import { BlogCategories } from "../categories/BlogCategories";
 
-
 interface IProps {
     blog: IBlogMiniature;
 }

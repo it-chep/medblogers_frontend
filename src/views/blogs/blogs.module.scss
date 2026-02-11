@@ -32,7 +32,7 @@
 
     .sign{
         font-size: 20px;
-        margin-top: 16px;
+        margin-top: 16px;   
 
         a{
             color: var(--blue);
@@ -49,6 +49,12 @@
     .page{
         .filter{
             margin-top: 40px;
+        }
+        h1{
+            font-size: 38px;
+        }
+        .sign{
+            font-size: 18px;
         }
     }
 }

@@ -54,6 +54,20 @@
       font-size: 40px;
       font-weight: 900;
     }
+
+    .sign{
+        font-size: 20px;
+        margin-top: 16px;
+
+        a{
+            color: var(--blue);
+            transition: all .15s ease;
+
+            &:hover{
+                color: var(--blue-hover);
+            }
+        }
+    }
   }
 }
 
@@ -82,6 +96,12 @@
       h2{
         text-align: center;
         font-size: 22px;
+      }
+
+      .sign{
+        text-align: center;
+        font-size: 17px;
+        margin-top: 12px;
       }
     }
   }
