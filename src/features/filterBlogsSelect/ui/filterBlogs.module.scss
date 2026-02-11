@@ -14,9 +14,11 @@
         cursor: pointer;
 
         transition: all .25s ease;
-
-        &:hover{
-            background-color: var(--blue);
+        
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--blue);
+            }
         }
 
         &.selected{
