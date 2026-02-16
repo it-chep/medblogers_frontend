@@ -1,0 +1,18 @@
+
+.desktop{
+    position: sticky;
+    top: 40px;
+}
+
+.mobile{
+    display: none;
+}
+
+@media (max-width: 850px) {
+    .desktop{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+}

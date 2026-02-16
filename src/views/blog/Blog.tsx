@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
 import { BlogsTopLayout } from '@/src/widgets/blogsTop';
+import { HeadlinesBlog } from '@/src/widgets/headlinesBlog';
 
 const getData = async (slug: string) => {
     let blog: IBlogDetail | null = null;
@@ -41,30 +42,35 @@ export default async function BlogPage(props: IProps) {
                 {path: '/blogs', label: 'Статьи'},
                 {path: '', label: blog.title},
             ]} />
-            <main className={classes.main}>
-                <Blog 
-                    blog={blog} 
-                    categories={
-                        <BlogCategories 
-                            categories={blog.categories}
-                        />
-                    }
-                >
+            <section className={classes.wrapperMain}>
+                <aside className={classes.aside}>
+                    <HeadlinesBlog />
+                </aside>
+                <main className={classes.main}>
+                    <Blog 
+                        blog={blog} 
+                        categories={
+                            <BlogCategories 
+                                categories={blog.categories}
+                            />
+                        }
+                    >
+                        <Share>
+                            <ShareBlog />
+                        </Share>
+                    </Blog>
                     <Share>
                         <ShareBlog />
                     </Share>
-                </Blog>
-                <Share>
-                    <ShareBlog />
-                </Share>
-                {
-                    blog.doctor.name 
-                        &&
-                    <BlogDoctor 
-                        doctor={blog.doctor}
-                    />
-                }
-            </main>
+                    {
+                        blog.doctor.name 
+                            &&
+                        <BlogDoctor 
+                            doctor={blog.doctor}
+                        />
+                    }
+                </main>
+            </section>
             <section className={classes.blogsTop}>
                 <h2 className={classes.other}>Читать другие статьи</h2>
                 <BlogsTopLayout />

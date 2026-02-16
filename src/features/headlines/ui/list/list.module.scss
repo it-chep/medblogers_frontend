@@ -1,0 +1,47 @@
+
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+
+    .item{
+        position: relative;
+        line-height: 130%;
+        padding-left: 15px;
+        opacity: .5;
+        cursor: pointer;
+        transition: all .15s ease;
+
+        &::after{
+            content: "";
+            display: block;
+            opacity: .5;
+            width: 3px;
+            border-radius: 2px;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: var(--blue);
+            position: absolute;
+        }
+
+        &.selected{
+            opacity: 1;
+
+            &::after{
+                opacity: 1;
+            }
+        }
+
+        @media (hover) {
+            &:hover{
+                opacity: 1;
+
+                &::after{
+                    opacity: 1;
+                }  
+            }
+        }
+    }
+}
