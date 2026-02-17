@@ -7,9 +7,10 @@ import { HeadlineMobile } from "../mobile/HeadlineMobile";
 
 interface IProps {
     headlines: Element[];
+    isMobile: boolean;
 }
 
-export const Headlines: FC<IProps> = ({headlines}) => {
+export const Headlines: FC<IProps> = ({headlines, isMobile}) => {
 
     const [selectedHeadline, setSelectedHeadline] = useState<Element | null>(null)
     const headlinesRef = useRef<Element[]>(headlines)
@@ -63,20 +64,21 @@ export const Headlines: FC<IProps> = ({headlines}) => {
     return (
         headlines.length
             ?
-        <>
-            <section className={classes.desktop}>
-                <List 
-                    headlines={headlines}
-                    selectedHeadline={selectedHeadline}
-                />
-            </section>
-            <section className={classes.mobile}>
-                <HeadlineMobile 
-                    headlines={headlines}
-                    selectedHeadline={selectedHeadline}
-                />
-            </section>
-        </>
+        !isMobile
+            ?
+        <section className={classes.desktop}>
+            <List 
+                headlines={headlines}
+                selectedHeadline={selectedHeadline}
+            />
+        </section>
+            :
+        <section className={classes.mobile}>
+            <HeadlineMobile 
+                headlines={headlines}
+                selectedHeadline={selectedHeadline}
+            />
+        </section>
             :
         <></>
     )

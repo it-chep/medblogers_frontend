@@ -7,7 +7,8 @@ import { Headlines } from "@/src/features/headlines";
 export const HeadlinesBlog: FC = () => {
 
     const [headlines, setHeadlines] = useState<Element[]>([])    
-
+    const [isMobile, setIsMobile] = useState<boolean>(false)
+        
     const getHeadlines = () => {
         const h2h3 = document.querySelectorAll('main h2,h3')
         const elemsContent: Element[] = [];
@@ -19,6 +20,22 @@ export const HeadlinesBlog: FC = () => {
 
     useEffect(() => {
         getHeadlines()
+        
+        const onResize = () => {
+            if(window.innerWidth < 850){
+                setIsMobile(true)
+            }
+            else{
+                setIsMobile(false)
+            }
+        }
+
+        onResize()
+        window.addEventListener('resize', onResize)
+
+        return () => {
+            window.removeEventListener('resize', onResize)
+        }
     }, [])
 
     return (
@@ -27,6 +44,7 @@ export const HeadlinesBlog: FC = () => {
         <section className={classes.container}>
             <Headlines 
                 headlines={headlines}
+                isMobile={isMobile}
             />
         </section>
             :

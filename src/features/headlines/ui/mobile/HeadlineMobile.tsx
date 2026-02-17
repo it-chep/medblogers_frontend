@@ -64,8 +64,7 @@ export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
                     const newTopList = e.clientY - topList;
                     refList.current.style.transition = SPEED_OPEN_CLOSE;
                     const calcTop = - listHeight - newTopList > -window.innerHeight ? window.innerHeight - listHeight : newTopList
-
-                    if(prevTopList > calcTop){  // open
+                    if(prevTopList >= calcTop){  // open
                         onOpen()
                     }
                     else{
@@ -97,20 +96,10 @@ export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
     }, [])
 
     useEffect(() => {
-        let isDesktop = false;
         const onResize = () => {
             if(refList.current){
                 const height = refList.current.getBoundingClientRect().height;
                 setListHeight(height)
-                if(window.innerWidth >= 850){
-                    if(!isDesktop){
-                        isDesktop = true;
-                        onClose()
-                    }
-                }
-                else{
-                    isDesktop = false;
-                }
             }
         }
 
