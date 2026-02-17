@@ -2,18 +2,28 @@
 
 .page{
     min-height: 100vh;
-    
-    .main{
+
+    .wrapperMain{   
         display: flex;
-        flex-direction: column;
         gap: 30px;
-        width: 770px;
-        max-width: 100%;
-        margin: 30px auto 0 auto;
-        border-radius: 20px;
-        background: #2A2A2A;
-        padding: 35px;
+        margin-top: 30px;
+
+        .aside{
+            width: 300px;
+        }
+
+        .main{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 770px;
+            max-width: 100%;
+            border-radius: 20px;
+            background: #2A2A2A;
+            padding: 35px;
+        }
     }
+    
 
     .blogsTop{
         margin-top: 70px;
@@ -26,10 +36,23 @@
     }
 }
 
+@media (max-width: 850px) {
+    .page{
+        .wrapperMain{
+            gap: 0;
+            .aside{
+                width: 0;
+            }
+        }
+    }
+}
+
 @media (max-width: 480px) {
     .page{
-        .main{
-            padding: 20px;
+        .wrapperMain{
+            .main{
+                padding: 20px;
+            }
         }
         .blogsTop{
             .other{
