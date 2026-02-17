@@ -43,17 +43,18 @@ export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
         if(refList.current) {
             e.preventDefault()
             
-            const topList = e.clientY - refList.current.getBoundingClientRect().top;
-            let prevTopList = topList;
+            const bottomShiftList = refList.current.getBoundingClientRect().height - (window.innerHeight - e.clientY);
+            let prevBottomList = bottomShiftList;
+
+            refList.current.style.transition = SPEED_DRAG;
 
             const onPointerMove = (e: PointerEvent) => {
                 e.preventDefault()
                 if(refList.current) {
-                    const newTopList = e.clientY - topList;
-                    refList.current.style.transition = SPEED_DRAG;
-                    const calcTop = - listHeight - newTopList > -window.innerHeight ? window.innerHeight - listHeight : newTopList
-                    setTimeout(() => {prevTopList = calcTop}, 30)
-                    const newBottom = `calc(100vh - ${listHeight}px - ${calcTop}px)`;
+                    const clientBottom = window.innerHeight - e.clientY;
+                    const newBottomList = listHeight - clientBottom - bottomShiftList;
+                    setTimeout(() => {prevBottomList = newBottomList}, 30)
+                    const newBottom = `-${newBottomList}px`;
                     refList.current.style.bottom = newBottom;
                 }
             }
@@ -61,10 +62,10 @@ export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
             const onPointerUp = (e: PointerEvent) => {
                 e.preventDefault()
                 if(refList.current) {
-                    const newTopList = e.clientY - topList;
+                    const clientBottom = window.innerHeight - e.clientY;
+                    const newBottomList = listHeight - clientBottom - bottomShiftList;
                     refList.current.style.transition = SPEED_OPEN_CLOSE;
-                    const calcTop = - listHeight - newTopList > -window.innerHeight ? window.innerHeight - listHeight : newTopList
-                    if(prevTopList >= calcTop){  // open
+                    if(prevBottomList >= newBottomList){  // open
                         onOpen()
                     }
                     else{
