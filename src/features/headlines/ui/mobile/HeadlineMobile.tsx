@@ -8,30 +8,36 @@ interface IProps {
     selectedHeadline: Element | null;
 }
 
-const LIST_HEIGHT = 500;
+const SPEED_DRAG = 'all .1s ease';
+const SPEED_OPEN_CLOSE = 'all .4s ease-out';
 
 export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
 
     const [open, setOpen] = useState<boolean>(false)
-
+    const [opacity, setOpacity] = useState<1 | 0>(0)
+    const [listHeight, setListHeight] = useState<number>(0)
     const refList = useRef<HTMLUListElement>(null)
+    const refListHeight = useRef<number>(0)
+
+    useEffect(() => {
+        refListHeight.current = listHeight;
+    }, [listHeight])
 
     const onOpen = () => {
         setOpen(true)
+        if(refList.current){
+            refList.current.style.bottom = `0px`;
+        }
         document.body.style.overflow = 'hidden'
     }
 
     const onClose = () => {
         setOpen(false)
+        if(refList.current){
+            refList.current.style.bottom = `-${refListHeight.current}px`;
+        }
         document.body.style.overflow = ''
     }
-
-    useEffect(() => {
-        return () => {
-            setOpen(false)
-            document.body.style.overflow = ''
-        }
-    }, [])
 
     const onStart = (e: PointerEventReact) => {
         if(refList.current) {
@@ -44,10 +50,10 @@ export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
                 e.preventDefault()
                 if(refList.current) {
                     const newTopList = e.clientY - topList;
-                    refList.current.style.transition = 'all .1s ease'
-                    const calcTop = - LIST_HEIGHT - newTopList > -window.innerHeight ? window.innerHeight - LIST_HEIGHT : newTopList
+                    refList.current.style.transition = SPEED_DRAG;
+                    const calcTop = - listHeight - newTopList > -window.innerHeight ? window.innerHeight - listHeight : newTopList
                     setTimeout(() => {prevTopList = calcTop}, 30)
-                    const newBottom = `calc(100vh - ${LIST_HEIGHT}px - ${calcTop}px)`;
+                    const newBottom = `calc(100vh - ${listHeight}px - ${calcTop}px)`;
                     refList.current.style.bottom = newBottom;
                 }
             }
@@ -56,15 +62,13 @@ export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
                 e.preventDefault()
                 if(refList.current) {
                     const newTopList = e.clientY - topList;
-                    refList.current.style.transition = 'all .5s ease-out'
-                    const calcTop = - LIST_HEIGHT - newTopList > -window.innerHeight ? window.innerHeight - LIST_HEIGHT : newTopList
+                    refList.current.style.transition = SPEED_OPEN_CLOSE;
+                    const calcTop = - listHeight - newTopList > -window.innerHeight ? window.innerHeight - listHeight : newTopList
 
                     if(prevTopList > calcTop){  // open
-                        refList.current.style.bottom = '';
                         onOpen()
                     }
                     else{
-                        refList.current.style.bottom = '';
                         onClose()
                     }
                     
@@ -78,8 +82,50 @@ export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
         }
     }
 
+    useEffect(() => {
+        if(refList.current){
+            const height = refList.current.getBoundingClientRect().height;
+            refList.current.style.transition = SPEED_OPEN_CLOSE;
+            refList.current.style.bottom = `-${height}px`;
+            setListHeight(height)
+            setOpacity(1)
+        }
+        return () => {
+            setOpen(false)
+            document.body.style.overflow = ''
+        }
+    }, [])
+
+    useEffect(() => {
+        let isDesktop = false;
+        const onResize = () => {
+            if(refList.current){
+                const height = refList.current.getBoundingClientRect().height;
+                setListHeight(height)
+                if(window.innerWidth >= 850){
+                    if(!isDesktop){
+                        isDesktop = true;
+                        onClose()
+                    }
+                }
+                else{
+                    isDesktop = false;
+                }
+            }
+        }
+
+        window.addEventListener('resize', onResize)
+
+        return () => {
+            onResize()
+            window.removeEventListener('resize', onResize)
+        }
+    }, [])
+
     return (
-        <section>
+        <section 
+            style={{opacity}}
+        >
             <ul onClick={onOpen} className={classes.slider}>
                 {headlines.map(headline => 
                     <li 
@@ -89,7 +135,7 @@ export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
                 )}
             </ul>
             <section 
-                className={classes.listWrap + (open ? ` ${classes.open}` : '')}
+                className={classes.listWrap}
                 ref={refList}
             >
                 <section 

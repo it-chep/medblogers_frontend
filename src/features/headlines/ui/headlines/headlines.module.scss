@@ -2,6 +2,22 @@
 .desktop{
     position: sticky;
     top: 40px;
+    max-height: calc(100vh - 80px);
+    overflow: auto;
+    
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        box-sizing: border-box;
+        background: #2e2e2e;
+        border-radius: 50% / 2px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #9a9a9a;
+        border-radius: 50% / 2px;
+    }
+    
 }
 
 .mobile{

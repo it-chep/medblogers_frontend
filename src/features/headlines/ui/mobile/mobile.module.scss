@@ -38,18 +38,14 @@
     z-index: 11;
     width: 100%;
     left: 0;
-    padding: 0 35px 45px 35px;
-    transition: all .5s ease-out;
-    bottom: -500px;
-    height: 500px;
+    padding: 0 35px 55px 35px;
+    bottom: -610px;
+    max-height: 610px;  // 500 + 55 + 55
     overflow: auto;
     
-    &.open{
-        bottom: 0px;
-    }
-
     .list{
-        height: 400px;
+        max-height: 500px;
+        padding: 0 6px;
         overflow: auto;
     }
 

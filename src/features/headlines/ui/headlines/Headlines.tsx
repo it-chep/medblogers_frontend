@@ -47,7 +47,6 @@ export const Headlines: FC<IProps> = ({headlines}) => {
     }
     
     useEffect(() => {
-
         const checkTargetHeadlineWrap = () => {
             checkTargetHeadline(headlinesRef.current)
         }
