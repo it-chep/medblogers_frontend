@@ -15,12 +15,20 @@ body {
   --blue-hover: #0073FF;
   --dark-blue: #01284B;
 
+  --red-dark: #3B141A;
+  --red: #E42423;
+  --red-background: #180C0E;
+
   --black: #0E0F0F;
   --light-black: #242424;
 
   --dark-gray: #464646;
   --sign-gray: #606060;
   --gray: #ffffff80;
+  --text-gray: #C2CDD9;
+
+  --vip-white: #D6E0EB;
+  --vip-background: #17293D;
 
   --dark-background: #161616;
 

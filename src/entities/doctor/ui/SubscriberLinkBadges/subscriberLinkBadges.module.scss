@@ -1,0 +1,16 @@
+
+
+.sign{
+    color: #AEAEAE;
+    font-size: 14px;
+
+    &.vip{
+        color: var(--vip-white);
+    }
+}
+      
+.subscribersWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}

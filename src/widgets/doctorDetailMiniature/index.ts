@@ -1,0 +1,1 @@
+export { DoctorDetailMiniature } from "./ui/DoctorDetailMiniature";

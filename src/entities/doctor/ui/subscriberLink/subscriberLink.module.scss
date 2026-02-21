@@ -1,6 +1,5 @@
 
 
-
 .subscriberLinkWrapper{
   position: relative;
   
@@ -8,6 +7,18 @@
     .subscriberLink{
       svg{
         fill: #b6b6b6;
+      }
+    }
+  }
+
+  &.vip{
+    .subscriberLink{
+      background: #254B74;
+      color: var(--vip-white);
+    }
+    .subscriberLink{
+      svg{
+        fill: var(--vip-white);
       }
     }
   }

@@ -18,8 +18,6 @@ interface IProps {
 export const ClinicHint: FC<IProps> = ({name, sizeIcon = 16, gap = 4, paddingAbsolute}) => {
 
     const refClinicLogoWrap = useRef<HTMLSpanElement>(null)
-    const [open, setOpen] = useState<boolean>(false)
-
     const [isMobile, setIsMobile] = useState<boolean>(false)
 
     const onResize = () => {
@@ -41,7 +39,6 @@ export const ClinicHint: FC<IProps> = ({name, sizeIcon = 16, gap = 4, paddingAbs
 
 
     return (
-        <>
         <span
             className={classes.clinicLogoWrap}
             style={{gap}}
@@ -56,7 +53,6 @@ export const ClinicHint: FC<IProps> = ({name, sizeIcon = 16, gap = 4, paddingAbs
                 <Hint 
                     width={180} 
                     hint={<ClinicContent />}
-                    setOpenWrap={setOpen}
                     useHr={isMobile}
                     staticWidth
                     paddingAbsolute={paddingAbsolute}
@@ -70,19 +66,5 @@ export const ClinicHint: FC<IProps> = ({name, sizeIcon = 16, gap = 4, paddingAbs
                 </Hint>       
             </span>
         </span>
-        {
-            open
-                &&
-            createPortal(
-                <section 
-                    onClick={e => 
-                        e.preventDefault()
-                    } 
-                    className={classes.abs} 
-                />,
-                refClinicLogoWrap.current?.closest('a') || document.body
-            )
-        }    
-        </>     
     )
 }

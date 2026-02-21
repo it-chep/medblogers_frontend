@@ -2,24 +2,107 @@
 
 
 .container{
+    display: flex;
+    flex-direction: column;
 
-    .text{
-        margin-top: 30px;
+    .mainSign{
+        padding: 9px 21px;
+        color: var(--blue);
+        background-color: var(--dark-blue);
+        width: fit-content;
+        margin: 60px auto 0 auto;
+        border-radius: 100px;
+    }
 
-        .condition{
-            margin-top: 20px;
+    .header{
+        margin-top: 40px;
+        text-align: center;
+        h1{
+            font-weight: 900;
+            font-size: 40px;
+            line-height: 100%;
+            letter-spacing: -2%;
         }
-
-        .callToAction{
-            margin-top: 4px;
-        }
-        
-        .link{
-            display: block;
-            max-width: 330px;
-            margin: 40px auto 0;
+        h2{
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 150%;
+            opacity: .7;
+            margin-top: 15px;
         }
     }
+
+    .circle {
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: .4;
+        width: 767px;
+        height: 248px;
+        border-radius: 50%;
+        background: conic-gradient(transparent 0deg 90deg, var(--blue) 90deg 360deg);    
+        filter: blur(100px);
+        margin-top: -75px;
+    }
+
+    .titleWidget{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 101%;
+    }
+
+    .items{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        list-style: none;
+        margin-top: 30px;
+
+        .item{
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 130%;
+            padding: 15px;
+            border: 1px solid #4A2229;
+            border-radius: 15px;
+
+        }
+    }
+    
+    .noPosts{
+        margin-top: 80px;
+        background-color: var(--red-background);
+        border: 1px solid #4A2229;
+        padding: 30px;
+        width: 100%;
+        border-radius: 30px;
+        
+    }   
+
+    // .text{
+    //     margin-top: 30px;
+
+    //     .condition{
+    //         margin-top: 20px;
+    //     }
+
+    //     .callToAction{
+    //         margin-top: 4px;
+    //     }
+        
+    //     .link{
+    //         display: block;
+    //         max-width: 330px;
+    //         margin: 40px auto 0;
+    //     }
+    // }
 }   
 
 

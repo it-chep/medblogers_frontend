@@ -7,10 +7,34 @@
     background: #404040;
     color: var(--text-gray);
     width: fit-content;
+    font-weight: 500;
 
     &.main{
-        background: #01284B;
-        color: #2E99FC;
+        background: var(--dark-blue);
+        color: var(--blue);
+    }
 
+    &.vip{
+        background: var(--dark-blue);
+        color: var(--blue);
+        
+        &.main{
+            background: #E6F2FF;
+            color: #17293D;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .badge{
+        &.vip{
+            background: #254B74;
+            color: var(--text-gray);
+
+            &.main{
+                background: #E6F2FF;
+                color: #17293D;
+            }
+        }
     }
 }

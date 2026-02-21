@@ -4,131 +4,129 @@
 .container{
     display: flex;
     flex-direction: column;
-    gap: 20px;
-
+    font-size: 18px;
     --text-gray: #aeaeae;
 
-    .main{
+    .name{
         display: flex;
-        flex-direction: column;
-        gap: 20px;
+        flex-wrap: wrap;
+        font-size: 28px;
+        line-height: 100%;
+    }
 
-        .name{
-            display: flex;
-            flex-wrap: wrap;
-            font-size: 28px;
-            line-height: 32px;
-        }
-    
-        .city{
-            display: flex;
-            gap: 4px;
-            color: var(--text-gray);
+    .shortMessage{
+        margin-top: 15px;
+        color: var(--vip-white);
+    }
 
-            img{
-                margin-top: 2px;
-                width: 11px;
-                height: 13px;
-            }
-        }
-    
-        .specialities{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+    .statuses{
+        margin-top: 25px;
+    }
+
+    .advertisingPriceFromWrap{
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        line-height: 110%;
+        color: var(--blue);
+
+        .sign{
+            color: #fff;
         }
     }
 
     .blogTheme{
+        font-weight: 400;
+        margin-top: 15px;
+
         .sign{
-            color: var(--text-gray);
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .theme{
+            background-color: var(--dark-blue);
+            opacity: .9;
+            border-radius: 10px;
+            padding: 13px 16px;
+
+            .themeSign{
+                font-weight: 600;
+            }
+        }
+
+        &.vip{
+            margin-top: 25px;
+            .sign{
+                margin-bottom: 15px;
+            }
+            .theme{
+                background-color: transparent;
+                padding: 0;
+            }
         }
     }
-
-    .link{
-        display: block;
-        width: 200px;
+    
+    .blogInfo{
+        margin-top: 15px;
     }
-}
 
-@media (max-width: 980px) {
-    .container{
-        .link{
-            display: none;
-        }
+    .blogInfoMobile{
+        display: none;
     }
 }
 
 @media (max-width: 750px) {
     .container{
-        .main{
-            .name{
-                font-size: 26px;
-                line-height: 30px;
-            }
+        font-size: 17px;
+        .name{
+            display: none;
         }
-    }
-}
-
-@media (max-width: 550px) {
-    .container{
-        gap: 10px;
-        .main{
-            gap: 0;
-            .city{
-                margin-top: 15px;
-                margin-bottom: 10px;
-            }
-
-            .name{
+        .shortMessage{
+            display: none;
+        }
+        .statuses{
+            display: none;
+        }
+        .advertisingPriceFromWrap{
+            margin-top: 0;
+        }
+        .blogTheme{
+            margin-top: 0;
+            .sign{
+                margin-bottom: 20px;
                 font-size: 24px;
-                line-height: 30px;
+                text-align: center;
+            }
+
+            .theme{
+                background-color: transparent;
+                opacity: 1;
+                border-radius: 0;
+                padding: 0;
+
+                .themeSign{
+                    font-weight: 600;
+                }
+            }
+
+            &.vip{
+                margin-top: 30px;
+                .sign{
+                    font-weight: 700;
+                    font-size: 20px;
+                }
             }
         }
-    }
-}
-
-@media (max-width: 480px) {
-    .container{
-        .main{
-            .specialities{
-                gap: 6px;
-            }
+        .blogInfo{
+            display: none;
         }
-    }
-}
-
-
-@media (max-width: 440px) {
-    .container{
-        .main{
-            .name{
-                font-size: 22px;
-                line-height: 26px;
-            }
-
-            .specialities{
-                gap: 5px;
-            }
-        }
-    }
-}
-
-@media (max-width: 400px) {
-    .container{
-        font-size: 15px;
-        .main{
-            .name{
-                font-size: 20px;
-                line-height: 24px;
-                font-weight: 800;
-            }
-
-            .city{
-                img{
-                    margin-top: 1px;
-                }      
-            }
+        .blogInfoMobile{
+            display: block;
+            margin-top: 20px;
         }
     }
 }

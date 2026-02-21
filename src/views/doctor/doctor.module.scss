@@ -1,18 +1,74 @@
 
 
 .page{
-    .main{
+    margin-bottom: 200px;
+    
+    .wrapper{
         display: flex;
         flex-direction: column;
         gap: 30px;
         min-height: calc(100vh - 75px);
 
         .loader{
-            display: flex;
-            justify-content: center;
-            align-items: center;
             width: 100%;
             height: 300px;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .container{
+            display: flex;
+            gap: 20px;
+            height: 100%;
+
+            aside{
+                position: sticky;
+                top: 20px;
+                min-width: 320px;
+                max-width: 100%;
+                width: 320px;
+                height: max-content;
+
+                .loader{
+                    height: 400px;
+                }
+            }
+
+            main{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .page{
+        .wrapper{
+            .container{
+                gap: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .page{
+        .wrapper{
+            .container{
+                flex-direction: column;
+                gap: 30px;
+                aside{
+                    position: relative;
+                    top: 0;
+                    width: 100%;
+                }
+                main{
+                    gap: 30px;
+                }
+            }
         }
     }
 }

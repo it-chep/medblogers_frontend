@@ -14,10 +14,8 @@ interface IProps {
 export const HintWrap: FC<IProps & PropsWithChildren> = ({hint, width, children}) => {
 
     const refWrap = useRef<HTMLSpanElement>(null)
-    const [open, setOpen] = useState<boolean>(false)
 
     return (
-        <>
         <span
             className={classes.wrap}
             ref={refWrap}
@@ -31,7 +29,6 @@ export const HintWrap: FC<IProps & PropsWithChildren> = ({hint, width, children}
                 }} 
             >
                 <Hint 
-                    setOpenWrap={setOpen} 
                     width={width} 
                     hint={hint}
                 >
@@ -39,19 +36,5 @@ export const HintWrap: FC<IProps & PropsWithChildren> = ({hint, width, children}
                 </Hint>
             </span>
         </span>
-        {
-            open
-                &&
-            createPortal(
-                <section 
-                    onClick={e => 
-                        e.preventDefault()
-                    } 
-                    className={classes.abs} 
-                />,
-                refWrap.current?.closest('a') || document.body
-            )
-        }    
-        </>   
     )
 }

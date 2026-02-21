@@ -1,10 +1,12 @@
 import DoctorDetail from '@/src/widgets/doctorDetail'
 import classes from './doctor.module.scss'
 import { Suspense } from 'react'
-import { LoaderSpinner } from '@/src/shared/ui/loaderSpinner'
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs'
 import { SearchDoctors } from '@/src/widgets/searchDoctors'
 import { DoctorBlogs } from '@/src/widgets/doctorBlogs'
+import { doctorService } from '@/src/entities/doctor'
+import { DoctorDetailMiniature } from '@/src/widgets/doctorDetailMiniature'
+import { LoaderContainer } from '@/src/shared/ui/loaderContainer'
 
 interface IProps {
     slug: string
@@ -13,9 +15,12 @@ interface IProps {
 
 export default async function DoctorPage(props: IProps) {
 
+    const reqDoctor = doctorService.get(props.slug)
+    const reqDoctorVip = doctorService.getVip(props.slug)
+
     return (
         <section className={classes.page + ' wrapper_main'}>
-            <main className={classes.main}>
+            <section className={classes.wrapper}>
                 <SearchDoctors />
                 {
                     props.title
@@ -25,17 +30,48 @@ export default async function DoctorPage(props: IProps) {
                         {path: '', label: props.title},
                     ]} />
                 }
-                <Suspense fallback={<section className={classes.loader}><LoaderSpinner /></section>}>
-                    <DoctorDetail 
-                        slug={props.slug} 
-                    />
-                </Suspense>
-                <Suspense fallback={<section className={classes.loader}><LoaderSpinner /></section>}>
-                    <DoctorBlogs 
-                        slug={props.slug} 
-                    />
-                </Suspense>
-            </main>
+                <section className={classes.container}>
+                    <aside>
+                        <Suspense 
+                            fallback={
+                                <section className={classes.loader}>
+                                    <LoaderContainer />
+                                </section>
+                            }
+                        >
+                            <DoctorDetailMiniature 
+                                reqDoctor={reqDoctor}
+                                reqDoctorVip={reqDoctorVip}
+                            />
+                        </Suspense>
+                    </aside>
+                    <main>
+                        <Suspense 
+                            fallback={
+                                <section className={classes.loader}>
+                                    <LoaderContainer />
+                                </section>
+                            }
+                        >
+                            <DoctorDetail 
+                                reqDoctor={reqDoctor}
+                                reqDoctorVip={reqDoctorVip}
+                            />
+                        </Suspense>
+                        <Suspense   
+                            fallback={
+                                <section className={classes.loader}>
+                                    <LoaderContainer />
+                                </section>
+                            }
+                        >
+                            <DoctorBlogs 
+                                slug={props.slug} 
+                            />
+                        </Suspense>
+                    </main>
+                </section>
+            </section>
         </section>
     )
 }

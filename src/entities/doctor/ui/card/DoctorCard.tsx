@@ -1,26 +1,28 @@
 import React, { FC, PropsWithChildren } from "react";
 import classes from './doctorCard.module.scss'
-import { IDoctor } from "../../model/types";
+import { IDoctor, IDoctorVip } from "../../model/types";
 import { Socials } from "../cardSocials/Socials";
 import { CardData } from "../cardData/CardData";
 
 interface IProps{
     doctor: IDoctor;
-    image: React.ReactNode;
+    doctorVip: IDoctorVip | null;
 }
 
-export const DoctorCard: FC<IProps & PropsWithChildren> = ({doctor, image, children}) => {
+export const DoctorCard: FC<IProps & PropsWithChildren> = ({doctor, doctorVip, children}) => {
     
-
     return (
-        <section className={classes.wrapper}>
-            {image}
-            <section className={classes.content}>
-                <CardData doctor={doctor} />
-                <Socials doctor={doctor}>
-                    {children}
-                </Socials>
-            </section>
+        <section className={classes.content + (doctorVip ? ` ${classes.vip}` : '')}>
+            <CardData 
+                doctor={doctor} 
+                doctorVip={doctorVip}    
+            />
+            <Socials 
+                doctor={doctor}
+                vip={Boolean(doctorVip)}
+            >
+                {children}
+            </Socials>
         </section>
     )
 }

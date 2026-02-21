@@ -1,7 +1,7 @@
 
 
 
-.wrapper{
+.content{
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -10,28 +10,33 @@
     gap: 20px;
     padding: 20px;
     overflow: hidden;
-
     
+    &.vip{
+        background-image: url('../../lib/assets/doctorCard.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 1px solid rgba(45, 153, 252, .6);
+    }
+}
+
+@media (max-width: 1050px) {
     .content{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        gap: 10px;
+        flex-direction: column;
     }
 }
 
-@media (max-width: 980px) {
-    .wrapper{
-        .content{
-            flex-direction: column;
+@media (max-width: 750px) {
+    .content{
+        &.vip{
+            background-image: none;
+            background-color: #17293D;
         }
+
     }
 }
-
-
 
 @media (max-width: 550px) {
-    .wrapper{
+    .content{
         flex-direction: column;
         padding: 20px 16px;
     }

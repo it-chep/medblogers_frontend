@@ -3,7 +3,7 @@ import classes from './searchMiniature.module.scss'
 import Link from "next/link";
 import Image from "next/image";
 import { ISearchDoctor } from "../../model/types";
-import { ClinicHint } from "../clinicHint/ClinicHint";
+import { ClinicHint } from "../../../../features/clinicHint/ui/ClinicHint";
 
 interface IProps {
     doctor: ISearchDoctor;
@@ -30,7 +30,7 @@ export const SearchMiniature: FC<IProps> = ({doctor}) => {
                 /> 
             }
             <section className={classes.data}>
-                <p className={classes.name}> 
+                <section className={classes.name}> 
                     {
                         doctor.isKfDoctor
                             ?
@@ -43,7 +43,7 @@ export const SearchMiniature: FC<IProps> = ({doctor}) => {
                             {doctor.name}
                         </>
                     }
-                </p>
+                </section>
                 <p className={classes.specialityName}>{doctor.specialityName}, г. {doctor.cityName}</p>
             </section>
         </Link>

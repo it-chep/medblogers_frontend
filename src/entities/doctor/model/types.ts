@@ -33,6 +33,11 @@ export interface IDoctorMiniature {
     vkLink: string;
     vkSubsCount: string;
     vkSubsCountText: string;
+
+    isVip: boolean;
+    canBuyAdvertising: boolean;
+    canSellAdvertising: boolean;
+    canBarter: boolean;
 }
 
 export interface IDoctorMiniatureRes {
@@ -90,6 +95,16 @@ export interface IDoctor {
     cities: IItem[],
 
     isKfDoctor: boolean;
+}
+
+export interface IDoctorVip {
+    canBarter: boolean;
+    canBuyAdvertising: boolean;
+    canSellAdvertising: boolean; 
+    advertisingPriceFrom: string;
+    shortMessage: string;
+    blogInfo: string;
+    endDate: string;
 }
 
 export interface IDoctorSeo {
