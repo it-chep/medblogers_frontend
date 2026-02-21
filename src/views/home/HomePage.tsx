@@ -43,7 +43,7 @@ export default async function HomePage() {
                     <BannerNewDoctor />
                     {
                         IS_FREELANCERS_DONE
-                        &&
+                            &&
                         <Link href={'/helpers'} className={classes.button}>
                             <ButtonDark><span className={classes.helpersLink}>Перейти к базе помощников</span></ButtonDark>
                         </Link>

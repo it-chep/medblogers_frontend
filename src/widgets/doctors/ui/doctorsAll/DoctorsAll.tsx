@@ -1,14 +1,14 @@
 "use client"
 
-import {FC, useEffect, useState} from "react";
+import {FC, useCallback, useEffect, useState} from "react";
 import {useSearchParams} from "next/navigation";
 import {DoctorMiniature, doctorService, IDoctorMiniature} from "@/src/entities/doctor";
 import classes from './doctorsAll.module.scss'
-import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 import { sortValues } from "@/src/features/sort";
 import { SetCitiesSearch } from "@/src/features/setCitiesSearch";
 import { SetSpecialitiesSearch } from "@/src/features/setSpecialitiesSearch";
 import { scrollingBL } from "@/src/features/checkBlacklist";
+import { LoaderContainer } from "@/src/shared/ui/loaderContainer";
 
 export const DoctorsAll: FC = () => {
 
@@ -47,12 +47,18 @@ export const DoctorsAll: FC = () => {
         getDoctors()
     }, [searchParams])
 
+    const loaderMap = [1, 2, 3, 4, 5, 6];
+
     return (
         <section className={classes.container}>
             {
                 isLoading
                     ?
-                <section className={classes.loader}><LoaderSpinner /></section>
+                loaderMap.map(loader => 
+                    <section key={loader} className={classes.loader}>
+                        <LoaderContainer />
+                    </section>
+                )
                     :                
                 doctors.map((doctor, ind) =>
                     <DoctorMiniature

@@ -5,7 +5,6 @@ import { useSearchParams } from 'next/navigation';
 
 import classes from './freelancersAll.module.scss'
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
-import { sortValues } from "@/src/features/sort";
 import { FreelancerMiniature, freelancerService, IFreelancerMiniature } from '@/src/entities/freelancer';
 import { SetCitiesSearch } from '@/src/features/setCitiesSearch';
 import { SetSpecialitiesSearch } from '@/src/features/setSpecialitiesSearch';

@@ -65,7 +65,6 @@ export const Selected: FC<IProps> = ({blogs}) => {
                     <BlogsContainer
                         setHeight={setHeights}
                         blogs={blogs} 
-                        
                     />
                 </OpenContainer>
                     : 

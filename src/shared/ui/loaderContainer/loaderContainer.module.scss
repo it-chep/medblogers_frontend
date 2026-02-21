@@ -13,8 +13,8 @@
         #2a2a2a 33%
     );
     border-radius: 5px;
-    background-size: 300% 100%;
-    animation: 2.5s shine linear infinite;
+    background-size: 500% 100%;
+    animation: 6s shine linear infinite;
     z-index: 10;
 
     &.hidden {
@@ -25,6 +25,6 @@
 
 @keyframes shine {
     to {
-        background-position-x: -300%;
+        background-position-x: -500%;
     }
 }

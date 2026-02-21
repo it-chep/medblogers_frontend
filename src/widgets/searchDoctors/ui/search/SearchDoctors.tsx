@@ -53,9 +53,9 @@ export const SearchDoctors: FC<PropsWithChildren> = ({children}) => {
                     </section>
                 }
             </section>
-                <MyModal open={open} setOpen={setOpen}>
-                    <SearchResultDoctors isLoading={isLoading} setOpen={setOpen} result={searchResult} />     
-                </MyModal>
+            <MyModal open={open} setOpen={setOpen}>
+                <SearchResultDoctors isLoading={isLoading} setOpen={setOpen} result={searchResult} />     
+            </MyModal>
         </section>
     )
 }

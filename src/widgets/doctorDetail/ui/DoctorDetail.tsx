@@ -1,18 +1,18 @@
-import { DoctorCard, doctorService, OtherSocial } from "@/src/entities/doctor";
-import { IDoctor } from "@/src/entities/doctor/model/types";
-import { OtherSocialMediaDropdown } from "@/src/features/otherSocialMediaDropdown";
+import { IDoctor, IDoctorVip } from "@/src/entities/doctor/model/types";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
-import { DoctorImage } from "./image/DoctorImage";
+import { MyError } from "@/src/shared/lib/error/MyError";
+import { DoctorCard } from "@/src/entities/doctor";
 
 interface IProps{
-    slug: string;
+    reqDoctor: Promise<IDoctor>;
+    reqDoctorVip: Promise<IDoctorVip>;
 }
 
-const getData = async (slug: string) => {
+const getData = async (reqDoctor: Promise<IDoctor>) => {
     let doctor: IDoctor | null = null;
     try{
-        doctor = await doctorService.get(slug) 
+        doctor = await reqDoctor
     }
     catch(e){
         if (isDynamicServerError(e)) {
@@ -23,9 +23,27 @@ const getData = async (slug: string) => {
     return doctor
 }
 
+const getVip = async (reqDoctorVip: Promise<IDoctorVip>) => {
+    let doctorVip: IDoctorVip | null = null;
+    try{
+        doctorVip = await reqDoctorVip
+    }
+    catch(e){
+        if((e instanceof MyError) && (e.status === 404)){}
+        else{
+            if (isDynamicServerError(e)) {
+                throw e;
+            }
+            console.log(e)
+        }
+    }
+    return doctorVip
+}
+
 export async function DoctorDetail(props: IProps){
 
-    const doctor = await getData(props.slug)
+    const doctor = await getData(props.reqDoctor)
+    const doctorVip = await getVip(props.reqDoctorVip)
 
     if(!doctor || doctor.code === 2){
         return (
@@ -34,10 +52,9 @@ export async function DoctorDetail(props: IProps){
     }
 
     return (
-        <DoctorCard image={ <DoctorImage slug={props.slug}/> } doctor={doctor}>
-            <OtherSocialMediaDropdown>
-                <OtherSocial doctor={doctor} />
-            </OtherSocialMediaDropdown>
-        </DoctorCard>
+        <DoctorCard 
+            doctor={doctor}
+            doctorVip={doctorVip}
+        />
     )
 }

@@ -9,22 +9,40 @@
   background-color: var(--light-black);
   padding: 15px 15px 30px 15px;
   border-radius: 20px;
-  position: relative;
+
+  &.vip{
+    background-color: var(--vip-background);
+    border: 2px solid rgba(45, 153, 252, .6);
+
+    .infoWrapper{
+      color: var(--vip-white);
+    }
+  }
 
   .header{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 
-    .avatar{
-      object-position: 10% 10%;
-      object-fit: cover;
+    .imageBox{
       position: relative;
-      width: 100%;
-      height: auto;
       aspect-ratio: 1.6 / 1;
       border-radius: 14px;
+      overflow: hidden;
+
+      .avatar{
+        object-position: 10% 10%;
+        object-fit: cover;
+        width: 100%;
+      }
+  
+      .vipSvg{
+        position: absolute;
+        bottom: 0px;
+        left: 10px;
+      }
     }
+
     .name{
       font-weight: 600;
       line-height: 20px;
@@ -48,11 +66,6 @@
     padding: 0 5px;
     height: 100%;
 
-    .info{
-
-      
-    }
-
     .buttonsWrapper{
       width: 100%;
       display: flex;
@@ -60,17 +73,6 @@
       flex-direction: column;
       margin-top: 30px;
       gap: 10px;
-
-      .sign{
-        color: #AEAEAE;
-        font-size: 14px;
-      }
-
-      .subscribersWrapper {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
-      }
 
       .link{
         margin-top: 10px;

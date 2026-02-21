@@ -1,0 +1,31 @@
+
+
+.container{
+    position: relative;
+    display: flex;    
+    background-color: #254B74;
+    gap: 3px;
+    border-radius: 8px;
+
+    &::after{
+        content: "";
+        width: 4px;
+        border-radius: 8px;
+        background-color: var(--blue);
+        height: 100%;
+        position: absolute;
+    }
+
+    .text{
+        padding: 8px 0 8px 16px;
+    }
+
+    >svg{
+        align-self: flex-start;
+        fill: var(--blue);
+        min-width: 12px;
+        min-height: 10px;
+        margin-right: 6px;
+        margin-top: 11px;
+    }
+}

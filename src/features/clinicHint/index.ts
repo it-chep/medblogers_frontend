@@ -1,0 +1,1 @@
+export { ClinicHint } from "./ui/ClinicHint";

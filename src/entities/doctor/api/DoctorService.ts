@@ -1,5 +1,6 @@
 import { SERVER_URL_API } from "@/src/app/env/env";
-import {IDoctor, IDoctorMiniatureResponse, IDoctorSeo} from "../model/types";
+import {IDoctor, IDoctorMiniatureResponse, IDoctorSeo, IDoctorVip} from "../model/types";
+import { MyError } from "@/src/shared/lib/error/MyError";
 
 
 class DoctorService {
@@ -17,11 +18,26 @@ class DoctorService {
     async get(slug: string): Promise<IDoctor> {
         const response = await fetch(SERVER_URL_API + '/v1/doctors/' + slug,
             {
-                next: {revalidate: 60}
+                cache: "no-cache"
             }
         )
         const doctor: IDoctor = await response.json()
         return doctor
+    }
+
+    async getVip(slug: string): Promise<IDoctorVip> {
+        const response = await fetch(SERVER_URL_API + '/v1/doctor/' + slug + '/vip_info',
+            {
+                next: {revalidate: 60}
+            }
+        )
+
+        if(!response.ok){
+            throw new MyError('Ошибка в запросе', response.status)
+        }
+
+        const doctorVip: IDoctorVip = await response.json()
+        return doctorVip
     }
 
     async seo(slug: string){
