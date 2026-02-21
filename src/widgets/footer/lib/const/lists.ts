@@ -10,6 +10,14 @@ export const infs: ILink[] = [
         noindex: true,
     },
     {
+        label: 'Редакционная политика Medblogers Base',
+        link: '/editorial_policy',
+    },
+    {
+        label: 'Методология базы Medblogers Base',
+        link: '/methodology',
+    },
+    {
         label: 'Политика конфиденциальности',
         link: 'https://docs.google.com/document/d/1HDwwbqu0n4nQGQ_Ra0BiLvydCgq4nuKCnRzv4uvQ1Yo/'
     },
