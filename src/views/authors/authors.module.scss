@@ -1,0 +1,46 @@
+
+.page{
+    min-height: 100vh;
+
+    .wrapperMain{
+        display: flex;
+        gap: 30px;
+        margin-top: 30px;
+
+        .aside{
+            width: 300px;
+        }
+
+        .main{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 770px;
+            max-width: 100%;
+            border-radius: 20px;
+            background: #2A2A2A;
+            padding: 35px;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .page{
+        .wrapperMain{
+            gap: 0;
+            .aside{
+                width: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .page{
+        .wrapperMain{
+            .main{
+                padding: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+
+.container{
+    display: flex;
+    background-color: var(--dark-background);
+    border-radius: 20px;
+    padding: 20px;
+    gap: 20px;
+    cursor: pointer;
+    transition: background-color .15s ease;
+
+    &:hover{
+        background-color: #333;
+    }
+
+    .image{
+        object-fit: cover;
+        border-radius: 20px;
+        min-width: 120px;
+        min-height: 120px;
+        height: 120px;
+        width: 120px;
+    }
+
+    .inf{
+        line-height: 118%;
+
+        .name{
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .specialityName{
+            margin-top: 8px;
+            color: var(--blue);
+        }
+        .description{
+            margin-top: 12px;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 155%;
+            opacity: .8;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        flex-direction: column;
+        gap: 15px;
+
+        .image{
+            width: 100%;
+            height: auto;
+            min-width: unset;
+            min-height: unset;
+            aspect-ratio: 1.6 / 1;
+            border-radius: 14px;
+            object-position: 10% 10%;
+        }
+        .inf{
+            .description{
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .container{
+        padding: 15px;
+
+        .inf{
+            line-height: 106%;
+
+            .name{
+                font-size: 17px;
+            }
+            .specialityName{
+                font-size: 15px;
+            }
+        }
+    }
+}
