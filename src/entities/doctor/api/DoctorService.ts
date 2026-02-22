@@ -26,7 +26,7 @@ class DoctorService {
     }
 
     async getVip(slug: string): Promise<IDoctorVip> {
-        const response = await fetch(SERVER_URL_API + '/v1/doctor/' + slug + '/vip_info',
+        const response = await fetch(SERVER_URL_API + '/v1/doctors/' + slug + '/vip_info',
             {
                 next: {revalidate: 60}
             }
