@@ -10,6 +10,18 @@ export const infs: ILink[] = [
         noindex: true,
     },
     {
+        label: 'Редакционная политика',
+        link: '/editorial_policy',
+    },
+    {
+        label: 'Методология базы',
+        link: '/methodology',
+    },
+    {
+        label: 'Авторы',
+        link: '/authors',
+    },
+    {
         label: 'Политика конфиденциальности',
         link: 'https://docs.google.com/document/d/1HDwwbqu0n4nQGQ_Ra0BiLvydCgq4nuKCnRzv4uvQ1Yo/'
     },
