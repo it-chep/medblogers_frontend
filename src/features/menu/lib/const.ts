@@ -24,8 +24,7 @@ export const menuLinks: IMenu[] = [
     },
     {
         name: 'Расстрельный список каналов',
-        link: "/#blacklist",
+        link: "/blacklist",
         site: true,
-        close: true,
     }
 ]

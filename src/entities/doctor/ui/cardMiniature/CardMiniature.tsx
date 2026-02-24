@@ -1,11 +1,11 @@
-import React, {FC, PropsWithChildren, ReactElement} from "react";
+import React, {FC, PropsWithChildren} from "react";
 import classes from './cardMiniature.module.scss'
 import {MyButton} from "@/src/shared/ui/myButton";
 import { IDoctor, IDoctorVip } from "../../model/types";
 import Image from "next/image";
 import markImg from '@/src/shared/lib/assets/mark_blue.png'
 import { SpecialityBadge } from "../specialityBadges/SpecialityBadge";
-import { VipSvg } from "@/src/shared/lib/assets/vipSvg";
+import { VipSvg } from "@/src/shared/lib/assets/VipSvg";
 import { VipStatuses } from "../vipStatus/VipStatuses";
 import { Quote } from "../quote/Quote";
 

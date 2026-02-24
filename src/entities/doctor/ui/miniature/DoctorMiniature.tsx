@@ -6,7 +6,7 @@ import {MyButton} from "@/src/shared/ui/myButton";
 import Link from "next/link";
 import {ClinicHint} from "../../../../features/clinicHint/ui/ClinicHint";
 import { SubscriberLinkBadges } from "../SubscriberLinkBadges/SubscriberLinkBadges";
-import { VipSvg } from "@/src/shared/lib/assets/vipSvg";
+import { VipSvg } from "@/src/shared/lib/assets/VipSvg";
 import { VipStatuses } from "../vipStatus/VipStatuses";
 
 interface IProps {

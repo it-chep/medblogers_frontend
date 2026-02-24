@@ -4,8 +4,8 @@
     position: relative;
     display: flex;    
     background-color: #254B74;
-    gap: 3px;
     border-radius: 8px;
+    justify-content: space-between;
 
     &::after{
         content: "";
@@ -17,7 +17,7 @@
     }
 
     .text{
-        padding: 8px 0 8px 16px;
+        padding: 8px 16px 8px 16px;
     }
 
     >svg{

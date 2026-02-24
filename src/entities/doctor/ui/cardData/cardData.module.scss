@@ -45,14 +45,13 @@
             font-weight: 700;
             margin-bottom: 10px;
             font-size: 20px;
+
+            &::after{
+                content: ":";
+            }
         }
 
         .theme{
-            background-color: var(--dark-blue);
-            opacity: .9;
-            border-radius: 10px;
-            padding: 13px 16px;
-
             .themeSign{
                 font-weight: 600;
             }
@@ -96,10 +95,15 @@
         }
         .blogTheme{
             margin-top: 0;
+
             .sign{
                 margin-bottom: 20px;
                 font-size: 24px;
                 text-align: center;
+
+                &::after{
+                    content: "";
+                }
             }
 
             .theme{
@@ -115,7 +119,9 @@
 
             &.vip{
                 margin-top: 30px;
+                
                 .sign{
+                    text-align: start;
                     font-weight: 700;
                     font-size: 20px;
                 }

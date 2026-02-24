@@ -20,6 +20,19 @@
     &.hidden {
         display: none;
     }
+
+    &.blue{
+        background: #399fff;
+        background: linear-gradient(
+            110deg,
+            #2F9BFF 8%,
+            #89c6ff 18%,
+            #2F9BFF 33%
+        );
+        animation: 6s shine linear infinite;
+
+        background-size: 500% 100%;
+    }
 }
 
 

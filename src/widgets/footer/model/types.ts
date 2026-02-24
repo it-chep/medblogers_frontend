@@ -7,5 +7,6 @@ export interface ILink {
     label: string;
     bold?: string;
     noindex?: boolean;
+    site?: boolean;
 }
 

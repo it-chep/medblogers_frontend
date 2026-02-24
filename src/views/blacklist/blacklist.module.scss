@@ -1,0 +1,14 @@
+
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .main{
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+        width: 100%;
+        margin-top: 60px;
+    }
+}

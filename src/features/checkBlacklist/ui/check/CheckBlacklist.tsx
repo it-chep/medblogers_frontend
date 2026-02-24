@@ -5,20 +5,41 @@ import classes from './checkBlacklist.module.scss'
 import { MyInput } from "@/src/shared/ui/myInput";
 import { MyButton } from "@/src/shared/ui/myButton";
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
-import { blacklistService } from "../api/BlacklistService";
-import { Message } from "./message/Message";
-import { Info } from "./info/Info";
+import { blacklistService } from "../../api/BlacklistService";
+import { Message } from "../message/Message";
+import { Info } from "../info/Info";
+import { LoaderContainer } from "@/src/shared/ui/loaderContainer";
 
+interface IProps {
+    info?: boolean;
+    titleH1?: boolean;
+}
 
-export const CheckBlacklist: FC = () => {
+export const CheckBlacklist: FC<IProps> = ({info, titleH1}) => {
 
     const [telegram, setTelegram] = useState<string>('')
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [status, setStatus] = useState<'normal' | 'true' | 'false'>('normal')
+    const [isLoadingCount, setIsLoadingCount] = useState<boolean>(true)
+    const [count, setCount] = useState<number>(0)
 
     const timerId = useRef<NodeJS.Timeout>(null)
 
     const [isMobile, setIsMobile] = useState<boolean>(false)
+
+    const getCount = async () => {
+        try{
+            setIsLoadingCount(true)
+            const count = await blacklistService.getCount()
+            setCount(count)
+        }
+        catch(e){
+            console.log(e)
+        }
+        finally{
+            setIsLoadingCount(false)
+        }
+    }
 
     useEffect(() => {
         const checkIsMobile = () => {
@@ -30,6 +51,7 @@ export const CheckBlacklist: FC = () => {
             }
         }
         checkIsMobile()
+        getCount()
 
         window.addEventListener('resize', checkIsMobile)
 
@@ -82,8 +104,29 @@ export const CheckBlacklist: FC = () => {
             className={classes.container + (status === 'false' ? ` ${classes.false}` : status === 'true' ? ` ${classes.ok}` : '')}
         >
             <section className={classes.wrapper}>
-                <section className={classes.title}>
-                    РАССТРЕЛЬНЫЙ СПИСОК КАНАЛОВ
+                {
+                    titleH1
+                        ?
+                    <h1 className={classes.title}>
+                        РАССТРЕЛЬНЫЙ СПИСОК КАНАЛОВ
+                    </h1>
+                        :
+                    <section className={classes.title}>
+                        РАССТРЕЛЬНЫЙ СПИСОК КАНАЛОВ
+                    </section>
+                }
+                <section className={classes.count}>
+                    На сегодняшний день в нём 
+                    {
+                        isLoadingCount 
+                            ? 
+                        <section className={classes.loaderCount}>
+                            <LoaderContainer blue />
+                        </section> 
+                            : 
+                        <pre> {count} </pre>
+                    } 
+                    каналов
                 </section>
                 <section className={classes.wrapInput}>
                     <section onKeyDown={onEnter}
@@ -112,7 +155,11 @@ export const CheckBlacklist: FC = () => {
                         </MyButton>
                     </section>
                 </section>
-                <Info />
+                {
+                    info
+                        &&
+                    <Info />
+                }
             </section>
             {
                 isLoading

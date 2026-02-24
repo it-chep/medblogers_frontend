@@ -50,7 +50,20 @@ export const CardData: FC<IProps> = ({doctor, doctorVip}) => {
                     Информация о блоге
                 </section> 
                 <section className={classes.theme}>
-                    <span className={classes.themeSign}>Тематика: </span>{doctor.mainBlogTheme}
+                    {
+                        doctorVip
+                            ?
+                        <>
+                            <span className={classes.themeSign}>Тематика: </span>{doctor.mainBlogTheme}
+                        </>
+                            :
+                        <Quote 
+                            noQuote
+                            text={<>
+                                <span className={classes.themeSign}>Тематика: </span>{doctor.mainBlogTheme}
+                            </>} 
+                        />
+                    }
                 </section>
             </section>
             {

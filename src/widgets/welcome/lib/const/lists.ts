@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import { PillSvg } from "../assets/PillSvg";
 import { MessageCircle } from "../assets/MessageCircle";
 import { UserLock } from "../assets/UserLock";
@@ -6,22 +6,45 @@ import { ShieldUser } from "../assets/ShieldUser";
 import { Heart } from "../assets/Heart";
 import { Lock } from "../assets/Lock";
 import { ClipboardX } from "../assets/ClipboardX";
-
-
-
-export const requirements = [
-    'блог в любой соцсети 100+ подписчиков или блог менее 100 подписчиков, но с постом-знакомство в закрепе или хайлайтс',
-    'последняя публикация выложена не более 1 года назад',
-    'на аватарке - своя фотография',
-    'в блоге указаны ваши: Имя, Фамилия, Специальность, Город',
-    'готовность разместить на сайте личный TG-аккаунт для оперативной связи коллег с вами',
-]
+import { Users } from "../assets/Users";
+import { MousePointer } from "../assets/MousePointer";
+import { Camera } from "../assets/Camera";
+import { FileText } from "../assets/FileText";
+import { calendarCheck } from "../assets/CalendarCheck";
 
 type TItem = {
     text: string;
     icon: React.FC;
     width: number;
 }
+
+export const requirements: TItem[] = [
+    {
+        text: 'Минимум 100 подписчиков (или наличие поста-знакомства)',
+        icon: Users,
+        width: 390,
+    },
+    {
+        text: 'Готовность разместить личный Telegram-аккаунт',
+        icon: MousePointer,
+        width: 326,
+    },
+    {
+        text: 'Своя фотография на аватарке профиля',
+        icon: Camera,
+        width: 382,
+    },
+    {
+        text: 'Указаны ФИО, специальность и город',
+        icon: FileText,
+        width: 390,
+    },
+    {
+        text: 'Последняя публикация не старше 1 года',
+        icon: calendarCheck,
+        width: 326,
+    },
+]
 
 export const noposts: TItem[] = [
     {
@@ -60,16 +83,3 @@ export const noposts: TItem[] = [
         width: 244
     }
 ]
-
-// export const noposts = [
-//     'фитотерапевтов',
-//     'антипрививочников',
-//     'гирудотерапевтов',
-//     'гомеопатов',
-//     'докторов, которые лечат БАДами, витаминными капельницами, фуфломицинами, хиджамами и приверженцев народной и альтернативной медицины. Если на момент добавления в базу такого контента не было, но в последствии он появился, мы вынуждены будем удалить карточку.',
-//     'косметологов, которые проводят инъекции, не имея высшего медицинского образования по специальности косметология',
-//     'специалистов, которые выдают себя не за того, кем являются',
-//     'блоги с накрученными подписчиками (в том числе гивами), скрытыми лайками и просмотрами в Reels',
-//     'закрытые страницы и Telegram-аккаунты (с возможностью написать только за звёзды)',
-//     'нарушение правил других проектов от readydoc',
-// ]

@@ -2,7 +2,7 @@ import { IDoctor, IDoctorVip } from "@/src/entities/doctor/model/types";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
 import { MyError } from "@/src/shared/lib/error/MyError";
-import { DoctorCard } from "@/src/entities/doctor";
+import { DoctorCard, StickyContact } from "@/src/entities/doctor";
 
 interface IProps{
     reqDoctor: Promise<IDoctor>;
@@ -52,9 +52,16 @@ export async function DoctorDetail(props: IProps){
     }
 
     return (
-        <DoctorCard 
-            doctor={doctor}
-            doctorVip={doctorVip}
-        />
+        <>
+            <DoctorCard 
+                doctor={doctor}
+                doctorVip={doctorVip}
+            />
+            <StickyContact 
+                name={doctor.name}
+                specialties={doctor.specialities.map(s => s.name).join(', ')}
+                tg={doctor.tgUrl}
+            />
+        </>
     )
 }

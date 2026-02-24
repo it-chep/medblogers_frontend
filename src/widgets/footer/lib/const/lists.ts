@@ -12,14 +12,22 @@ export const infs: ILink[] = [
     {
         label: 'Редакционная политика',
         link: '/editorial_policy',
+        site: true,
     },
     {
         label: 'Методология базы',
         link: '/methodology',
+        site: true,
     },
     {
         label: 'Авторы',
         link: '/authors',
+        site: true,
+    },
+    {
+        label: 'Расстрельный список',
+        link: '/blacklist',
+        site: true,
     },
     {
         label: 'Политика конфиденциальности',

@@ -1,0 +1,1 @@
+export { BlacklistWidget } from "./ui/blacklist/BlacklistWidget";
