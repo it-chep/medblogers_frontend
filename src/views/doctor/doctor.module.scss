@@ -60,11 +60,14 @@
             .container{
                 flex-direction: column;
                 gap: 30px;
+
                 aside{
                     position: relative;
                     top: 0;
                     width: 100%;
+                    min-width: auto;
                 }
+
                 main{
                     gap: 30px;
                 }
