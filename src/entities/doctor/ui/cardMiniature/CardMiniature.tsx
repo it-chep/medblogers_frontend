@@ -5,7 +5,7 @@ import { IDoctor, IDoctorVip } from "../../model/types";
 import Image from "next/image";
 import markImg from '@/src/shared/lib/assets/mark_blue.png'
 import { SpecialityBadge } from "../specialityBadges/SpecialityBadge";
-import { VipSvg } from "@/src/shared/lib/assets/VipSvg";
+import { VipSvg } from "@/src/shared/lib/assets/vipSvg";
 import { VipStatuses } from "../vipStatus/VipStatuses";
 import { Quote } from "../quote/Quote";
 
