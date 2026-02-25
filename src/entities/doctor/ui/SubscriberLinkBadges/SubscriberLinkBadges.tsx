@@ -25,6 +25,7 @@ interface IProps {
 
 export const SubscriberLinkBadges: FC<IProps> = ({doctorLinks: doctor, vip = false}) => {
 
+
     return (
         <>
             <section className={classes.sign + (vip ? ` ${classes.vip}` : '')}>

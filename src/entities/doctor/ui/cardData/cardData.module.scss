@@ -16,7 +16,7 @@
 
     .shortMessage{
         margin-top: 15px;
-        color: var(--vip-white);
+        color: rgba(255, 255, 255, .8);
     }
 
     .statuses{
@@ -30,7 +30,7 @@
         gap: 10px;
         font-weight: 600;
         line-height: 110%;
-        color: var(--blue);
+        color: var(--turquoise);
 
         .sign{
             color: #fff;

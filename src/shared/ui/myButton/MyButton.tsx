@@ -7,14 +7,17 @@ interface Props {
     onClick?: () => void;
     grayStyle?: boolean;
     style?: HTMLAttributes<HTMLButtonElement>['style'];
+    turquoise?: boolean;
 }
 
-export const MyButton: FC<Props & PropsWithChildren> = ({onClick, style, isLoading, error, grayStyle, children}) => {
+export const MyButton: FC<Props & PropsWithChildren> = ({onClick, style, isLoading, error, grayStyle, turquoise, children}) => {
 
     return (
         <button
             disabled={isLoading || Boolean(error)}
-            className={classes.myButton + (grayStyle ? ` ${classes.grayStyle}` : '')}
+            className={
+                classes.myButton + (grayStyle ? ` ${classes.grayStyle}` : '') + (turquoise ? ` ${classes.turquoise}` : '')
+            }
             onClick={onClick}
             style={style}
         >

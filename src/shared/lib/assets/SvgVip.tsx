@@ -3,6 +3,7 @@ import { FC } from "react";
 
 export const VipSvg: FC = () => {
 
+
     return (
         <svg width="79" height="28" viewBox="0 0 79 28" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="79" height="28" rx="8" fill="url(#paint0_linear_2772_35444)"/>
@@ -15,6 +16,5 @@ export const VipSvg: FC = () => {
                 </linearGradient>
             </defs>
         </svg>
-
     )
 }

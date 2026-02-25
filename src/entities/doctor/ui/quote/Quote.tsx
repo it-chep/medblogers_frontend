@@ -4,14 +4,14 @@ import classes from './quote.module.scss'
 interface IProps {
     text: ReactNode;
     noQuote?: boolean;
-    gray?: boolean;
+    turquoise?: boolean;
 }
 
-export const Quote: FC<IProps> = ({text, gray = false, noQuote = false}) => {
+export const Quote: FC<IProps> = ({text, turquoise = false, noQuote = false}) => {
 
 
     return (
-        <section className={classes.container}>
+        <section className={classes.container + (turquoise ? ` ${classes.turquoise}` : '')}>
             <section className={classes.text}>
                 {text}
             </section>

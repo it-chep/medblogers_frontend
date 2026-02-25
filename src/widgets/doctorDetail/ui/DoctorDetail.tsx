@@ -61,6 +61,7 @@ export async function DoctorDetail(props: IProps){
                 name={doctor.name}
                 specialties={doctor.specialities.map(s => s.name).join(', ')}
                 tg={doctor.tgUrl}
+                vip={Boolean(doctorVip)}
             />
         </>
     )

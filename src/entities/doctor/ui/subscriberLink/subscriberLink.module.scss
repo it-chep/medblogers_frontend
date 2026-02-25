@@ -13,12 +13,20 @@
 
   &.vip{
     .subscriberLink{
-      background: #254B74;
-      color: var(--vip-white);
+      background: var(--teal-dark);
+      color: #fff;
     }
     .subscriberLink{
       svg{
-        fill: var(--vip-white);
+        fill: var(--teal);
+      }
+    }
+
+    &:hover{
+      .subscriberLink{
+        svg{
+          fill: var(--turquoise);
+        }
       }
     }
   }

@@ -3,7 +3,7 @@
 .container{
     position: relative;
     display: flex;    
-    background-color: #254B74;
+    background-color: #254b74;
     border-radius: 8px;
     justify-content: space-between;
 
@@ -27,5 +27,17 @@
         min-height: 10px;
         margin-right: 6px;
         margin-top: 11px;
+    }
+
+    &.turquoise{
+        background-color: var(--teal-dark);
+
+        &::after{
+            background-color: var(--turquoise);
+        }
+
+         >svg{
+            fill: var(--turquoise);
+        }
     }
 }

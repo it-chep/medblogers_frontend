@@ -8,10 +8,11 @@ interface IProps {
     name: string;
     specialties: string;
     tg: string;
+    vip?: boolean;
 }
 
 
-export const StickyContact: FC<IProps> = ({name, specialties, tg}) => {
+export const StickyContact: FC<IProps> = ({name, specialties, tg, vip}) => {
 
     const [hidden, setHidden] = useState<boolean>(true)
 
@@ -47,7 +48,9 @@ export const StickyContact: FC<IProps> = ({name, specialties, tg}) => {
                     target="_blank"
                     className={classes.link}
                 >
-                    <MyButton>
+                    <MyButton
+                        turquoise={vip}
+                    >
                         Написать в Telegram
                     </MyButton>
                 </a>

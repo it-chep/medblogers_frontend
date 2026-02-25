@@ -9,13 +9,36 @@
   background-color: var(--light-black);
   padding: 15px 15px 30px 15px;
   border-radius: 20px;
+  position: relative;
 
   &.vip{
-    background-color: var(--vip-background);
-    border: 2px solid rgba(45, 153, 252, .6);
+    background-image: url('../../lib/assets/VipCardBackground.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      
+      margin: -1px; // Толщина рамки = 2px
+      
+      border-radius: 21px; // = радиус родителя + толщина рамки
+      
+      background: linear-gradient(180deg, 
+        rgba(22, 239, 243, 0.7) 0%,   
+        rgba(22, 239, 243, 0.5) 50%,  
+        rgba(22, 239, 243, 0.7) 100% 
+      );
+      
+      z-index: -1;
+    }
 
     .infoWrapper{
-      color: var(--vip-white);
+      color: #fff;
     }
   }
 

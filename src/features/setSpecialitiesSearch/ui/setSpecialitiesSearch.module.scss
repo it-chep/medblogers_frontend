@@ -4,4 +4,8 @@
 .speciality{
     color: var(--blue);
     line-height: 115%;
+
+    &.vip{
+        color: var(--turquoise);
+    }
 }

@@ -135,7 +135,9 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, vip = false, ch
             }
             {children}
             <Link className={classes.link} href={doctor.tgUrl}>
-                <MyButton>
+                <MyButton
+                    turquoise={vip}
+                >
                     Написать в Telegram
                 </MyButton>
             </Link>

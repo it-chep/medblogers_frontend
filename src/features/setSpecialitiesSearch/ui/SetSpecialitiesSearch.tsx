@@ -6,17 +6,18 @@ import { IItem } from "@/src/shared/model/types";
 import { usePathname, useRouter } from "next/navigation";
 
 interface IProps {
-    specialities: IItem[]
+    specialities: IItem[];
+    vip?: boolean;
 }
 
-export const SetSpecialitiesSearch: FC<IProps> = ({specialities}) => {
+export const SetSpecialitiesSearch: FC<IProps> = ({specialities, vip}) => {
 
     const router = useRouter()
     const pathname = usePathname()
 
     return (
         <section 
-            className={classes.speciality}
+            className={classes.speciality + (vip ? ` ${classes.vip}` : '')}
         >
             {specialities.map((spec, ind) => 
                 <span 

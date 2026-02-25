@@ -13,7 +13,7 @@
     border-left: 1px solid var(--gray-social);
 
     &.vip{
-        border-left: 1px solid #2A435D;
+        border-left: 1px solid var(--teal);
     }
 
     .profiles{
@@ -38,6 +38,7 @@
 
         &.vip{
             border-left: none;
+            border-top: 1px solid var(--teal);
         }
     }
 

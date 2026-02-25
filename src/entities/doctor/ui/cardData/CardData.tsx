@@ -2,9 +2,8 @@ import { FC } from "react";
 import classes from './cardData.module.scss'
 import { IDoctor, IDoctorVip } from "../../model/types";
 import { VipStatuses } from "../vipStatus/VipStatuses";
-import Image from "next/image";
-import rubImg from '../../lib/assets/rub.png'
 import { Quote } from "../quote/Quote";
+import { VipRub } from "../../lib/assets/VipRub";
 
 interface IProps {
     doctor: IDoctor;
@@ -36,7 +35,7 @@ export const CardData: FC<IProps> = ({doctor, doctorVip}) => {
                 doctorVip?.advertisingPriceFrom
                     &&
                 <section className={classes.advertisingPriceFromWrap}>
-                    <Image src={rubImg.src} height={45} width={45} alt="Стоимость рекламы" />
+                    <VipRub />
                     <section className={classes.advertisingPriceFrom}>
                         <section className={classes.sign}>
                             Стоимость рекламы:
@@ -76,6 +75,7 @@ export const CardData: FC<IProps> = ({doctor, doctorVip}) => {
                     <section className={classes.blogInfoMobile}>
                         <Quote 
                             text={doctorVip.blogInfo}
+                            turquoise
                         />
                     </section>
                 </>

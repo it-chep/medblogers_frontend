@@ -6,8 +6,8 @@ import {MyButton} from "@/src/shared/ui/myButton";
 import Link from "next/link";
 import {ClinicHint} from "../../../../features/clinicHint/ui/ClinicHint";
 import { SubscriberLinkBadges } from "../SubscriberLinkBadges/SubscriberLinkBadges";
-import { VipSvg } from "@/src/shared/lib/assets/vipSvg";
 import { VipStatuses } from "../vipStatus/VipStatuses";
+import { VipSvg } from "@/src/shared/lib/assets/SvgVip";
 
 interface IProps {
     doctor: IDoctorMiniature;
@@ -22,6 +22,8 @@ export const DoctorMiniature: FC<IProps> = ({
     const doctorLink = `doctors/${doctor.slug}`
 
     const fio = doctor.name.split(' ')
+
+    console.log(doctor)
 
     return (
         <Link
@@ -52,7 +54,12 @@ export const DoctorMiniature: FC<IProps> = ({
                 {
                     doctor.isVip
                         &&
-                    <VipStatuses miniature doctorVip={{canBarter: true, canBuyAdvertising: true, canSellAdvertising: true}} />
+                    <VipStatuses 
+                        miniature 
+                        doctorVip={
+                            {canBarter: true, canBuyAdvertising: true, canSellAdvertising: true}
+                        } 
+                    />
                 }
                 <section className={classes.name}>
                     {
@@ -81,7 +88,9 @@ export const DoctorMiniature: FC<IProps> = ({
                         <SubscriberLinkBadges doctorLinks={doctor} vip={doctor.isVip} /> 
                     }
                     <section className={classes.link}>
-                        <MyButton>
+                        <MyButton
+                            turquoise={doctor.isVip}
+                        >
                             Подробнее
                         </MyButton>
                     </section>

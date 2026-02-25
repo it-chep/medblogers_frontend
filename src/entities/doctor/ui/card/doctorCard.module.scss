@@ -9,13 +9,34 @@
     background: var(--light-black);
     gap: 20px;
     padding: 20px;
-    overflow: hidden;
     
     &.vip{
-        background-image: url('../../lib/assets/doctorCard.png');
+        position: relative;
+        background-image: url('../../lib/assets/VipCardBackground.svg');
         background-repeat: no-repeat;
         background-size: cover;
-        border: 1px solid rgba(45, 153, 252, .6);
+        border: none;
+
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            
+            margin: -1px; 
+            
+            border-radius: 21px; // = радиус родителя + толщина рамки
+            
+            background: linear-gradient(180deg, 
+                rgba(22, 239, 243, 0.7) 0%,   
+                rgba(22, 239, 243, 0.5) 50%,  
+                rgba(22, 239, 243, 0.7) 100% 
+            );
+            
+            z-index: -1;
+        }
     }
 }
 
@@ -25,11 +46,14 @@
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 700px) {
     .content{
         &.vip{
-            background-image: none;
-            background-color: #17293D;
+            border: 1px solid var(--turquoise);
+
+            &::before{
+                display: none;
+            }
         }
 
     }

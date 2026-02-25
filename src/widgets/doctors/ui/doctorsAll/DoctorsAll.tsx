@@ -67,11 +67,13 @@ export const DoctorsAll: FC = () => {
                         setCitiesSearch={
                             <SetCitiesSearch 
                                 cities={doctor.city}
+                                vip={doctor.isVip}
                             />
                         }
                         setSpecialitiesSearch={
                             <SetSpecialitiesSearch 
                                 specialities={doctor.speciality}
+                                vip={doctor.isVip}
                             />
                         }
                     />

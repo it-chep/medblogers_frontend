@@ -1,9 +1,6 @@
-
-
 import { FC } from "react";
 import classes from './specialityBadge.module.scss'
 import Link from "next/link";
-
 
 interface IProps {
     text: string;
