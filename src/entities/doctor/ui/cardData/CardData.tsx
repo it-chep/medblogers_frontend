@@ -21,7 +21,10 @@ export const CardData: FC<IProps> = ({doctor, doctorVip}) => {
                 doctorVip?.shortMessage
                     &&
                 <section className={classes.shortMessage}>
-                    {doctorVip.shortMessage}
+                    <Quote 
+                        text={doctorVip.shortMessage}
+                        turquoise
+                    />
                 </section>
             }
             {
@@ -40,7 +43,7 @@ export const CardData: FC<IProps> = ({doctor, doctorVip}) => {
                         <section className={classes.sign}>
                             Стоимость рекламы:
                         </section>
-                        {doctorVip.advertisingPriceFrom}
+                        от {doctorVip.advertisingPriceFrom} рублей
                     </section>
                 </section>
             }
@@ -49,20 +52,7 @@ export const CardData: FC<IProps> = ({doctor, doctorVip}) => {
                     Информация о блоге
                 </section> 
                 <section className={classes.theme}>
-                    {
-                        doctorVip
-                            ?
-                        <>
-                            <span className={classes.themeSign}>Тематика: </span>{doctor.mainBlogTheme}
-                        </>
-                            :
-                        <Quote 
-                            noQuote
-                            text={<>
-                                <span className={classes.themeSign}>Тематика: </span>{doctor.mainBlogTheme}
-                            </>} 
-                        />
-                    }
+                    <span className={classes.themeSign}>Тематика: </span>{doctor.mainBlogTheme}
                 </section>
             </section>
             {
@@ -70,9 +60,6 @@ export const CardData: FC<IProps> = ({doctor, doctorVip}) => {
                     &&
                 <>
                     <section className={classes.blogInfo}>
-                        {doctorVip.blogInfo}
-                    </section>
-                    <section className={classes.blogInfoMobile}>
                         <Quote 
                             text={doctorVip.blogInfo}
                             turquoise

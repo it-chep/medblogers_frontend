@@ -81,21 +81,21 @@
             flex-direction: column;
 
             .city{
-                margin-top: 20px;
+                margin-top: 14px;
                 display: flex;
                 gap: 5px;
                 color: #fff;
             
                 svg{
                     fill: var(--blue);
+                    margin-top: 1px;
                 }
             }
             
             .specialities{
                 display: flex;
                 flex-wrap: wrap;
-                column-gap: 10px;
-                row-gap: 6px;
+                gap: 6px;
                 margin-top: 20px;
             }
         }
@@ -146,6 +146,14 @@
 
             .city_specialities{
                 flex-direction: column-reverse;
+
+                .city{
+                    margin-top: 20px;
+                }
+                
+                .specialities{
+                    gap: 10px;
+                }
             }
 
             .theme{

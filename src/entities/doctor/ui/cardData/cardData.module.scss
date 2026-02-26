@@ -16,7 +16,6 @@
 
     .shortMessage{
         margin-top: 15px;
-        color: rgba(255, 255, 255, .8);
     }
 
     .statuses{
@@ -72,10 +71,6 @@
     .blogInfo{
         margin-top: 15px;
     }
-
-    .blogInfoMobile{
-        display: none;
-    }
 }
 
 @media (max-width: 750px) {
@@ -128,10 +123,6 @@
             }
         }
         .blogInfo{
-            display: none;
-        }
-        .blogInfoMobile{
-            display: block;
             margin-top: 20px;
         }
     }
