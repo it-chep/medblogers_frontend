@@ -51,11 +51,6 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
                                 <Link 
                                     scroll={false}
                                     href={menuLink.link}
-                                    onClick={e => {
-                                        if(menuLink.close){
-                                            setTimeout(() => setOpen(false), 300)
-                                        }
-                                    }}
                                 >
                                     {menuLink.name}
                                 </Link>

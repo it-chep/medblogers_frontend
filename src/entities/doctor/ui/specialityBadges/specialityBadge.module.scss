@@ -1,16 +1,24 @@
 
-
-
 .badge{
     padding: 8px 20px;
     border-radius: 8px;
     background: #404040;
     color: var(--text-gray);
     width: fit-content;
+    font-weight: 500;
 
     &.main{
-        background: #01284B;
-        color: #2E99FC;
+        background: var(--dark-blue);
+        color: var(--blue);
+    }
 
+    &.vip{
+        background: var(--teal-dark);
+        color: rgba(255, 255, 255, .8);
+        
+        &.main{
+            background: #E6F2FF;
+            color: #113E46;
+        }
     }
 }

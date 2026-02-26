@@ -1,0 +1,43 @@
+
+
+.container{
+    position: relative;
+    display: flex;    
+    background-color: #254b74;
+    border-radius: 8px;
+    justify-content: space-between;
+
+    &::after{
+        content: "";
+        width: 4px;
+        border-radius: 8px;
+        background-color: var(--blue);
+        height: 100%;
+        position: absolute;
+    }
+
+    .text{
+        padding: 8px 16px 8px 16px;
+    }
+
+    >svg{
+        align-self: flex-start;
+        fill: var(--blue);
+        min-width: 12px;
+        min-height: 10px;
+        margin-right: 6px;
+        margin-top: 11px;
+    }
+
+    &.turquoise{
+        background-color: var(--teal-dark);
+
+        &::after{
+            background-color: var(--turquoise);
+        }
+
+         >svg{
+            fill: var(--turquoise);
+        }
+    }
+}

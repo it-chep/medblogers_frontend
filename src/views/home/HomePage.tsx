@@ -43,7 +43,7 @@ export default async function HomePage() {
                     <BannerNewDoctor />
                     {
                         IS_FREELANCERS_DONE
-                        &&
+                            &&
                         <Link href={'/helpers'} className={classes.button}>
                             <ButtonDark><span className={classes.helpersLink}>Перейти к базе помощников</span></ButtonDark>
                         </Link>
@@ -68,7 +68,9 @@ export default async function HomePage() {
             </section>
             <section className={classes.checkBlacklist}>
                 <section id="black_list_scroll"></section>
-                <CheckBlacklist />
+                <section className={classes.blacklist}>
+                    <CheckBlacklist info />
+                </section>
             </section> 
             <section className={classes.blogsTop}>
                 <h2 className={classes.blogs}>Полезные статьи для блога</h2>

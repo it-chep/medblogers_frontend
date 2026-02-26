@@ -15,12 +15,24 @@
     background: var(--dark-blue);
   }
 
+  &.turquoise{
+    background: linear-gradient(90deg, #3FE9ED 0%, #29D6ED 60%, #0CCDD1 100%);
+    color: #000;
+    border: none;
+    outline: 2px solid transparent;
+    transition: outline 0.5s ease, opacity .5s ease;
+
+    &:hover{
+      outline: 2px solid var(--teal);
+      opacity: .8;
+    }
+  }
+
   &.grayStyle{
     background-color: var(--dark-gray);
     border: 2px solid var(--dark-gray);
     color: #FFF;
     transition: background-color 0.5s ease;
-
 
     &:hover{
       background-color: transparent;

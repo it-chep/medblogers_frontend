@@ -8,6 +8,10 @@
   gap: 20px;
   min-height: 100vh;
 
+  .blacklist{
+    margin-top: 100px;
+  }
+
   .content{
     display: grid;
     grid-template-columns: 280px 1fr;

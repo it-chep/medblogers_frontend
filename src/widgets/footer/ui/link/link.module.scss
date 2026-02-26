@@ -1,0 +1,13 @@
+
+
+.link{
+    transition: all .15s ease;
+    
+    &:hover{
+        opacity: .7;
+    }
+}
+    
+.bold{
+    font-weight: 800;
+}

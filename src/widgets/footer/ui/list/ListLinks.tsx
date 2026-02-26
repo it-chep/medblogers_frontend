@@ -1,6 +1,7 @@
 import { FC } from "react";
 import classes from './list.module.scss'
 import { ILink } from "../../model/types";
+import { LinkFooter } from "../link/LinkFooter";
 
 interface IProps {
     items: ILink[];
@@ -8,15 +9,20 @@ interface IProps {
 
 export const ListLinks: FC<IProps> = ({items}) => {
 
-
     return (
         <ul className={classes.listLinks}>
             {items.map(item =>
-                item.noindex
-                    ?
-                <li key={item.label}><noindex><a target='_blank' rel="nofollow" href={item.link}>{item.label} {item.bold ? <span className={classes.bold}>{item.bold}</span> : <></>}</a></noindex></li>
-                    :
-                <li key={item.label}><a target='_blank' href={item.link}>{item.label} {item.bold ? <span className={classes.bold}>{item.bold}</span> : <></>}</a></li>
+                <li key={item.label}>
+                    {
+                        item.noindex
+                            ?
+                        <noindex>
+                            <LinkFooter link={item} />
+                        </noindex>
+                            :
+                        <LinkFooter link={item} />
+                    }
+                </li>
             )}
         </ul>   
     )

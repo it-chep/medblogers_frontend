@@ -1,59 +1,85 @@
 import { FC } from "react";
 import classes from './cardData.module.scss'
-import { IDoctor } from "../../model/types";
-import Link from "next/link";
-import { MyButton } from "@/src/shared/ui/myButton";
-import { SpecialityBadge } from "../specialityBadges/SpecialityBadge";
-import Image from "next/image";
-import markImg from '@/src/shared/lib/assets/mark_blue.png'
-import { ClinicHint } from "../clinicHint/ClinicHint";
+import { IDoctor, IDoctorVip } from "../../model/types";
+import { VipStatuses } from "../vipStatus/VipStatuses";
+import { Quote } from "../quote/Quote";
+import { VipRub } from "../../lib/assets/VipRub";
 
 interface IProps {
     doctor: IDoctor;
+    doctorVip: IDoctorVip | null;
 }
 
-export const CardData: FC<IProps> = ({doctor}) => {
-
-    const fio = doctor.name.split(' ')
+export const CardData: FC<IProps> = ({doctor, doctorVip}) => {
 
     return (
         <section className={classes.container}>
-            <section className={classes.main}>
-                <h1 className={classes.name}>
+            <h1 className={classes.name}>
+                {doctor.name}
+            </h1>
+            {
+                doctorVip?.shortMessage
+                    &&
+                <section className={classes.shortMessage}>
+                    {doctorVip.shortMessage}
+                </section>
+            }
+            {
+                doctorVip && (doctorVip.canBuyAdvertising || doctorVip.canSellAdvertising || doctorVip.canBarter)
+                    &&
+                <section className={classes.statuses}>
+                    <VipStatuses doctorVip={doctorVip} />
+                </section>
+            }
+            {
+                doctorVip?.advertisingPriceFrom
+                    &&
+                <section className={classes.advertisingPriceFromWrap}>
+                    <VipRub />
+                    <section className={classes.advertisingPriceFrom}>
+                        <section className={classes.sign}>
+                            Стоимость рекламы:
+                        </section>
+                        {doctorVip.advertisingPriceFrom}
+                    </section>
+                </section>
+            }
+            <section className={classes.blogTheme + (doctorVip ? ` ${classes.vip}` : '')}>
+                <section className={classes.sign}>
+                    Информация о блоге
+                </section> 
+                <section className={classes.theme}>
                     {
-                        doctor.isKfDoctor
+                        doctorVip
                             ?
                         <>
-                            {fio.slice(0, 2).join(' ')}&nbsp;
-                            <ClinicHint name={fio[2]} sizeIcon={20} gap={8} />
+                            <span className={classes.themeSign}>Тематика: </span>{doctor.mainBlogTheme}
                         </>
                             :
-                        <>
-                            {doctor.name}
-                        </>
+                        <Quote 
+                            noQuote
+                            text={<>
+                                <span className={classes.themeSign}>Тематика: </span>{doctor.mainBlogTheme}
+                            </>} 
+                        />
                     }
-                </h1>
-                <span className={classes.city}>
-                    <Image alt="Метка" width={11} height={13} src={markImg.src} /> 
-                    Город: {doctor.mainCity.name}{doctor.cities.length >= 0 && doctor.cities.map(city => `, ${city.name}`)}
-                </span>
-                <section className={classes.specialities}>
-                    <SpecialityBadge id={doctor.mainSpeciality.id} text={doctor.mainSpeciality.name} main={true} />
-                    {doctor.specialities.map((speciality, ind) => 
-                        <SpecialityBadge key={ind} id={speciality.id} text={speciality.name} />
-                    )}
                 </section>
             </section>
-
-            <section className={classes.blogTheme}>
-                <span className={classes.sign}>Тематика блога:</span> {doctor.mainBlogTheme}
-            </section>
-
-            <Link className={classes.link} href={doctor.tgUrl}>
-                <MyButton>
-                    Написать в TG
-                </MyButton>
-            </Link>
+            {
+                doctorVip?.blogInfo
+                    &&
+                <>
+                    <section className={classes.blogInfo}>
+                        {doctorVip.blogInfo}
+                    </section>
+                    <section className={classes.blogInfoMobile}>
+                        <Quote 
+                            text={doctorVip.blogInfo}
+                            turquoise
+                        />
+                    </section>
+                </>
+            }
         </section>
     )
 }

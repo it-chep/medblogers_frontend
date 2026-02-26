@@ -2,15 +2,13 @@
 
 .container {
     position: relative;
-    background: url('../lib/assets/backgrounds-sprite.png') center / contain no-repeat;
+    background: url('../../lib/assets/backgrounds-sprite.png') center / contain no-repeat;
     background-size: 300% 100%;
     background-position: left center;
     width: 100%;
     border-radius: 20px;
     padding: 40px 0;
     overflow: hidden;
-
-    margin-top: 100px;
 
     &.false{
         background-position: center center;
@@ -53,10 +51,26 @@
             font-weight: 800;
         }
 
+        .count{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            line-height: 100%;
+            letter-spacing: -3%;
+            color: var(--blue);
+            font-size: 20px;
+            margin: 30px auto 0 auto;
+
+            .loaderCount{
+                width: 50px;
+                margin: 0 6px;
+            }
+        }
+
         .wrapInput{
             display: flex;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 40px;
             height: 60px;
             width: 100%;
 
@@ -107,7 +121,7 @@
 @media (max-width: 480px) {
 
     .container {
-        background: url('../lib/assets/backgroundsMobile-sprite.png') center / contain no-repeat;
+        background: url('../../lib/assets/backgroundsMobile-sprite.png') center / contain no-repeat;
         background-size: 300% 100%;
         background-position: left center;
         padding: 20px;

@@ -28,7 +28,7 @@ export const SearchResultDoctors: FC<IProps> = ({result, setOpen, isLoading}) =>
                     :
                 result.cities.length === 0 && result.doctors.length === 0 && result.specialities.length === 0
                     ?
-                <p className={classes.empty}>Нет подходящих врачей.</p>
+                <section className={classes.empty}>Нет подходящих врачей.</section>
                     :
                 <>
                     {
