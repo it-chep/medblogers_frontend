@@ -36,8 +36,8 @@ class BlogService {
                 cache: "no-cache"
             }
         )
-        const {categories}: {categories: IBlogCategory[]} = await res.json()
-        return categories
+        const {categories, allBlogsCount}: {categories: IBlogCategory[], allBlogsCount: number} = await res.json()
+        return {categories, allBlogsCount}
     }
 
     async getBlogsDoctor(doctorSlug: string): Promise<IBlogMiniature[]> {

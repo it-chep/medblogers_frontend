@@ -1,12 +1,11 @@
 import { IDoctor, IDoctorVip } from "@/src/entities/doctor/model/types";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
-import { MyError } from "@/src/shared/lib/error/MyError";
 import { DoctorCard, StickyContact } from "@/src/entities/doctor";
 
 interface IProps{
     reqDoctor: Promise<IDoctor>;
-    reqDoctorVip: Promise<IDoctorVip>;
+    doctorVip: IDoctorVip | null;
 }
 
 const getData = async (reqDoctor: Promise<IDoctor>) => {
@@ -23,27 +22,10 @@ const getData = async (reqDoctor: Promise<IDoctor>) => {
     return doctor
 }
 
-const getVip = async (reqDoctorVip: Promise<IDoctorVip>) => {
-    let doctorVip: IDoctorVip | null = null;
-    try{
-        doctorVip = await reqDoctorVip
-    }
-    catch(e){
-        if((e instanceof MyError) && (e.status === 404)){}
-        else{
-            if (isDynamicServerError(e)) {
-                throw e;
-            }
-            console.log(e)
-        }
-    }
-    return doctorVip
-}
 
 export async function DoctorDetail(props: IProps){
 
     const doctor = await getData(props.reqDoctor)
-    const doctorVip = await getVip(props.reqDoctorVip)
 
     if(!doctor || doctor.code === 2){
         return (
@@ -51,17 +33,19 @@ export async function DoctorDetail(props: IProps){
         )
     }
 
+
+
     return (
         <>
             <DoctorCard 
                 doctor={doctor}
-                doctorVip={doctorVip}
+                doctorVip={props.doctorVip}
             />
             <StickyContact 
                 name={doctor.name}
                 specialties={doctor.specialities.map(s => s.name).join(', ')}
                 tg={doctor.tgUrl}
-                vip={Boolean(doctorVip)}
+                vip={Boolean(props.doctorVip)}
             />
         </>
     )

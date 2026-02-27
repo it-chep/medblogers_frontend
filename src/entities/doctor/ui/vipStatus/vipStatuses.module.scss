@@ -31,7 +31,7 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        border-radius: 6px;
+        border-radius: 8px;
         padding: 6px 16px;
         font-weight: 700;
 
@@ -55,6 +55,7 @@
             height: 30px;
             padding: 0 10px 0 10px;
             gap: 8px;
+            border-radius: 6px;
 
             &.canBuyAdvertising, &.canSellAdvertising{
                 padding: 0px 10px 0 9px;

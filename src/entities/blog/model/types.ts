@@ -10,8 +10,9 @@ export interface IBlogDoctor {
 export interface IBlogCategory {
     id: string;
     name: string;
-    fontColor : string;
-    bgColor : string; 
+    fontColor: string;
+    bgColor: string; 
+    blogsCount: number;
 }
   
 export interface IBlogMiniature {

@@ -8,14 +8,15 @@ import { IBlogMiniature } from "@/src/entities/blog";
 
 interface IProps {
     blogs: IBlogMiniature[];
+    fullScreen: boolean;
 }
 
-export const Selected: FC<IProps> = ({blogs}) => {
+export const Selected: FC<IProps> = ({blogs, fullScreen}) => {
     const [isMobile, setIsMobile] = useState<boolean | null>(null);
     const [speedSec, setSpeedSec] = useState<number>(0);
     const [heights, setHeights] = useState<{one: number, two: number}>({one: 0, two: 0});
 
-    const shouldUseContainer =  blogs.length > 3;
+    const shouldUseContainer =  fullScreen ? blogs.length > 3 : blogs.length > 2;
     const speed = (blogs.length * 1.2) / 20;
     
     const containerHeight = (
@@ -65,13 +66,14 @@ export const Selected: FC<IProps> = ({blogs}) => {
                     <BlogsContainer
                         setHeight={setHeights}
                         blogs={blogs} 
+                        fullScreen={fullScreen}
                     />
                 </OpenContainer>
                     : 
                 <BlogsContainer 
                     setHeight={setHeights}
                     blogs={blogs} 
-
+                    fullScreen={fullScreen}
                 />
             }
         </section>

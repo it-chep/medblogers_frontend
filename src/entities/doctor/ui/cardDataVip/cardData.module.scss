@@ -1,0 +1,129 @@
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    --text-gray: #aeaeae;
+
+    .name{
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 28px;
+        line-height: 100%;
+    }
+
+    .shortMessage{
+        margin-top: 15px;
+    }
+
+    .statuses{
+        margin-top: 25px;
+    }
+
+    .advertisingPriceFromWrap{
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        line-height: 110%;
+        color: var(--turquoise);
+
+        .sign{
+            color: #fff;
+        }
+    }
+
+    .blogTheme{
+        font-weight: 400;
+        margin-top: 15px;
+
+        .sign{
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 20px;
+
+            &::after{
+                content: ":";
+            }
+        }
+
+        .theme{
+            .themeSign{
+                font-weight: 600;
+            }
+        }
+
+        &.vip{
+            margin-top: 25px;
+            .sign{
+                margin-bottom: 15px;
+            }
+            .theme{
+                background-color: transparent;
+                padding: 0;
+            }
+        }
+    }
+    
+    .blogInfo{
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 750px) {
+    .container{
+        font-size: 17px;
+        .name{
+            display: none;
+        }
+        .shortMessage{
+            display: none;
+        }
+        .statuses{
+            display: none;
+        }
+        .advertisingPriceFromWrap{
+            margin-top: 0;
+        }
+        .blogTheme{
+            margin-top: 0;
+
+            .sign{
+                margin-bottom: 20px;
+                font-size: 24px;
+                text-align: center;
+
+                &::after{
+                    content: "";
+                }
+            }
+
+            .theme{
+                background-color: transparent;
+                opacity: 1;
+                border-radius: 0;
+                padding: 0;
+
+                .themeSign{
+                    font-weight: 600;
+                }
+            }
+
+            &.vip{
+                margin-top: 30px;
+                
+                .sign{
+                    text-align: start;
+                    font-weight: 700;
+                    font-size: 20px;
+                }
+            }
+        }
+        .blogInfo{
+            margin-top: 20px;
+        }
+    }
+}
