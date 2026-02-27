@@ -7,9 +7,10 @@ import { BlogMiniature, IBlogMiniature } from "@/src/entities/blog";
 interface IProps {
     blogs: IBlogMiniature[];
     setHeight: ({one, two}: {one: number, two: number}) => void;
+    fullScreen: boolean;
 }
 
-export const BlogsContainer: FC<IProps> = ({blogs, setHeight}) => {
+export const BlogsContainer: FC<IProps> = ({blogs, setHeight, fullScreen}) => {
 
     const contentRef = useRef<HTMLDivElement>(null)
 
@@ -44,7 +45,7 @@ export const BlogsContainer: FC<IProps> = ({blogs, setHeight}) => {
     }, [blogs]); // Добавьте зависимости по необходимости
 
     return (
-        <section className={classes.container}>
+        <section className={classes.container + (fullScreen ? ` ${classes.fullScreen}` : '')}>
             <h3>Читать статьи врача</h3>
             <section ref={contentRef} className={classes.content}>
                 {blogs.map(blog => 

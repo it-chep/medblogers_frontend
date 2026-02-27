@@ -1,129 +1,175 @@
-
-
-
 .container{
     display: flex;
-    flex-direction: column;
-    font-size: 18px;
+    gap: 20px;
+
     --text-gray: #aeaeae;
 
-    .name{
+    .image{
+        min-width: 300px;
+        width: 300px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        height: 100%;
+        border-radius: 16px;
+    }
+
+    .wrapper{
         display: flex;
-        flex-wrap: wrap;
-        font-size: 28px;
-        line-height: 100%;
-    }
+        flex-direction: column;
+        gap: 20px;
 
-    .shortMessage{
-        margin-top: 15px;
-    }
-
-    .statuses{
-        margin-top: 25px;
-    }
-
-    .advertisingPriceFromWrap{
-        margin-top: 25px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 600;
-        line-height: 110%;
-        color: var(--turquoise);
-
-        .sign{
-            color: #fff;
-        }
-    }
-
-    .blogTheme{
-        font-weight: 400;
-        margin-top: 15px;
-
-        .sign{
-            font-weight: 700;
-            margin-bottom: 10px;
-            font-size: 20px;
-
-            &::after{
-                content: ":";
-            }
-        }
-
-        .theme{
-            .themeSign{
-                font-weight: 600;
-            }
-        }
-
-        &.vip{
-            margin-top: 25px;
-            .sign{
-                margin-bottom: 15px;
-            }
-            .theme{
-                background-color: transparent;
-                padding: 0;
-            }
-        }
-    }
+        .main{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
     
-    .blogInfo{
-        margin-top: 15px;
+            .name{
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 28px;
+                line-height: 32px;
+            }
+        
+            .city{
+                display: flex;
+                gap: 4px;
+                color: var(--text-gray);
+    
+                svg{
+                    margin-top: 2px;
+                    width: 11px;
+                    height: 13px;
+                    fill: var(--blue);
+                }
+            }
+        
+            .specialities{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+    
+        .blogTheme{
+            .sign{
+                color: var(--text-gray);
+            }
+        }
+    
+        .link{
+            display: block;
+            width: 200px;
+        }
+    }
+
+}
+
+@media (max-width: 980px) {
+    .container{
+        .wrapper{
+
+            .link{
+                display: none;
+            }
+        }
     }
 }
 
 @media (max-width: 750px) {
     .container{
-        font-size: 17px;
-        .name{
-            display: none;
+        .image{
+            min-width: 260px;
+            width: 260px;
         }
-        .shortMessage{
-            display: none;
-        }
-        .statuses{
-            display: none;
-        }
-        .advertisingPriceFromWrap{
-            margin-top: 0;
-        }
-        .blogTheme{
-            margin-top: 0;
-
-            .sign{
-                margin-bottom: 20px;
-                font-size: 24px;
-                text-align: center;
-
-                &::after{
-                    content: "";
+        .wrapper{
+            .main{
+                .name{
+                    font-size: 26px;
+                    line-height: 30px;
                 }
             }
+        }
+    }
+}
 
-            .theme{
-                background-color: transparent;
-                opacity: 1;
-                border-radius: 0;
-                padding: 0;
+@media (max-width: 550px) {
+    .container{
+        gap: 20px;
+        flex-direction: column;
 
-                .themeSign{
-                    font-weight: 600;
+        .image{
+            min-width: 100%;
+            width: 100%;
+            aspect-ratio: 1.4/1;
+            object-position: 10% 10%;
+        }
+
+        .wrapper{
+            gap: 10px;
+            .main{
+                gap: 0;
+                .city{
+                    margin-top: 15px;
+                    margin-bottom: 10px;
+                }
+    
+                .name{
+                    font-size: 24px;
+                    line-height: 30px;
                 }
             }
+        }
+    }
+}
 
-            &.vip{
-                margin-top: 30px;
-                
-                .sign{
-                    text-align: start;
-                    font-weight: 700;
+@media (max-width: 480px) {
+    .container{
+        .wrapper{
+            .main{
+                .specialities{
+                    gap: 6px;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 440px) {
+    .container{
+        .wrapper{
+            .main{
+                .name{
+                    font-size: 22px;
+                    line-height: 26px;
+                }
+    
+                .specialities{
+                    gap: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .container{
+        font-size: 15px;
+
+        .wrapper{
+            .main{
+                .name{
                     font-size: 20px;
+                    line-height: 24px;
+                    font-weight: 800;
+                }
+    
+                .city{
+                    img{
+                        margin-top: 1px;
+                    }      
                 }
             }
-        }
-        .blogInfo{
-            margin-top: 20px;
         }
     }
 }

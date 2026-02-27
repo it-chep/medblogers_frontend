@@ -4,12 +4,9 @@ import { isDynamicServerError } from "next/dist/client/components/hooks-server-c
 import { notFound } from "next/navigation";
 import { Selected } from "../selected/Selected";
 
-interface IProps {
-    slug: string;
-}
-
 interface IProps{
     slug: string;
+    isVip: boolean;
 }
 
 const getData = async (slug: string) => {
@@ -26,7 +23,7 @@ const getData = async (slug: string) => {
     return blogs
 }
 
-export async function DoctorBlogs({slug}: IProps) {
+export async function DoctorBlogs({slug, isVip}: IProps) {
 
     const blogs = await getData(slug)
     
@@ -42,7 +39,10 @@ export async function DoctorBlogs({slug}: IProps) {
 
     return (
         <section className={classes.container}>
-            <Selected blogs={blogs} />
+            <Selected 
+                fullScreen={!isVip} 
+                blogs={blogs} 
+            />
         </section>
     )
 }

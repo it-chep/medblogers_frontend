@@ -7,16 +7,17 @@ import { IBlogCategory } from "@/src/entities/blog";
 
 interface IProps {
     categories: IBlogCategory[];   
+    allBlogsCount: number;
 }
 
 type TFullCategory = IBlogCategory & {selected: boolean}
 
-export const FilterBlogsSelect: FC<IProps> = ({categories}) => {
+export const FilterBlogsSelect: FC<IProps> = ({categories, allBlogsCount}) => {
     
     const searchParams = useSearchParams()
     const getCategoryIds = () => searchParams.getAll('category').map(c => +c)
 
-    const setCategoriesSelect = (ids: number[]) => {
+    const setCategoriesSelect = (ids: number[]): TFullCategory[] => {
         if(ids.length){
             return [
                 {
@@ -25,6 +26,7 @@ export const FilterBlogsSelect: FC<IProps> = ({categories}) => {
                     bgColor: '',
                     fontColor: '',
                     selected: false,
+                    blogsCount: allBlogsCount,
                 }, ...categories.map(category => ({...category, selected: ids.includes(+category.id)}))
             ]
         }
@@ -36,6 +38,7 @@ export const FilterBlogsSelect: FC<IProps> = ({categories}) => {
                     bgColor: '',
                     fontColor: '',
                     selected: true,
+                    blogsCount: allBlogsCount,
                 }, ...categories.map(category => ({...category, selected: false}))
             ]
         }
@@ -80,7 +83,7 @@ export const FilterBlogsSelect: FC<IProps> = ({categories}) => {
                     className={classes.item + (category.selected ? ` ${classes.selected}` : '')}         
                     onClick={() => onClick(category)}           
                 >
-                    {category.name}
+                    {category.name} ({category.blogsCount})
                 </li>
             )}
         </ul>

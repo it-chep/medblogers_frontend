@@ -8,7 +8,7 @@ import { PropsWithChildren } from "react";
 
 interface IProps{
     reqDoctor: Promise<IDoctor>;
-    reqDoctorVip: Promise<IDoctorVip>;
+    doctorVip: IDoctorVip | null;
 }
 
 const getData = async (reqDoctor: Promise<IDoctor>) => {
@@ -25,27 +25,10 @@ const getData = async (reqDoctor: Promise<IDoctor>) => {
     return doctor
 }
 
-const getVip = async (reqDoctorVip: Promise<IDoctorVip>) => {
-    let doctorVip: IDoctorVip | null = null;
-    try{
-        doctorVip = await reqDoctorVip
-    }
-    catch(e){
-        if((e instanceof MyError) && (e.status === 404)){}
-        else{
-            if (isDynamicServerError(e)) {
-                throw e;
-            }
-            console.log(e)
-        }
-    }
-    return doctorVip
-}
 
 export async function DoctorDetailMiniature(props: IProps & PropsWithChildren){
 
     const doctor = await getData(props.reqDoctor)
-    const doctorVip = await getVip(props.reqDoctorVip)
 
     if(!doctor || doctor.code === 2){
         return (
@@ -58,7 +41,7 @@ export async function DoctorDetailMiniature(props: IProps & PropsWithChildren){
     return (
         <DoctorCardMiniature 
             doctor={doctor}
-            doctorVip={doctorVip}
+            doctorVip={props.doctorVip}
         >
             <>
                 {fio.slice(0, -1).join(' ')}&nbsp;
