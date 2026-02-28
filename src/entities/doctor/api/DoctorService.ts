@@ -1,5 +1,5 @@
 import { SERVER_URL_API } from "@/src/app/env/env";
-import {IDoctor, IDoctorMiniatureResponse, IDoctorSeo, IDoctorVip} from "../model/types";
+import {IDoctor, IDoctorMiniatureResponse, IDoctorSeo, IDoctorVip, IRatingResponse} from "../model/types";
 import { MyError } from "@/src/shared/lib/error/MyError";
 
 
@@ -38,6 +38,14 @@ class DoctorService {
 
         const doctorVip: IDoctorVip = await response.json()
         return doctorVip
+    }
+
+    async getRating(): Promise<IRatingResponse> {
+        const response = await fetch(SERVER_URL_API + '/v1/medblogers_rating', {
+            cache: "no-cache"
+        })
+        const data: IRatingResponse = await response.json()
+        return data
     }
 
     async seo(slug: string){
