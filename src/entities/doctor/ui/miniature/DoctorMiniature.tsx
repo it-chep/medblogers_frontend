@@ -23,8 +23,6 @@ export const DoctorMiniature: FC<IProps> = ({
 
     const fio = doctor.name.split(' ')
 
-    console.log(doctor)
-
     return (
         <Link
             className={classes.container + (doctor.isVip ? ` ${classes.vip}` : '')}
@@ -57,9 +55,9 @@ export const DoctorMiniature: FC<IProps> = ({
                     <VipStatuses 
                         miniature 
                         doctorVip={{
-                            canBarter: doctor.canBarter, 
-                            canBuyAdvertising: doctor.canBuyAdvertising, 
-                            canSellAdvertising: doctor.canSellAdvertising
+                            canBarter: doctor.vipInfo.canBarter, 
+                            canBuyAdvertising: doctor.vipInfo.canBuyAdvertising, 
+                            canSellAdvertising: doctor.vipInfo.canSellAdvertising
                         }} 
                     />
                 }
