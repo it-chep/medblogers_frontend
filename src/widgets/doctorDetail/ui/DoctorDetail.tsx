@@ -34,7 +34,6 @@ export async function DoctorDetail(props: IProps){
     }
 
 
-
     return (
         <>
             <DoctorCard 
@@ -43,7 +42,7 @@ export async function DoctorDetail(props: IProps){
             />
             <StickyContact 
                 name={doctor.name}
-                specialties={doctor.specialities.map(s => s.name).join(', ')}
+                mainSpecialty={doctor.mainSpeciality.name}
                 tg={doctor.tgUrl}
                 vip={Boolean(props.doctorVip)}
             />

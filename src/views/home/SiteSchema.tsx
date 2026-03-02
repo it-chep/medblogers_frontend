@@ -49,7 +49,7 @@ export default function MySiteSchema() {
         "@type": "SiteNavigationElement",
         "@id": "https://medblogers-base.ru/#nav-blacklist",
         "name": "Расстрельный список каналов",
-        "url": "https://medblogers-base.ru/#blacklist",
+        "url": "https://medblogers-base.ru/blacklist",
         "description": "Проверка каналов на накрутку и недобросовестную рекламу",
         "isPartOf": { "@id": "https://medblogers-base.ru/#website" }
       }

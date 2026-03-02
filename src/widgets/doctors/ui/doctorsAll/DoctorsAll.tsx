@@ -1,6 +1,6 @@
 "use client"
 
-import {FC, useCallback, useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import {useSearchParams} from "next/navigation";
 import {DoctorMiniature, doctorService, IDoctorMiniature} from "@/src/entities/doctor";
 import classes from './doctorsAll.module.scss'

@@ -56,9 +56,11 @@ export const DoctorMiniature: FC<IProps> = ({
                         &&
                     <VipStatuses 
                         miniature 
-                        doctorVip={
-                            {canBarter: true, canBuyAdvertising: true, canSellAdvertising: true}
-                        } 
+                        doctorVip={{
+                            canBarter: doctor.canBarter, 
+                            canBuyAdvertising: doctor.canBuyAdvertising, 
+                            canSellAdvertising: doctor.canSellAdvertising
+                        }} 
                     />
                 }
                 <section className={classes.name}>
