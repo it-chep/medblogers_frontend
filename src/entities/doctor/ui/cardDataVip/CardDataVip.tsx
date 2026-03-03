@@ -14,19 +14,6 @@ export const CardDataVip: FC<IProps> = ({doctor, doctorVip}) => {
 
     return (
         <section className={classes.container}>
-            <h1 className={classes.name}>
-                {doctor.name}
-            </h1>
-            {
-                doctorVip?.shortMessage
-                    &&
-                <section className={classes.shortMessage}>
-                    <Quote 
-                        text={doctorVip.shortMessage}
-                        turquoise
-                    />
-                </section>
-            }
             {
                 doctorVip && (doctorVip.canBuyAdvertising || doctorVip.canSellAdvertising || doctorVip.canBarter)
                     &&

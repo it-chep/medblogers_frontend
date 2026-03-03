@@ -106,7 +106,6 @@ export interface IDoctorVip {
     canBuyAdvertising: boolean;
     canSellAdvertising: boolean; 
     advertisingPriceFrom: string;
-    shortMessage: string;
     blogInfo: string;
     endDate: string;
 }
