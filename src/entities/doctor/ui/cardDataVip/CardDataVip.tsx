@@ -4,13 +4,19 @@ import { IDoctor, IDoctorVip } from "../../model/types";
 import { VipStatuses } from "../vipStatus/VipStatuses";
 import { Quote } from "../quote/Quote";
 import { VipRub } from "../../lib/assets/VipRub";
+import MarkdownIt from "markdown-it";
 
 interface IProps {
     doctor: IDoctor;
-    doctorVip: IDoctorVip | null;
+    doctorVip: IDoctorVip;
 }
 
 export const CardDataVip: FC<IProps> = ({doctor, doctorVip}) => {
+
+    const render = () => {
+        const mk = MarkdownIt()
+        return mk.render(doctorVip.blogInfo)
+    } 
 
     return (
         <section className={classes.container}>
@@ -22,7 +28,7 @@ export const CardDataVip: FC<IProps> = ({doctor, doctorVip}) => {
                 </section>
             }
             {
-                doctorVip?.advertisingPriceFrom
+                doctorVip.advertisingPriceFrom
                     &&
                 <section className={classes.advertisingPriceFromWrap}>
                     <VipRub />
@@ -43,12 +49,14 @@ export const CardDataVip: FC<IProps> = ({doctor, doctorVip}) => {
                 </section>
             </section>
             {
-                doctorVip?.blogInfo
+                doctorVip.blogInfo
                     &&
                 <>
                     <section className={classes.blogInfo}>
                         <Quote 
-                            text={doctorVip.blogInfo}
+                            text={
+                                <span dangerouslySetInnerHTML={{__html: render()}} />
+                            }
                             turquoise
                         />
                     </section>
