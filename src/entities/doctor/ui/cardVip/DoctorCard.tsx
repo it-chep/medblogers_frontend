@@ -15,7 +15,7 @@ export const DoctorCard: FC<IProps & PropsWithChildren> = ({doctor, doctorVip, c
     return (
         <section className={classes.content + (doctorVip ? ` ${classes.vip}` : '')}>
             {
-                Boolean(doctorVip)
+                doctorVip
                     ?
                 <CardDataVip 
                     doctor={doctor} 
