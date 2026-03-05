@@ -10,8 +10,8 @@ export const SvgBanner: FC = () => {
         <svg width="896" height="155" viewBox="0 0 896 155" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
             <g clipPath="url(#clip0_2953_37491)">
             <rect width="896" height="155" rx="15.625" fill="white"/>
-            <rect width="896" height="155" rx="15.625" fill="#01284B" fill-opacity="0.2"/>
-            <rect x="0.390625" y="0.390625" width="895.219" height="154.219" rx="15.2344" stroke="#2F9BFF" stroke-opacity="0.3" stroke-width="0.78125"/>
+            <rect width="896" height="155" rx="15.625" fill="#01284B" fillOpacity="0.2"/>
+            <rect x="0.390625" y="0.390625" width="895.219" height="154.219" rx="15.2344" stroke="#2F9BFF" strokeOpacity="0.3" strokeWidth="0.78125"/>
             <g opacity="0.2" filter="url(#filter0_f_2953_37491)">
             <path d="M1317.37 589.385C1307.94 614.724 1022.02 192.231 755.923 66.3124C489.829 -59.6059 503.562 -215.547 559.649 -216.785C569.081 -242.124 902.424 -214.213 1106.68 -13.3588C1344.48 220.492 1326.81 564.046 1317.37 589.385Z" fill="#29C8E5"/>
             </g>
