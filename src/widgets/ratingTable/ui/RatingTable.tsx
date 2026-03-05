@@ -38,7 +38,11 @@ export const RatingTable: FC = () => {
                 isLoading
                     ?
                 <section className={classes.loader}>
-                    {[1, 2, 3, 4, 5].map(i => <LoaderContainer key={i} />)}
+                    {[1, 2, 3].map(i => 
+                        <section className={classes.loaderItem}>
+                            <LoaderContainer key={i} />
+                        </section>
+                    )}
                 </section>
                     :
                 doctors.length === 0

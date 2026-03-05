@@ -23,8 +23,6 @@ export const DoctorMiniature: FC<IProps> = ({
 
     const fio = doctor.name.split(' ')
 
-    console.log(doctor)
-
     return (
         <Link
             className={classes.container + (doctor.isVip ? ` ${classes.vip}` : '')}
