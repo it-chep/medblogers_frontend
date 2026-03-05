@@ -1,7 +1,8 @@
 import { IDoctor, IDoctorVip } from "@/src/entities/doctor/model/types";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
-import { DoctorCard, StickyContact } from "@/src/entities/doctor";
+import { DoctorCard, OtherSocial, StickyContact } from "@/src/entities/doctor";
+import { OtherSocialMediaDropdown } from "@/src/features/otherSocialMediaDropdown";
 
 interface IProps{
     reqDoctor: Promise<IDoctor>;
@@ -33,18 +34,23 @@ export async function DoctorDetail(props: IProps){
         )
     }
 
+    const isVip = Boolean(props.doctorVip)
 
     return (
         <>
             <DoctorCard 
                 doctor={doctor}
                 doctorVip={props.doctorVip}
-            />
+            >
+                <OtherSocialMediaDropdown isVip={isVip}>
+                    <OtherSocial doctor={doctor} isVip={isVip} />
+                </OtherSocialMediaDropdown>
+            </DoctorCard>
             <StickyContact 
                 name={doctor.name}
                 mainSpecialty={doctor.mainSpeciality.name}
                 tg={doctor.tgUrl}
-                vip={Boolean(props.doctorVip)}
+                vip={isVip}
             />
         </>
     )

@@ -5,7 +5,11 @@ import classes from './otherSocialMedia.module.scss'
 import internet_logo from '@/src/shared/lib/assets/internet.svg'
 import Image from "next/image";
 
-export const OtherSocialMediaDropdown: FC<PropsWithChildren> = ({children}) => {
+interface IProps {
+    isVip?: boolean;
+}
+
+export const OtherSocialMediaDropdown: FC<IProps & PropsWithChildren> = ({isVip, children}) => {
 
     const [open, setOpen] = useState<boolean>(false)
     const containerRef = useRef<HTMLDivElement>(null)
@@ -29,7 +33,7 @@ export const OtherSocialMediaDropdown: FC<PropsWithChildren> = ({children}) => {
             ?
         <section 
             ref={containerRef}
-            className={classes.container + (open ? ` ${classes.open}` : '')}
+            className={classes.container + (open ? ` ${classes.open}` : '') + (isVip ? ` ${classes.vip}` : '')}
         >
             <section 
                 onClick={onClick} 
@@ -39,7 +43,7 @@ export const OtherSocialMediaDropdown: FC<PropsWithChildren> = ({children}) => {
                 <Image src={internet_logo} alt="Соцсеть" height={30} width={30} />
                 Другие соц сети
                 <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 8L7.5 2L1 8" stroke="#ABABAB" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M14 8L7.5 2L1 8" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
             </section>
             {children}
