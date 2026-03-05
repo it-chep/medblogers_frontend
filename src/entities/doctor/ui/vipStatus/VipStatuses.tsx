@@ -2,6 +2,7 @@ import { FC } from "react";
 import { IDoctorVip } from "../../model/types";
 import classes from './vipStatuses.module.scss'
 import { BuySvg } from "../../lib/assets/BuySvg";
+import { SellAdvertising } from "../../lib/assets/SellAdvertising";
 
 type Statuses = {
     canBuyAdvertising: boolean;
@@ -23,14 +24,14 @@ export const VipStatuses: FC<IProps> = ({doctorVip, miniature}) => {
                 doctorVip.canBuyAdvertising
                     &&
                 <section className={classes.badge + ' ' + classes.canBuyAdvertising}>
-                   <BuySvg backgroundColor={"#2C62F4"} /> КУПЛЮ РЕКЛАМУ
+                   <BuySvg /> КУПЛЮ РЕКЛАМУ
                 </section>    
             }
             {
                 doctorVip.canSellAdvertising
                     &&
                 <section className={classes.badge + ' ' + classes.canSellAdvertising}>
-                   <BuySvg backgroundColor={"#59A1ED"} /> ПРОДАМ РЕКЛАМУ
+                   <SellAdvertising /> ПРОДАМ РЕКЛАМУ
                 </section>    
             }
             {
