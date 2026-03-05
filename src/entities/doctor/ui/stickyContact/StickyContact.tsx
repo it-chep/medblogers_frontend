@@ -6,13 +6,12 @@ import { MyButton } from "@/src/shared/ui/myButton";
 
 interface IProps {
     name: string;
-    specialties: string;
+    mainSpecialty: string;
     tg: string;
     vip?: boolean;
 }
 
-
-export const StickyContact: FC<IProps> = ({name, specialties, tg, vip}) => {
+export const StickyContact: FC<IProps> = ({name, mainSpecialty, tg, vip}) => {
 
     const [hidden, setHidden] = useState<boolean>(true)
 
@@ -40,7 +39,7 @@ export const StickyContact: FC<IProps> = ({name, specialties, tg, vip}) => {
                 {name}
             </section>
             <section className={classes.specialties}>
-                {specialties}
+                {mainSpecialty}
             </section>
             <section className={classes.button}>
                 <a 

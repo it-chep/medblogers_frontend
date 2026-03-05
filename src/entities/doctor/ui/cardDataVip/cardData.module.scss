@@ -7,21 +7,6 @@
     font-size: 18px;
     --text-gray: #aeaeae;
 
-    .name{
-        display: flex;
-        flex-wrap: wrap;
-        font-size: 28px;
-        line-height: 100%;
-    }
-
-    .shortMessage{
-        margin-top: 15px;
-    }
-
-    .statuses{
-        margin-top: 25px;
-    }
-
     .advertisingPriceFromWrap{
         margin-top: 25px;
         display: flex;
@@ -44,10 +29,6 @@
             font-weight: 700;
             margin-bottom: 10px;
             font-size: 20px;
-
-            &::after{
-                content: ":";
-            }
         }
 
         .theme{
@@ -58,6 +39,7 @@
 
         &.vip{
             margin-top: 25px;
+            
             .sign{
                 margin-bottom: 15px;
             }
@@ -76,12 +58,7 @@
 @media (max-width: 750px) {
     .container{
         font-size: 17px;
-        .name{
-            display: none;
-        }
-        .shortMessage{
-            display: none;
-        }
+
         .statuses{
             display: none;
         }
@@ -113,7 +90,7 @@
             }
 
             &.vip{
-                margin-top: 30px;
+                margin-top: 20px;
                 
                 .sign{
                     text-align: start;

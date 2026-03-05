@@ -14,6 +14,12 @@ export interface IDoctorMiniatureResponse {
     pages: number;
 }
 
+export interface IVipInfoMiniature {
+    canBuyAdvertising: boolean;
+    canSellAdvertising: boolean;
+    canBarter: boolean;
+}
+
 export interface IDoctorMiniature {
     image: string;
     city: ICity[];
@@ -35,9 +41,7 @@ export interface IDoctorMiniature {
     vkSubsCountText: string;
 
     isVip: boolean;
-    canBuyAdvertising: boolean;
-    canSellAdvertising: boolean;
-    canBarter: boolean;
+    vipInfo: IVipInfoMiniature;
 }
 
 export interface IDoctorMiniatureRes {
@@ -102,7 +106,6 @@ export interface IDoctorVip {
     canBuyAdvertising: boolean;
     canSellAdvertising: boolean; 
     advertisingPriceFrom: string;
-    shortMessage: string;
     blogInfo: string;
     endDate: string;
 }

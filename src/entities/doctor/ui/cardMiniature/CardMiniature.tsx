@@ -37,8 +37,8 @@ export const DoctorCardMiniature: FC<IProps & PropsWithChildren> = ({doctor, doc
                     <section className={classes.statuses}>
                         <VipStatuses doctorVip={doctorVip} />
                     </section>
-                }
-                <section className={classes.name}>
+                } 
+                <h1 className={classes.name}>
                     {
                         doctor.isKfDoctor
                             ?
@@ -48,7 +48,7 @@ export const DoctorCardMiniature: FC<IProps & PropsWithChildren> = ({doctor, doc
                             {doctor.name}
                         </>
                     }
-                </section>
+                </h1>
                 <section className={classes.city_specialities}>
                     <section className={classes.city}>
                         <svg width="13" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,19 +73,6 @@ export const DoctorCardMiniature: FC<IProps & PropsWithChildren> = ({doctor, doc
                         )}
                     </section>
                 </section>
-                <section className={classes.theme}>
-                    <span className={classes.themeSign}>Тематика блога: </span>{doctor.mainBlogTheme}
-                </section>
-                {
-                    doctorVip
-                        &&
-                    <section className={classes.shortMessage}>
-                        <Quote 
-                            turquoise={Boolean(doctorVip)}
-                            text={doctorVip.shortMessage}
-                        />
-                    </section>
-                }
                 <a 
                     href={doctor.tgUrl} 
                     className={classes.link}
