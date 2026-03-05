@@ -7,6 +7,8 @@
     height: 50px;
     transition: height .4s ease;
     overflow: hidden;
+    transform: translateZ(0); /* форсируем создание слоя (если нужно) */
+    will-change: height;
 
     .header{
         cursor: pointer;

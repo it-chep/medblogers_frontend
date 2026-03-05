@@ -3,6 +3,8 @@
 
 
 .socials{
+    position: relative;
+    z-index: 9;
     --gray-social: #79797940;
     min-width: 320px;
     width: 320px;

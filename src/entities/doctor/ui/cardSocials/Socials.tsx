@@ -7,7 +7,6 @@ import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
 import youtube_logo from '@/src/shared/lib/assets/Youtube_logo.png'
 import vk_logo from '@/src/shared/lib/assets/vk_logo.png'
 import {LastUpdated} from "../lastUpdated/LastUpdated";
-import Link from "next/link";
 import {MyButton} from "@/src/shared/ui/myButton";
 
 interface IProps {
@@ -134,13 +133,13 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, vip = false, ch
                 </section>
             }
             {children}
-            <Link className={classes.link} href={doctor.tgUrl}>
+            <a target="_blank" className={classes.link} href={doctor.tgUrl}>
                 <MyButton
                     turquoise={vip}
                 >
                     Написать в Telegram
                 </MyButton>
-            </Link>
+            </a>
         </section>
     )
 }

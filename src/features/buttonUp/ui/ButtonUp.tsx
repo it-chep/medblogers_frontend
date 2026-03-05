@@ -1,20 +1,86 @@
 "use client"
 
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import classes from './buttonUp.module.scss'
 
 export const ButtonUp: FC = () => {
 
-    const [visible, setVisible] = useState<boolean>(false)
+    const [opacity, setOpacity] = useState<number>(0)
+    const refDisplay = useRef<'none' | 'block'>('none')
+    const refcurrentShow = useRef<boolean>(false)
+    const refcurrentHidden = useRef<boolean>(false)
+    
+    const refOpacity = useRef<number>(0)
+
+    const refIntervalId = useRef<NodeJS.Timeout>(null)
+
+    const reset = useCallback(() => {
+        refcurrentShow.current = false;
+        refcurrentHidden.current = false;
+        if(refIntervalId.current){
+            clearInterval(refIntervalId.current)
+            refIntervalId.current = null;
+        }
+    }, [])
+
+    const onShow = useCallback(() => {
+        reset()
+        refcurrentShow.current = true;
+        refDisplay.current = 'block';
+
+        const end = () => {
+            setOpacity(1)
+            refOpacity.current = 1;
+            reset()
+        }
+
+        refIntervalId.current = setInterval(() => {
+            const opacityPrev = refOpacity.current
+            if(opacityPrev >= 1){
+                end()
+            }
+            else{
+                const opacityNew = +(opacityPrev + 0.075).toFixed(2) 
+                refOpacity.current = opacityNew;
+                setOpacity(opacityNew)
+            }
+        }, 10)
+    }, [])
+
+    const onHidden = useCallback(() => {
+        reset()
+        refcurrentHidden.current = true;
+
+        const end = () => {
+            refDisplay.current = 'none'
+            setOpacity(0)
+            refOpacity.current = 0;
+            reset()
+        }
+
+        refIntervalId.current = setInterval(() => {
+            const opacityPrev = refOpacity.current
+            if(opacityPrev <= 0){
+                end()
+            }
+            else{
+                const opacityNew = +(opacityPrev - 0.075).toFixed(2)
+                refOpacity.current = opacityNew;
+                setOpacity(opacityNew)
+            }
+        }, 10) 
+    }, [])
 
     useEffect(() => {
 
         const onScroll = () => {
             if(window.scrollY > window.innerHeight){
-                setVisible(true)
+                if((refDisplay.current === 'none') || (!refcurrentShow.current && refcurrentHidden.current)){
+                    onShow()
+                }
             }
-            else{
-                setVisible(false)
+            else if((refDisplay.current === 'block') || (refcurrentShow.current && !refcurrentHidden.current)){
+                onHidden()
             }
         }
         
@@ -29,7 +95,7 @@ export const ButtonUp: FC = () => {
 
     return (
         <section 
-            style={{opacity: visible ? '1' : '0'}} 
+            style={{opacity: opacity, display: refDisplay.current}} 
             className={classes.container}
             onClick={onClick}
         >
