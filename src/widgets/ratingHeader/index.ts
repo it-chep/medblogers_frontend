@@ -1,0 +1,1 @@
+export { RatingHeader } from "./ui/header/RatingHeader";

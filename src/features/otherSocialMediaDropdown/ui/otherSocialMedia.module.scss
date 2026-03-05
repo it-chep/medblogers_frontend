@@ -28,6 +28,7 @@
        
         >svg{
             transform: rotate(180deg);
+            stroke: #ABABAB;
         }
 
         >img{
@@ -35,6 +36,16 @@
             height: 30px;
             overflow: visible;
             object-fit: contain;
+        }
+    }
+
+    &.vip{
+        background-color: var(--teal-dark);
+
+        .header{
+            >svg{
+                stroke: var(--teal);
+            }
         }
     }
 

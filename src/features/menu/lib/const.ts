@@ -23,6 +23,11 @@ export const menuLinks: IMenu[] = [
         site: true,
     },
     {
+        name: 'Рейтинг врачей',
+        link: "/rating",
+        site: true,
+    },
+    {
         name: 'Расстрельный список каналов',
         link: "/blacklist",
         site: true,

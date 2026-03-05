@@ -9,6 +9,7 @@ export { doctorService } from "@/src/entities/doctor/api/DoctorService";
 export { StickyContact } from './ui/stickyContact/StickyContact';
 
 export type {
-    IDoctorMiniature, IDoctorMiniatureResponse, 
-    ISearchDoctors, IDoctorSeo, IDoctorVip
+    IDoctorMiniature, IDoctorMiniatureResponse,
+    ISearchDoctors, IDoctorSeo, IDoctorVip,
+    IRatingDoctor, IRatingResponse
 } from "@/src/entities/doctor/model/types";

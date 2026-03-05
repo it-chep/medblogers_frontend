@@ -24,7 +24,6 @@ export const BlacklistWidget: FC = () => {
                 </h2>
                 <section className={classes.circle} />
             </section>
-
             <section className={classes.wrapper}>
                 <section className={classes.steps}> 
                     <Item

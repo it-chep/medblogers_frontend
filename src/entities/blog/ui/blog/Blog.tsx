@@ -1,22 +1,25 @@
 import React, { FC, PropsWithChildren } from "react";
 import classes from './blog.module.scss'
-import { IBlogDetail } from "../../model/types";
+import { IBlogDetail, IBlogDoctor } from "../../model/types";
+import Link from "next/link";
+import { DoctorTop } from "../doctorTop/DoctorTop";
 
 interface IProps{
     blog: IBlogDetail;
-
+    doctorBlog: IBlogDoctor | null;
     categories: React.ReactElement;
 }
 
-export const Blog: FC<IProps & PropsWithChildren> = ({blog, categories, children}) => {
-
+export const Blog: FC<IProps & PropsWithChildren> = ({blog, doctorBlog, categories, children}) => {
 
     return (
         <section className={classes.container}>
             <section className={classes.header}>
-                <section className={classes.date}>
-                    {blog.createdAt}
-                </section>
+                {
+                    doctorBlog 
+                        &&
+                    <DoctorTop doctorBlog={doctorBlog} />
+                }
                 <section className={classes.share}>
                     {children}
                 </section>
@@ -24,6 +27,9 @@ export const Blog: FC<IProps & PropsWithChildren> = ({blog, categories, children
             {
                 categories
             }
+            <section className={classes.date}>
+                {blog.createdAt}
+            </section>
             <section className={classes.content}>
                 <h1>{blog.title}</h1>
                 <section 

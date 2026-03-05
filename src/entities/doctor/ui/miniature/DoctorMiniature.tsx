@@ -50,7 +50,7 @@ export const DoctorMiniature: FC<IProps> = ({
                     </section>
                 }
                 {
-                    doctor.isVip
+                    doctor.isVip && doctor.vipInfo
                         &&
                     <VipStatuses 
                         miniature 

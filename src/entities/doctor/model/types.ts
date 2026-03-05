@@ -106,7 +106,6 @@ export interface IDoctorVip {
     canBuyAdvertising: boolean;
     canSellAdvertising: boolean; 
     advertisingPriceFrom: string;
-    shortMessage: string;
     blogInfo: string;
     endDate: string;
 }
@@ -115,6 +114,19 @@ export interface IDoctorSeo {
     title: string;
     description: string;
     image: string;
+}
+
+export interface IRatingDoctor {
+    slug: string;
+    name: string;
+    mbcCoins: number;
+    city: { id: number; name: string } | null;
+    speciality: { id: number; name: string } | null;
+    image: string;
+}
+
+export interface IRatingResponse {
+    doctors: IRatingDoctor[];
 }
 
 export interface ISearchDoctor {
