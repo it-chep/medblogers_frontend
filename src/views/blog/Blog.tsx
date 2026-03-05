@@ -49,6 +49,7 @@ export default async function BlogPage(props: IProps) {
                 <main className={classes.main}>
                     <Blog 
                         blog={blog} 
+                        doctorBlog={blog.doctor.name ? blog.doctor : null}
                         categories={
                             <BlogCategories 
                                 categories={blog.categories}
