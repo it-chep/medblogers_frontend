@@ -25,7 +25,7 @@ export const DoctorTop: FC<IProps> = ({doctorBlog}) => {
                 <section className={classes.name}>
                     {doctorBlog.name}
                 </section>
-                <section className={classes.specialityName}>
+                <section className={classes.specialtyName}>
                     {doctorBlog.specialityName}
                 </section>
             </section>
