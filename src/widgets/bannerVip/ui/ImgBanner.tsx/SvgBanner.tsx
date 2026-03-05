@@ -29,13 +29,13 @@ export const SvgBanner: FC = () => {
             <rect opacity="0.86" x="330.049" y="-45" width="202.588" height="122.041" transform="rotate(4.2517 330.049 -45)" fill="url(#pattern2_2953_37491)"/>
             </g>
             <defs>
-            <filter id="filter0_f_2953_37491" x="292.086" y="-459.021" width="1264.28" height="1283.87" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <filter id="filter0_f_2953_37491" x="292.086" y="-459.021" width="1264.28" height="1283.87" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
             <feGaussianBlur stdDeviation="117.187" result="effect1_foregroundBlur_2953_37491"/>
             </filter>
-            <filter id="filter1_f_2953_37491" x="395.551" y="-439.693" width="1043.45" height="1086.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <filter id="filter1_f_2953_37491" x="395.551" y="-439.693" width="1043.45" height="1086.75" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feFlood floodOpacity="0" result="BackgroundImageFix"/>
             <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
             <feGaussianBlur stdDeviation="78.125" result="effect1_foregroundBlur_2953_37491"/>
             </filter>
