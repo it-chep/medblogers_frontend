@@ -83,10 +83,12 @@ export const ButtonUp: FC = () => {
                 onHidden()
             }
         }
-        
-        window.addEventListener('scroll', onScroll)
 
-        return () => window.removeEventListener('scroll', onScroll)
+        if(window.innerWidth > 480){
+            window.addEventListener('scroll', onScroll)
+        
+            return () => window.removeEventListener('scroll', onScroll)
+        }
     }, [])
 
     const onClick = () => {

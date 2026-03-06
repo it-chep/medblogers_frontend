@@ -6,7 +6,7 @@
   &:hover{
     .subscriberLink{
       svg{
-        fill: #b6b6b6;
+        fill: var(--gray-light-hover);
       }
     }
   }
@@ -54,7 +54,7 @@
       align-self: start;
       width: 10px;
       height: 9px;
-      fill: #9b9b9b;
+      fill: var(--gray-light);
       transition: all .2s ease;
     }
 

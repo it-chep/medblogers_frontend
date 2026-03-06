@@ -10,10 +10,10 @@
     background: var(--light-black);
     gap: 20px;
     padding: 20px;
-    overflow: hidden;
     
     .background{
         position: absolute;
+        border-radius: inherit;
         display: block;
         left: 0;
         top: 0;
