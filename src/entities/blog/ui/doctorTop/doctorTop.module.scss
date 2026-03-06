@@ -7,9 +7,9 @@
 
     .imageBox{
         position: relative;
-        width: 52px;
-        height: 52px;
-        min-width: 52px;
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
         overflow: hidden;
         border-radius: 10px;
 
@@ -26,7 +26,7 @@
 
     .inf{
         .sign{
-            font-size: 12px;
+            font-size: 14px;
             line-height: 106%;
             letter-spacing: -2%;
             color: rgba(255, 255, 255, 0.6);
@@ -35,14 +35,14 @@
         .name{
             color: var(--blue);
             font-weight: 600;
-            font-size: 14px;
+            font-size: 15px;
             line-height: 106%;
             letter-spacing: -2%;
             margin-top: 6px;
         }
 
         .specialtyName{
-            font-size: 14px;
+            font-size: 15px;
             line-height: 100%;
             margin-top: 5px;
             letter-spacing: 0%;

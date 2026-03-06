@@ -6,6 +6,8 @@
     flex-direction: column;
     font-size: 18px;
     --text-gray: #aeaeae;
+    position: relative;
+    z-index: 9;
 
     .advertisingPriceFromWrap{
         margin-top: 25px;

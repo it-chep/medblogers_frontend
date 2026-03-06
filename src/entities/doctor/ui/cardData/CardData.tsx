@@ -3,7 +3,6 @@ import classes from './cardData.module.scss'
 import { IDoctor } from "../../model/types";
 import { ClinicHint } from "@/src/features/clinicHint";
 import { SpecialityBadge } from "../specialityBadges/SpecialityBadge";
-import Link from "next/link";
 import { MyButton } from "@/src/shared/ui/myButton";
 
 interface IProps {
@@ -57,11 +56,11 @@ export const CardData: FC<IProps> = ({doctor}) => {
                     <span className={classes.sign}>Тематика блога:</span> {doctor.mainBlogTheme}
                 </section>
 
-                <Link className={classes.link} href={doctor.tgUrl}>
+                <a target="_blank" className={classes.link} href={doctor.tgUrl}>
                     <MyButton>
                         Написать в TG
                     </MyButton>
-                </Link>
+                </a>
             </section>
         </section>
     )

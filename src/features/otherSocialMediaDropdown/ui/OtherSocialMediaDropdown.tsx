@@ -27,7 +27,6 @@ export const OtherSocialMediaDropdown: FC<IProps & PropsWithChildren> = ({isVip,
         }
     }
 
-
     return (
         children
             ?
