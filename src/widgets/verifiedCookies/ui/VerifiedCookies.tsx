@@ -15,6 +15,7 @@ export const VerifiedCookies: FC = () => {
     useEffect(() => {
         setIsMounted(true);
         const storedValue = localStorage.getItem('verifiedCookies');
+        console.log(storedValue)
         setVerified(Boolean(storedValue));
     }, []);
 
