@@ -20,17 +20,22 @@
         color: white;
         padding: 10px;  
 
+        
+        >svg{
+            transform: rotate(180deg);
+            stroke: var(--gray-light);
+            transition: all .2s ease;
+        }
+        
         &:hover{
             .text{
                 &::after{
                     width: 100%;
                 }
             }
-        }
-       
-        >svg{
-            transform: rotate(180deg);
-            stroke: #ABABAB;
+            >svg{
+                stroke: var(--gray-light-hover);
+            }
         }
 
         >img{
@@ -47,6 +52,11 @@
         .header{
             >svg{
                 stroke: var(--teal);
+            }
+            &:hover{
+                >svg{
+                    stroke: var(--turquoise);
+                }
             }
         }
     }

@@ -35,6 +35,8 @@ body {
   --sign-gray: #606060;
   --gray: #ffffff80;
   --text-gray: #C2CDD9;
+  --gray-light: #9b9b9b;
+  --gray-light-hover: #b6b6b6;
 
   --vip-white: #D6E0EB;
   --vip-background: #17293D;
