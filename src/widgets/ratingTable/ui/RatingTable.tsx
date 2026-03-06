@@ -64,7 +64,7 @@ export const RatingTable: FC = () => {
                             <section className={
                                 classes.place + (isTop3 ? ` ${classes.placeTop3}` : '')
                             }>
-                                {index + 1111}
+                                {index + 1}
                             </section>
                             <section className={classes.photo}>
                                 <Image
