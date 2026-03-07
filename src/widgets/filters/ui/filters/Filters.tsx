@@ -22,6 +22,12 @@ interface IProps {
 }
 
 export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
+    const advertisingOptions: IFilter['advertising'] = [
+        {name: 'Продаёт рекламу', slug: 'can_sell_advertising'},
+        {name: 'Закупает рекламу', slug: 'can_buy_advertising'},
+        {name: 'Открыт к бартеру', slug: 'can_barter'},
+        {name: 'Есть статьи', slug: 'has_blogs'},
+    ]
     
     const {filter, isLoading} = useAppSelector(s => s.filterReducer)
     const {setFilter, setIsLoading, setCurrentMax, setCurrentMin} = useFilterActions()
@@ -61,28 +67,41 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
 
     const initialFilterSelected = (filter: IFilter, labelSlug: keyof Omit<IFilter, 'minSubscribers' | 'maxSubscribers'>) => {
         const params = new URLSearchParams(searchParams);
-        const values = params.getAll(labelSlug === 'filterInfo' ? 'social_media' : labelSlug)
         filter[labelSlug].forEach(item => item.selected = false)
-        if(values){
-            values.forEach(value => {
-                const targetInd = labelSlug === 'filterInfo' ? 
-                filter[labelSlug].findIndex(item => item.slug === value) :
-                filter[labelSlug].findIndex(item => item.id === value) 
-                        
-                if(targetInd >= 0){
-                    filter[labelSlug][targetInd].selected = true
-                }     
+        if(labelSlug === 'advertising'){
+            filter.advertising.forEach(item => {
+                item.selected = params.get(item.slug) === 'true'
             })
+            return
+        }
+
+        const values = params.getAll(labelSlug === 'filterInfo' ? 'social_media' : labelSlug)
+        values.forEach(value => {
+            const targetInd = labelSlug === 'filterInfo' ?
+                filter[labelSlug].findIndex(item => item.slug === value) :
+                filter[labelSlug].findIndex(item => item.id === value)
+
+            if(targetInd >= 0){
+                filter[labelSlug][targetInd].selected = true
+            }
+        })
+    }
+
+    const withAdvertisingOptions = (filter: IFilter): IFilter => {
+        return {
+            ...filter,
+            advertising: advertisingOptions.map(item => ({...item, selected: false})),
         }
     }
     
     function getFilters() {
-        const copy: IFilter = JSON.parse(JSON.stringify(filtersRes))
+        const copy: IFilter = withAdvertisingOptions(JSON.parse(JSON.stringify(filtersRes)))
         setMAX(+copy.maxSubscribers)
         setMIN(+copy.minSubscribers)
         initialFilterSelected(copy, 'cities')
         initialFilterSelected(copy, 'specialities')
         initialFilterSelected(copy, 'filterInfo')
+        initialFilterSelected(copy, 'advertising')
         initialMinMax(copy)
         setValueMin(+copy.minSubscribers)
         setValueMax(+copy.maxSubscribers)
@@ -118,6 +137,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
             initialFilterSelected(copy, 'cities')
             initialFilterSelected(copy, 'specialities')
             initialFilterSelected(copy, 'filterInfo')
+            initialFilterSelected(copy, 'advertising')
             setFilter(copy)
             updateSlider()
         }
@@ -165,6 +185,15 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                         onBlur={onBlurSlider}
                     />
                 </FilterItem>
+                <MyHr />
+                <FilterItem
+                    mobile={!forDesk}
+                    label="Реклама"
+                    search={false}
+                    labelSlug="advertising"
+                    items={filter?.advertising.map(info => ({id: info.slug, ...info})) || []}
+                    selectedFilter={<SelectedFilter isDoctor items={filter?.advertising || []} labelSlug={"advertising"} />}
+                />
                 <MyHr />
                 <ApplyFilters 
                     currentMin={+filter.minSubscribers}

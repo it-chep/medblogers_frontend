@@ -15,6 +15,7 @@ export const PreliminaryFilterCount: FC = () => {
         const cities = filter.cities.filter(city => city.selected)
         const specialities = filter.specialities.filter(speciality => speciality.selected)
         const filterInfo = filter.filterInfo.filter(info => info.selected)
+        const advertising = filter.advertising.filter(info => info.selected)
 
         cities.forEach(city => {
             searchParams.append('cities', city.id)
@@ -24,6 +25,9 @@ export const PreliminaryFilterCount: FC = () => {
         })
         filterInfo.forEach(info => {
             searchParams.append('social_media', info.slug)
+        })
+        advertising.forEach(info => {
+            searchParams.set(info.slug, 'true')
         })
         searchParams.append('min_subscribers', filter.minSubscribers)
         searchParams.append('max_subscribers', filter.maxSubscribers)

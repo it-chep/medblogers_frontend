@@ -18,6 +18,7 @@ export const ActiveFilters: FC = () => {
 
     const [selectedCheckboxesForCities, setSelectedCheckboxesForCities] = useState<IItem[]>([])
     const [selectedCheckboxesForSpecs, setSelectedCheckboxesForSpecs] = useState<IItem[]>([])
+    const [selectedCheckboxesForAdvertising, setSelectedCheckboxesForAdvertising] = useState<IItem[]>([])
 
     const selectedCheckboxes = (label: 'cities' | 'specialities') => {
         const params = new URLSearchParams(searchParams);
@@ -37,17 +38,28 @@ export const ActiveFilters: FC = () => {
         return items
     }
 
+    const selectedAdvertising = () => {
+        return filter.advertising
+            .filter(item => searchParams.get(item.slug) === 'true')
+            .map(item => ({
+                id: item.slug,
+                name: item.name
+            }))
+    }
+
     useEffect(() => {
         if(filter){
             const citites = selectedCheckboxes('cities')
             const specs = selectedCheckboxes('specialities')
+            const advertising = selectedAdvertising()
             setSelectedCheckboxesForCities([...citites])
             setSelectedCheckboxesForSpecs([...specs])
+            setSelectedCheckboxesForAdvertising([...advertising])
         }
-    }, [searchParams]) 
+    }, [searchParams, filter]) 
 
     return (
-        selectedCheckboxesForCities.length === 0 && selectedCheckboxesForSpecs.length === 0
+        selectedCheckboxesForCities.length === 0 && selectedCheckboxesForSpecs.length === 0 && selectedCheckboxesForAdvertising.length === 0
             ?
         <></>
             :
@@ -68,6 +80,15 @@ export const ActiveFilters: FC = () => {
                     labelSlug="specialities" 
                 >
                     <DeleteActiveFilter labelSlug="specialities" id={selectedCheckbox.id} />
+                </FilterBadge>
+            )}
+            {selectedCheckboxesForAdvertising.map((selectedCheckbox, ind) =>
+                <FilterBadge
+                    key={`advertising-${ind}`}
+                    item={selectedCheckbox}
+                    labelSlug={String(selectedCheckbox.id)}
+                >
+                    <DeleteActiveFilter labelSlug={String(selectedCheckbox.id)} />
                 </FilterBadge>
             )}
         </section>

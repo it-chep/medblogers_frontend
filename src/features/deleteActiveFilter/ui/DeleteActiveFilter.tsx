@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface IProps {
     labelSlug: string;
-    id: number;
+    id?: number | string;
 }
 
 export const DeleteActiveFilter: FC<IProps> = ({labelSlug, id}) => {
@@ -16,9 +16,16 @@ export const DeleteActiveFilter: FC<IProps> = ({labelSlug, id}) => {
 
     const deleteFilter = () => {
         const newUrl = new URLSearchParams(searchParams)
+        if(id === undefined){
+            newUrl.delete(labelSlug)
+            newUrl.delete('page')
+            setNewUrl(newUrl)
+            return
+        }
+
         const selectedFilter = searchParams.getAll(labelSlug)
         if(selectedFilter){
-            const newSelectedFilter = selectedFilter.filter(s => +s !== id)
+            const newSelectedFilter = selectedFilter.filter(s => s !== String(id))
             newUrl.delete(labelSlug)
             newSelectedFilter.forEach(selectedFilter => {
                 newUrl.append(labelSlug, selectedFilter)

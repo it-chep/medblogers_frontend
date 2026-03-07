@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import classes from './filterBadge.module.scss'
 
 type IItem = {
-    id: number;
+    id: number | string;
     name: string;
 }
 
