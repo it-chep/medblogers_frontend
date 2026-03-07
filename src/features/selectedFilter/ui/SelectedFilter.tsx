@@ -13,14 +13,28 @@ interface IProps {
 
 export const SelectedFilter: FC<IProps> = ({items, isDoctor = false, labelSlug}) => {
 
-    const {setSelected} = isDoctor ? useFilterActions() : useFilterFreelancerActions()
+    const {setSelected: setSelectedDoctor} = useFilterActions()
+    const {setSelected: setSelectedFreelancer} = useFilterFreelancerActions()
 
     const selectedItems = useMemo(() => {
         return items.filter(item => item.selected)
     }, [items])
 
     const onDelete = (name: string) => {
-        setSelected({field: labelSlug, name, selected: false})
+        if(isDoctor){
+            setSelectedDoctor({
+                field: labelSlug as keyof Omit<IFilter, 'minSubscribers' | 'maxSubscribers'>,
+                name,
+                selected: false
+            })
+            return
+        }
+
+        setSelectedFreelancer({
+            field: labelSlug as keyof Omit<IFilterFreelancer, "societies" | "priceCategories">,
+            name,
+            selected: false
+        })
     }
 
     return (

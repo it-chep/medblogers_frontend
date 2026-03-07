@@ -11,7 +11,7 @@ export default function BlacklistPage() {
         <section className={classes.page + ' wrapper_main'}>
             <Breadcrumbs breadcrumbs={[
                 {path: '/', label: 'Вернуться к базе'},
-                {path: '', label: 'Расстрельный список'},
+                {path: '', label: 'Расстрельный список каналов'},
             ]} />
             <main className={classes.main}> 
                 <CheckBlacklist titleH1 />
