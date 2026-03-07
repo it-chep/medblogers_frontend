@@ -12,14 +12,3 @@
         height: 64px;
     }
 }
-
-@media (max-width: 480px) {
-    .container{
-        display: none;
-        
-        svg{
-            width: 54px;
-            height: 54px;
-        }
-    }
-}
