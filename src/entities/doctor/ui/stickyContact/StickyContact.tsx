@@ -1,6 +1,4 @@
-"use client"
-
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC } from "react";
 import classes from './stickyContact.module.scss'
 import { MyButton } from "@/src/shared/ui/myButton";
 
@@ -13,28 +11,8 @@ interface IProps {
 
 export const StickyContact: FC<IProps> = ({name, mainSpecialty, tg, vip}) => {
 
-    const [hidden, setHidden] = useState<boolean>(true)
-
-    const onScroll = useCallback(() => {
-        if(window.scrollY > window.innerHeight){
-            setHidden(false)
-        }
-        else{
-            setHidden(true)
-        }
-    }, [])
-
-    useEffect(() => {
-        window.addEventListener('scroll', onScroll)
-        onScroll()
-
-        return () => {
-            window.removeEventListener('scroll', onScroll)
-        }
-    }, [])
-
     return (
-        <section className={classes.container + (!hidden ? ` ${classes.hidden}` : '')}>
+        <section className={classes.container }>
             <section className={classes.name}>
                 {name}
             </section>

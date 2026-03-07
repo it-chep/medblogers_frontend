@@ -3,6 +3,7 @@ import { isDynamicServerError } from "next/dist/client/components/hooks-server-c
 import { notFound } from "next/navigation";
 import { DoctorCard, OtherSocial, StickyContact } from "@/src/entities/doctor";
 import { OtherSocialMediaDropdown } from "@/src/features/otherSocialMediaDropdown";
+import { ShowContentSmoothly } from "@/src/features/ShowContentSmoothly";
 
 interface IProps{
     reqDoctor: Promise<IDoctor>;
@@ -46,12 +47,17 @@ export async function DoctorDetail(props: IProps){
                     <OtherSocial doctor={doctor} isVip={isVip} />
                 </OtherSocialMediaDropdown>
             </DoctorCard>
-            <StickyContact 
-                name={doctor.name}
-                mainSpecialty={doctor.mainSpeciality.name}
-                tg={doctor.tgUrl}
-                vip={isVip}
-            />
+            <ShowContentSmoothly
+                speed_ms={250}
+                mobile
+            >
+                <StickyContact 
+                    name={doctor.name}
+                    mainSpecialty={doctor.mainSpeciality.name}
+                    tg={doctor.tgUrl}
+                    vip={isVip}
+                />
+            </ShowContentSmoothly>
         </>
     )
 }
