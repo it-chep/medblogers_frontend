@@ -129,10 +129,16 @@ export const ShowContentSmoothly: FC<IProps & PropsWithChildren> = ({speed_ms, m
 
     return (
         <section   
-            style={{opacity, display: isActive ? display : 'none'}} 
-            className={classes.container}
+        style={{opacity, display: isActive ? display : 'none'}} 
+        className={classes.container}
         >
-            {children}
+            {
+                display === 'block'
+                    ?
+                children
+                    :
+                <></>
+            }
         </section>
     )
 }
