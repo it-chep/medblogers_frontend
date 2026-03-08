@@ -13,7 +13,7 @@ interface IProps {
 export const OtherSocial: FC<IProps> = ({doctor, isVip = false}) => {
 
     return (
-        (doctor.dzenUrl || doctor.tiktokUrl || doctor.siteLink)
+        (doctor.dzenUrl || doctor.tiktokUrl)
             ?
         <>
             {
@@ -34,17 +34,6 @@ export const OtherSocial: FC<IProps> = ({doctor, isVip = false}) => {
                     text="Профиль в Tiktok"
                     link={doctor.tiktokUrl}
                     socialIconSrc={tiktok_logo.src}
-                    useA
-                    vip={isVip}
-                />
-            }
-            {
-                doctor.siteLink
-                    &&
-                <SubscriberLink  
-                    text="Сайт врача"
-                    link={doctor.siteLink}
-                    socialIconSrc={internet_logo.src}
                     useA
                     vip={isVip}
                 />

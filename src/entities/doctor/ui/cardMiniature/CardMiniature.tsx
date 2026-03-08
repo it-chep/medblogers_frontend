@@ -31,13 +31,6 @@ export const DoctorCardMiniature: FC<IProps & PropsWithChildren> = ({doctor, doc
                 }
             </section>
             <section className={classes.content}>
-                {
-                    doctorVip
-                        &&
-                    <section className={classes.statuses}>
-                        <VipStatuses doctorVip={doctorVip} />
-                    </section>
-                } 
                 <h1 className={classes.name}>
                     {
                         doctor.isKfDoctor

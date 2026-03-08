@@ -6,7 +6,6 @@ import { menuLinks } from "../../lib/const";
 import Image from "next/image";
 import logo from '@/src/shared/lib/assets/medblogers_logo.png'
 import { Close } from "@/src/shared/ui/close/Close";
-import { Placement } from "@/src/shared/ui/placement";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -60,11 +59,6 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
                         </li>
                     )}
                 </ul>
-            </section>
-            <section className={classes.placement}>
-                <Placement 
-                    link={isFreelancer ? '/welcome_freelancer' : '/welcome'}
-                />
             </section>
         </nav>
     )
