@@ -1,27 +1,9 @@
 "use client"
 
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import classes from './buttonUp.module.scss'
 
 export const ButtonUp: FC = () => {
-
-    const [visible, setVisible] = useState<boolean>(false)
-
-    useEffect(() => {
-
-        const onScroll = () => {
-            if(window.scrollY > window.innerHeight){
-                setVisible(true)
-            }
-            else{
-                setVisible(false)
-            }
-        }
-        
-        window.addEventListener('scroll', onScroll)
-
-        return () => window.removeEventListener('scroll', onScroll)
-    }, [])
 
     const onClick = () => {
         window.scrollTo({top: 0, behavior: 'smooth'})
@@ -29,7 +11,6 @@ export const ButtonUp: FC = () => {
 
     return (
         <section 
-            style={{opacity: visible ? '1' : '0'}} 
             className={classes.container}
             onClick={onClick}
         >

@@ -7,8 +7,8 @@ import inst_logo from '@/src/shared/lib/assets/Instagram_icon.png'
 import youtube_logo from '@/src/shared/lib/assets/Youtube_logo.png'
 import vk_logo from '@/src/shared/lib/assets/vk_logo.png'
 import {LastUpdated} from "../lastUpdated/LastUpdated";
-import Link from "next/link";
 import {MyButton} from "@/src/shared/ui/myButton";
+import internet_logo from '@/src/shared/lib/assets/internet.svg'
 
 interface IProps {
     doctor: IDoctor;
@@ -131,16 +131,27 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, vip = false, ch
                             useA
                         />
                     }
+                    {
+                    doctor.siteLink
+                            &&
+                        <SubscriberLink
+                            vip={vip}
+                            text="Сайт врача"
+                            link={doctor.siteLink}
+                            socialIconSrc={internet_logo}
+                            useA
+                        />
+                    }
                 </section>
             }
             {children}
-            <Link className={classes.link} href={doctor.tgUrl}>
+            <a target="_blank" className={classes.link} href={doctor.tgUrl}>
                 <MyButton
                     turquoise={vip}
                 >
                     Написать в Telegram
                 </MyButton>
-            </Link>
+            </a>
         </section>
     )
 }

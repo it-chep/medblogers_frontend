@@ -4,6 +4,8 @@ import { IDoctor, IDoctorVip } from "../../model/types";
 import { Socials } from "../cardSocials/Socials";
 import { CardDataVip } from "../cardDataVip/CardDataVip";
 import { CardData } from "../cardData/CardData";
+import vipCardBackgroundImg from "../../lib/assets/cardVipBackground.png";
+import Image from "next/image";
 
 interface IProps{
     doctor: IDoctor;
@@ -17,10 +19,13 @@ export const DoctorCard: FC<IProps & PropsWithChildren> = ({doctor, doctorVip, c
             {
                 doctorVip
                     ?
-                <CardDataVip 
-                    doctor={doctor} 
-                    doctorVip={doctorVip}    
-                />
+                <>
+                    <Image className={classes.background} src={vipCardBackgroundImg} height={400} width={860} alt="Фон" />
+                    <CardDataVip 
+                        doctor={doctor} 
+                        doctorVip={doctorVip}    
+                    />
+                </>
                     :
                 <CardData 
                     doctor={doctor} 

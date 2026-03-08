@@ -46,7 +46,7 @@ export const RecommendationsContainer: FC<IProps> = ({recommendations, setHeight
 
     return (
         <section className={classes.container}>
-            <h3>Меня могут порекомендовать</h3>
+            <h3>Я работал с</h3>
             <section ref={contentRef} className={classes.content}>
                 {recommendations.map(recommendation => 
                     <RecommendationCard 

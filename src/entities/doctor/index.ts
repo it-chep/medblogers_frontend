@@ -6,10 +6,10 @@ export { DoctorCard } from "./ui/cardVip/DoctorCard";
 export { SearchMiniature } from "./ui/searchMiniature/SearchMiniature";
 export { DoctorMiniature } from "@/src/entities/doctor/ui/miniature/DoctorMiniature";
 export { doctorService } from "@/src/entities/doctor/api/DoctorService";
-export { StickyContact } from './ui/stickyContact/StickyContact';
+export { StickyContact } from '../../features/stickyContact/ui/StickyContact';
 
 export type {
     IDoctorMiniature, IDoctorMiniatureResponse,
     ISearchDoctors, IDoctorSeo, IDoctorVip,
-    IRatingDoctor, IRatingResponse
+    IRatingDoctor, IRatingResponse, IDoctor
 } from "@/src/entities/doctor/model/types";

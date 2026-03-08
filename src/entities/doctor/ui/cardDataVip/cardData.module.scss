@@ -6,6 +6,8 @@
     flex-direction: column;
     font-size: 18px;
     --text-gray: #aeaeae;
+    position: relative;
+    z-index: 9;
 
     .advertisingPriceFromWrap{
         margin-top: 25px;
@@ -59,11 +61,8 @@
     .container{
         font-size: 17px;
 
-        .statuses{
-            display: none;
-        }
         .advertisingPriceFromWrap{
-            margin-top: 0;
+            margin-top: 20px;
         }
         .blogTheme{
             margin-top: 0;

@@ -39,8 +39,8 @@ export const RatingTable: FC = () => {
                     ?
                 <section className={classes.loader}>
                     {[1, 2, 3].map(i => 
-                        <section className={classes.loaderItem}>
-                            <LoaderContainer key={i} />
+                        <section key={i} className={classes.loaderItem}>
+                            <LoaderContainer />
                         </section>
                     )}
                 </section>
@@ -54,7 +54,8 @@ export const RatingTable: FC = () => {
                 doctors.map((doctor, index) => {
                     const isTop3 = index < 3
                     return (
-                        <section
+                        <Link
+                            href={`/doctors/${doctor.slug}`}
                             key={doctor.slug}
                             className={
                                 classes.row + (isTop3 ? ` ${classes.rowTop3}` : '')
@@ -76,28 +77,29 @@ export const RatingTable: FC = () => {
                                 />
                             </section>
                             <section className={classes.info}>
-                                <Link
-                                    href={`/doctors/${doctor.slug}`}
+                                <section
                                     className={classes.name}
                                 >
                                     {doctor.name}
-                                </Link>
+                                </section>
                                 <section className={classes.meta}>
                                     {doctor.speciality?.name && (
                                         <span className={classes.speciality}>{doctor.speciality.name}</span>
                                     )}
-                                    {doctor.speciality?.name && doctor.city?.name && (
-                                        <span className={classes.separator}>·</span>
-                                    )}
                                     {doctor.city?.name && (
-                                        <span className={classes.city}>{doctor.city.name}</span>
+                                        <section className={classes.city}>
+                                            <svg width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13 6.37817C12.9935 7.62913 12.6539 8.73216 12.1132 9.77972C11.4051 11.1509 10.4411 12.3362 9.37568 13.4439C8.65174 14.1974 7.87756 14.8973 7.05406 15.5427C6.64371 15.8644 6.35804 15.869 5.94676 15.5427C4.2309 14.1789 2.69743 12.6432 1.48684 10.8106C0.811289 9.78896 0.287415 8.69795 0.0901478 7.4775C-0.202962 5.65977 0.220416 4.0103 1.33516 2.54761C2.30754 1.27261 3.59444 0.443254 5.17444 0.140914C7.59096 -0.322303 9.66692 0.358192 11.3353 2.15744C12.4491 3.3594 12.9739 4.811 13 6.37817ZM6.49203 9.32482C8.08878 9.32852 9.38777 8.04335 9.38777 6.45953C9.3887 4.87664 8.08971 3.585 6.49669 3.585C4.9111 3.585 3.61491 4.87017 3.61119 6.44566C3.60932 8.03595 4.89435 9.32112 6.49203 9.32482Z" fill="#2D99FC"/>
+                                            </svg>
+                                            {doctor.city.name}
+                                        </section>
                                     )}
                                 </section>
                             </section>
                             <section className={classes.coins}>
                                 {doctor.mbcCoins}
                             </section>
-                        </section>
+                        </Link>
                     )
                 })
             }
