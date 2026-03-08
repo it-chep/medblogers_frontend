@@ -8,6 +8,7 @@ import youtube_logo from '@/src/shared/lib/assets/Youtube_logo.png'
 import vk_logo from '@/src/shared/lib/assets/vk_logo.png'
 import {LastUpdated} from "../lastUpdated/LastUpdated";
 import {MyButton} from "@/src/shared/ui/myButton";
+import internet_logo from '@/src/shared/lib/assets/internet.svg'
 
 interface IProps {
     doctor: IDoctor;
@@ -127,6 +128,17 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, vip = false, ch
                             text="Профиль сообщества в VK"
                             link={doctor.vkUrl}
                             socialIconSrc={vk_logo.src}
+                            useA
+                        />
+                    }
+                    {
+                    doctor.siteLink
+                            &&
+                        <SubscriberLink
+                            vip={vip}
+                            text="Сайт врача"
+                            link={doctor.siteLink}
+                            socialIconSrc={internet_logo}
                             useA
                         />
                     }

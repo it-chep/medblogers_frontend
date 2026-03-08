@@ -12,7 +12,7 @@ interface IProps {
 export const StickyContact: FC<IProps> = ({name, mainSpecialty, tg, vip}) => {
 
     return (
-        <section className={classes.container }>
+        <section className={classes.container}>
             <section className={classes.name}>
                 {name}
             </section>

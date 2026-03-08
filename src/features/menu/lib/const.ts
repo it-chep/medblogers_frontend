@@ -23,13 +23,18 @@ export const menuLinks: IMenu[] = [
         site: true,
     },
     {
-        name: 'Рейтинг врачей',
-        link: "/rating",
+        name: '👑 VIP-размещение',
+        link: '/blogs/vip_card',
         site: true,
     },
     {
         name: 'Расстрельный список каналов',
         link: "/blacklist",
         site: true,
-    }
+    },
+    {
+        name: 'Рейтинг врачей Medblogers',
+        link: "/rating",
+        site: true,
+    },
 ]
