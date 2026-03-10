@@ -12,7 +12,7 @@
     z-index: 11;
     width: 100%;
 
-    // bottom для initClose -545 = -(500 + 45)
+    will-change: transform;
     
     .content{  
         max-height: 500px;

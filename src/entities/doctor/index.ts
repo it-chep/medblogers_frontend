@@ -1,3 +1,4 @@
+export { StickyContact } from "./ui/stickyContact";
 export { CardData } from "./ui/cardData/CardData";
 export { DoctorCardMiniature } from "./ui/cardMiniature/CardMiniature";
 export { OtherSocial } from "./ui/otherSocial/OtherSocial";
@@ -6,7 +7,6 @@ export { DoctorCard } from "./ui/cardVip/DoctorCard";
 export { SearchMiniature } from "./ui/searchMiniature/SearchMiniature";
 export { DoctorMiniature } from "@/src/entities/doctor/ui/miniature/DoctorMiniature";
 export { doctorService } from "@/src/entities/doctor/api/DoctorService";
-export { StickyContact } from '../../features/stickyContact/ui/StickyContact';
 
 export type {
     IDoctorMiniature, IDoctorMiniatureResponse,

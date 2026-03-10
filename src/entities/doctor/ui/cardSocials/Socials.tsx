@@ -8,7 +8,7 @@ import youtube_logo from '@/src/shared/lib/assets/Youtube_logo.png'
 import vk_logo from '@/src/shared/lib/assets/vk_logo.png'
 import {LastUpdated} from "../lastUpdated/LastUpdated";
 import {MyButton} from "@/src/shared/ui/myButton";
-import internet_logo from '@/src/shared/lib/assets/internet.svg'
+import otherSocial from '@/src/shared/lib/assets/otherSocial.svg'
 
 interface IProps {
     doctor: IDoctor;
@@ -24,7 +24,9 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, vip = false, ch
                     ||
                 (doctor.tgChannelUrl && !doctor.tgSubsCount) || (doctor.instUrl && !doctor.instSubsCount) 
                     || 
-                (doctor.youtubeUrl && !doctor.youtubeSubsCount) || (doctor.vkUrl && !doctor.vkSubsCount))
+                (doctor.youtubeUrl && !doctor.youtubeSubsCount) || (doctor.vkUrl && !doctor.vkSubsCount)
+                    ||
+                (doctor.siteLink && vip))
                     &&
                 <section className={classes.profiles}>
                     {
@@ -132,13 +134,13 @@ export const Socials: FC<IProps & PropsWithChildren> = ({doctor, vip = false, ch
                         />
                     }
                     {
-                    doctor.siteLink
+                    doctor.siteLink && vip
                             &&
                         <SubscriberLink
                             vip={vip}
                             text="Сайт врача"
                             link={doctor.siteLink}
-                            socialIconSrc={internet_logo}
+                            socialIconSrc={otherSocial}
                             useA
                         />
                     }
