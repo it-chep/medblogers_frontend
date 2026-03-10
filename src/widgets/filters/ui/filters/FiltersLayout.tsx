@@ -24,12 +24,11 @@ export const FiltersLayout: FC<IProps> = ({forDesk, filters}) => {
             setIsMobile(false)
         }
     }
-    
-    function onSize() {
-        checkMobile()
-    }
-    
+        
     useEffect(() => {
+        const onSize = () => {
+            checkMobile()
+        }
         checkMobile()
         window.addEventListener('resize', onSize)
         setIsLoading(false)

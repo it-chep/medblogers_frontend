@@ -48,15 +48,13 @@ export const ActiveFilters: FC = () => {
     }
 
     useEffect(() => {
-        if(filter){
-            const citites = selectedCheckboxes('cities')
-            const specs = selectedCheckboxes('specialities')
-            const advertising = selectedAdvertising()
-            setSelectedCheckboxesForCities([...citites])
-            setSelectedCheckboxesForSpecs([...specs])
-            setSelectedCheckboxesForAdvertising([...advertising])
-        }
-    }, [searchParams, filter]) 
+        const citites = selectedCheckboxes('cities')
+        const specs = selectedCheckboxes('specialities')
+        const advertising = selectedAdvertising()
+        setSelectedCheckboxesForCities([...citites])
+        setSelectedCheckboxesForSpecs([...specs])
+        setSelectedCheckboxesForAdvertising([...advertising])
+    }, [searchParams]) 
 
     return (
         selectedCheckboxesForCities.length === 0 && selectedCheckboxesForSpecs.length === 0 && selectedCheckboxesForAdvertising.length === 0

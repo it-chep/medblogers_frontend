@@ -5,7 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface IProps {
     labelSlug: string;
-    id?: number | string;
+    id?: number | string; 
 }
 
 export const DeleteActiveFilter: FC<IProps> = ({labelSlug, id}) => {
@@ -16,7 +16,7 @@ export const DeleteActiveFilter: FC<IProps> = ({labelSlug, id}) => {
 
     const deleteFilter = () => {
         const newUrl = new URLSearchParams(searchParams)
-        if(id === undefined){
+        if(id === undefined){  // когда не массив, а просто знач true false
             newUrl.delete(labelSlug)
             newUrl.delete('page')
             setNewUrl(newUrl)
