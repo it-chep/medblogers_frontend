@@ -1,28 +1,28 @@
 "use client"
 
 import { IDoctor, StickyContact } from "@/src/entities/doctor";
-import { ShowContentSmoothly } from "@/src/features/ShowContentSmoothly";
 import { Curtain } from "@/src/shared/ui/curtain";
 import { FC, useState } from "react";
-
+import classes from './doctorSticky.module.scss'
+ 
 interface IProps {
     isVip: boolean;
     doctor: IDoctor;
 }
 
-export const Sticky: FC<IProps> = ({doctor, isVip}) => {
+export const DoctorSticky: FC<IProps> = ({doctor, isVip}) => {
 
-    const [isClose, setIsClose] = useState<boolean>(false)
+    const [open, setOpen] = useState<boolean>(true)
 
     return (
-        !isClose
-            ?
-        <ShowContentSmoothly
-            speed_ms={250}
-            mobile
-        >
+        <section className={classes.wrapper}>
+            <section 
+                onClick={() => setOpen(true)}
+                className={classes.opener + (open ? ` ${classes.open}` : '')} 
+            />
             <Curtain
-                onCloseWrap={() => setIsClose(true)}
+                onCloseWrap={() => setOpen(false)}
+                openWrap={open}
             >
                 <StickyContact 
                     name={doctor.name}
@@ -31,8 +31,6 @@ export const Sticky: FC<IProps> = ({doctor, isVip}) => {
                     vip={isVip}
                 />
             </Curtain>
-        </ShowContentSmoothly>
-            :
-        <></>
+        </section>
     )
 }

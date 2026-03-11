@@ -1,0 +1,1 @@
+export { DoctorSticky } from "./ui/DoctorSticky";

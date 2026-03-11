@@ -1,0 +1,36 @@
+
+
+.opener{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 11;
+    height: 52px;
+    width: 100%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    &::after{
+        content: "";
+        width: 46px;
+        height: 8px;
+        border-radius: 100px;
+        background-color: var(--dark-gray);
+    }
+
+    &.open{
+        display: none;
+    }
+}
+
+.wrapper{
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .wrapper{
+        display: block;
+    }
+}

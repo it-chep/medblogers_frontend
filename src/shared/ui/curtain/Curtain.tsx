@@ -18,20 +18,23 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose,
     const [wrapperHeight, setWrapperHeight] = useState<number>(0)
     const refwrapper = useRef<HTMLUListElement>(null)
     const refWrapperHeight = useRef<number>(0)
+    const rafRef = useRef<number>(0);
 
     useEffect(() => {
         refWrapperHeight.current = wrapperHeight;
     }, [wrapperHeight])
 
     const onOpen = () => {
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
         if(refwrapper.current){
-            refwrapper.current.style.bottom = `0px`;
+            refwrapper.current.style.transform = `translateY(0)`;
         }
     }
     
     const onClose = () => {
+        if (rafRef.current) cancelAnimationFrame(rafRef.current);
         if(refwrapper.current){
-            refwrapper.current.style.bottom = `-${refWrapperHeight.current}px`;
+            refwrapper.current.style.transform = `translateY(100%)`;
         }
         onCloseWrap && onCloseWrap()
     }
@@ -52,32 +55,37 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose,
         if(refwrapper.current) {
             e.preventDefault()
             
-            const bottomShiftList = refwrapper.current.getBoundingClientRect().height - (window.innerHeight - e.clientY);
-            let prevBottomList = bottomShiftList;
+            const startBottomShift = refwrapper.current.getBoundingClientRect().height - (window.innerHeight - e.clientY);
+
+            let prevBottomList = e.clientY;
 
             refwrapper.current.style.transition = SPEED_DRAG;
 
             const onPointerMove = (e: PointerEvent) => {
-                e.preventDefault()
-                if(refwrapper.current) {
+            e.preventDefault();
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            rafRef.current = requestAnimationFrame(() => {
+                if (refwrapper.current) {
                     const clientBottom = window.innerHeight - e.clientY;
-                    let newBottomList = wrapperHeight - clientBottom - bottomShiftList;
-                    if(newBottomList < 0) {
-                        newBottomList = 0;
+                    let newTranslateY = wrapperHeight - clientBottom - startBottomShift;
+                    setTimeout(() => {
+                        prevBottomList = e.clientY
+                    }, 30)
+                    if(newTranslateY < 0){
+                        newTranslateY = 0;
                     }
-                    setTimeout(() => {prevBottomList = newBottomList}, 30)
-                    let newBottom = `-${newBottomList}px`;
-                    refwrapper.current.style.bottom = newBottom;
+                    refwrapper.current.style.transform = `translateY(${newTranslateY}px)`;
                 }
-            }
+            });
+            };
 
             const onPointerUp = (e: PointerEvent) => {
                 e.preventDefault()
                 if(refwrapper.current) {
-                    const clientBottom = window.innerHeight - e.clientY;
-                    const newBottomList = wrapperHeight - clientBottom - bottomShiftList;
+                    const newBottomList = e.clientY;
                     refwrapper.current.style.transition = SPEED_OPEN_CLOSE;
-                    if(prevBottomList >= newBottomList){  // open
+                    
+                    if((prevBottomList) >= newBottomList){  // open
                         onOpen()
                     }
                     else{
@@ -99,13 +107,14 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose,
             const height = refwrapper.current.getBoundingClientRect().height;
             refwrapper.current.style.transition = SPEED_OPEN_CLOSE;
             if(initClose){
-                refwrapper.current.style.bottom = `-${height}px`;
+                refwrapper.current.style.transform = `translateY(${height}px)`;
             }
             setWrapperHeight(height)
         }
     }, [])
 
     useEffect(() => {
+
         const onResize = () => {
             if(refwrapper.current){
                 const height = refwrapper.current.getBoundingClientRect().height;
@@ -125,7 +134,7 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose,
         <section 
             className={classes.wrapper}
             style={{
-                bottom: initClose ? '-545px' : '0px'
+                transform: initClose ? 'translateY(100%)' : 'translateY(0)'
             }}
             ref={refwrapper}
         >

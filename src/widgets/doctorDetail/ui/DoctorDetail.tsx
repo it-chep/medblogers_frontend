@@ -2,7 +2,7 @@ import { isDynamicServerError } from "next/dist/client/components/hooks-server-c
 import { notFound } from "next/navigation";
 import { DoctorCard, IDoctor, IDoctorVip, OtherSocial } from "@/src/entities/doctor";
 import { OtherSocialMediaDropdown } from "@/src/features/otherSocialMediaDropdown";
-import { Sticky } from "./Sticky";
+import { DoctorSticky } from "@/src/features/doctorSticky";
 
 interface IProps{
     reqDoctor: Promise<IDoctor>;
@@ -46,7 +46,7 @@ export async function DoctorDetail(props: IProps){
                     <OtherSocial doctor={doctor} isVip={isVip} />
                 </OtherSocialMediaDropdown>
             </DoctorCard>
-            <Sticky 
+            <DoctorSticky 
                 doctor={doctor}
                 isVip={isVip}
             />
