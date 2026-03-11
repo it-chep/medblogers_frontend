@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, PointerEvent as PointerEventReact, PropsWithChildren, useEffect, useRef, useState } from "react";
+import { FC, PointerEvent as PointerEventReact, PropsWithChildren, useCallback, useEffect, useRef, useState } from "react";
 import classes from './curtain.module.scss'
 
 
@@ -48,8 +48,7 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose,
                 onClose()
             }
         }
-    }, [openWrap])
-
+    }, [openWrap, wrapperHeight])
 
     const onStart = (e: PointerEventReact) => {
         if(refwrapper.current) {
@@ -102,7 +101,7 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose,
         }
     }
 
-    useEffect(() => {
+    const initWrapperHeight = useCallback(() => {
         if(refwrapper.current){
             const height = refwrapper.current.getBoundingClientRect().height;
             refwrapper.current.style.transition = SPEED_OPEN_CLOSE;
@@ -114,7 +113,10 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose,
     }, [])
 
     useEffect(() => {
+        initWrapperHeight()
+    }, [])
 
+    useEffect(() => {
         const onResize = () => {
             if(refwrapper.current){
                 const height = refwrapper.current.getBoundingClientRect().height;
@@ -123,6 +125,15 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose,
         }
 
         window.addEventListener('resize', onResize)
+
+        if(refwrapper.current){
+            const resize = new ResizeObserver((callback: ResizeObserverEntry[]) => {
+                initWrapperHeight()
+            })
+    
+            resize.observe(refwrapper.current)
+        }
+        
 
         return () => {
             onResize()

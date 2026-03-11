@@ -133,11 +133,7 @@ export const ShowContentSmoothly: FC<IProps & PropsWithChildren> = ({speed_ms, m
         className={classes.container}
         >
             {
-                display === 'block'
-                    ?
                 children
-                    :
-                <></>
             }
         </section>
     )
