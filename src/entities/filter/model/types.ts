@@ -24,6 +24,7 @@ export interface IFilter {
     cities: ICity[];
     specialities: ISpeciality[];
     filterInfo: IFilterSocial[];
+    advertising: IFilterSocial[];
     minSubscribers: string;
     maxSubscribers: string;
 }

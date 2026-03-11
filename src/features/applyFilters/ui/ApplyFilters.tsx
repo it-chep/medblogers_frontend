@@ -35,6 +35,11 @@ export const ApplyFilters: FC<IProps & PropsWithChildren> = ({currentMax, curren
         return selectedIds
     }
 
+    const selectedAdvertising = () => {
+        const selectedSlugs = filter.advertising.filter(info => info.selected).map(info => info.slug)
+        return selectedSlugs
+    }
+
     const setNewUrl = (params: URLSearchParams) => {
         const newUrl = `${pathname}?${params.toString()}`
         router.push(newUrl)
@@ -47,6 +52,7 @@ export const ApplyFilters: FC<IProps & PropsWithChildren> = ({currentMax, curren
         const selectedCitiesIds = selectedCities()
         const selectedSpecialitiesIds = selectedSpecialities()
         const selectedSubsIds = selectedSubs()
+        const selectedAdvertisingSlugs = selectedAdvertising()
 
         if(selectedCitiesIds.length > 0){
             selectedCitiesIds.forEach(cityId => {
@@ -61,6 +67,11 @@ export const ApplyFilters: FC<IProps & PropsWithChildren> = ({currentMax, curren
         if(selectedSubsIds.length > 0){
             selectedSubsIds.forEach(subId => {
                 params.append('social_media', subId);
+            })
+        }
+        if(selectedAdvertisingSlugs.length > 0){
+            selectedAdvertisingSlugs.forEach(slug => {
+                params.set(slug, 'true');
             })
         }
 

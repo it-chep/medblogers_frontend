@@ -2,7 +2,7 @@ import { ICity } from "@/src/entities/city";
 import { ISpeciality } from "@/src/entities/speciality";
 
 export type IItem = {
-    id: number;
+    id: number | string;
     name: string;
 }
 

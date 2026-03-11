@@ -7,6 +7,7 @@ export const initialState: IFilterState = {
         cities: [],
         specialities: [],
         filterInfo: [],
+        advertising: [],
         maxSubscribers: '',
         minSubscribers: '',
     },
