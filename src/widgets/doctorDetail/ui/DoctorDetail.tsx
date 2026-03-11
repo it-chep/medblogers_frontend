@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { DoctorCard, IDoctor, IDoctorVip, OtherSocial } from "@/src/entities/doctor";
 import { OtherSocialMediaDropdown } from "@/src/features/otherSocialMediaDropdown";
 import { DoctorSticky } from "@/src/features/doctorSticky";
+import { ShowContentSmoothly } from "@/src/features/ShowContentSmoothly";
 
 interface IProps{
     reqDoctor: Promise<IDoctor>;
@@ -46,10 +47,15 @@ export async function DoctorDetail(props: IProps){
                     <OtherSocial doctor={doctor} isVip={isVip} />
                 </OtherSocialMediaDropdown>
             </DoctorCard>
-            <DoctorSticky 
-                doctor={doctor}
-                isVip={isVip}
-            />
+            <ShowContentSmoothly
+                speed_ms={250}
+                mobile
+            >
+                <DoctorSticky 
+                    doctor={doctor}
+                    isVip={isVip}
+                />
+            </ShowContentSmoothly>
         </>
     )
 }
