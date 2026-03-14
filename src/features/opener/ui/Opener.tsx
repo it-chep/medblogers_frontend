@@ -1,20 +1,17 @@
 "use client"
 
-import { FC, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { FC, ReactNode, useCallback, useEffect, useRef } from "react";
 import classes from './opener.module.scss'
 
 interface IProps {
-    blocks: {
-        icon: ReactNode;
-        elem: ReactNode;
-    }[];
+    icon: ReactNode;
+    elem: ReactNode;
     setOpen: (open: boolean) => void;
     open: boolean;
+    isLight?: boolean;
 }
 
-export const Opener: FC<IProps> = ({blocks, setOpen, open}) => {
-
-    const [selected, setSelected] = useState<number>(0)
+export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight}) => {
 
     const refContainer = useRef<HTMLDivElement>(null)
     const refHint = useRef<HTMLDivElement>(null)
@@ -48,21 +45,14 @@ export const Opener: FC<IProps> = ({blocks, setOpen, open}) => {
     }, [])
 
     return (
-        <section className={classes.wrapper}>
+        <section className={classes.wrapper + (isLight ? ` ${classes.light}` : '')}>
             <section 
                 className={classes.container} 
                 onClick={() => setOpen(!open)}
                 onMouseDown={e => e.preventDefault()}
                 ref={refContainer}
             >
-                {blocks.map((block, ind) => 
-                    <section 
-                        key={ind}
-                        className={classes.icon}
-                    >
-                        {block.icon}
-                    </section>
-                )}
+                {icon}
             </section>
             {
                 open
@@ -71,7 +61,7 @@ export const Opener: FC<IProps> = ({blocks, setOpen, open}) => {
                     ref={refHint}
                     className={classes.hint} 
                 >
-                    {blocks[selected].elem}
+                    {elem}
                 </section>
             }
         </section>

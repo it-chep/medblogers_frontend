@@ -5,10 +5,13 @@ import classes from './switchTheme.module.scss'
 import { MyCheckbox } from "@/src/shared/ui/myCheckbox";
 import { useBlogTheme } from "../../lib/hooks/useBlogTheme";
 
-export const SwitchTheme: FC = () => {
+interface IProps {
+    setOpen: (open: boolean) => void;
+}
+
+export const SwitchTheme: FC<IProps> = ({setOpen}) => {
 
     const { isLight, setLight, setDark } = useBlogTheme();
-    const [open, setOpen] = useState<boolean>(false)
 
     const onLight = () => {
         const target = document.querySelector('.blog')
@@ -32,30 +35,8 @@ export const SwitchTheme: FC = () => {
         }
     }
 
-    const clickDoc = useCallback((e: MouseEvent) => {
-        const target = e.target as Element;
-        if(target){
-            if(target.closest(`.${classes.wrapper}`)){}  // клик внутри выпадашки
-            else{
-                e.preventDefault()
-                e.stopPropagation()
-                setOpen(false)
-            }
-        }
-    }, [])
-
-    useEffect(() => {
-        if(open){
-            document.body.addEventListener('click', clickDoc)
-        }
-        else{
-            document.body.removeEventListener('click', clickDoc)
-        }
-    }, [open])
-
     useEffect(() => {
         return () => {
-            document.body.removeEventListener('click', clickDoc)
             localStorage.removeItem('theme')
         }
     }, [])

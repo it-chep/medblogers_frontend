@@ -23,6 +23,11 @@
     --blockquote: #fff;
     --category-opacity: 1;
 
+    --dark-background: #242424;
+
+    --border-doctor-color: transparent;
+    --dark-background-doctor: #1A1A1A;
+
     --text-sign: #afafaf;
 
     padding: 20px 0;
@@ -32,11 +37,17 @@
 .light{
     --background-blog: #F0F0F0;
     --blockquote: #0C0C0C;
-    --dark-background: #dfdfdf;
+    --dark-background: #ECECEC;
     --category-opacity: .9;
     --light-black: #ffffff;
     
-    --text-sign: red;
+    --dark-background-doctor: transparent;
+
+    --border-doctor-color: rgba(20, 20, 20, 0.2);
+
+    --text-sign: rgba(0, 0, 0, 0.6);
+
+    --light-background: #D0D0D0;
 
     color: #0C0C0C;
 }

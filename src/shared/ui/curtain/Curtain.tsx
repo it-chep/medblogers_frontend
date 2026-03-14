@@ -75,6 +75,7 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({backgroundColor, onClos
                         newTranslateY = 0;
                     }
                     refwrapper.current.style.transform = `translateY(${newTranslateY}px)`;
+                    console.log(111, newTranslateY)
                 }
             });
             };
@@ -126,15 +127,6 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({backgroundColor, onClos
         }
 
         window.addEventListener('resize', onResize)
-
-        if(refwrapper.current){
-            const resize = new ResizeObserver((callback: ResizeObserverEntry[]) => {
-                initWrapperHeight()
-            })
-    
-            resize.observe(refwrapper.current)
-        }
-        
 
         return () => {
             onResize()

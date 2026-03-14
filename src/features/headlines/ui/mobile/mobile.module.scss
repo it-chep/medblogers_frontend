@@ -2,17 +2,12 @@
 .bottom{
     display: flex;
     align-items: center;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9;
 }
 
 .slider{
     gap: 5px;
     display: flex;
-    background-color: var(--light-black);
+    background-color: var(--dark-background);
     padding: 16px 15px;
     border-radius: 100px;
     list-style: none;
@@ -33,7 +28,8 @@
     }
 }
 
-.listWrap{
+
+.list{
     padding: 0 30px 40px 30px;
     background-color: var(--light-black);
 }

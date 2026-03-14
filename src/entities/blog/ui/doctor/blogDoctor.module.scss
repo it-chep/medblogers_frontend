@@ -2,10 +2,11 @@
 
 .container{
     display: flex;
-    background-color: var(--dark-background);
+    background-color: var(--dark-background-doctor);
     border-radius: 20px;
     padding: 20px;
     gap: 15px;
+    border: 1px solid var(--border-doctor-color);
     
     .data{
         display: flex;

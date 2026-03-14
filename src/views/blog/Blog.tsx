@@ -5,9 +5,9 @@ import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
 import { BlogsTopLayout } from '@/src/widgets/blogsTop';
-import { HeadlinesBlog } from '@/src/widgets/headlinesBlog';
-import { BlogThemeProvider, SwitchTheme } from '@/src/features/switchTheme';
-import { OpenerBottomFixedWrap } from '@/src/widgets/openerBottomFixed';
+import { BlogThemeProvider } from '@/src/features/switchTheme';
+import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
+import { Headlines } from '@/src/features/headlines';
 
 const getData = async (slug: string) => {
     let blog: IBlogDetail | null = null;
@@ -41,10 +41,6 @@ export default async function BlogPage(props: IProps) {
     return (
         <BlogThemeProvider initialIsLight={props.isLightTheme}>
             <section className={classes.page}>
-                <section className={classes.switchTheme}>
-                    <OpenerBottomFixedWrap />
-                </section>
-                <section className={classes.wrapper}>
                     <section className={classes.breadcrumbs}>
                         <Breadcrumbs breadcrumbs={[
                             {path: '/', label: 'Вернуться к базе'},
@@ -54,11 +50,15 @@ export default async function BlogPage(props: IProps) {
                     </section>
                     <section className={classes.wrapperMain}>
                         <aside className={classes.aside}>
-                            <HeadlinesBlog>
-                                <SwitchTheme />
-                            </HeadlinesBlog>
+                            <Headlines />
                         </aside>
                         <main className={classes.main}>
+                            <section className={classes.switchTheme}>
+                                <OpenerBottomFixedWrap />
+                            </section>
+                            <section className={classes.mobileFixed}>
+                                <OpenerBottomFixedWrapMobile />
+                            </section>
                             <Blog 
                                 blog={blog} 
                                 doctorBlog={blog.doctor.name ? blog.doctor : null}
@@ -91,7 +91,6 @@ export default async function BlogPage(props: IProps) {
                         <h2 className={classes.other}>Читать другие статьи</h2>
                         <BlogsTopLayout />
                     </section>
-                </section>
             </section>
         </BlogThemeProvider>
     )
