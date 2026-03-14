@@ -172,7 +172,7 @@
 @media (max-width: 550px) {
     .container{
         .header{
-            justify-content: start;
+            justify-content: flex-start;
             >img{
                 display: none;
             }
@@ -255,7 +255,7 @@
     .container{
         .header{
             display: flex;
-            align-items: start;
+            align-items: flex-start;
             flex-direction: column;
             gap: 2px;
 
