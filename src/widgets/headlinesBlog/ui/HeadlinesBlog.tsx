@@ -1,10 +1,10 @@
 "use client"
 
-import { FC, useEffect, useState } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 import classes from './headlinesBlog.module.scss'
 import { Headlines } from "@/src/features/headlines";
 
-export const HeadlinesBlog: FC = () => {
+export const HeadlinesBlog: FC<PropsWithChildren> = ({children}) => {
 
     const [headlines, setHeadlines] = useState<Element[]>([])    
     const [isMobile, setIsMobile] = useState<boolean>(false)
@@ -45,7 +45,9 @@ export const HeadlinesBlog: FC = () => {
             <Headlines 
                 headlines={headlines}
                 isMobile={isMobile}
-            />
+            >
+                {children}
+            </Headlines>
         </section>
             :
         <></>

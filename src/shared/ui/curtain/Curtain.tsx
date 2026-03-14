@@ -8,12 +8,13 @@ interface IProps {
     onCloseWrap?: () => void;
     openWrap?: boolean;
     initClose?: boolean;
+    backgroundColor: string;
 }
 
 const SPEED_DRAG = 'all .1s ease';
 const SPEED_OPEN_CLOSE = 'all .4s ease-out';
 
-export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose, openWrap, children}) => {
+export const Curtain: FC<IProps & PropsWithChildren> = ({backgroundColor, onCloseWrap, initClose, openWrap, children}) => {
 
     const [wrapperHeight, setWrapperHeight] = useState<number>(0)
     const refwrapper = useRef<HTMLUListElement>(null)
@@ -145,7 +146,8 @@ export const Curtain: FC<IProps & PropsWithChildren> = ({onCloseWrap, initClose,
         <section 
             className={classes.wrapper}
             style={{
-                transform: initClose ? 'translateY(100%)' : 'translateY(0)'
+                transform: initClose ? 'translateY(100%)' : 'translateY(0)',
+                backgroundColor
             }}
             ref={refwrapper}
         >

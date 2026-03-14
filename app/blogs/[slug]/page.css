@@ -3,6 +3,7 @@
     border-radius: 20px;
     margin: 20px 0;
     background-color: rgba(15, 54, 87, 1);
+    color: #fff;
 }
 
 .bold{
@@ -17,7 +18,38 @@
     text-decoration: underline;
 }
 
+.blog{
+    --background-blog: #2A2A2A;
+    --blockquote: #fff;
+    --category-opacity: 1;
+
+    --text-sign: #afafaf;
+
+    padding: 20px 0;
+    border-radius: 20px;
+}
+
+.light{
+    --background-blog: #F0F0F0;
+    --blockquote: #0C0C0C;
+    --dark-background: #dfdfdf;
+    --category-opacity: .9;
+    --light-black: #ffffff;
+    
+    --text-sign: red;
+
+    color: #0C0C0C;
+}
+
+
+
 @media (max-width: 480px) {
+    .blog{
+        --padding-main: 20px;
+    }
+    .light{
+        --padding-main: 0;
+    }
     .color-blue{
         padding: 20px;
     }

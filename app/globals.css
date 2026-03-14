@@ -34,7 +34,9 @@ body {
   --dark-gray: #464646;
   --sign-gray: #606060;
   --gray: #ffffff80;
-  --text-gray: #C2CDD9;
+  --text-gray: #afafaf;
+  --sign-white: rgba(255, 255, 255, 0.8);
+
   --gray-light: #9b9b9b;
   --gray-light-hover: #b6b6b6;
 
@@ -42,6 +44,7 @@ body {
   --vip-background: #17293D;
 
   --dark-background: #161616;
+  --light-background: #1a1a1a;
 
   --time-input: .15s;
 
@@ -51,6 +54,12 @@ body {
 
 
   background-color: var(--black);
+
+  
+}
+
+body.light{
+  
 }
 
 .wrapper_main{

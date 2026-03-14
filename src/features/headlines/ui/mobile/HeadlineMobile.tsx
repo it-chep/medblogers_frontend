@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 import classes from './mobile.module.scss'
 import { List } from "../list/List";
 import { createPortal } from "react-dom";
@@ -9,7 +9,7 @@ interface IProps {
     selectedHeadline: Element | null;
 }
 
-export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
+export const HeadlineMobile: FC<IProps & PropsWithChildren> = ({headlines, selectedHeadline, children}) => {
 
     const [open, setOpen] = useState<boolean>(false)
 
@@ -33,18 +33,22 @@ export const HeadlineMobile: FC<IProps> = ({headlines, selectedHeadline}) => {
 
     return (
         <>
-            <ul onClick={onOpen} className={classes.slider}>
-                {headlines.map(headline => 
-                    <li 
-                        key={headline.textContent}
-                        className={classes.item + (selectedHeadline === headline ? ` ${classes.selected}` : '')} 
-                    />
-                )}
-            </ul>
+            <section className={classes.bottom}>
+                {children}
+                <ul onClick={onOpen} className={classes.slider} style={{color: `var(--blue)`}}>
+                    {headlines.map(headline => 
+                        <li 
+                            key={headline.textContent}
+                            className={classes.item + (selectedHeadline === headline ? ` ${classes.selected}` : '')} 
+                        />
+                    )}
+                </ul>
+            </section>
             <Curtain 
                 onCloseWrap={onClose}
                 openWrap={open}
                 initClose
+                backgroundColor="var(--light-black)"
             >
                 <section className={classes.listWrap}> 
                     <List 

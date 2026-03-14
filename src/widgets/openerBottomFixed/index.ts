@@ -1,0 +1,1 @@
+export { OpenerBottomFixedWrap } from "./ui/wrap/OpenerBottomFixed";

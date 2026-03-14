@@ -1,0 +1,33 @@
+
+
+
+.wrapper{
+    --background: #242424;
+
+    .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        background-color: var(--background);
+        width: 40px;
+        min-height: 40px;
+        cursor: pointer;
+
+        .icon{
+            display: flex;
+        }
+    }
+    
+    .hint{
+        position: fixed;
+        bottom: 48px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--background);
+        padding: 20px 10px;
+        border-radius: 20px;
+        width: 210px;
+    }
+}

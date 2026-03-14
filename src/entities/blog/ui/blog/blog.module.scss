@@ -8,14 +8,18 @@
 
     .header{
         display: flex;
-        justify-content: space-between;
         align-items: center;
         width: 100%;
         margin-bottom: 10px;
+        gap: 10px;
+
+        .share{
+            margin-left: auto;
+        }
     }
     
     .date{
-        color: rgba(255, 255, 255, 0.6);
+        color: var(--text-sign);
         line-height: 100%;
         margin-top: 5px;
     }
@@ -103,7 +107,7 @@
                 left: 0;
                 top: 0;
                 bottom: 0;
-                background-color: #fff;
+                background-color: var(--blockquote);
                 border-radius: 2px;
                 width: 2px;
             }

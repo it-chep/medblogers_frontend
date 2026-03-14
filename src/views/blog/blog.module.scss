@@ -3,24 +3,44 @@
 .page{
     min-height: 100vh;
 
-    .wrapperMain{   
-        display: flex;
-        gap: 30px;
-        margin-top: 30px;
+    background-color: transparent;
 
-        .aside{
-            width: 300px;
-        }
+    .switchTheme{
+        position: fixed;
+        z-index: 11;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-        .main{
+    .wrapper{
+        width: 1240px;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+
+
+        .wrapperMain{   
             display: flex;
-            flex-direction: column;
             gap: 30px;
-            width: 770px;
-            max-width: 100%;
-            border-radius: 20px;
-            background: #2A2A2A;
-            padding: 35px;
+            margin-top: 30px;
+
+            .aside{
+                width: 268px;
+            }
+
+            .main{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                width: 770px;
+                max-width: 100%;
+                border-radius: 20px;
+                background: var(--background-blog);
+                padding: 35px;
+
+            }
         }
     }
     
@@ -43,17 +63,18 @@
             .aside{
                 width: 0;
             }
+
+            .main{
+                .switchTheme{
+                    display: none;
+                }                    
+            }
         }
     }
 }
 
 @media (max-width: 480px) {
     .page{
-        .wrapperMain{
-            .main{
-                padding: 20px;
-            }
-        }
         .blogsTop{
             .other{
                 font-size: 28px;

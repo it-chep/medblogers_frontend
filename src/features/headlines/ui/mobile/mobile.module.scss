@@ -1,15 +1,19 @@
 
-
-.slider{
-    position: fixed;
+.bottom{
     display: flex;
-    z-index: 9;
-    gap: 5px;
+    align-items: center;
+    position: fixed;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #242424;
-    padding: 10px 15px;
+    z-index: 9;
+}
+
+.slider{
+    gap: 5px;
+    display: flex;
+    background-color: var(--light-black);
+    padding: 16px 15px;
     border-radius: 100px;
     list-style: none;
     
@@ -31,6 +35,7 @@
 
 .listWrap{
     padding: 0 30px 40px 30px;
+    background-color: var(--light-black);
 }
 
 .darken{

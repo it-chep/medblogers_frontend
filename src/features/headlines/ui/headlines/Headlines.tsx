@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, PropsWithChildren, useEffect, useRef, useState } from "react";
 import classes from './headlines.module.scss'
 import { List } from "../list/List";
 import { HeadlineMobile } from "../mobile/HeadlineMobile";
@@ -10,7 +10,7 @@ interface IProps {
     isMobile: boolean;
 }
 
-export const Headlines: FC<IProps> = ({headlines, isMobile}) => {
+export const Headlines: FC<IProps & PropsWithChildren> = ({headlines, isMobile, children}) => {
 
     const [selectedHeadline, setSelectedHeadline] = useState<Element | null>(null)
     const headlinesRef = useRef<Element[]>(headlines)
@@ -74,10 +74,12 @@ export const Headlines: FC<IProps> = ({headlines, isMobile}) => {
         </section>
             :
         <section className={classes.mobile}>
-            <HeadlineMobile 
+            <HeadlineMobile  
                 headlines={headlines}
                 selectedHeadline={selectedHeadline}
-            />
+            >
+                {children}
+            </HeadlineMobile>
         </section>
             :
         <></>
