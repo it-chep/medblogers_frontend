@@ -6,7 +6,7 @@ import { ILink } from "../../model/types";
 export const infs: ILink[] = [
     {
         label: 'О проекте',
-        link: ' https://t.me/readydoctor/3665',
+        link: ' /about',
         noindex: true,
     },
     {
