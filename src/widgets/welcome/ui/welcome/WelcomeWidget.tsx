@@ -24,8 +24,7 @@ export const WelcomeWidget: FC = () => {
                     Размещение в базе
                 </h1>
                 <h2>
-                    Наша база открыта для врачей-блогеров из любого города.<br /> 
-                    Здесь вы можете найти коллег для рекламных интеграций и коллабораций.
+                    Наша база открыта для врачей-блогеров из любых городов и стран, но есть ряд ограничений и требований:
                 </h2>
                 <section className={classes.circle} />
             </section>
@@ -37,9 +36,9 @@ export const WelcomeWidget: FC = () => {
                     Кого мы НЕ размещаем
                 </section>
                 <ul className={classes.items}>
-                    {noposts.map((noPost, ind) => 
-                        <li 
-                            style={{width: noPost.width}} 
+                    {noposts.map((noPost, ind) =>
+                        <li
+                            style={{width: noPost.width}}
                             key={ind}
                             className={classes.item}
                         >
@@ -59,9 +58,9 @@ export const WelcomeWidget: FC = () => {
                     Требования к размещаемым
                 </section>
                 <ul className={classes.items}>
-                    {requirements.map((requirement, ind) => 
-                        <li 
-                            style={{width: requirement.width}} 
+                    {requirements.map((requirement, ind) =>
+                        <li
+                            style={{width: requirement.width}}
                             className={classes.item + ' ' + classes.green}
                             key={ind}
                         >
@@ -82,10 +81,10 @@ export const WelcomeWidget: FC = () => {
                         Жмите «Залететь на сайт», а мы пришлём вам актуальные условия и анкету участника
                     </section>
                     <section className={classes.button}>
-                        <a 
+                        <a
                             className={classes.link}
                             target="_blank"
-                            href="https://t.me/m/K8N_6UNkMGFi"    
+                            href="https://t.me/m/K8N_6UNkMGFi"
                         >
                             <MyButton>
                                 <section className={classes.buttonContent}>
