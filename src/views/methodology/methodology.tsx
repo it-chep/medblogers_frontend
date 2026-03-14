@@ -1,7 +1,7 @@
 import classes from './methodology.module.scss'
 import {blogClasses} from '@/src/entities/blog'
+import { Headlines } from '@/src/features/headlines';
 import {Breadcrumbs} from '@/src/widgets/breadcrumbs';
-import {HeadlinesBlog} from '@/src/widgets/headlinesBlog';
 
 export default function MethodologyPage() {
     return (
@@ -12,7 +12,7 @@ export default function MethodologyPage() {
             ]}/>
             <section className={classes.wrapperMain}>
                 <aside className={classes.aside}>
-                    <HeadlinesBlog/>
+                    <Headlines />
                 </aside>
                 <main className={classes.main}>
                     <section className={blogClasses.container}>
