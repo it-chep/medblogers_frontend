@@ -23,6 +23,7 @@ export const DoctorSticky: FC<IProps> = ({doctor, isVip}) => {
             <Curtain
                 onCloseWrap={() => setOpen(false)}
                 openWrap={open}
+                backgroundColor="var(--light-black)"
             >
                 <StickyContact 
                     name={doctor.name}

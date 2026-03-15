@@ -1,7 +1,7 @@
 import classes from './editorial_policy.module.scss'
 import {blogClasses} from '@/src/entities/blog'
+import { Headlines } from '@/src/features/headlines';
 import {Breadcrumbs} from '@/src/widgets/breadcrumbs';
-import {HeadlinesBlog} from '@/src/widgets/headlinesBlog';
 
 export default function EditorialPolicyPage() {
     return (
@@ -12,7 +12,7 @@ export default function EditorialPolicyPage() {
             ]}/>
             <section className={classes.wrapperMain}>
                 <aside className={classes.aside}>
-                    <HeadlinesBlog/>
+                    <Headlines />
                 </aside>
                 <main className={classes.main}>
                     <section className={blogClasses.container}>

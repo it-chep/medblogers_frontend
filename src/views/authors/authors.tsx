@@ -2,8 +2,8 @@ import classes from './authors.module.scss'
 import {blogClasses} from '@/src/entities/blog'
 import {doctorService} from '@/src/entities/doctor'
 import {Breadcrumbs} from '@/src/widgets/breadcrumbs'
-import {HeadlinesBlog} from '@/src/widgets/headlinesBlog'
 import {AuthorCard} from './AuthorCard'
+import { Headlines } from '@/src/features/headlines'
 
 const authors = [
     {
@@ -81,7 +81,7 @@ export default async function AuthorsPage() {
             ]}/>
             <section className={classes.wrapperMain}>
                 <aside className={classes.aside}>
-                    <HeadlinesBlog/>
+                    <Headlines />
                 </aside>
                 <main className={classes.main}>
                     <section className={blogClasses.container}>

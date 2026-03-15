@@ -2,10 +2,11 @@
 
 .container{
     display: flex;
-    background-color: var(--dark-background);
+    background-color: var(--dark-background-doctor);
     border-radius: 20px;
     padding: 20px;
     gap: 15px;
+    border: 1px solid var(--border-doctor-color);
     
     .data{
         display: flex;
@@ -47,9 +48,6 @@
         align-self: center;
         min-width: 230px;
     }
-    .buttonMobile{
-        display: none;
-    }
 }
 
 @media (max-width: 750px) {
@@ -58,7 +56,7 @@
         gap: 20px;
 
         .data{
-            justify-content: start;
+            justify-content: flex-start;
         }
         .button{
             display: flex;
@@ -76,15 +74,7 @@
 
         .data{
             gap: 15px;
-            justify-content: start;
-        }
-        .button{
-            display: none;
-        }
-        .buttonMobile{
-            display: block;
-            height: 46px;
-            min-width: 100%;
+            justify-content: flex-start;
         }
     }
 }

@@ -5,7 +5,9 @@ import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
 import { BlogsTopLayout } from '@/src/widgets/blogsTop';
-import { HeadlinesBlog } from '@/src/widgets/headlinesBlog';
+import { BlogThemeProvider } from '@/src/features/switchTheme';
+import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
+import { Headlines } from '@/src/features/headlines';
 
 const getData = async (slug: string) => {
     let blog: IBlogDetail | null = null;
@@ -23,59 +25,73 @@ const getData = async (slug: string) => {
 
 interface IProps {
     slug: string
+    isLightTheme: boolean;
 }
 
 export default async function BlogPage(props: IProps) {
 
     const blog = await getData(props.slug)
 
-     if(!blog || blog.code === 2){
+    if(!blog || blog.code === 2){
         return (
             notFound()
         )
     }
 
     return (
-        <section className={classes.page + ' wrapper_main'}>
-            <Breadcrumbs breadcrumbs={[
-                {path: '/', label: 'Вернуться к базе'},
-                {path: '/blogs', label: 'Статьи'},
-                {path: '', label: blog.title},
-            ]} />
-            <section className={classes.wrapperMain}>
-                <aside className={classes.aside}>
-                    <HeadlinesBlog />
-                </aside>
-                <main className={classes.main}>
-                    <Blog 
-                        blog={blog} 
-                        doctorBlog={blog.doctor.name ? blog.doctor : null}
-                        categories={
-                            <BlogCategories 
-                                categories={blog.categories}
-                            />
-                        }
-                    >
-                        <Share>
-                            <ShareBlog />
-                        </Share>
-                    </Blog>
-                    <Share>
-                        <ShareBlog />
-                    </Share>
-                    {
-                        blog.doctor.name 
-                            &&
-                        <BlogDoctor 
-                            doctor={blog.doctor}
-                        />
-                    }
-                </main>
+        <BlogThemeProvider initialIsLight={props.isLightTheme}>
+            <section className={classes.page}>
+                    <section className={classes.breadcrumbs}>
+                        <Breadcrumbs breadcrumbs={[
+                            {path: '/', label: 'Вернуться к базе'},
+                            {path: '/blogs', label: 'Статьи'},
+                            {path: '', label: blog.title},
+                        ]} />
+                    </section>
+                    <section className={classes.wrapperMain}>
+                        <aside className={classes.aside}>
+                            <Headlines />
+                        </aside>
+                        <main className={classes.main}>
+                            <section className={classes.switchTheme}>
+                                <OpenerBottomFixedWrap />
+                            </section>
+                            <section className={classes.mobileFixed}>
+                                <OpenerBottomFixedWrapMobile />
+                            </section>
+                            <Blog 
+                                blog={blog} 
+                                doctorBlog={blog.doctor.name ? blog.doctor : null}
+                                switchTheme={
+                                    <></>
+                                }
+                                categories={
+                                    <BlogCategories 
+                                        categories={blog.categories}
+                                    />
+                                }
+                            >
+                                <Share>
+                                    <ShareBlog />
+                                </Share>
+                            </Blog>
+                            <Share>
+                                <ShareBlog />
+                            </Share>
+                            {
+                                blog.doctor.name 
+                                    &&
+                                <BlogDoctor 
+                                    doctor={blog.doctor}
+                                />
+                            }
+                        </main>
+                    </section>
+                    <section className={classes.blogsTop}>
+                        <h2 className={classes.other}>Читать другие статьи</h2>
+                        <BlogsTopLayout />
+                    </section>
             </section>
-            <section className={classes.blogsTop}>
-                <h2 className={classes.other}>Читать другие статьи</h2>
-                <BlogsTopLayout />
-            </section>
-        </section>
+        </BlogThemeProvider>
     )
 }
