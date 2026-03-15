@@ -48,9 +48,6 @@
         align-self: center;
         min-width: 230px;
     }
-    .buttonMobile{
-        display: none;
-    }
 }
 
 @media (max-width: 750px) {
@@ -78,14 +75,6 @@
         .data{
             gap: 15px;
             justify-content: flex-start;
-        }
-        .button{
-            display: none;
-        }
-        .buttonMobile{
-            display: block;
-            height: 46px;
-            min-width: 100%;
         }
     }
 }
