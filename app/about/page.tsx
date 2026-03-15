@@ -3,12 +3,12 @@ import AboutPage from "@/src/views/about/about";
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'О проекте | MEDBLOGERS BASE',
+        absolute: 'Единая база врачей-блогеров | MEDBLOGERS BASE',
     },
-    description: 'Как устроен MEDBLOGERS BASE: зачем мы создавали единую базу врачей-блогеров, кому она полезна и как развивается проект.',
+    description: 'Как MEDBLOGERS BASE строит единую базу врачей-блогеров для рекламы, коллабораций и поиска специалистов.',
     openGraph: {
-        title: 'О проекте | MEDBLOGERS BASE',
-        description: 'Как устроен MEDBLOGERS BASE: зачем мы создавали единую базу врачей-блогеров, кому она полезна и как развивается проект.',
+        title: 'Единая база врачей-блогеров | MEDBLOGERS BASE',
+        description: 'Как MEDBLOGERS BASE строит единую базу врачей-блогеров для рекламы, коллабораций и поиска специалистов.',
         url: 'https://medblogers-base.ru/about',
         type: 'website',
     },

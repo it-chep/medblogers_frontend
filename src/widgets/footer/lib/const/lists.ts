@@ -6,8 +6,13 @@ import { ILink } from "../../model/types";
 export const infs: ILink[] = [
     {
         label: 'О проекте',
-        link: ' /about',
-        noindex: true,
+        link: '/about',
+        site: true,
+    },
+    {
+        label: 'Развитие проекта',
+        link: '/changelog',
+        site: true,
     },
     {
         label: 'Редакционная политика',
