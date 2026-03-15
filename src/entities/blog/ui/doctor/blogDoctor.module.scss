@@ -76,6 +76,11 @@
             gap: 15px;
             justify-content: flex-start;
         }
+
+        .button{
+            min-width: 0;
+            width: 100%;
+        }
     }
 }
 
