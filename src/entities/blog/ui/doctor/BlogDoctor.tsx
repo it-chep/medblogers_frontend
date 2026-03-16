@@ -36,11 +36,6 @@ export const BlogDoctor: FC<IProps> = ({doctor}) => {
                     Перейти в карточку
                 </MyButton>
             </section>
-            <section className={classes.buttonMobile}>
-                <MyButton style={{backgroundColor: '#2A2A2A', border: '2px solid #2A2A2A'}}>
-                    Перейти в карточку
-                </MyButton>
-            </section>
         </Link>
     )
 }

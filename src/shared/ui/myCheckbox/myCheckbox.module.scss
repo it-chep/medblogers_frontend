@@ -7,11 +7,11 @@
     gap: 12px;
 
     &.top{
-        align-items: start;
+        align-items: flex-start;
     }
 
     &.checkboxTop{
-        align-items: start;
+        align-items: flex-start;
     }
 
     >input{

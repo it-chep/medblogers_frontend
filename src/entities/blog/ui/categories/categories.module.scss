@@ -6,6 +6,7 @@
     list-style: none;
     gap: 10px;
     font-size: 16px;
+    opacity: var(--category-opacity);
 
     .item{
         border-radius: 8px;

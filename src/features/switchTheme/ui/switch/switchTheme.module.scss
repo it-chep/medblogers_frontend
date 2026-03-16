@@ -1,0 +1,50 @@
+
+
+
+.wrapper{
+    padding: 20px 10px;
+    border-radius: inherit;
+
+    .sign{
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 130%;
+    }
+    
+    .close{
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        cursor: pointer;
+    }
+    
+    .list{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0 0;
+    
+        .item{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 10px;
+            height: 42px;
+            padding: 0 15px;
+            cursor: pointer;
+            transition: all .15s ease;
+
+            &.selected{
+                background-color: var(--light-background);
+            }
+
+            &:hover{
+                background-color: var(--light-background);
+            }
+        }
+    }
+
+}

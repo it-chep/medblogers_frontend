@@ -11,11 +11,13 @@ export const menuLinks: IMenu[] = [
     },
     {
         name: 'База врачей - как пользоваться?',
-        link: 'https://medblogers-base.ru/blogs/base'
+        link: 'https://medblogers-base.ru/blogs/base',
+        site: true,
     },
     {
         name: 'База помощников - инструкция для рационального выбора подрядчика',
-        link: 'https://medblogers-base.ru/blogs/freelancers'
+        link: 'https://medblogers-base.ru/blogs/freelancers',
+        site: true,
     },
     {
         name: 'Полезные статьи для медблога',
