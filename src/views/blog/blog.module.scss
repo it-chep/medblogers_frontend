@@ -90,9 +90,20 @@
 
 @media (max-width: 480px) {
     .page{
+        padding: 0;
+        .breadcrumbs{
+            padding: 0 20px;
+        }
+
         .blogsTop{
             .other{
                 font-size: 28px;
+            }
+        }
+
+        .wrapperMain{
+            .main{
+                padding: 20px;
             }
         }
     }

@@ -7,7 +7,7 @@
 }
 
 .bold{
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .italic{
@@ -55,62 +55,112 @@
 
 /*  blog edit widget start */
 
-.widget_link{
-    display: flex;
-    justify-content: space-between;
-    background-color: #3A3A3A;
-    border-radius: 20px;
-    overflow: hidden;
-    color: #fff !important;
-    text-decoration: none !important;
+ 
+.light .widget_link {
+    background-color: #FFFFFF;
+    
+    color: #0c0c0c !important; 
 }
-.widget_link:hover{
-    color: #fff !important;
+.light .widget_link:hover{
+  color: #0c0c0c !important;
 }
 
+.widget_link{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 170px;
+  min-height: 170px;
+  grid-template-rows: min-content;
+
+  background-color: #3A3A3A;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #fff !important;
+  text-decoration: none !important;
+
+  transition: none !important;
+}
+.widget_link:hover{
+  color: #fff !important;
+}
+
+.widget_img_wrap{
+  position: relative;
+  height: 0px;
+}
 .widget_img{
-    width: 170px;
-    height: 170px;
-    min-width: 170px;
-    object-fit: cover;
-    border-radius: inherit;
+  width: 170px;
+  height: 170px;
+  min-width: 170px;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .widget_data{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 0 20px;
+  font-size: 18px;
 }
 
 .widget_title{
-    font-weight: 800;
-    line-height: 118%;
+  font-weight: 800;
+  line-height: 118%;
 }
 
 .widget_sub_title{
-    font-weight: 400;
-    line-height: 140%;
-    margin-bottom: 20px;
+  font-weight: 400;
+  line-height: 140%;
 }
 
 .widget_button{
-    font-weight: 600;
-    width: fit-content;
-    height: fit-content;
+  font-weight: 600;
+  width: fit-content;
+  height: fit-content;
 
-    margin-top: auto;
-    border: none;
-    border-radius: 8px;
-    padding: 16px 54px;
-    background-color: var(--blue);
-    color: white;
-    font-size: 18px;
-    transition: all .25s ease;
-    cursor: pointer;      
+  align-self: flex-end;
+  border: none;
+  border-radius: 14px;
+  margin: 0 0 20px 20px;
+  padding: 16px 54px;
+  background-color: var(--blue);
+  color: white;
+  font-size: 18px;
+  transition: all .25s ease;
+  cursor: pointer;      
 }
 .widget_button:hover{
-    background-color: var(--blue-hover);
+  background-color: var(--blue-hover);
+}
+
+@media (max-width: 600px) {
+    .widget_link{
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr 92px;
+        padding: 14px;
+        min-height: 170px;
+    }
+    .widget_img_wrap{
+        height: 100%;
+    }
+    .widget_img{
+        width: 92px;
+        height: 92px;
+        min-width: 92px;
+        border-radius: 18px;
+    }
+    .widget_data{
+        padding: 4px 18px 0 0;
+        font-size: 16px;
+    }
+    .widget_button{
+        font-weight: 600;
+        width: 100%;
+        grid-column: span 2;
+        margin: 0;
+        font-size: 16px;
+    }
 }
 
 /*  blog edit widget end */

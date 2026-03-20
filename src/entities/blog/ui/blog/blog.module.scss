@@ -27,13 +27,13 @@
     .content{
         a {
             text-decoration: underline;
-            color: var(--blue);
+            color: #0a7ae2;
             transition: all .15s ease;
             cursor: pointer;
         }
 
         a:hover{
-            color: var(--blue-hover);
+            color: #0063bf;
         }
 
         h1{
@@ -45,7 +45,7 @@
         }
 
         p, ul, ol, blockquote{
-            font-weight: 300;
+            font-weight: 400;
         }
 
         p, h2, h3, ul, ol, blockquote {
