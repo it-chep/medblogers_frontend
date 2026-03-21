@@ -5,7 +5,6 @@ import classes from './headlines.module.scss'
 import { List } from "../list/List";
 import { useCheckTargetHeadline } from "../../lib/hooks/useCheckTargetHeadline";
 
-
 export const Headlines: FC = () => {
 
     const [headlines, setHeadlines] = useState<Element[]>([])    
@@ -24,7 +23,6 @@ export const Headlines: FC = () => {
         getHeadlines()
     }, [])
 
-  
     return (
         headlines.length
             ?

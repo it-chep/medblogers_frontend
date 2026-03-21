@@ -15,8 +15,7 @@ import { IS_FREELANCERS_DONE } from '@/src/app/env/env'
 import { BlogsTopLayout } from '@/src/widgets/blogsTop'
 import { FAQ } from '@/src/widgets/FAQ'
 import { CheckBlacklist } from '@/src/features/checkBlacklist'
-import { Banner10 } from '@/src/widgets/banner'
-import { BannerVip } from '@/src/widgets/bannerVip'
+import { Banners, SwitchBanner } from '@/src/features/switchBanner'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -54,8 +53,9 @@ export default async function HomePage() {
                     </section>
                 </aside>
                 <main className={classes.main}>
-                    {/* <Banner10 /> */}
-                    <BannerVip />
+                    <section className={classes.banners}>
+                        <SwitchBanner banners={Banners} />
+                    </section>
                     <StatisticsLayout />
                     <SearchDoctors>
                         <OpenFiltersModal>

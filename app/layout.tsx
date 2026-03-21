@@ -10,6 +10,7 @@ import { ButtonUp } from "@/src/features/buttonUp";
 import { BannerVipMobile } from "@/src/widgets/bannerVip/ui/BannerVipMobile";
 import { ShowContentSmoothly } from "@/src/features/ShowContentSmoothly";
 import { GoogleAnalytics } from "@/src/app/google/GoogleAnalytics";
+import { BannersMobile, SwitchBanner } from "@/src/features/switchBanner";
 
 const DESCRIPTION = "Единая база врачей-блогеров для поиска рекламы | Открытый реестр докторов с блогами | Единый реестр медицинских блогеров | Cписок врачей-блогеров | Подборка медицинских блогеров | Реестр для медблогеров"
 
@@ -41,10 +42,8 @@ export default function RootLayout({
         <body>
           <GoogleAnalytics gaId="G-QLS1GZEW7H" />
           <YandexMetrika counterId={99369042} />
-          
           <Header>
-            {/* <BannerMobile10 /> */}
-            <BannerVipMobile />
+            <SwitchBanner banners={BannersMobile} />
           </Header>
           {children}
           <Footer />

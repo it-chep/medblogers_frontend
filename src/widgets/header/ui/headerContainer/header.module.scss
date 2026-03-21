@@ -8,7 +8,6 @@
     justify-content: space-between;
     overflow: visible;
 
-    
     .top{
         display: flex;
         align-items: center;
@@ -26,6 +25,13 @@
         .menu{
             margin-left: auto;
         }
+    }
+
+    .banners{
+        display: none;
+        height: 210px;
+        width: 100%;
+        margin-top: 20px;
     }
 
     .titleMobile{
@@ -59,9 +65,20 @@
     }
 }
 
+@media (max-width: 650px){
+    .header{
+        margin: 20px auto 40px auto;
+
+        .banners{
+            display: block;
+        }
+    }
+}
+
 @media (max-width: 480px){
     .header{
         width: 100%;
+
         .top{
             gap: 20px;
             >a{
@@ -71,11 +88,5 @@
                 }
             }
         }
-    }
-}
-
-@media (max-width: 650px){
-    .header{
-        margin: 20px auto 40px auto;
     }
 }

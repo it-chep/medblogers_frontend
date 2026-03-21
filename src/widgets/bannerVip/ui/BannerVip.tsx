@@ -6,8 +6,6 @@ import Link from "next/link";
 export const BannerVip: FC = () => {
 
     return (
-        <Link href={'/blogs/vip_card'} className={classes.container}>
-            <SvgBanner />
-        </Link>
+        <SvgBanner />
     )
 }

@@ -34,7 +34,9 @@ export const Header: FC<PropsWithChildren> = ({children}) => {
                         <OpenMenu mobile={true} />
                     </section>
                 </section>
-                {children}
+                <section className={classes.banners}>
+                    {children}
+                </section>
                 <section className={classes.titleMobile}>
                     <TitleWrap pathname={pathname || ""} />
                 </section>

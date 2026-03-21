@@ -1,0 +1,88 @@
+
+
+.container {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    .prev, .next{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #e8f4ff;
+        border-radius: 8px;
+        width: 30px;
+        height: 30px;
+        opacity: .9;
+        transition: all .2s ease;
+        cursor: pointer;
+
+        svg{
+            width: 15px;
+            height: 15px;
+        }
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+    .prev{
+        left: 8px;
+    }
+    .next{
+        right: 8px;
+    }
+    
+    .currentBanner{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: all .6s ease;
+
+        img{
+            min-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        &.selected{
+            opacity: 1;
+        }
+    }
+
+    .nav{
+        display: flex;
+        gap: 4px;
+        position: absolute;
+        z-index: 3;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .item{
+            border-radius: 100%;
+            width: 6px;
+            height: 6px;
+            min-height: 6px;
+            min-width: 6px;
+            background-color: var(--blue);
+            transition: all .6s ease;
+
+            &.selected{
+                background-color: var(--blue-hover);
+                width: 16px;
+                border-radius: 6px;
+            }
+        }
+    }
+}
