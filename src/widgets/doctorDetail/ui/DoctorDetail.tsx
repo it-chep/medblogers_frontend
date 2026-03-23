@@ -1,9 +1,10 @@
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
-import { DoctorCard, IDoctor, IDoctorVip, OtherSocial } from "@/src/entities/doctor";
+import { DoctorCard, DoctorCardError, IDoctor, IDoctorVip, OtherSocial } from "@/src/entities/doctor";
 import { OtherSocialMediaDropdown } from "@/src/features/otherSocialMediaDropdown";
 import { DoctorSticky } from "@/src/features/doctorSticky";
 import { ShowContentSmoothly } from "@/src/features/ShowContentSmoothly";
+import classes from './doctorDetail.module.scss'
 
 interface IProps{
     reqDoctor: Promise<IDoctor>;
@@ -47,6 +48,13 @@ export async function DoctorDetail(props: IProps){
                     <OtherSocial doctor={doctor} isVip={isVip} />
                 </OtherSocialMediaDropdown>
             </DoctorCard>
+            {
+                !isVip
+                    &&
+                <section className={classes.error}>
+                    <DoctorCardError />
+                </section>
+            }
             <ShowContentSmoothly
                 speed_ms={250}
                 mobile

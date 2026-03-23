@@ -1,3 +1,4 @@
+export { DoctorCardError } from "./ui/error/DoctorCardError";
 export { StickyContact } from "./ui/stickyContact";
 export { CardData } from "./ui/cardData/CardData";
 export { DoctorCardMiniature } from "./ui/cardMiniature/CardMiniature";
