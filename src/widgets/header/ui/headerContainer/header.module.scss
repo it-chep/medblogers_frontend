@@ -12,6 +12,7 @@
         display: flex;
         align-items: center;
         width: 100%;
+        padding: 0 20px;
 
         >a{
             display: flex;
@@ -29,13 +30,17 @@
 
     .banners{
         display: none;
-        height: 210px;
+        position: relative;
         width: 100%;
+        
         margin-top: 20px;
+        padding: 0 15px;
+        overflow: hidden;
     }
 
     .titleMobile{
         display: none;
+        padding: 0 20px;
     }
 }
 

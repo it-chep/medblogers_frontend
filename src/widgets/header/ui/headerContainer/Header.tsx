@@ -21,25 +21,23 @@ export const Header: FC<PropsWithChildren> = ({children}) => {
     }
 
     return (
-        <header className="wrapper_main">
-            <section className={classes.header}>
-                <section className={classes.top}>
-                    <Link href={'/'}>
-                        <Image src={logo.src} width={268} height={75} alt="логотип" />
-                    </Link>
-                    <section className={classes.titleDesc}>
-                        <TitleWrap pathname={pathname || ""} />
-                    </section>
-                    <section className={classes.menu}>
-                        <OpenMenu mobile={true} />
-                    </section>
-                </section>
-                <section className={classes.banners}>
-                    {children}
-                </section>
-                <section className={classes.titleMobile}>
+        <header className={classes.header}>
+            <section className={classes.top}>
+                <Link href={'/'}>
+                    <Image src={logo.src} width={268} height={75} alt="логотип" />
+                </Link>
+                <section className={classes.titleDesc}>
                     <TitleWrap pathname={pathname || ""} />
                 </section>
+                <section className={classes.menu}>
+                    <OpenMenu mobile={true} />
+                </section>
+            </section>
+            <section className={classes.banners}>
+                {children}
+            </section>
+            <section className={classes.titleMobile}>
+                <TitleWrap pathname={pathname || ""} />
             </section>
         </header>
     )

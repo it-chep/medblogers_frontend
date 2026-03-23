@@ -1,0 +1,48 @@
+
+
+.container {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 2.2345/1;
+    position: relative;
+    transform: translateX(-200%);
+    transition: none;
+    touch-action: none;  
+    
+    .img{
+        padding: 0 5px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.loader{
+    width: 100%;
+    aspect-ratio: 2.23/1;
+    margin-bottom: 10px;
+}
+
+.nav{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 4px;
+
+    .item{
+        border-radius: 100%;
+        width: 6px;
+        height: 6px;
+        min-height: 6px;
+        min-width: 6px;
+        background-color: var(--blue);
+        transition: all .8s ease;
+
+        &.selected{
+            background-color: var(--blue-hover);
+            width: 16px;
+            border-radius: 6px;
+        }
+    }
+}
