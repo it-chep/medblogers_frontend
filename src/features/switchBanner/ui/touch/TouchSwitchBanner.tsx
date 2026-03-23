@@ -16,8 +16,9 @@ export const TouchSwitchBanner: FC<IProps> = ({banners}) => {
     const isAnimatingRef = useRef(false);
     const [withoutAnimation, setWithoutAnimation] = useState(false);
     const [isReady, setIsReady] = useState<boolean>(false)
+    const refAutoSwitching = useRef<NodeJS.Timeout>(null)
 
-    const onPrev= () => {
+    const onPrev = () => {
         if(isAnimatingRef.current){
             return
         }
@@ -48,6 +49,8 @@ export const TouchSwitchBanner: FC<IProps> = ({banners}) => {
             const endY = e.clientY;
 
             if(Math.abs(endX - startX) > 50){
+                deleteAutoSwitching()
+                autoSwitching()
                 if(endX > startX){ // prev
                     onPrev()
                 }
@@ -82,6 +85,29 @@ export const TouchSwitchBanner: FC<IProps> = ({banners}) => {
             isAnimatingRef.current = false;
         }
     }   
+
+    const autoSwitching = () =>  {
+        const id = setInterval(() => {
+            onNext()
+        }, 8000)
+
+        refAutoSwitching.current = id;
+    }
+
+    const deleteAutoSwitching = () => {
+        if(refAutoSwitching.current){
+            clearInterval(refAutoSwitching.current)
+            refAutoSwitching.current = null;
+        }
+    }
+
+    useEffect(() => {
+        autoSwitching()
+
+        return () => {
+            deleteAutoSwitching()
+        }
+    }, [])
 
     useLayoutEffect(() => {
         if(!withoutAnimation){
