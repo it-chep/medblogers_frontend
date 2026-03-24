@@ -1,0 +1,47 @@
+
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 4px;
+    font-size: 14px;
+    --color: var(--blue);
+    transition: all .25s ease;
+    cursor: pointer;
+    color: var(--color);
+
+
+    >svg{
+        stroke: var(--color);
+        transition: all .25s ease;
+    }
+
+    .write {
+        position: relative;
+
+        &::after{
+            transition: all .25s ease;
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            background-color: var(--color);
+        }
+    }
+    
+    &:hover{
+        --color: var(--blue-hover);
+    }
+
+    &.vip{
+        --color: var(--text-gray);
+
+        &:hover{
+            --text-gray: #cecece;
+        }
+    }
+}

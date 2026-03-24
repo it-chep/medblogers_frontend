@@ -1,10 +1,10 @@
 import { IDoctor, IDoctorVip } from "@/src/entities/doctor/model/types";
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import { notFound } from "next/navigation";
-import { MyError } from "@/src/shared/lib/error/MyError";
-import { DoctorCardMiniature, doctorService } from "@/src/entities/doctor";
+import { DoctorCardError, DoctorCardMiniature } from "@/src/entities/doctor";
 import { ClinicHint } from "@/src/features/clinicHint";
 import { PropsWithChildren } from "react";
+import classes from './doctorDetailMiniature.module.scss'
 
 interface IProps{
     reqDoctor: Promise<IDoctor>;
@@ -39,14 +39,17 @@ export async function DoctorDetailMiniature(props: IProps & PropsWithChildren){
     const fio = doctor.name.split(' ')
 
     return (
-        <DoctorCardMiniature 
-            doctor={doctor}
-            doctorVip={props.doctorVip}
-        >
-            <>
-                {fio.slice(0, -1).join(' ')}&nbsp;
-                <ClinicHint name={fio[2]}/>
-            </>
-        </DoctorCardMiniature>
+        <section className={classes.wrapper}>
+            <DoctorCardMiniature 
+                doctor={doctor}
+                doctorVip={props.doctorVip}
+            >
+                <>
+                    {fio.slice(0, -1).join(' ')}&nbsp;
+                    <ClinicHint name={fio[2]}/>
+                </>
+            </DoctorCardMiniature>
+            <DoctorCardError vip />
+        </section>
     )
 }

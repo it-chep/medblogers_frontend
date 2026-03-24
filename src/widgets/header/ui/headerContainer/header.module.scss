@@ -1,6 +1,8 @@
 
 
 .header{
+    width: 1240px;
+    max-width: 100%;
     margin: 50px auto 40px;
     display: flex;
     flex-direction: row;
@@ -8,11 +10,11 @@
     justify-content: space-between;
     overflow: visible;
 
-    
     .top{
         display: flex;
         align-items: center;
         width: 100%;
+        padding: 0 20px;
 
         >a{
             display: flex;
@@ -28,8 +30,19 @@
         }
     }
 
+    .banners{
+        display: none;
+        position: relative;
+        width: 100%;
+        
+        margin-top: 20px;
+        padding: 0 15px;
+        overflow: hidden;
+    }
+
     .titleMobile{
         display: none;
+        padding: 0 20px;
     }
 }
 
@@ -59,9 +72,20 @@
     }
 }
 
+@media (max-width: 650px){
+    .header{
+        margin: 20px auto 40px auto;
+
+        .banners{
+            display: block;
+        }
+    }
+}
+
 @media (max-width: 480px){
     .header{
         width: 100%;
+
         .top{
             gap: 20px;
             >a{
@@ -71,11 +95,5 @@
                 }
             }
         }
-    }
-}
-
-@media (max-width: 650px){
-    .header{
-        margin: 20px auto 40px auto;
     }
 }

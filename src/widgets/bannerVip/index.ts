@@ -1,1 +1,0 @@
-export { BannerVip } from "./ui/BannerVip";

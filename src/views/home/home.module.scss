@@ -47,6 +47,12 @@
     flex-direction: column;
     gap: 20px;
     width: 100%;
+
+    .banners{
+      display: block;
+      height: 170px;
+      width: 100%;
+    }
   }
 
   .blogsTop{
@@ -77,9 +83,14 @@
 
 @media (max-width: 650px) {
   .page{
-
     .content{
       grid-template-columns: 1fr;
+    }
+    
+    .main{
+      .banners{
+        display: none;
+      }
     }
 
     .aside{
