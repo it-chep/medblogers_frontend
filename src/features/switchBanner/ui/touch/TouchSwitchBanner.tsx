@@ -90,7 +90,7 @@ export const TouchSwitchBanner: FC<IProps> = ({banners}) => {
     const autoSwitching = () =>  {
         const id = setInterval(() => {
             onNext()
-        }, 8000)
+        }, 5000)
 
         refAutoSwitching.current = id;
     }
