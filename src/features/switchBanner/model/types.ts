@@ -1,8 +1,7 @@
-import { StaticImageData } from "next/image";
 
 
 export interface ISwitchBannerItem {
-    url: string; // потом будет url
+    url: string;
     link?: string;
     toSite?: boolean;  
 }

@@ -4,6 +4,7 @@ import { FC, MouseEvent as MouseEventReact, TransitionEvent, useEffect, useLayou
 import { ISwitchBannerItem } from "../../model/types";
 import classes from './touchSwitchBanner.module.scss'
 import { LoaderContainer } from "@/src/shared/ui/loaderContainer";
+import { SelectedElem } from "../selectedElem/SelectedElem";
 
 interface IProps{
     banners: ISwitchBannerItem[];
@@ -186,30 +187,14 @@ export const TouchSwitchBanner: FC<IProps> = ({banners}) => {
                     transition: (!canAnimate || withoutAnimation) ? 'none' : 'all .8s ease'
                 }}
             >
-                <img 
-                    src={banners[banners.length - 2].url}
-                    className={classes.img}
-                />
-                <img 
-                    src={banners[banners.length - 1].url}
-                    className={classes.img}
-                />
+                <SelectedElem elem={banners[banners.length - 2]} />
+                <SelectedElem elem={banners[banners.length - 1]} />
                 {banners.map(banner => 
-                    <img 
-                        key={banner.url}
-                        src={banner.url}
-                        className={classes.img}
-
-                    />
+                    <SelectedElem elem={banner} />
+                    
                 )}
-                <img 
-                    src={banners[0].url}
-                    className={classes.img}
-                />
-                <img 
-                    src={banners[1].url}
-                    className={classes.img}
-                />
+                <SelectedElem elem={banners[0]} />
+                <SelectedElem elem={banners[1]} />
             </section>
             <section className={classes.nav}>
                 {banners.map((item, ind) => 

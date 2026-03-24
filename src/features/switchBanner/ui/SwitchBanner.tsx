@@ -3,7 +3,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import classes from './switchBanner.module.scss'
 import { ISwitchBannerItem } from "../model/types";
-import Link from "next/link";
+import { SelectedElem } from "./selectedElem/SelectedElem";
 
 
 interface IProps {
@@ -77,32 +77,7 @@ export const SwitchBanner: FC<IProps> = ({banners}) => {
                         key={banner.url} 
                         className={classes.currentBanner + (ind === current ? ` ${classes.selected}` : '')}
                     >
-                    {
-                        banner.link
-                            ?
-                        banner.toSite
-                            ?
-                        <Link
-                            href={banner.link}
-                        >
-                            <img 
-                                src={banner.url}
-                            />
-                        </Link>
-                            :
-                        <a 
-                            href={banner.link}
-                            target="_blank"
-                        >
-                            <img 
-                                src={banner.url}
-                            />
-                        </a>
-                            :
-                        <img 
-                            src={banner.url}
-                        />
-                    }
+                        <SelectedElem elem={banner} />
                     </section>
                 )
             }
