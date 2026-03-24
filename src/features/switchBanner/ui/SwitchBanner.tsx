@@ -44,7 +44,7 @@ export const SwitchBanner: FC<IProps> = ({banners}) => {
     const autoSwitching = () =>  {
         const id = setInterval(() => {
             setCurrent(prev => prev === banners.length - 1 ? 0 : prev + 1)
-        }, 8000)
+        }, 5000)
 
         refAutoSwitching.current = id;
     }
