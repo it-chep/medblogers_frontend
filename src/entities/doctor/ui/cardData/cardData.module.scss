@@ -1,7 +1,8 @@
 .container{
+    position: relative;
+    z-index: 11;
     display: flex;
     gap: 20px;
-
     --text-gray: #aeaeae;
 
     .image{

@@ -1,15 +1,11 @@
 import { FC } from "react";
 import classes from './doctorCardError.module.scss'
 
-interface IProps {
-    vip?: boolean;
-}
-
-export const DoctorCardError: FC<IProps> = ({vip}) => {
+export const DoctorCardError: FC = () => {
 
     return (
         <a 
-            className={classes.container + (vip ? ` ${classes.vip}` : '')}
+            className={classes.container}
             href="https://t.me/m/FPlmwxZbNTYy"
             target="_blank"
         >

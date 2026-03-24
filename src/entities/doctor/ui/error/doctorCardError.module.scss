@@ -7,7 +7,7 @@
     width: 100%;
     gap: 4px;
     font-size: 14px;
-    --color: var(--blue);
+    --color: var(--text-gray);
     transition: all .25s ease;
     cursor: pointer;
     color: var(--color);
@@ -34,14 +34,6 @@
     }
     
     &:hover{
-        --color: var(--blue-hover);
-    }
-
-    &.vip{
-        --color: var(--text-gray);
-
-        &:hover{
-            --text-gray: #cecece;
-        }
+        --color: #cecece;
     }
 }
