@@ -49,7 +49,7 @@ export async function DoctorDetailMiniature(props: IProps & PropsWithChildren){
                     <ClinicHint name={fio[2]}/>
                 </>
             </DoctorCardMiniature>
-            <DoctorCardError vip />
+            <DoctorCardError/>
         </section>
     )
 }
