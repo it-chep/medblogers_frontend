@@ -1,4 +1,4 @@
-import MethodologyPage from "@/src/views/methodology/Methodology";
+import MethodologyPage from "@/src/views/methodology/methodology";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 

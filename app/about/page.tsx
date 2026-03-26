@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import AboutPage from "@/src/views/about/About";
+import AboutPage from "@/src/views/about/about";
 import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
