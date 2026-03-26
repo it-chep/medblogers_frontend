@@ -1,0 +1,19 @@
+
+
+
+.switchTheme{
+    position: fixed;
+    z-index: 11;
+    bottom: 20px;
+    left: calc(50% + 83px);
+    transform: translateX(-50%);
+}
+
+.mobileFixed{
+    display: none;
+    position: fixed;
+    z-index: 11;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}

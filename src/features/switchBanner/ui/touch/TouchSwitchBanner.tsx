@@ -190,7 +190,7 @@ export const TouchSwitchBanner: FC<IProps> = ({banners}) => {
                 <SelectedElem elem={banners[banners.length - 2]} />
                 <SelectedElem elem={banners[banners.length - 1]} />
                 {banners.map(banner => 
-                    <SelectedElem elem={banner} />
+                    <SelectedElem key={banner.url} elem={banner} />
                     
                 )}
                 <SelectedElem elem={banners[0]} />

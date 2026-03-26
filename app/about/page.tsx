@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import AboutPage from "@/src/views/about/about";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
     title: {
@@ -14,6 +15,14 @@ export const metadata: Metadata = {
     },
 };
 
-export default function About() {
-    return <AboutPage />;
+export default async function About() {
+
+    const cookieStore = await cookies();
+    const isLightTheme = cookieStore.get('theme')?.value === "light";    
+
+    return (
+        <section className={"blog" + (isLightTheme ? ` light` : '')}>
+            <AboutPage isLightTheme={isLightTheme} />
+        </section>
+    )
 }

@@ -2,20 +2,34 @@ import classes from '../methodology/methodology.module.scss'
 import { blogClasses } from '@/src/entities/blog'
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { Headlines } from '@/src/features/headlines';
+import { BlogThemeProvider } from '@/src/features/switchTheme';
+import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
+import '../../../app/blogs/[slug]/page.css'
 
-export default function ChangelogPage() {
+interface IProps {
+    isLightTheme: boolean;
+}
+
+export default function ChangelogPage({isLightTheme}: IProps) {
     return (
-        <section className={classes.page + ' wrapper_main'}>
-            <Breadcrumbs breadcrumbs={[
+        <BlogThemeProvider initialIsLight={isLightTheme}>
+            <section className={classes.page + ' wrapper_main'}>
+                <Breadcrumbs breadcrumbs={[
                 { path: '/', label: 'Вернуться к базе' },
                 { path: '', label: 'Changelog' },
-            ]} />
-            <section className={classes.wrapperMain}>
-                <aside className={classes.aside}>
+                ]} />
+                <section className={classes.wrapperMain}>
+                    <aside className={classes.aside}>
                     <Headlines />
-                </aside>
-                <main className={classes.main}>
-                    <section className={blogClasses.container}>
+                    </aside>
+                    <main className={classes.main}>
+                        <section className={classes.switchTheme}>
+                        <OpenerBottomFixedWrap />
+                        </section>
+                        <section className={classes.mobileFixed}>
+                        <OpenerBottomFixedWrapMobile />
+                        </section>
+                        <section className={blogClasses.container}>
                         <section className={blogClasses.content}>
                             <h1>Как развивается проект: ключевые этапы</h1>
                             <p>Любой технологический проект проходит несколько стадий: от идеи и прототипа до полноценного продукта, который начинает формировать целую экосистему вокруг себя. Именно так мы и развиваем наш проект MEDBLOGERS BASE.</p>
@@ -105,9 +119,10 @@ export default function ChangelogPage() {
                             <p>Мы продолжаем добавлять новые функции, расширять базу врачей и улучшать инструменты поиска для рекламодателей, брендов, агентств и самих докторов.</p>
                             <p>И, судя по темпам роста проекта и интереса к нему, наша история только начинается.</p>
                         </section>
-                    </section>
-                </main>
+                        </section>
+                    </main>
+                </section>
             </section>
-        </section>
+        </BlogThemeProvider>
     );
 }

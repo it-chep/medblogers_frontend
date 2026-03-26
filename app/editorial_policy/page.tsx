@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import EditorialPolicyPage from "@/src/views/editorial_policy/editorialPolicy";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
     title: {
@@ -14,6 +15,14 @@ export const metadata: Metadata = {
     },
 };
 
-export default function EditorialPolicy() {
-    return <EditorialPolicyPage />;
+export default async function EditorialPolicy() {
+
+    const cookieStore = await cookies();
+    const isLightTheme = cookieStore.get('theme')?.value === "light";
+
+    return (
+        <section className={"blog" + (isLightTheme ? ` light` : '')}>
+            <EditorialPolicyPage isLightTheme={isLightTheme} />
+        </section>
+    )
 }

@@ -1,21 +1,35 @@
 import classes from './editorial_policy.module.scss'
 import {blogClasses} from '@/src/entities/blog'
 import { Headlines } from '@/src/features/headlines';
+import { BlogThemeProvider } from '@/src/features/switchTheme';
 import {Breadcrumbs} from '@/src/widgets/breadcrumbs';
+import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
+import '../../../app/blogs/[slug]/page.css'
 
-export default function EditorialPolicyPage() {
+interface IProps {
+    isLightTheme: boolean;
+}
+
+export default function EditorialPolicyPage({isLightTheme}: IProps) {
     return (
-        <section className={classes.page + ' wrapper_main'}>
-            <Breadcrumbs breadcrumbs={[
+        <BlogThemeProvider initialIsLight={isLightTheme}>
+            <section className={classes.page + ' wrapper_main'}>
+                <Breadcrumbs breadcrumbs={[
                 {path: '/', label: 'Вернуться к базе'},
                 {path: '', label: 'Редакционная политика'},
-            ]}/>
-            <section className={classes.wrapperMain}>
-                <aside className={classes.aside}>
+                ]}/>
+                <section className={classes.wrapperMain}>
+                    <aside className={classes.aside}>
                     <Headlines />
-                </aside>
-                <main className={classes.main}>
-                    <section className={blogClasses.container}>
+                    </aside>
+                    <main className={classes.main}>
+                        <section className={classes.switchTheme}>
+                        <OpenerBottomFixedWrap />
+                        </section>
+                        <section className={classes.mobileFixed}>
+                        <OpenerBottomFixedWrapMobile />
+                        </section>
+                        <section className={blogClasses.container}>
                         <section className={blogClasses.content}>
                             <h1>Редакционная политика Medblogers Base</h1>
 
@@ -144,9 +158,10 @@ export default function EditorialPolicyPage() {
                                 проекта и изменений на рынке медицинского блогинга.</p>
                             <p>Актуальная версия политики всегда доступна на сайте.</p>
                         </section>
-                    </section>
-                </main>
+                        </section>
+                    </main>
+                </section>
             </section>
-        </section>
+        </BlogThemeProvider>
     );
 }
