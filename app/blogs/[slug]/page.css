@@ -25,6 +25,8 @@
 
     --dark-background: #242424;
 
+    --dark-background-hover: #333;
+
     --border-doctor-color: transparent;
     --dark-background-doctor: #1A1A1A;
 
@@ -40,6 +42,9 @@
     --dark-background: #ECECEC;
     --category-opacity: .9;
     --light-black: #ffffff;
+
+    --dark-background-hover: #dbdbdb;
+
     
     --dark-background-doctor: transparent;
 

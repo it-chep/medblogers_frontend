@@ -9,7 +9,7 @@
     transition: background-color .15s ease;
 
     &:hover{
-        background-color: #333;
+        background-color: var(--dark-background-hover);
     }
 
     .image{

@@ -48,10 +48,6 @@ export const infs: ILink[] = [
         bold: 'MEDBLOGERS',
         noindex: true,
     },
-    {
-        label: 'История обновлений',
-        link: 'https://t.me/it_necheporuk/98'
-    },
 ]
 
 

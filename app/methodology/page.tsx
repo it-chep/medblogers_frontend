@@ -1,5 +1,6 @@
+import MethodologyPage from "@/src/views/methodology/Methodology";
 import { Metadata } from "next";
-import MethodologyPage from "@/src/views/methodology/methodology";
+import { cookies } from "next/headers";
 
 export const metadata: Metadata = {
     title: {
@@ -14,6 +15,14 @@ export const metadata: Metadata = {
     },
 };
 
-export default function Methodology() {
-    return <MethodologyPage />;
+export default async function Methodology() {
+
+    const cookieStore = await cookies();
+    const isLightTheme = cookieStore.get('theme')?.value === "light";    
+
+    return (
+        <section className={"blog" + (isLightTheme ? ` light` : '')}>
+            <MethodologyPage isLightTheme={isLightTheme} />
+        </section>
+    )
 }

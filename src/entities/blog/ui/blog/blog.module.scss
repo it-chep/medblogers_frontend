@@ -119,9 +119,10 @@
 
         ul, ol{
             padding-left: 30px;
+            line-height: 140%;
 
             li{
-                padding: 3px 0;
+                padding: 4px 0;
             }
         }
     }
@@ -129,7 +130,6 @@
 
 @media (max-width: 480px) {
     .container{
-
         .header{
             .share{
                 display: none;
@@ -152,11 +152,11 @@
             }
     
             h2{
-                font-size: 22px;
+                font-size: 24px;
             }
             
             h3{
-                font-size: 20px;
+                font-size: 22px;
             }
         }
     }
@@ -166,7 +166,7 @@
     .container{
         .content{
             h1{
-                font-size: 22px;
+                font-size: 23px;
             }   
 
             p, h2, h3, ul, ol {
@@ -174,11 +174,11 @@
             }
     
             h2{
-                font-size: 20px;
+                font-size: 21px;
             }
             
             h3{
-                font-size: 18px;
+                font-size: 19px;
             }
         }
     }
