@@ -2,98 +2,33 @@
 
 .header{
     width: 1240px;
+    padding: 0 20px;
     max-width: 100%;
-    margin: 50px auto 40px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    margin: 10px auto 20px;
     overflow: visible;
 
-    .top{
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 0 20px;
-
-        >a{
-            display: flex;
-            align-items: center;
-        }
-
-        .titleDesc{
-            display: block;
-        }
-
-        .menu{
-            margin-left: auto;
-        }
-    }
-
-    .banners{
+    .mobile{
         display: none;
-        position: relative;
         width: 100%;
-        
-        margin-top: 20px;
-        padding: 0 15px;
-        overflow: hidden;
     }
 
-    .titleMobile{
-        display: none;
-        padding: 0 20px;
-    }
-}
-
-
-@media (max-width: 900px){
-    .header{
+    .desk{
+        display: block;
         width: 100%;
-        flex-direction: column;
-        margin: 20px auto 30px auto;
-        gap: 16px;
-        align-items: flex-start;
-
-        .top{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-             .titleDesc{
-                display: none;
-            }
-        }
-
-        .titleMobile{
-            display: block;
-        }
     }
 }
 
 @media (max-width: 650px){
     .header{
         margin: 20px auto 40px auto;
+        padding: 0;
 
-        .banners{
+        .mobile{
             display: block;
         }
-    }
-}
 
-@media (max-width: 480px){
-    .header{
-        width: 100%;
-
-        .top{
-            gap: 20px;
-            >a{
-                >img{
-                    width: 100%;
-                    object-fit: contain;
-                }
-            }
+        .desk{
+            display: none;
         }
     }
 }
