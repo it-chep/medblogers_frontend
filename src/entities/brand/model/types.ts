@@ -1,4 +1,4 @@
-import { IItem } from "@/src/shared/model/types";
+import {IItem} from "@/src/shared/model/types";
 
 
 export interface IOfferItemByBrand {
@@ -13,6 +13,7 @@ export interface IOfferItemByBrand {
 export interface IBrandData {
     id: string;
     siteLink: string;
+    slug: string;
     photo: string;
     title: string;
     description: string;

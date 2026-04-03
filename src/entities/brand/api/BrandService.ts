@@ -5,7 +5,7 @@ import { IBrandData, IOfferItemByBrand } from "../model/types"
 
 class BrandService {
     async getBrandByOffer(offerSlug: string): Promise<IBrandData> {  // NEW
-        const res = await fetch(SERVER_URL_API + `/v1/promo_offers/offer/${offerSlug}`, 
+        const res = await fetch(SERVER_URL_API + `/v1/promo_offers/brand/by_offer/${offerSlug}`,
             {
                 cache: "no-cache"
             }

@@ -50,7 +50,7 @@ export const BrandCard: FC<IProps> = ({brand, byOffer}) => {
                 byOffer
                     &&
                 <Link
-                    href={`/brands/${brand.id}`}
+                    href={`/brands/${brand.slug}`}
                     className={classes.button}
                 >
                     Смотреть все офферы бренда
