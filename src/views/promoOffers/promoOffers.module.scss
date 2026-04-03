@@ -1,0 +1,33 @@
+
+.page{
+    min-height: 100vh;
+    margin-bottom: 300px;
+}
+
+.title{
+    margin-top: 60px;
+
+    .subTitle{
+        width: 520px;
+        max-width: 100%;
+    }
+}
+
+.filter{
+    margin-top: 60px;
+
+    .loaderFilter{
+        width: 600px;
+        max-width: 100%;
+        height: 60px;
+    }
+}
+
+.offers{
+    margin-top: 30px;
+
+    .loaderOffers{
+        width: 200px;
+        height: 100px;
+    }
+}

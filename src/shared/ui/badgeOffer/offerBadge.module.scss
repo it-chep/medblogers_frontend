@@ -1,0 +1,19 @@
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1000px;
+    height: 34px;
+    width: fit-content;
+    padding: 0 14px;
+    font-weight: 5400;
+
+    background-color: var(--dark-gray);
+    color: rgba(255, 255, 255, .6);
+
+    &.border{
+        border: 1px solid var(--dark-gray);
+    }
+}

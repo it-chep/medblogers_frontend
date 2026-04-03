@@ -1,0 +1,51 @@
+
+
+.container{
+
+    .mainSign{
+        padding: 9px 21px;
+        color: var(--blue);
+        background-color: var(--dark-blue);
+        width: fit-content;
+        margin: 0 auto;
+        border-radius: 100px;
+    }
+    
+    .header{
+        margin-top: 40px;
+        text-align: center;
+        
+        .title{
+            font-weight: 900;
+            font-size: 40px;
+            line-height: 100%;
+            letter-spacing: -2%;
+        }
+    
+        .subTitle{
+            display: flex;
+            justify-content: center;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 150%;
+            letter-spacing: 0%;
+            opacity: .7;
+            margin: 15px auto 0 auto;
+        }
+    }
+    
+    .circle {
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: .4;
+        width: 767px;
+        max-width: 100%;
+        height: 248px;
+        border-radius: 50%;
+        background: conic-gradient(transparent 0deg 90deg, var(--blue) 90deg 360deg);    
+        filter: blur(100px);
+        margin-top: -75px;
+    }
+}

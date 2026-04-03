@@ -1,0 +1,1 @@
+export {default as FilterPromoOffers} from "./ui/FilterPromoOffers";

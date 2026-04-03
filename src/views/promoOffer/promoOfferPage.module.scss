@@ -1,0 +1,12 @@
+
+.page{
+    min-height: 100vh;
+
+    .main{
+        margin-top: 40px;
+
+        display: grid;
+        grid-template-columns: 470px 1fr;
+        gap: 20px;
+    }
+}

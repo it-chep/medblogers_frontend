@@ -1,0 +1,14 @@
+
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    .item{
+        height: 260px;
+        width: 100%;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+}
