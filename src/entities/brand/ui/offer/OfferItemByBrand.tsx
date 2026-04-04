@@ -27,14 +27,16 @@ export const OfferItemByBrand: FC<IProps> = ({offer}) => {
                 <SocialNetwork socialNetwork={offer.socialNetworks} miniature />
             </section>
             <section className={classes.footer}>
-                <OfferBadge 
-                    value={offer.cooperationType.name}
-                    bgColor={coopColor.bgColor}
-                    fontColor={coopColor.fontColor}
-                />
-                <OfferBadge 
-                    value={'от ' + offer.price + ' ₽'}
-                />
+                <section className={classes.left}>
+                    <OfferBadge 
+                        value={offer.cooperationType.name}
+                        bgColor={coopColor.bgColor}
+                        fontColor={coopColor.fontColor}
+                    />
+                    <OfferBadge 
+                        value={'от ' + offer.price + ' ₽'}
+                    />
+                </section>
                 <section className={classes.date}>
                     <OfferBadge 
                         value={offer.publicationDate}

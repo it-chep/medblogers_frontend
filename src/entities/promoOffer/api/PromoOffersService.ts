@@ -1,5 +1,5 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
-import { IPromoOfferItem, IPromoOfferCategory, IPromoOfferData } from "../model/types"
+import { IPromoOfferItem, IPromoOfferCategory, IPromoOfferData, IPromoOfferSeo } from "../model/types"
 
 
 
@@ -14,6 +14,16 @@ class PromoOffersService {
         )
         const {cooperationTypes, all}: {cooperationTypes: IPromoOfferCategory[], all: number} = await res.json()
         return {cooperationTypes, all}
+    }
+
+    async getSeo(offerId: string): Promise<IPromoOfferSeo> {
+        const res = await fetch(SERVER_URL_API + `/v1/promo_offer/seo/${offerId}`, 
+            {
+                cache: "no-cache"
+            }
+        )
+        const data: IPromoOfferSeo = await res.json()
+        return data
     }
 
     async getOffers(cooperationTypeIds: number[]): Promise<IPromoOfferItem[]> {

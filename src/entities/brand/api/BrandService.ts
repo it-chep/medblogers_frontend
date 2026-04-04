@@ -1,5 +1,5 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
-import { IBrandData, IOfferItemByBrand } from "../model/types"
+import { IBrandData, IBrandSeo, IOfferItemByBrand } from "../model/types"
 
 
 
@@ -22,6 +22,16 @@ class BrandService {
         )
         const {brand}: {brand: IBrandData} = await res.json()
         return brand
+    }
+
+    async getBrandSeo(brandSlug: string): Promise<IBrandSeo> {
+        const res = await fetch(SERVER_URL_API + `/v1/brand/seo/${brandSlug}`, 
+            {
+                cache: "no-cache"
+            }
+        )
+        const data: IBrandSeo = await res.json()
+        return data
     }
 
     async getOffers(brandSlug: string): Promise<IOfferItemByBrand[]> {

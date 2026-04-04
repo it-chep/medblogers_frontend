@@ -14,9 +14,7 @@ export const BrandCard: FC<IProps> = ({brand, byOffer}) => {
 
 
     return (
-        <section 
-            className={classes.container}
-        >
+        <section className={classes.container}>
             <section className={classes.top}>
                 <img className={classes.photo} src={brand.photo} alt="Аватарка бренда" />
                 <section className={classes.titleBox}>
@@ -39,7 +37,10 @@ export const BrandCard: FC<IProps> = ({brand, byOffer}) => {
                 {brand.about}
             </section>
             <section className={classes.socials}>
-                <Socials socialNetwork={brand.socialNetworks} />
+                <Socials 
+                    byOffer={byOffer} 
+                    socialNetwork={brand.socialNetworks} 
+                />
             </section>
             <section className={classes.businessCategory}>
                 <OfferBadge 

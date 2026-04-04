@@ -9,10 +9,11 @@ import { TgLogoSvg } from "../../lib/assets/TgLogoSvg";
 import { SocialNetwork } from "@/src/shared/ui/socialNetwork";
 
 interface IProps {
+    slug: string;
     offer: IPromoOfferData;
 }
 
-export const PromoOfferCard: FC<IProps & PropsWithChildren> = ({offer, children}) => {
+export const PromoOfferCard: FC<IProps & PropsWithChildren> = ({offer, slug, children}) => {
 
     const coopTypeColor = getColorByCoopId(offer.cooperationType.id)
     
@@ -52,9 +53,10 @@ export const PromoOfferCard: FC<IProps & PropsWithChildren> = ({offer, children}
             <section className={classes.date}>
                 Дата создания оффера: {offer.createdAt}
             </section>
-            <Link 
+            <a 
+                target="_blank"
                 className={classes.button}
-                href={''}
+                href={`https://t.me/readydog?text=Меня%20заинтересовало%20предложение%20бренда%20на%20вашей%20площадке:%20https://medblogers-base.ru/promotional_offers/${slug}%0A%0AКак%20я%20могу%20на%20него%20откликнуться%20%3F`}
             >
                 <MyButton
                     style={{borderRadius: '18px'}}
@@ -64,7 +66,7 @@ export const PromoOfferCard: FC<IProps & PropsWithChildren> = ({offer, children}
                         Откликнуться
                     </section>
                 </MyButton>
-            </Link>
+            </a>
         </section>
     )
 }

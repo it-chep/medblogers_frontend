@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect, useState } from "react";
+import { FC, useMemo, useState } from "react";
 import classes from './filterCategoryRow.module.scss'
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { IFilterCategoryRow } from "../model/types";
@@ -18,7 +18,8 @@ export const FilterCategoryRow: FC<IProps> = ({categories, all, labelSearchParam
     const searchParams = useSearchParams()
     const getIds = () => searchParams.getAll(labelSearchParams).map(c => c)
 
-    const setCategoriesSelect = (ids: string[]): TFullFilterCategoryRow[] => {
+    const fullCategories = useMemo(() => {
+        const ids = getIds()
         if(ids.length){
             return [
                 {
@@ -26,7 +27,7 @@ export const FilterCategoryRow: FC<IProps> = ({categories, all, labelSearchParam
                     name: 'Все',
                     selected: false,
                     count: String(all),
-                }, ...categories.map(c => ({...c, selected: ids.includes(c.id)}))
+                }, ...categories.map(c => ({...c, selected: ids.includes(c.id)})).sort((a, b) => +b.selected - +a.selected)
             ]
         }
         else{
@@ -36,12 +37,10 @@ export const FilterCategoryRow: FC<IProps> = ({categories, all, labelSearchParam
                     name: 'Все',
                     selected: true,
                     count: String(all),
-                }, ...categories.map(coop_type => ({...coop_type, selected: false}))
+                }, ...categories.map(coop_type => ({...coop_type, selected: false})).sort((a, b) => +b.selected - +a.selected)
             ]
         }
-    }
-
-    const [fullCategories, setFullCategories] = useState<TFullFilterCategoryRow[]>(setCategoriesSelect(getIds()))
+    }, [searchParams])  // если будет ?page, то нужно сделать другую зависимость без page
 
     const pathname = usePathname()
     const router = useRouter()
@@ -67,20 +66,15 @@ export const FilterCategoryRow: FC<IProps> = ({categories, all, labelSearchParam
         setNewUrl(newParams)
     }
 
-    useEffect(() => {
-        const ids = searchParams.getAll('coop_type').map(c => c)
-        setFullCategories(setCategoriesSelect(ids))
-    }, [searchParams])
-
     return (
         <ul className={classes.list}>
-            {fullCategories.map(coop_type => 
+            {fullCategories.map(category => 
                 <li
-                    key={coop_type.id}
-                    className={classes.item + (coop_type.selected ? ` ${classes.selected}` : '')}         
-                    onClick={() => onClick(coop_type)}           
+                    key={category.id}
+                    className={classes.item + (category.selected ? ` ${classes.selected}` : '')}         
+                    onClick={() => onClick(category)}           
                 >
-                    {coop_type.name} <span className={classes.count}>({coop_type.count})</span>
+                    {category.name} <span className={classes.count}>({category.count})</span>
                 </li>
             )}
         </ul>

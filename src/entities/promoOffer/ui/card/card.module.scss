@@ -15,10 +15,6 @@
         margin-bottom: 12px;
     }
 
-    .desc{
-        margin-top: 16px;
-    }
-
     .conditionsBox{
         margin-top: 20px;
 
@@ -48,6 +44,16 @@
             align-items: center;
             justify-content: center;
             gap: 14px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        padding: 20px;
+
+        .button{
+            margin-top: 30px;
         }
     }
 }

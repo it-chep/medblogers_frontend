@@ -1,6 +1,6 @@
 import { isDynamicServerError } from 'next/dist/client/components/hooks-server-context'
 import { blogService, IBlogCategory } from '@/src/entities/blog';
-import { FilterBlogsSelect } from '@/src/features/filterBlogsSelect';
+import { FilterCategoryRow } from '@/src/features/filterCategoryRow';
 
 const getData = async () => {
     let categories: IBlogCategory[] | null = null;
@@ -28,9 +28,10 @@ export default async function FilterBlogs() {
     }
 
     return (
-        <FilterBlogsSelect 
-            allBlogsCount={allBlogsCount} 
-            categories={categories} 
+        <FilterCategoryRow
+            all={allBlogsCount} 
+            categories={categories.map(c => ({...c, count: String(c.blogsCount)}))} 
+            labelSearchParams='category'
         />
     )
 }

@@ -19,12 +19,8 @@ export default async function PromoOfferPage({slug}: IProps) {
                 ]} />
             </section>
             <main className={classes.main}>
-                <section className={classes.brand}>
-                    <BrandCardWidget slug={slug} byOffer />
-                </section>
-                <section className={classes.offer}>
-                    <PromoOfferDataWidget slug={slug} />
-                </section>
+                <BrandCardWidget slug={slug} byOffer />
+                <PromoOfferDataWidget slug={slug} />
             </main>
         </section>
     )

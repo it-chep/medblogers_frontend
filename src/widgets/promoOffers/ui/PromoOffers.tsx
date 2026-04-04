@@ -1,7 +1,6 @@
 import { isDynamicServerError } from "next/dist/client/components/hooks-server-context";
 import classes from './promoOffers.module.scss'
 import { notFound } from "next/navigation";
-import { SocialNetwork } from "@/src/entities/freelancer";
 import { IPromoOfferItem, PromoOfferItem, promoOffersService } from "@/src/entities/promoOffer";
 
 interface IProps {
@@ -38,12 +37,7 @@ export default async function({ids}: IProps) {
                 <PromoOfferItem
                     key={offer.title}
                     promoOffer={offer}
-                >
-                    <SocialNetwork 
-                        label=""
-                        socialNetwork={offer.socialNetworks.map(social => ({...social, id: String(social.id)}))} 
-                    />
-                </PromoOfferItem>
+                />
             )}
         </section>
     )

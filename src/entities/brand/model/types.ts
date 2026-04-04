@@ -28,3 +28,9 @@ export interface IBrandSocialNetworkItem {
     slug: string;
     link: string;
 }
+
+export interface IBrandSeo {
+    title: string;
+    description: string;
+    image: string;
+}

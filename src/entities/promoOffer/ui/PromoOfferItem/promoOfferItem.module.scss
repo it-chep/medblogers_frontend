@@ -13,8 +13,10 @@
 
     --text-color-offer: rgba(255, 255, 255, .6);
 
-    &:hover{
-        opacity: .8;
+    @media (hover) {
+        &:hover{
+            opacity: .8;
+        }
     }
 
     .top{
@@ -88,5 +90,6 @@
         align-items: center;
         justify-content: space-between;
         margin-top: auto;
+        gap: 16px;
     }
 }

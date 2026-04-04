@@ -10,8 +10,10 @@
 
     --text-color-offer: rgba(255, 255, 255, .6);
 
-    &:hover{
-        opacity: .8;
+    @media (hover) {
+        &:hover{
+            opacity: .8;
+        }
     }
 
     .description{
@@ -34,11 +36,19 @@
 
     .footer{
         display: flex;
-        gap: 6px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
 
-        .date{
-            margin-left: auto;
+        .left{
+            display: flex;
+            gap: 6px;
         }
     }    
+}
 
+@media (max-width: 480px) {
+    .container{
+        padding: 20px;
+    }
 }

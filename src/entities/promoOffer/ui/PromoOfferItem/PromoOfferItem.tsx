@@ -10,7 +10,7 @@ interface IProps {
     promoOffer: IPromoOfferItem;
 }
 
-export const PromoOfferItem: FC<IProps & PropsWithChildren> = ({promoOffer, children}) => {
+export const PromoOfferItem: FC<IProps & PropsWithChildren> = ({promoOffer}) => {
 
     const coopTypeColor = getColorByCoopId(promoOffer.cooperationType.id)
 

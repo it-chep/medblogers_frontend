@@ -31,6 +31,6 @@ export default async function({slug}: IProps) {
     }
 
     return (
-        <PromoOfferCard offer={offer} />
+        <PromoOfferCard slug={slug} offer={offer} />
     )
 }

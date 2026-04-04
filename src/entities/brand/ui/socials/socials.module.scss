@@ -2,7 +2,6 @@
 .socials{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 8px;
     list-style: none;
     margin-right: 12px;
@@ -15,7 +14,7 @@
         position: relative;
         background-color: #2F2F2F;
         border-radius: 12px;
-        padding: 7px 25px 7px 7px;
+        padding: 7px 60px 7px 7px;
         font-weight: 600;
         line-height: 130%;
         color: var(--blue);
@@ -31,6 +30,47 @@
             object-fit: cover;
             width: 26px;
             height: 26px;
+        }
+    }
+
+    &.offer{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        .social{
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .socials{
+        &.offer{
+            display: flex;
+            flex-wrap: wrap;
+            .social{
+                width: 200px;
+                max-width: 100%;
+            }
+        }
+
+        .social{
+            width: 200px;
+            max-width: 100%;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .socials{
+        &.offer{
+            .social{
+                width: 100%;
+            }
+        }
+
+        .social{
+            width: 100%;
         }
     }
 }

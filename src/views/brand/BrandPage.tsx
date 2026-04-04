@@ -5,9 +5,10 @@ import { OffersByBrandWidget } from '@/src/widgets/offersByBrand';
 
 interface IProps {
     slug: string;
+    title: string;
 }
 
-export default async function BrandPage({slug}: IProps) {
+export default async function BrandPage({slug, title}: IProps) {
 
     return (
         <section className={classes.page + ' wrapper_main'}>
@@ -15,7 +16,7 @@ export default async function BrandPage({slug}: IProps) {
                 <Breadcrumbs breadcrumbs={[
                     {path: '/', label: 'Вернуться к базе'},
                     {path: '/promotional_offers', label: 'Рекламные предложения'},
-                    {path: '', label: 'сделать из seo ручки title'},
+                    {path: '', label: title},
                 ]} />
             </section>
             <main className={classes.main}>

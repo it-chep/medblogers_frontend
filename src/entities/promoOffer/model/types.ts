@@ -35,3 +35,9 @@ export interface IPromoOfferData {
     socialNetworks: ISocialNetworkItem[];
     createdAt: string;
 }
+
+export interface IPromoOfferSeo {
+    title: string;
+    description: string;
+    image: string;
+}
