@@ -7,25 +7,32 @@ import { MyButton } from "@/src/shared/ui/myButton";
 import Link from "next/link";
 import { TgLogoSvg } from "../../lib/assets/TgLogoSvg";
 import { SocialNetwork } from "@/src/shared/ui/socialNetwork";
+import MarkdownIt from "markdown-it";
 
 interface IProps {
     slug: string;
     offer: IPromoOfferData;
 }
 
-export const PromoOfferCard: FC<IProps & PropsWithChildren> = ({offer, slug, children}) => {
+export const PromoOfferCard: FC<IProps> = ({offer, slug}) => {
 
     const coopTypeColor = getColorByCoopId(offer.cooperationType.id)
     
+    const render = () => {
+        const mk = MarkdownIt()
+        return mk.render(offer.description)
+    } 
+
     return (
         <section className={classes.container}>
             <section className={classes.descBox}>
                 <section className={classes.sign}>
                     Описание
                 </section>
-                <section className={classes.desc}>
-                    {offer.description}
-                </section>
+                <section 
+                    dangerouslySetInnerHTML={{__html: render()}} 
+                    className={classes.desc}
+                />
             </section>
             <section className={classes.conditionsBox}>
                 <section className={classes.sign}>
@@ -38,7 +45,7 @@ export const PromoOfferCard: FC<IProps & PropsWithChildren> = ({offer, slug, chi
                         fontColor={coopTypeColor.fontColor}
                     />
                     <OfferBadge 
-                        value={'от ' + offer.price + ' ₽'}
+                        value={offer.price}
                     />
                 </section>
             </section>

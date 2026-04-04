@@ -4,7 +4,6 @@
     flex-wrap: wrap;
     gap: 8px;
     list-style: none;
-    margin-right: 12px;
 
     .social{
         display: flex;
@@ -14,7 +13,7 @@
         position: relative;
         background-color: #2F2F2F;
         border-radius: 12px;
-        padding: 7px 60px 7px 7px;
+        padding: 7px 16px 7px 7px;
         font-weight: 600;
         line-height: 130%;
         color: var(--blue);
@@ -49,19 +48,19 @@
             display: flex;
             flex-wrap: wrap;
             .social{
-                width: 200px;
+                width: fit-content;
                 max-width: 100%;
             }
         }
 
         .social{
-            width: 200px;
+            width: fit-content;
             max-width: 100%;
         }
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 360px) {
     .socials{
         &.offer{
             .social{

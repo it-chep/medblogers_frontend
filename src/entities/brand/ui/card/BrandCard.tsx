@@ -14,7 +14,7 @@ export const BrandCard: FC<IProps> = ({brand, byOffer}) => {
 
 
     return (
-        <section className={classes.container}>
+        <section className={classes.container + (byOffer ? ` ${classes.byOffer}` : '')}>
             <section className={classes.top}>
                 <img className={classes.photo} src={brand.photo} alt="Аватарка бренда" />
                 <section className={classes.titleBox}>
@@ -24,13 +24,6 @@ export const BrandCard: FC<IProps> = ({brand, byOffer}) => {
                     <section className={classes.description}>
                         {brand.description}
                     </section>
-                    <a 
-                        className={classes.siteLink}
-                        href={brand.siteLink}
-                        target="_blank"
-                    >
-                        сайт: {brand.siteLink}
-                    </a>
                 </section>
             </section>
             <section className={classes.about}>
@@ -39,7 +32,12 @@ export const BrandCard: FC<IProps> = ({brand, byOffer}) => {
             <section className={classes.socials}>
                 <Socials 
                     byOffer={byOffer} 
-                    socialNetwork={brand.socialNetworks} 
+                    socialNetwork={[{
+                        id: 0,
+                        name: 'Сайт компании',
+                        slug: 'site',
+                        link: brand.siteLink
+                    }, ...brand.socialNetworks]} 
                 />
             </section>
             <section className={classes.businessCategory}>

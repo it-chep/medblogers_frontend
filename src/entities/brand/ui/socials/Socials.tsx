@@ -7,6 +7,7 @@ import dzen_logo from '@/src/shared/lib/assets/dzen_logo.png'
 import youtube_logo from '@/src/shared/lib/assets/Youtube_logo.png'
 import vk_logo from '@/src/shared/lib/assets/vk_logo.png'
 import whatsapp_logo from '@/src/shared/lib/assets/whatsapp_logo.png'
+import otherSocial from '@/src/shared/lib/assets/otherSocial.svg'
 import Image from "next/image";
 import { IBrandSocialNetworkItem } from "../../model/types";
 
@@ -18,6 +19,7 @@ interface IProps {
 export const Socials: FC<IProps> = ({socialNetwork, byOffer}) => {
 
     const socialConsts: {slug: string, img: string}[] = [
+        {slug: 'site', img: otherSocial},
         {slug: 'telegram', img: 'svg'}, 
         {slug: 'instagram', img: inst_logo.src}, 
         {slug: 'vk', img: vk_logo.src}, 
@@ -52,7 +54,7 @@ export const Socials: FC<IProps> = ({socialNetwork, byOffer}) => {
                     {
                         s.slug === 'telegram'
                             ?
-                        <TgLogo  />
+                        <TgLogo />
                             :
                         s.slug === 'tiktok'
                             ?

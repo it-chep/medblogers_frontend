@@ -21,8 +21,8 @@
         line-height: 122%;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
         text-overflow: ellipsis;
         overflow: hidden;
     }
@@ -50,5 +50,10 @@
 @media (max-width: 480px) {
     .container{
         padding: 20px;
+
+        .description{
+            -webkit-line-clamp: 4;
+            line-clamp: 4;
+        }
     }
 }

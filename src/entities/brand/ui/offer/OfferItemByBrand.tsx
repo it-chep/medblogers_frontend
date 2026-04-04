@@ -34,7 +34,7 @@ export const OfferItemByBrand: FC<IProps> = ({offer}) => {
                         fontColor={coopColor.fontColor}
                     />
                     <OfferBadge 
-                        value={'от ' + offer.price + ' ₽'}
+                        value={offer.price}
                     />
                 </section>
                 <section className={classes.date}>

@@ -2,7 +2,6 @@ import { FC } from "react";
 import { IDoctor } from "../../model/types";
 import { SubscriberLink } from "../subscriberLink/SubscriberLink";
 import dzen_logo from '@/src/shared/lib/assets/dzen_logo.png'
-import internet_logo from '@/src/shared/lib/assets/internet.svg'
 import tiktok_logo from '@/src/shared/lib/assets/tiktok_logo.svg'
 
 interface IProps {

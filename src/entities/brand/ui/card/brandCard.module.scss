@@ -34,24 +34,6 @@
                 line-height: 106%;
                 letter-spacing: -2%;
             }
-
-            .description{
-                padding-right: 40px;
-            }
-
-            .siteLink{
-                color: var(--text-color-offer);
-                transition: all .15s ease;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                width: fit-content;
-                max-width: 100%;
-
-                &:hover{
-                    color: var(--blue);
-                }
-            }
         }
     }
 
@@ -82,6 +64,21 @@
 
         &:hover{
             background-color: #121212;
+        }
+    }
+
+    &.byOffer{
+        .top{
+            .titleBox{
+                .description{
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    line-clamp: 4;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    -webkit-box-orient: vertical;
+                }
+            }
         }
     }
 }

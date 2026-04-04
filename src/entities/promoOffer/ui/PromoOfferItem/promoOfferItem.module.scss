@@ -58,6 +58,12 @@
             }
 
             .brandDescription{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 4;
+                line-clamp: 4;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 font-size: 16px;
                 line-height: 100%;
                 color: var(--text-color-offer);
@@ -71,8 +77,8 @@
         line-height: 122%;
         color: var(--text-color-offer);
         display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -91,5 +97,14 @@
         justify-content: space-between;
         margin-top: auto;
         gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        .desc{
+            -webkit-line-clamp: 4;
+            line-clamp: 4;
+        }
     }
 }
