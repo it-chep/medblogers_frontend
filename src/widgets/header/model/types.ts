@@ -1,7 +1,8 @@
 
 
 export interface IMenu {
-    name: string;
-    link: string;
-    site?: boolean;
+    title: string;
+    subTitles?: IMenu[];
+    link?: string;
+    offSite?: boolean;  // ссылка вне сайта 
 }

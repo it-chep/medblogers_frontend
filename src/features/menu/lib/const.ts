@@ -39,4 +39,9 @@ export const menuLinks: IMenu[] = [
         link: "/rating",
         site: true,
     },
+    {
+        name: 'Рекламные предложения',
+        link: "/promotional_offers",
+        site: true,
+    },
 ]
