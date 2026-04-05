@@ -99,7 +99,7 @@
   height: 170px;
   min-width: 170px;
   object-fit: cover;
-  border-radius: inherit;
+  border-radius: 20px;
 }
 
 .widget_data{
@@ -112,11 +112,12 @@
 .widget_title{
   font-weight: 800;
   line-height: 118%;
+  margin-bottom: 8px;
 }
 
 .widget_sub_title{
   font-weight: 400;
-  line-height: 140%;
+  line-height: 118%;
 }
 
 .widget_button{
