@@ -31,7 +31,6 @@ export const BrandCard: FC<IProps> = ({brand, byOffer}) => {
             </section>
             <section className={classes.socials}>
                 <Socials 
-                    byOffer={byOffer} 
                     socialNetwork={[{
                         id: 0,
                         name: 'Сайт компании',
