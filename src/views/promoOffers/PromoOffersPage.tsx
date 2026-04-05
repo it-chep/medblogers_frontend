@@ -24,11 +24,10 @@ export default async function PromoOffersPage({ids}: IProps) {
             <main className={classes.main}>
                 <section className={classes.title}>
                     <TitlePage 
-                        sign={"Как этим пользоваться?"}
                         title={"Рекламные предложения"}
                         subTitle={
                             <section className={classes.subTitle}>
-                                Врач может сделать отклик на любое рекламное объявление, чтобы получить вознаграждение за интеграцию
+                                Откликайтесь на предложения брендов и зарабатывайте с интеграций
                             </section>
                         }
                     />
