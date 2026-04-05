@@ -40,9 +40,16 @@ export const DesktopMenu: FC = () => {
                                         links={link.subTitles} 
                                     />
                                         :
-                                    <Link 
+                                    link.offSite
+                                        ?
+                                    <a 
                                         href={link.link || "/"}
+                                        target="_blank"
                                     >
+                                        {link.title}
+                                    </a>
+                                        :
+                                    <Link href={link.link || "/"}>
                                         {link.title}
                                     </Link>
                                 }

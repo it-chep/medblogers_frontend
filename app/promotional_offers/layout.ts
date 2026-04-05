@@ -2,13 +2,13 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    absolute: '',
+    absolute: 'Рекламные предложения для врачей-блогеров',
     template: '%s',
   },
-  description: '',
+  description: 'Объявления по сотрудничеству от медицинских брендов: клиники, онлайн-школы, фарма и т.д.',
   openGraph: {
-    title: '',
-    description: '',
+    title: 'Рекламные предложения для врачей-блогеров',
+    description: 'Объявления по сотрудничеству от медицинских брендов: клиники, онлайн-школы, фарма и т.д.',
     images: '',
     url: 'https://medblogers-base.ru/promotional_offers',
     type: 'website'

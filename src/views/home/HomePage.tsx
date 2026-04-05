@@ -9,9 +9,6 @@ import StatisticsLayout from '@/src/widgets/statistics'
 import { PaginationWidget } from '@/src/widgets/pagination'
 import { filterService, IFilter } from '@/src/entities/filter'
 import { SearchDoctors } from '@/src/widgets/searchDoctors'
-import Link from 'next/link'
-import { ButtonDark } from '@/src/shared/ui/buttonDark'
-import { IS_FREELANCERS_DONE } from '@/src/app/env/env'
 import { BlogsTopLayout } from '@/src/widgets/blogsTop'
 import { FAQ } from '@/src/widgets/FAQ'
 import { CheckBlacklist } from '@/src/features/checkBlacklist'
@@ -41,13 +38,6 @@ export default async function HomePage() {
             <section className={classes.content}>
                 <aside className={classes.aside}>
                     <BannerNewDoctor />
-                    {
-                        IS_FREELANCERS_DONE
-                            &&
-                        <Link href={'/helpers'} className={classes.button}>
-                            <ButtonDark><span className={classes.helpersLink}>Перейти к базе помощников</span></ButtonDark>
-                        </Link>
-                    }
                     <section className={classes.filters}>
                         <FiltersLayout forDesk={true} filters={filters} />
                     </section>

@@ -52,10 +52,6 @@ export const menuLinks: IMenu[] = [
                 link: '/blogs/vip_card',
             },
             {
-                title: 'Расстрельный список каналов',
-                link: '/blacklist',
-            },
-            {
                 title: 'Рейтинг врачей Medblogers',
                 link: '/rating',
             }

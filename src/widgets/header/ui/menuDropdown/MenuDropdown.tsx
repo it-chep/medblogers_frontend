@@ -38,11 +38,22 @@ export const MenuDropdown: FC<IProps> = ({title, links}) => {
                                 key={link.title}
                                 className={classes.item + ((link.link && inPlace(link.link)) ? ` ${classes.selected}` : '')}
                             >
-                                <Link 
-                                    href={link.link || "/"}
-                                >
-                                    {link.title}
-                                </Link>
+                                {
+                                    link.offSite
+                                        ?
+                                    <a 
+                                        href={link.link || "/"}
+                                        target="_blank"
+                                    >
+                                        {link.title}
+                                    </a>
+                                        :
+                                    <Link 
+                                        href={link.link || "/"}
+                                    >
+                                        {link.title}
+                                    </Link>
+                                }
                             </li>
                         )
                     }

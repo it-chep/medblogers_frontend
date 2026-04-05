@@ -54,12 +54,6 @@
                     white-space: nowrap;
                     position: relative;
     
-                    &.selected{
-                        >a{
-                            background-color: var(--nav-hover);
-                        }
-                    }
-    
                     >a{
                         border-radius: 16px;
                         padding: 18px 16px;
@@ -73,7 +67,15 @@
                         transition: all .15s ease;
     
                         &:hover{
+                            background-color: var(--light-black);
+                        }
+                    }
+
+                    &.selected{
+                        >a{
                             background-color: var(--nav-hover);
+                            color: var(--blue);
+                            opacity: 1;
                         }
                     }
                 }

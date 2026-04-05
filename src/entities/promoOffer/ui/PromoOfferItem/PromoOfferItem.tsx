@@ -26,15 +26,9 @@ export const PromoOfferItem: FC<IProps & PropsWithChildren> = ({promoOffer}) => 
                         <section className={classes.title}>
                             {promoOffer.title}
                         </section>
-                        <section 
-                            className={classes.coopType}
-                            style={{
-                                backgroundColor: coopTypeColor.bgColor,
-                                color: coopTypeColor.fontColor,
-                            }}
-                        >
-                            {promoOffer.cooperationType.name}
-                        </section>
+                        <OfferBadge
+                            value={promoOffer.businessCategory.name}
+                        />
                     </section>
                     <section className={classes.brandDescription}>
                         {promoOffer.brandDescription}
@@ -42,14 +36,18 @@ export const PromoOfferItem: FC<IProps & PropsWithChildren> = ({promoOffer}) => 
                 </section>
             </section>
             <section className={classes.desc}>
+                <span className={classes.req}>Запрос: </span>
                 {promoOffer.description}
             </section>
             <section className={classes.socialNetworks}>
                 Работа в соц сетях: <SocialNetwork socialNetwork={promoOffer.socialNetworks} miniature />
             </section>
             <section className={classes.footer}>
-                <OfferBadge
-                    value={promoOffer.businessCategory.name}
+                <OfferBadge 
+                    // className={classes.coopType}
+                        bgColor= {coopTypeColor.bgColor}
+                        fontColor={coopTypeColor.fontColor}
+                    value={promoOffer.cooperationType.name}
                 />
                 <OfferBadge 
                     value={promoOffer.createdAt}
