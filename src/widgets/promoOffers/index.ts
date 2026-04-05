@@ -1,0 +1,1 @@
+export {default as PromoOffers} from './ui/PromoOffers'

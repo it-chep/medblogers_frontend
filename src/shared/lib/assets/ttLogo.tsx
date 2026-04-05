@@ -1,10 +1,13 @@
 import { FC } from "react"
 
+interface IProps {
+    width?: number;
+}
 
-export const TtLogo: FC = () => {
+export const TtLogo: FC<IProps> = ({width}) => {
     
     return (
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink">
+        <svg width={width ?? 22} height={width ?? 22} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink">
             <rect width="22" height="22" rx="5" fill="url(#pattern0_1514_155714)"/>
             <defs>
                 <pattern id="pattern0_1514_155714" patternContentUnits="objectBoundingBox" width="1" height="1">

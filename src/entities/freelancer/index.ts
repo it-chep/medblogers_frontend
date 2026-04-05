@@ -1,3 +1,4 @@
+export { SocialNetwork } from "./ui/socialNetwork/SocialNetwork";
 export { RecommendationCard } from "./ui/recommendation/RecommendationCard";
 export { PriceListWrap } from "./ui/priceList/PriceListWrap";
 export { FreelancerCard } from "./ui/card/FreelancerCard";

@@ -1,0 +1,1 @@
+export {PromoOfferDataWidget} from "./ui/loader/PromoOfferDataWidget";

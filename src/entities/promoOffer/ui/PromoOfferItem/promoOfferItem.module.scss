@@ -1,0 +1,112 @@
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-black);
+    border: 1px solid var(--dark-gray);
+    border-radius: 30px;
+    padding: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: opacity .15s ease;
+
+    --text-color-offer: rgba(255, 255, 255, .6);
+
+    @media (hover) {
+        &:hover{
+            opacity: .8;
+        }
+    }
+
+    .top{
+        display: flex;
+        gap: 18px;
+
+        .photo{
+            width: 74px;
+            min-width: 74px;
+            height: 74px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        
+        .brandData{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .titleBox{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 10px;
+                margin-top: 4px;
+
+                .title{
+                    font-size: 18px;
+                    font-weight: 800;
+                    line-height: 106%;
+                    letter-spacing: -2%;
+
+                    flex: 1; 
+                }
+            }
+
+            .brandDescription{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 4;
+                line-clamp: 4;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 16px;
+                line-height: 100%;
+                color: #fff;
+            }
+        }
+    }
+
+    .desc{
+        margin-top: 18px;
+        font-size: 16px;
+        line-height: 122%;
+        color: var(--text-color-offer);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        .req{
+            color: #fff;
+            font-weight: 600;
+        }
+    }
+
+    .socialNetworks{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 16px 0;
+        color: var(--text-color-offer);
+    }
+
+    .footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        .desc{
+            -webkit-line-clamp: 4;
+            line-clamp: 4;
+        }
+    }
+}

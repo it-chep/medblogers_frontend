@@ -9,7 +9,7 @@ type TParams = {
 
 export const dynamicParams = true 
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({params}: any) {
     const { slug }: TParams = await params;
     let seo: IBlogDetail | null = null;
     try{

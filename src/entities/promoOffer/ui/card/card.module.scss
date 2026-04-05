@@ -1,0 +1,66 @@
+
+.container{
+    background-color: var(--light-black);
+    border: 1px solid var(--dark-gray);
+    border-radius: 30px;
+    padding: 30px;
+    overflow: hidden;
+    transition: opacity .15s ease;
+    line-height: 130%;
+
+    --text-color-offer: rgba(255, 255, 255, .6);
+
+    .sign{
+        color: var(--text-color-offer);
+        margin-bottom: 12px;
+    }
+
+    .desc{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .conditionsBox{
+        margin-top: 20px;
+
+        .conditions{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+    }
+
+    .socialBox{
+        margin-top: 20px;
+    }
+
+    .date{
+        color: var(--text-color-offer);
+        margin-top: 20px;
+    }
+
+    .button{
+        display: block;
+        height: 54px;
+        width: 100%;
+        margin-top: 55px;
+
+        .buttonContent{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container{
+        padding: 20px;
+
+        .button{
+            margin-top: 30px;
+        }
+    }
+}

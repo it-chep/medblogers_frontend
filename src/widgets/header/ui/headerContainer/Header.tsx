@@ -2,13 +2,10 @@
 
 import { FC, PropsWithChildren } from "react";
 import classes from './header.module.scss'
-import Image from "next/image";
-import logo from '@/src/shared/lib/assets/medblogers_logo.png'
-import { OpenMenu } from "@/src/features/menu";
-import Link from "next/link";
 import { noPages } from "../../lib/const/noPages";
 import { usePathname } from "next/navigation";
-import { TitleWrap } from "../title/TitleWrap";
+import { MobileHeader } from "../mobile/MobileHeader";
+import { DesktopMenu } from "../desktopMenu/DesktopMenu";
 
 export const Header: FC<PropsWithChildren> = ({children}) => {
 
@@ -22,22 +19,13 @@ export const Header: FC<PropsWithChildren> = ({children}) => {
 
     return (
         <header className={classes.header}>
-            <section className={classes.top}>
-                <Link href={'/'}>
-                    <Image src={logo.src} width={268} height={75} alt="логотип" />
-                </Link>
-                <section className={classes.titleDesc}>
-                    <TitleWrap pathname={pathname || ""} />
-                </section>
-                <section className={classes.menu}>
-                    <OpenMenu mobile={true} />
-                </section>
+            <section className={classes.desk}>
+                <DesktopMenu />
             </section>
-            <section className={classes.banners}>
-                {children}
-            </section>
-            <section className={classes.titleMobile}>
-                <TitleWrap pathname={pathname || ""} />
+            <section className={classes.mobile}>
+                <MobileHeader>
+                    {children}
+                </MobileHeader>
             </section>
         </header>
     )
