@@ -13,10 +13,9 @@ import { IBrandSocialNetworkItem } from "../../model/types";
 
 interface IProps {
     socialNetwork: IBrandSocialNetworkItem[];
-    byOffer?: boolean;
 }
 
-export const Socials: FC<IProps> = ({socialNetwork, byOffer}) => {
+export const Socials: FC<IProps> = ({socialNetwork}) => {
 
     const socialConsts: {slug: string, img: string}[] = [
         {slug: 'site', img: otherSocial},
@@ -42,7 +41,7 @@ export const Socials: FC<IProps> = ({socialNetwork, byOffer}) => {
     })
 
     return (
-         <ul className={classes.socials + (byOffer ? ` ${classes.offer}` : '')}>
+         <ul className={classes.socials}>
             {socialNetworkExist.map((s, ind) => 
                 <a 
                     key={s.name} 

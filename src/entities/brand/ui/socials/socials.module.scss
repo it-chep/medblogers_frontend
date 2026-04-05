@@ -31,28 +31,10 @@
             height: 26px;
         }
     }
-
-    &.offer{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-
-        .social{
-            width: 100%;
-        }
-    }
 }
 
 @media (max-width: 480px) {
     .socials{
-        &.offer{
-            display: flex;
-            flex-wrap: wrap;
-            .social{
-                width: fit-content;
-                max-width: 100%;
-            }
-        }
-
         .social{
             width: fit-content;
             max-width: 100%;
@@ -62,12 +44,6 @@
 
 @media (max-width: 360px) {
     .socials{
-        &.offer{
-            .social{
-                width: 100%;
-            }
-        }
-
         .social{
             width: 100%;
         }

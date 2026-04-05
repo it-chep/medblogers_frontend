@@ -38,6 +38,7 @@
 
             .titleBox{
                 display: flex;
+                flex-wrap: wrap;
                 align-items: center;
                 gap: 10px;
                 margin-top: 4px;
@@ -47,6 +48,8 @@
                     font-weight: 800;
                     line-height: 106%;
                     letter-spacing: -2%;
+
+                    flex: 1; 
                 }
             }
 

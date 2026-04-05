@@ -31,10 +31,14 @@
         &.selected{
             background-color: var(--nav-hover);
             color: var(--blue);
+            
+            >svg{
+                stroke: var(--blue);
+            }
         }
         
         >svg{
-            stroke: #fff;
+            stroke: rgba(255, 255, 255, .7);
         }
     }
     
