@@ -5,11 +5,11 @@ export const menuLinks: IMenu[] = [
         title: 'Базы',
         subTitles: [
             {
-                title: 'База врачей',
+                title: 'База врачей-блогеров',
                 link: '/'
             },
             {
-                title: 'База фрилансеров',
+                title: 'База помощников',
                 link: '/helpers',
             }
         ]
@@ -30,11 +30,6 @@ export const menuLinks: IMenu[] = [
         title: 'Инструкции',
         subTitles: [
             {
-                title: 'Что такое MEDBLOGERS?',
-                link: 'https://medblogers.ru/',
-                offSite: true,
-            },
-            {
                 title: 'База врачей - как пользоваться?',
                 link: '/blogs/base',
             },
@@ -47,6 +42,11 @@ export const menuLinks: IMenu[] = [
     {
         title: 'Еще',
         subTitles: [
+            {
+                title: 'Что такое MEDBLOGERS?',
+                link: 'https://medblogers.ru/',
+                offSite: true,
+            },
             {
                 title: '👑 VIP-размещение',
                 link: '/blogs/vip_card',
