@@ -1,6 +1,6 @@
 "use client";
 
-import {createContext, FC, PropsWithChildren, useEffect, useState} from "react";
+import { createContext, FC, PropsWithChildren, useEffect, useLayoutEffect, useState } from "react";
 
 interface IContext {
     isLight: boolean;
@@ -8,28 +8,48 @@ interface IContext {
     setDark: () => void;
 }
 
-interface IProps extends PropsWithChildren {
-    initialIsLight: boolean;
-}
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+const getInitialTheme = () => {
+    if (typeof window === "undefined") {
+        return false;
+    }
+
+    const storedTheme = window.localStorage.getItem("theme");
+
+    if (storedTheme === "light") {
+        return true;
+    }
+
+    if (storedTheme === "dark") {
+        return false;
+    }
+
+    const blog = document.querySelector(".blog");
+
+    if (blog) {
+        return blog.classList.contains("light");
+    }
+
+    return window.matchMedia("(prefers-color-scheme: light)").matches;
+};
 
 export const BlogThemeContext = createContext<IContext | null>(null);
 
-export const BlogThemeProvider: FC<IProps> = ({ initialIsLight, children }) => {
-    const [isLight, setIsLight] = useState(initialIsLight);
+export const BlogThemeProvider: FC<PropsWithChildren> = ({ children }) => {
+    const [isLight, setIsLight] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
-    useEffect(() => {
-        const storedTheme = localStorage.getItem("theme");
-
-        if (storedTheme === "light") {
-            setIsLight(true);
-        }
-
-        if (storedTheme === "dark") {
-            setIsLight(false);
-        }
+    useIsomorphicLayoutEffect(() => {
+        setIsLight(getInitialTheme());
+        setIsMounted(true);
     }, []);
 
     useEffect(() => {
+        if (!isMounted) {
+            return;
+        }
+
         const blog = document.querySelector(".blog");
         const theme = isLight ? "light" : "dark";
 
@@ -37,9 +57,8 @@ export const BlogThemeProvider: FC<IProps> = ({ initialIsLight, children }) => {
             blog.classList.toggle("light", isLight);
         }
 
-        localStorage.setItem("theme", theme);
-        document.cookie = `theme=${theme}; path=/; max-age=31536000`;
-    }, [isLight]);
+        window.localStorage.setItem("theme", theme);
+    }, [isLight, isMounted]);
 
     return (
         <BlogThemeContext.Provider
@@ -53,4 +72,3 @@ export const BlogThemeProvider: FC<IProps> = ({ initialIsLight, children }) => {
         </BlogThemeContext.Provider>
     );
 };
-

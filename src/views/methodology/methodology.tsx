@@ -6,14 +6,10 @@ import {Breadcrumbs} from '@/src/widgets/breadcrumbs';
 import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
 import '../../../app/blogs/[slug]/page.css'
 
-interface IProps {
-    isLightTheme: boolean;
-}
-
-export default function MethodologyPage({isLightTheme}: IProps) {
+export default function MethodologyPage() {
 
     return (
-        <BlogThemeProvider initialIsLight={isLightTheme}>
+        <BlogThemeProvider>
             <section className={classes.page + ' wrapper_main'}>
                 <Breadcrumbs breadcrumbs={[
                     {path: '/', label: 'Вернуться к базе'},

@@ -25,7 +25,6 @@ const getData = async (slug: string) => {
 
 interface IProps {
     slug: string
-    isLightTheme: boolean;
 }
 
 export default async function BlogPage(props: IProps) {
@@ -39,7 +38,7 @@ export default async function BlogPage(props: IProps) {
     }
 
     return (
-        <BlogThemeProvider initialIsLight={props.isLightTheme}>
+        <BlogThemeProvider>
             <section className={classes.page}>
                     <section className={classes.breadcrumbs}>
                         <Breadcrumbs breadcrumbs={[

@@ -40,7 +40,6 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight}) => {
     useEffect(() => {
         return () => {
             document.body.removeEventListener('click', clickDoc)
-            localStorage.removeItem('theme')
         }
     }, [])
 

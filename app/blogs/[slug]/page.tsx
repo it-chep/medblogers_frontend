@@ -1,7 +1,7 @@
 import { blogService, IBlogDetail } from "@/src/entities/blog";
+import { BlogThemeRoot } from "@/src/features/switchTheme/ui/root/BlogThemeRoot";
 import BlogPage from "@/src/views/blog/Blog";
 import "./page.css";
-import { cookies } from "next/headers";
 
 type TParams = {
     slug: string;
@@ -32,16 +32,10 @@ export async function generateMetadata({params}: any) {
 export default async function Blog({ params }: any) {
 
     const { slug }: TParams = await params;
-
-    const cookieStore = await cookies();
-    const isLightTheme = cookieStore.get('theme')?.value === "light";    
     
     return (
-        <section className={"blog" + (isLightTheme ? ` light` : '')}>
-            <BlogPage 
-                slug={slug} 
-                isLightTheme={isLightTheme}   
-            />
-        </section>
+        <BlogThemeRoot>
+            <BlogPage slug={slug} />
+        </BlogThemeRoot>
     )
 }
