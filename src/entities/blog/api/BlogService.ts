@@ -71,7 +71,7 @@ class BlogService {
     }
 
     async addView(blogSlug: string, cookieId: string){
-        await fetch(SERVER_URL_API + `/v1/${blogSlug}/add_view`, {
+        await fetch(SERVER_URL_API + `/v1/blog/${blogSlug}/add_view`, {
             method: "POST",
             body: JSON.stringify({
                 blogSlug,

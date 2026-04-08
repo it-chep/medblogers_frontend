@@ -1,19 +1,16 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
 
 
-
 class UserService {
 
-    async createCookieId(): Promise<string> {
-
-        const domain = process.env.NEXT_PUBLIC_DOMAIN;
+    async createCookieId(domain?: string): Promise<string> {
         const token = process.env.NEXT_PUBLIC_TOKEN;
 
-        const res = await fetch(SERVER_URL_API + '/v1/analytics/create_cookie_id', 
+        const res = await fetch(SERVER_URL_API + '/v1/analytics/create_cookie_id',
             {
                 method: "POST",
                 body: JSON.stringify({
-                    domain,
+                    domain: domain,
                     token
                 }),
                 headers: {
@@ -22,7 +19,7 @@ class UserService {
                 cache: "no-cache"
             }
         )
-        const {cookieId}: {cookieId: string} = await res.json()
+        const {cookieId}: { cookieId: string } = await res.json()
         return cookieId
     }
 
