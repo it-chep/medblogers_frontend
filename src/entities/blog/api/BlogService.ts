@@ -70,6 +70,21 @@ class BlogService {
         return blog
     }
 
+    async addView(blogSlug: string, cookieId: string){
+        await fetch(SERVER_URL_API + `/v1/blog/${blogSlug}/add_view`, {
+            method: "POST",
+            body: JSON.stringify({
+                blogSlug,
+                cookieId
+            }),
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+            },
+            cache: "no-cache"
+        })
+    }
+
+    
 }
 
 export const blogService = new BlogService()

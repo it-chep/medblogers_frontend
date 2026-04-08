@@ -19,6 +19,9 @@
     }
     
     .date{
+        display: flex;
+        align-items: center;
+        gap: 20px;
         color: var(--text-sign);
         line-height: 100%;
         margin-top: 5px;

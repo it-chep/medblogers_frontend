@@ -66,11 +66,7 @@ const authors = [
     },
 ]
 
-interface IProps {
-    isLightTheme: boolean;
-}
-
-export default async function AuthorsPage({isLightTheme}: IProps) {
+export default async function AuthorsPage() {
     const seoData = await Promise.all(
         authors.map(author => doctorService.seo(author.slug))
     )
@@ -81,7 +77,7 @@ export default async function AuthorsPage({isLightTheme}: IProps) {
     const otherSeoData = seoData.slice(1)
 
     return (
-        <BlogThemeProvider initialIsLight={isLightTheme}>
+        <BlogThemeProvider>
             <section className={classes.page + ' wrapper_main'}>
                 <Breadcrumbs breadcrumbs={[
                 {path: '/', label: 'Вернуться к базе'},

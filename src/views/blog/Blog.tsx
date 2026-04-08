@@ -1,6 +1,6 @@
 import classes from './blog.module.scss'
 import { isDynamicServerError } from 'next/dist/client/components/hooks-server-context'
-import { Blog, BlogCategories, BlogDoctor, blogService, IBlogDetail, ShareBlog } from '@/src/entities/blog';
+import { Blog, BlogCategories, BlogDoctor, blogService, getBlogJsonLd, IBlogDetail, ShareBlog } from '@/src/entities/blog';
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
@@ -25,7 +25,6 @@ const getData = async (slug: string) => {
 
 interface IProps {
     slug: string
-    isLightTheme: boolean;
 }
 
 export default async function BlogPage(props: IProps) {
@@ -38,9 +37,18 @@ export default async function BlogPage(props: IProps) {
         )
     }
 
+    const jsonLd = getBlogJsonLd(blog)
+
     return (
-        <BlogThemeProvider initialIsLight={props.isLightTheme}>
-            <section className={classes.page}>
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+                }}
+            />
+            <BlogThemeProvider>
+                <section className={classes.page}>
                     <section className={classes.breadcrumbs}>
                         <Breadcrumbs breadcrumbs={[
                             {path: '/', label: 'Вернуться к базе'},
@@ -62,9 +70,6 @@ export default async function BlogPage(props: IProps) {
                             <Blog 
                                 blog={blog} 
                                 doctorBlog={blog.doctor.name ? blog.doctor : null}
-                                switchTheme={
-                                    <></>
-                                }
                                 categories={
                                     <BlogCategories 
                                         categories={blog.categories}
@@ -91,7 +96,8 @@ export default async function BlogPage(props: IProps) {
                         <h2 className={classes.other}>Читать другие статьи</h2>
                         <BlogsTopLayout />
                     </section>
-            </section>
-        </BlogThemeProvider>
+                </section>
+            </BlogThemeProvider>
+        </>
     )
 }

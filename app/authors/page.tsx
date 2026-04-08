@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import AuthorsPage from "@/src/views/authors/authors";
-import { cookies } from "next/headers";
+import { BlogThemeRoot } from "@/src/features/switchTheme/ui/root/BlogThemeRoot";
 
 export const metadata: Metadata = {
     title: {
@@ -15,14 +15,11 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Authors() {
-
-    const cookieStore = await cookies();
-    const isLightTheme = cookieStore.get('theme')?.value === "light";
+export default function Authors() {
 
     return (
-        <section className={"blog" + (isLightTheme ? ` light` : '')}>
-            <AuthorsPage isLightTheme={isLightTheme} />
-        </section>
+        <BlogThemeRoot>
+            <AuthorsPage />
+        </BlogThemeRoot>
     )
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useCallback, useEffect, useRef, useState } from "react";
+import { FC } from "react";
 import classes from './switchTheme.module.scss'
 import { MyCheckbox } from "@/src/shared/ui/myCheckbox";
 import { useBlogTheme } from "../../lib/hooks/useBlogTheme";
@@ -14,32 +14,14 @@ export const SwitchTheme: FC<IProps> = ({setOpen}) => {
     const { isLight, setLight, setDark } = useBlogTheme();
 
     const onLight = () => {
-        const target = document.querySelector('.blog')
-        if(target){
-            setLight()
-            localStorage.setItem('theme', 'light')
-            document.cookie = `theme=light; path=/; max-age=31536000`;
-            target.classList.add('light')
-            setOpen(false)
-        }
+        setLight()
+        setOpen(false)
     }
     
     const onDark = () => {
-        const target = document.querySelector('.blog')
-        if(target){
-            setDark()
-            localStorage.setItem('theme', 'dark')
-            document.cookie = `theme=dark; path=/; max-age=31536000`;
-            target.classList.remove('light')
-            setOpen(false)
-        }
+        setDark()
+        setOpen(false)
     }
-
-    useEffect(() => {
-        return () => {
-            localStorage.removeItem('theme')
-        }
-    }, [])
 
     return (
         <section className={classes.wrapper + (isLight ? ` ${classes.light}` : '')}>

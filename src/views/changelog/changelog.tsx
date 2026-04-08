@@ -6,13 +6,9 @@ import { BlogThemeProvider } from '@/src/features/switchTheme';
 import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
 import '../../../app/blogs/[slug]/page.css'
 
-interface IProps {
-    isLightTheme: boolean;
-}
-
-export default function ChangelogPage({isLightTheme}: IProps) {
+export default function ChangelogPage() {
     return (
-        <BlogThemeProvider initialIsLight={isLightTheme}>
+        <BlogThemeProvider>
             <section className={classes.page + ' wrapper_main'}>
                 <Breadcrumbs breadcrumbs={[
                 { path: '/', label: 'Вернуться к базе' },

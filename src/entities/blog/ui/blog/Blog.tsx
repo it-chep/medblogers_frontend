@@ -2,15 +2,15 @@ import React, { FC, PropsWithChildren } from "react";
 import classes from './blog.module.scss'
 import { IBlogDetail, IBlogDoctor } from "../../model/types";
 import { DoctorTop } from "../doctorTop/DoctorTop";
+import { Views } from "@/src/shared/ui/views";
 
 interface IProps{
     blog: IBlogDetail;
     doctorBlog: IBlogDoctor | null;
     categories: React.ReactElement;
-    switchTheme: React.ReactElement;
 }
 
-export const Blog: FC<IProps & PropsWithChildren> = ({blog, doctorBlog, categories, switchTheme, children}) => {
+export const Blog: FC<IProps & PropsWithChildren> = ({blog, doctorBlog, categories, children}) => {
 
     return (
         <section className={classes.container}>
@@ -23,13 +23,16 @@ export const Blog: FC<IProps & PropsWithChildren> = ({blog, doctorBlog, categori
                 <section className={classes.share}>
                     {children}
                 </section>
-                {switchTheme}
             </section>
             {
                 categories
             }
             <section className={classes.date}>
                 {blog.createdAt}
+                <Views 
+                    views={blog.viewsCount} 
+                    color="var(--text-sign)"
+                />
             </section>
             <section className={classes.content}>
                 <h1>{blog.title}</h1>

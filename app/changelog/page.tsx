@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import ChangelogPage from "@/src/views/changelog/changelog";
-import { cookies } from "next/headers";
+import { BlogThemeRoot } from "@/src/features/switchTheme/ui/root/BlogThemeRoot";
 
 export const metadata: Metadata = {
     title: {
@@ -15,14 +15,11 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function Changelog() {
-
-    const cookieStore = await cookies();
-    const isLightTheme = cookieStore.get('theme')?.value === "light";
+export default function Changelog() {
 
     return (
-        <section className={"blog" + (isLightTheme ? ` light` : '')}>
-            <ChangelogPage isLightTheme={isLightTheme} />
-        </section>
+        <BlogThemeRoot>
+            <ChangelogPage />
+        </BlogThemeRoot>
     )
 }
