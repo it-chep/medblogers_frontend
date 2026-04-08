@@ -40,56 +40,53 @@ export default async function BlogPage(props: IProps) {
     return (
         <BlogThemeProvider>
             <section className={classes.page}>
-                    <section className={classes.breadcrumbs}>
-                        <Breadcrumbs breadcrumbs={[
-                            {path: '/', label: 'Вернуться к базе'},
-                            {path: '/blogs', label: 'Статьи'},
-                            {path: '', label: blog.title},
-                        ]} />
-                    </section>
-                    <section className={classes.wrapperMain}>
-                        <aside className={classes.aside}>
-                            <Headlines />
-                        </aside>
-                        <main className={classes.main}>
-                            <section className={classes.switchTheme}>
-                                <OpenerBottomFixedWrap />
-                            </section>
-                            <section className={classes.mobileFixed}>
-                                <OpenerBottomFixedWrapMobile />
-                            </section>
-                            <Blog 
-                                blog={blog} 
-                                doctorBlog={blog.doctor.name ? blog.doctor : null}
-                                switchTheme={
-                                    <></>
-                                }
-                                categories={
-                                    <BlogCategories 
-                                        categories={blog.categories}
-                                    />
-                                }
-                            >
-                                <Share>
-                                    <ShareBlog />
-                                </Share>
-                            </Blog>
+                <section className={classes.breadcrumbs}>
+                    <Breadcrumbs breadcrumbs={[
+                        {path: '/', label: 'Вернуться к базе'},
+                        {path: '/blogs', label: 'Статьи'},
+                        {path: '', label: blog.title},
+                    ]} />
+                </section>
+                <section className={classes.wrapperMain}>
+                    <aside className={classes.aside}>
+                        <Headlines />
+                    </aside>
+                    <main className={classes.main}>
+                        <section className={classes.switchTheme}>
+                            <OpenerBottomFixedWrap />
+                        </section>
+                        <section className={classes.mobileFixed}>
+                            <OpenerBottomFixedWrapMobile />
+                        </section>
+                        <Blog 
+                            blog={blog} 
+                            doctorBlog={blog.doctor.name ? blog.doctor : null}
+                            categories={
+                                <BlogCategories 
+                                    categories={blog.categories}
+                                />
+                            }
+                        >
                             <Share>
                                 <ShareBlog />
                             </Share>
-                            {
-                                blog.doctor.name 
-                                    &&
-                                <BlogDoctor 
-                                    doctor={blog.doctor}
-                                />
-                            }
-                        </main>
-                    </section>
-                    <section className={classes.blogsTop}>
-                        <h2 className={classes.other}>Читать другие статьи</h2>
-                        <BlogsTopLayout />
-                    </section>
+                        </Blog>
+                        <Share>
+                            <ShareBlog />
+                        </Share>
+                        {
+                            blog.doctor.name 
+                                &&
+                            <BlogDoctor 
+                                doctor={blog.doctor}
+                            />
+                        }
+                    </main>
+                </section>
+                <section className={classes.blogsTop}>
+                    <h2 className={classes.other}>Читать другие статьи</h2>
+                    <BlogsTopLayout />
+                </section>
             </section>
         </BlogThemeProvider>
     )

@@ -44,13 +44,7 @@
             justify-content: space-between;
 
             .data{
-                .date{
-                    font-size: 15px;
-                    font-weight: 400;
-                    color: var(--blue);
-                }
                 .title{
-                    margin-top: 15px;
                     font-weight: 600;
                     font-size: 20px;
                     line-height: 120%;
@@ -63,10 +57,26 @@
                     color: rgba(255, 255, 255, 0.8);
                 }   
             }
-            .button{
-                display: flex;
-                margin-top: auto;
-                margin-top: 30px;
+            .footer{
+                margin-top: 16px;
+                
+                .dateCounts{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    
+                    .date{
+                        font-size: 15px;
+                        font-weight: 400;
+                        color: var(--blue);
+                    }
+                }
+                
+                .button{
+                    display: flex;
+                    margin-top: auto;
+                    margin-top: 21px;
+                }
             }
         }
     }

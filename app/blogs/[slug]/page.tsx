@@ -2,6 +2,7 @@ import { blogService, IBlogDetail } from "@/src/entities/blog";
 import { BlogThemeRoot } from "@/src/features/switchTheme/ui/root/BlogThemeRoot";
 import BlogPage from "@/src/views/blog/Blog";
 import "./page.css";
+import { ViewTracker } from "./ViewTracker";
 
 type TParams = {
     slug: string;
@@ -34,8 +35,10 @@ export default async function Blog({ params }: any) {
     const { slug }: TParams = await params;
     
     return (
-        <BlogThemeRoot>
-            <BlogPage slug={slug} />
-        </BlogThemeRoot>
+        <ViewTracker slug={slug}>
+            <BlogThemeRoot>
+                <BlogPage slug={slug} />
+            </BlogThemeRoot>
+        </ViewTracker>
     )
 }

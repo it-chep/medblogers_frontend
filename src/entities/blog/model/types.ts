@@ -22,6 +22,7 @@ export interface IBlogMiniature {
     createdAt: string;
     photoLink: string;
     categories: IBlogCategory[];
+    viewsCount: string;
 }
 
 export interface IBlogDetail {
@@ -39,4 +40,5 @@ export interface IBlogDetail {
 
     doctor: IBlogDoctor;
     categories: IBlogCategory[];
+    viewsCount: string;
 }

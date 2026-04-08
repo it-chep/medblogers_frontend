@@ -4,6 +4,7 @@ import { IBlogMiniature } from "../../model/types";
 import Link from "next/link";
 import { MyButtonBlog } from "../button/MyButton";
 import { BlogCategories } from "../categories/BlogCategories";
+import { Views } from "@/src/shared/ui/views";
 
 interface IProps {
     blog: IBlogMiniature;
@@ -36,9 +37,6 @@ export const BlogMiniature: FC<IProps> = ({blog}) => {
                 }
                 <section className={classes.wrapData}>
                     <section className={classes.data}>
-                        <section className={classes.date}>
-                            {blog.createdAt}
-                        </section>
                         <section className={classes.title}>
                             {blog.title}
                         </section>
@@ -46,10 +44,18 @@ export const BlogMiniature: FC<IProps> = ({blog}) => {
                             {blog.previewText}
                         </section>
                     </section>
-                    <section className={classes.button}>
-                        <MyButtonBlog>
-                            Читать статью
-                        </MyButtonBlog>
+                    <section className={classes.footer}>
+                        <section className={classes.dateCounts}>
+                            <section className={classes.date}>
+                                {blog.createdAt}
+                            </section>
+                            <Views views={blog.viewsCount} />
+                        </section>
+                        <section className={classes.button}>
+                            <MyButtonBlog>
+                                Читать статью
+                            </MyButtonBlog>
+                        </section>
                     </section>
                 </section>
             </section>
