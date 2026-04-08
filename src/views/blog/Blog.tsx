@@ -1,6 +1,6 @@
 import classes from './blog.module.scss'
 import { isDynamicServerError } from 'next/dist/client/components/hooks-server-context'
-import { Blog, BlogCategories, BlogDoctor, blogService, IBlogDetail, ShareBlog } from '@/src/entities/blog';
+import { Blog, BlogCategories, BlogDoctor, blogService, getBlogJsonLd, IBlogDetail, ShareBlog } from '@/src/entities/blog';
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
@@ -37,57 +37,67 @@ export default async function BlogPage(props: IProps) {
         )
     }
 
+    const jsonLd = getBlogJsonLd(blog)
+
     return (
-        <BlogThemeProvider>
-            <section className={classes.page}>
-                <section className={classes.breadcrumbs}>
-                    <Breadcrumbs breadcrumbs={[
-                        {path: '/', label: 'Вернуться к базе'},
-                        {path: '/blogs', label: 'Статьи'},
-                        {path: '', label: blog.title},
-                    ]} />
-                </section>
-                <section className={classes.wrapperMain}>
-                    <aside className={classes.aside}>
-                        <Headlines />
-                    </aside>
-                    <main className={classes.main}>
-                        <section className={classes.switchTheme}>
-                            <OpenerBottomFixedWrap />
-                        </section>
-                        <section className={classes.mobileFixed}>
-                            <OpenerBottomFixedWrapMobile />
-                        </section>
-                        <Blog 
-                            blog={blog} 
-                            doctorBlog={blog.doctor.name ? blog.doctor : null}
-                            categories={
-                                <BlogCategories 
-                                    categories={blog.categories}
-                                />
-                            }
-                        >
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+                }}
+            />
+            <BlogThemeProvider>
+                <section className={classes.page}>
+                    <section className={classes.breadcrumbs}>
+                        <Breadcrumbs breadcrumbs={[
+                            {path: '/', label: 'Вернуться к базе'},
+                            {path: '/blogs', label: 'Статьи'},
+                            {path: '', label: blog.title},
+                        ]} />
+                    </section>
+                    <section className={classes.wrapperMain}>
+                        <aside className={classes.aside}>
+                            <Headlines />
+                        </aside>
+                        <main className={classes.main}>
+                            <section className={classes.switchTheme}>
+                                <OpenerBottomFixedWrap />
+                            </section>
+                            <section className={classes.mobileFixed}>
+                                <OpenerBottomFixedWrapMobile />
+                            </section>
+                            <Blog 
+                                blog={blog} 
+                                doctorBlog={blog.doctor.name ? blog.doctor : null}
+                                categories={
+                                    <BlogCategories 
+                                        categories={blog.categories}
+                                    />
+                                }
+                            >
+                                <Share>
+                                    <ShareBlog />
+                                </Share>
+                            </Blog>
                             <Share>
                                 <ShareBlog />
                             </Share>
-                        </Blog>
-                        <Share>
-                            <ShareBlog />
-                        </Share>
-                        {
-                            blog.doctor.name 
-                                &&
-                            <BlogDoctor 
-                                doctor={blog.doctor}
-                            />
-                        }
-                    </main>
+                            {
+                                blog.doctor.name 
+                                    &&
+                                <BlogDoctor 
+                                    doctor={blog.doctor}
+                                />
+                            }
+                        </main>
+                    </section>
+                    <section className={classes.blogsTop}>
+                        <h2 className={classes.other}>Читать другие статьи</h2>
+                        <BlogsTopLayout />
+                    </section>
                 </section>
-                <section className={classes.blogsTop}>
-                    <h2 className={classes.other}>Читать другие статьи</h2>
-                    <BlogsTopLayout />
-                </section>
-            </section>
-        </BlogThemeProvider>
+            </BlogThemeProvider>
+        </>
     )
 }
