@@ -2,8 +2,14 @@ version: '3.8'
 
 services:
   frontend:
-    build: .
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_TOKEN: ${NEXT_PUBLIC_TOKEN}
+        NEXT_PUBLIC_DOMAIN: ${NEXT_PUBLIC_DOMAIN}
     container_name: frontend
+    env_file:
+      - .env
     ports:
       - "3000:3000"
     restart: unless-stopped
