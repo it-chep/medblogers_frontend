@@ -3,7 +3,7 @@ import BannerVip from '../assets/BannerVip.png'
 import BannerVipMobile from '../assets/BannerVipMobile.png'
 import BannerNastav from '../assets/BannerNastav.png'
 import BannerNastavNobile from '../assets/BannerNastavMobile.png'
-import BannerOffer from '../assets/BannerOffer.jpg'
+import BannerOffer from '../assets/BannerOffer.png'
 import BannerOfferMobile from '../assets/BannerOfferMobile.jpg'
 
 
