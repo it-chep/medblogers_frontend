@@ -10,6 +10,7 @@ import { ButtonUp } from "@/src/features/buttonUp";
 import { ShowContentSmoothly } from "@/src/features/ShowContentSmoothly";
 import { GoogleAnalytics } from "@/src/app/google/GoogleAnalytics";
 import { BannersMobile, TouchSwitchBanner } from "@/src/features/switchBanner";
+import Script from "next/script";
 
 const DESCRIPTION = "Единая база врачей-блогеров для поиска рекламы | Открытый реестр докторов с блогами | Единый реестр медицинских блогеров | Cписок врачей-блогеров | Подборка медицинских блогеров | Реестр для медблогеров"
 
@@ -37,8 +38,21 @@ export default function RootLayout({
 
   return (
     <Suspense fallback={<></>} >
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body>
+          <Script id="views-access" strategy="beforeInteractive">
+            { /* для показа просмотров на статьях (до гидрации) */ }
+            {`
+              try {
+                var canSeeViews = localStorage.getItem('can_visible_views') === 'true';
+                if (canSeeViews) {
+                  document.documentElement.classList.add('can-visible-views');
+                }
+              } catch (e) {}
+            `}
+          </Script>
+
+
           <GoogleAnalytics gaId="G-QLS1GZEW7H" />
           <YandexMetrika counterId={99369042} />
           <Header>

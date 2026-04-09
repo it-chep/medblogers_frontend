@@ -6,7 +6,11 @@ import { FilterBlogs } from '@/src/widgets/filterBlogs';
 import { Suspense } from 'react';
 import { LoaderSpinner } from '@/src/shared/ui/loaderSpinner';
 
-export default function BlogsPage({ids}: {ids: number[]}) {
+interface IProps {
+    ids: number[];
+}
+
+export default function BlogsPage({ids}: IProps) {
 
     return (
         <section className={classes.page + ' wrapper_main'}>
