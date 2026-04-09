@@ -1,18 +1,33 @@
-
+﻿
 
 .container {
+    position: relative;
+    isolation: isolate;
     background-color: var(--light-black);
     border: 1px solid var(--dark-gray);
     border-radius: 30px;
     padding: 30px;
     overflow: hidden;
-    transition: all .15s ease;
 
     --text-color-offer: rgba(255, 255, 255, .6);
 
+    &::after{
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background-color: rgba(0, 0, 0, .15);
+        opacity: 0;
+        z-index: 11;
+        pointer-events: none;
+        transition: opacity .15s ease;
+    }
+
     @media (hover) {
         &:hover{
-            opacity: .8;
+            &::after{
+                opacity: 1;
+            }
         }
     }
 
