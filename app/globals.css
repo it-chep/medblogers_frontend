@@ -62,6 +62,14 @@ body.light{
   
 }
 
+.views {  /* для показа просмотров на статьях (до гидрации) */
+  display: none !important;
+}
+
+html.can-visible-views .views {
+  display: flex !important;
+}
+
 .wrapper_main{
   width: 1240px;
   max-width: 100%;
