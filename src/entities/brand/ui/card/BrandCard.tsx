@@ -44,16 +44,6 @@ export const BrandCard: FC<IProps> = ({brand, byOffer}) => {
                     value={brand.businessCategory.name}
                 />
             </section>
-            {
-                byOffer
-                    &&
-                <Link
-                    href={`/brands/${brand.slug}`}
-                    className={classes.button}
-                >
-                    Смотреть все офферы бренда
-                </Link>
-            }
         </section>
     )
 }
