@@ -4,7 +4,7 @@ import { Blog, BlogCategories, BlogDoctor, blogService, getBlogJsonLd, IBlogDeta
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
-import { BlogThemeProvider } from '@/src/features/switchTheme';
+import { BlogThemeProvider, BlogThemeRoot } from '@/src/features/switchTheme';
 import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
 import { Headlines } from '@/src/features/headlines';
 import { BlogRecommendationsLayout } from '@/src/widgets/blogRecommendations';
@@ -47,57 +47,61 @@ export default async function BlogPage(props: IProps) {
                     __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
                 }}
             />
-            <BlogThemeProvider>
-                <section className={classes.page}>
-                    <section className={classes.breadcrumbs}>
-                        <Breadcrumbs breadcrumbs={[
-                            {path: '/', label: 'Вернуться к базе'},
-                            {path: '/blogs', label: 'Статьи'},
-                            {path: '', label: blog.title},
-                        ]} />
-                    </section>
-                    <section className={classes.wrapperMain}>
-                        <aside className={classes.aside}>
-                            <Headlines />
-                        </aside>
-                        <main className={classes.main}>
-                            <section className={classes.switchTheme}>
-                                <OpenerBottomFixedWrap />
-                            </section>
-                            <section className={classes.mobileFixed}>
-                                <OpenerBottomFixedWrapMobile />
-                            </section>
-                            <Blog 
-                                blog={blog} 
-                                doctorBlog={blog.doctor.name ? blog.doctor : null}
-                                categories={
-                                    <BlogCategories 
-                                        categories={blog.categories}
-                                    />
-                                }
-                            >
+            <BlogThemeRoot>
+                <BlogThemeProvider>
+                    <section className={classes.page}>
+                        <section className={classes.breadcrumbs}>
+                            <Breadcrumbs breadcrumbs={[
+                                {path: '/', label: 'Вернуться к базе'},
+                                {path: '/blogs', label: 'Статьи'},
+                                {path: '', label: blog.title},
+                            ]} />
+                        </section>
+                        <section className={classes.wrapperMain}>
+                            <aside className={classes.aside}>
+                                <Headlines />
+                            </aside>
+                            <main className={classes.main}>
+                                <section className={classes.switchTheme}>
+                                    <OpenerBottomFixedWrap />
+                                </section>
+                                <section className={classes.mobileFixed}>
+                                    <OpenerBottomFixedWrapMobile />
+                                </section>
+                                <Blog 
+                                    blog={blog} 
+                                    doctorBlog={blog.doctor.name ? blog.doctor : null}
+                                    categories={
+                                        <BlogCategories 
+                                            categories={blog.categories}
+                                        />
+                                    }
+                                >
+                                    <Share>
+                                        <ShareBlog />
+                                    </Share>
+                                </Blog>
                                 <Share>
                                     <ShareBlog />
                                 </Share>
-                            </Blog>
-                            <Share>
-                                <ShareBlog />
-                            </Share>
-                            {
-                                blog.doctor.name 
-                                    &&
-                                <BlogDoctor 
-                                    doctor={blog.doctor}
-                                />
-                            }
-                        </main>
+                                {
+                                    blog.doctor.name 
+                                        &&
+                                    <BlogDoctor 
+                                        doctor={blog.doctor}
+                                    />
+                                }
+                            </main>
+                        </section>
                     </section>
-                    <section className={classes.blogsTop}>
-                        <h2 className={classes.other}>Также рекомендуем прочитать</h2>
-                        <BlogRecommendationsLayout slug={blog.slug} />
-                    </section>
+                </BlogThemeProvider>
+            </BlogThemeRoot>
+            <section className={classes.page}>
+                <section className={classes.blogsTop}>
+                    <h2 className={classes.other}>Также рекомендуем прочитать</h2>
+                    <BlogRecommendationsLayout slug={blog.slug} />
                 </section>
-            </BlogThemeProvider>
+            </section>
         </>
     )
 }

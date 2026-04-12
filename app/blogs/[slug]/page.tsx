@@ -1,5 +1,4 @@
 import { blogService, IBlogDetail } from "@/src/entities/blog";
-import { BlogThemeRoot } from "@/src/features/switchTheme/ui/root/BlogThemeRoot";
 import BlogPage from "@/src/views/blog/Blog";
 import "./page.css";
 import { ViewTracker } from "./ViewTracker";
@@ -36,9 +35,7 @@ export default async function Blog({ params }: any) {
     
     return (
         <ViewTracker slug={slug}>
-            <BlogThemeRoot>
-                <BlogPage slug={slug} />
-            </BlogThemeRoot>
+            <BlogPage slug={slug} />
         </ViewTracker>
     )
 }
