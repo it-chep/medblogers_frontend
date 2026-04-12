@@ -60,6 +60,16 @@ class BlogService {
         return blogs
     }
 
+    async getRecommendations(blogSlug: string){
+        const res = await fetch(SERVER_URL_API + '/v1/blog/' + blogSlug + '/recommendations',
+            {
+                cache: "no-cache"
+            }
+        )
+        const {blogs}: {blogs: IBlogMiniature[]} = await res.json()
+        return blogs
+    }
+
     async get(slug: string){
         const res = await fetch(SERVER_URL_API + '/v1/blog/' + slug, 
             {

@@ -4,10 +4,10 @@ import { Blog, BlogCategories, BlogDoctor, blogService, getBlogJsonLd, IBlogDeta
 import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
-import { BlogsTopLayout } from '@/src/widgets/blogsTop';
 import { BlogThemeProvider } from '@/src/features/switchTheme';
 import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
 import { Headlines } from '@/src/features/headlines';
+import { BlogRecommendationsLayout } from '@/src/widgets/blogRecommendations';
 
 const getData = async (slug: string) => {
     let blog: IBlogDetail | null = null;
@@ -93,8 +93,8 @@ export default async function BlogPage(props: IProps) {
                         </main>
                     </section>
                     <section className={classes.blogsTop}>
-                        <h2 className={classes.other}>Читать другие статьи</h2>
-                        <BlogsTopLayout />
+                        <h2 className={classes.other}>Также рекомендуем прочитать</h2>
+                        <BlogRecommendationsLayout slug={blog.slug} />
                     </section>
                 </section>
             </BlogThemeProvider>
