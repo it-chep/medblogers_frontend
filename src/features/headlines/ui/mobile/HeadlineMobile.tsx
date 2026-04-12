@@ -17,7 +17,7 @@ export const HeadlineMobile: FC<PropsWithChildren> = () => {
     const selectedHeadline = useCheckTargetHeadline(headlines)
         
     const getHeadlines = () => {
-        const h2h3 = document.querySelectorAll('main h2,h3')
+        const h2h3 = document.querySelectorAll('main h2')
         const elemsContent: Element[] = [];
         for(let elem of h2h3){
             elemsContent.push(elem)
