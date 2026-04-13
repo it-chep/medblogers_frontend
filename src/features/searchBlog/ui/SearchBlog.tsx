@@ -50,7 +50,7 @@ export const SearchBlog: FC<IProps> = ({}) => {
                     open={open}
                     onChange={onChange} 
                     onFocus={onOpen} 
-                    placeholder="ФИО, город, специальность"
+                    placeholder="Найти статью"
                 />
             </section>
             <MyModal open={open} setOpen={setOpen}>
