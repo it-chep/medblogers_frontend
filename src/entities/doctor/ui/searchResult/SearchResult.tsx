@@ -4,7 +4,6 @@ import { ItemList } from "../searchItemList/ItemList";
 import { ISearchDoctors, SearchMiniature } from "@/src/entities/doctor";
 import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 
-
 interface IProps {
     result: ISearchDoctors | null;
     setOpen: (open: boolean) => void;

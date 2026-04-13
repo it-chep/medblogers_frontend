@@ -42,3 +42,11 @@ export interface IBlogDetail {
     categories: IBlogCategory[];
     viewsCount: string;
 }
+
+export interface IBlogSearch {
+    title: string;
+    slug: string;
+    previewText: string;
+    photoLink: string;
+    viewsCount: string;
+}

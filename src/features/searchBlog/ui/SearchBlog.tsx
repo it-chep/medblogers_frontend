@@ -1,18 +1,21 @@
 "use client"
 
-import { FC, PropsWithChildren, useState } from "react";
-import { MyModal } from "@/src/shared/ui/myModal";
-import classes from './search.module.scss'
-import { ISearchFreelancers, SearchResultFreelancer } from "@/src/entities/freelancer";
-import { searchFreelancersService } from "../api/SearchFreelancersService";
+import { FC, useState } from "react";
+import classes from './searchBlog.module.scss'
 import { SearchInput } from "@/src/shared/ui/searchInput";
+import { BlogSearchItems, blogService, IBlogSearch } from "@/src/entities/blog";
+import { MyModal } from "@/src/shared/ui/myModal";
 
-export const SearchFreelancers: FC<PropsWithChildren> = ({children}) => {
+interface IProps {
+
+}
+
+export const SearchBlog: FC<IProps> = ({}) => {
 
     const [open, setOpen] = useState<boolean>(false)
-    const [searchResult, setSearchResult] = useState<ISearchFreelancers | null>(null)
+    const [searchResult, setSearchResult] = useState<IBlogSearch[] | null>(null)
     const [isLoading, setIsLoading] = useState<boolean>(false)
-
+    
     const onOpen = () => setOpen(true)
 
     const search = async (value: string) => {
@@ -22,7 +25,7 @@ export const SearchFreelancers: FC<PropsWithChildren> = ({children}) => {
         }
         try{
             setIsLoading(true)
-            const searchRes = await searchFreelancersService.get(encodeURI(value))
+            const searchRes = await blogService.search(value)
             setSearchResult(searchRes)
         }
         catch(e: any){
@@ -34,9 +37,8 @@ export const SearchFreelancers: FC<PropsWithChildren> = ({children}) => {
         finally{
             setIsLoading(false)
         }
-
     } 
-
+    
     const onChange = (value: string) => {
         search(value)
     }   
@@ -47,22 +49,14 @@ export const SearchFreelancers: FC<PropsWithChildren> = ({children}) => {
                 <SearchInput 
                     open={open}
                     onChange={onChange} 
-                    onFocus={onOpen}
+                    onFocus={onOpen} 
                     placeholder="ФИО, город, специальность"
                 />
-                {
-                    children
-                        &&
-                    <section className={classes.openFilterForMobile}>
-                        {children}
-                    </section>
-                }
             </section>
             <MyModal open={open} setOpen={setOpen}>
-                <SearchResultFreelancer 
-                    result={searchResult} 
-                    setOpen={setOpen}
-                    isLoading={isLoading}
+                <BlogSearchItems 
+                    blogs={searchResult} 
+                    isLoading={isLoading} 
                 />
             </MyModal>
         </section>

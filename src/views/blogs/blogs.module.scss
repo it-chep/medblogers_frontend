@@ -6,7 +6,7 @@
     .filter{
         display: flex;
         align-items: center;
-        margin-top: 50px;
+        margin-top: 30px;
         min-height: 40px;
 
         .loaderFilter{
@@ -33,7 +33,7 @@
 
     .sign{
         font-size: 20px;
-        margin-top: 16px;   
+        margin-top: 24px;   
 
         a{
             color: var(--blue);
@@ -43,6 +43,10 @@
                 color: var(--blue-hover);
             }
         }
+    }
+    
+    .search{
+        margin-top: 30px;
     }
 }
 
