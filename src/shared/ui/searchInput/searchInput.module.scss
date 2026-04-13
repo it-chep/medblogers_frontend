@@ -7,18 +7,20 @@
     z-index: 9;
     width: 100%;
     padding: 10px 25px;
+    height: 50px;
     align-items: center;
     gap: 10px;
     border-radius: 61px;
-    border: 2px solid #606060;
+    border: 1px solid var(--dark-gray);
     transition: border 0.25s ease;
-    background-color: #1A1A1A;
-
-    svg{
+    background-color: var(--light-background);
+    
+    >svg{
         width: 25px;
         height: 25px;
+        fill: var(--sign-gray);
     }
-
+    
     input{
         color: white;
         background-color: transparent;
@@ -28,16 +30,14 @@
         outline: none;
         box-shadow: none;
         z-index: 1;
-
+        
+        &::placeholder{
+            color: var(--sign-gray);
+        }
     }
+
     &.focus{
-        border: 2px solid var(--blue);
+        border: 1px solid var(--blue);
         z-index: 109;
-    }
-}
-
-@media (max-width: 480px) {
-    .wrapper{
-        height: 50px;
     }
 }

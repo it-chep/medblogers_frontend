@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { FilterBlogs } from '@/src/widgets/filterBlogs';
 import { Suspense } from 'react';
 import { LoaderSpinner } from '@/src/shared/ui/loaderSpinner';
+import { SearchBlog } from '@/src/features/searchBlog';
 
 interface IProps {
     ids: number[];
@@ -26,6 +27,9 @@ export default function BlogsPage({ids}: IProps) {
                 </h1>
                 <section className={classes.sign}>
                     Есть идея для статьи? <a href='https://t.me/m/FIqVfvb9ZmEy' target="_blank">Напишите нам</a>
+                </section>
+                <section className={classes.search}>
+                    <SearchBlog />
                 </section>
                 <section className={classes.filter}>
                     <Suspense 

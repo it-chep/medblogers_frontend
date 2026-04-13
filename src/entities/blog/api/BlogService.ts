@@ -1,5 +1,6 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
-import { IBlogCategory, IBlogDetail, IBlogMiniature } from "../model/types"
+import { IBlogCategory, IBlogDetail, IBlogMiniature, IBlogSearch } from "../model/types"
+import { MyError } from "@/src/shared/lib/error/MyError"
 
 
 
@@ -94,7 +95,38 @@ class BlogService {
         })
     }
 
-    
+    controller: AbortController | null = null;
+
+    async search(query: string){
+
+        if(this.controller){
+            this.controller.abort()
+        }
+
+        this.controller = new AbortController()
+
+        const res = await fetch(SERVER_URL_API + `/v1/blogs/search`, {
+            method: "POST",
+            body: JSON.stringify({
+                query,
+            }),
+            signal: this.controller.signal,
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+            },
+            cache: "no-cache"
+        })
+
+        if(!res.ok) {
+            throw new MyError('Ошибка при запросе', res.status)
+        }
+
+        const {blogs}: {blogs: IBlogSearch[]} = await res.json()
+
+        this.controller = null;
+
+        return blogs
+    }
 }
 
 export const blogService = new BlogService()
