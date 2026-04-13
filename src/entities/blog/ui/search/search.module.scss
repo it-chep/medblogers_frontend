@@ -44,15 +44,14 @@
         list-style: none;
         
         .item{
-
-            &:last-child{
-                .link{
-                    padding: 12px 24px 24px 24px;
-                }
-            }
             &:first-child{
                 .link{
-                    padding: 24px 24px 12px 24px;
+                    padding-top: 24px;
+                }
+            }
+            &:last-child{
+                .link{
+                    padding-bottom: 24px;
                 }
             }
 
@@ -111,14 +110,14 @@
     .container{
         .list{
             .item{
-                &:last-child{
-                    .link{
-                        padding: 10px 15px 15px 15px;
-                    }
-                }
                 &:first-child{
                     .link{
-                        padding: 15px 15px 10px 15px;
+                        padding-top: 15px;
+                    }
+                }
+                &:last-child{
+                    .link{
+                        padding-bottom: 15px;
                     }
                 }
 
