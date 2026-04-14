@@ -10,7 +10,7 @@ interface IProps {
     setOpen: (open: boolean) => void;
     open: boolean;
     isLight?: boolean;
-    ref: RefObject<HTMLDivElement | null>
+    ref?: RefObject<HTMLDivElement | null>
 }
 
 export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref}) => {
@@ -56,7 +56,11 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref}) =>
                 {icon}
             </section>
             {
-                open && ref.current?.parentElement
+                open 
+                    &&
+                ref
+                    ?                     
+                ref.current?.parentElement
                     &&
                 createPortal(
                     <section 
@@ -67,6 +71,13 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref}) =>
                     </section>,
                     ref.current?.parentElement
                 )
+                    :
+                <section 
+                    ref={refHint}
+                    className={classes.hint  + (isLight ? ` ${classes.light}` : '')} 
+                >
+                    {elem}
+                </section>
             }
         </section>
     )
