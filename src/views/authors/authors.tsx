@@ -1,11 +1,11 @@
-import classes from './authors.module.scss'
+import classes from '../methodology/methodology.module.scss'
 import {blogClasses} from '@/src/entities/blog'
 import {doctorService} from '@/src/entities/doctor'
 import {Breadcrumbs} from '@/src/widgets/breadcrumbs'
 import {AuthorCard} from './AuthorCard'
 import { Headlines } from '@/src/features/headlines'
 import { BlogThemeProvider } from '@/src/features/switchTheme';
-import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
+import { OpenerBottomFixedWrapMobile, OpenerLeftWrap } from '@/src/widgets/openerBottomFixed';
 import '../../../app/blogs/[slug]/page.css'
 
 const authors = [
@@ -78,18 +78,20 @@ export default async function AuthorsPage() {
 
     return (
         <BlogThemeProvider>
-            <section className={classes.page + ' wrapper_main'}>
+            <section className={classes.page}>
+                <section className={classes.breadcrumbs}>
                 <Breadcrumbs breadcrumbs={[
                 {path: '/', label: 'Вернуться к базе'},
                 {path: '', label: 'Авторы'},
                 ]}/>
+                </section>
                 <section className={classes.wrapperMain}>
                     <aside className={classes.aside}>
                     <Headlines />
                     </aside>
                     <main className={classes.main}>
                         <section className={classes.switchTheme}>
-                        <OpenerBottomFixedWrap />
+                        <OpenerLeftWrap />
                         </section>
                         <section className={classes.mobileFixed}>
                         <OpenerBottomFixedWrapMobile />

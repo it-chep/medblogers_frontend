@@ -1,6 +1,24 @@
 
 .page{
     min-height: 100vh;
+    width: 1240px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 80px 0 20px;    
+    background-color: transparent;
+
+    .switchTheme{
+        display: block;
+    }
+
+    .mobileFixed{
+        display: none;
+        position: fixed;
+        z-index: 11;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
     .wrapperMain{
         display: flex;
@@ -8,10 +26,12 @@
         margin-top: 30px;
 
         .aside{
-            width: 300px;
+            width: 268px;
+            min-width: 268px;
         }
 
         .main{
+            position: relative;
             display: flex;
             flex-direction: column;
             gap: 30px;
@@ -20,34 +40,39 @@
             border-radius: 20px;
             background: var(--background-blog);
             padding: 35px;
-
-            
-            .switchTheme{
-                position: fixed;
-                z-index: 11;
-                bottom: 20px;
-                left: calc(50% + 83px);
-                transform: translateX(-50%);
-            }
-
-            .mobileFixed{
-                display: none;
-                position: fixed;
-                z-index: 11;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
         }
     }
 }
 
+@media (max-width: 1000px) {
+    .page{
+        padding: 0 20px;
+        
+        .main{
+            overflow: hidden;
+        }
+    }
+}
+
+
 @media (max-width: 850px) {
     .page{
+        .switchTheme{
+            display: none;
+        }            
+        .mobileFixed{
+            display: block;
+        }
         .wrapperMain{
             gap: 0;
+            
             .aside{
-                width: 0;
+                width: 0px;
+                min-width: 0;
+            }
+
+            .main{
+                width: 100%;
             }
         }
     }
@@ -55,6 +80,11 @@
 
 @media (max-width: 480px) {
     .page{
+        padding: 0;
+        
+        .breadcrumbs{
+            padding: 0 20px;
+        }
         .wrapperMain{
             .main{
                 padding: 20px;

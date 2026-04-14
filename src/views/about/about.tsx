@@ -2,7 +2,7 @@ import classes from '../methodology/methodology.module.scss'
 import {blogClasses} from '@/src/entities/blog'
 import {Breadcrumbs} from '@/src/widgets/breadcrumbs';
 import {Headlines} from '@/src/features/headlines';
-import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
+import { OpenerBottomFixedWrapMobile, OpenerLeftWrap } from '@/src/widgets/openerBottomFixed';
 import { BlogThemeProvider } from '@/src/features/switchTheme';
 import '../../../app/blogs/[slug]/page.css'
 
@@ -10,18 +10,20 @@ export default function AboutPage() {
 
     return (
         <BlogThemeProvider>
-            <section className={classes.page + ' wrapper_main'}>
+            <section className={classes.page}>
+                <section className={classes.breadcrumbs}>
                 <Breadcrumbs breadcrumbs={[
                     {path: '/', label: 'Вернуться к базе'},
                     {path: '', label: 'О проекте'},
                 ]}/>
+                </section>
                 <section className={classes.wrapperMain}>
                     <aside className={classes.aside}>
                         <Headlines/>
                     </aside>
                     <main className={classes.main}>
                         <section className={classes.switchTheme}>
-                            <OpenerBottomFixedWrap />
+                            <OpenerLeftWrap />
                         </section>
                         <section className={classes.mobileFixed}>
                             <OpenerBottomFixedWrapMobile />
