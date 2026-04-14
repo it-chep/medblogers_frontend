@@ -5,15 +5,11 @@
     width: 1240px;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;    
+    padding: 0 80px 0 20px;    
     background-color: transparent;
 
     .switchTheme{
-        position: fixed;
-        z-index: 11;
-        bottom: 20px;
-        left: calc(50% + 83px);
-        transform: translateX(-50%);
+        display: block;
     }
 
     .mobileFixed{
@@ -48,7 +44,6 @@
         }
     }
     
-
     .blogsTop{
         margin-top: 70px;
 
@@ -60,12 +55,15 @@
     }
 }
 
-@media (max-width: 1240px) {
-    .switchTheme {
-        left: 50%;
+@media (max-width: 1000px) {
+    .page{
+        padding: 0 20px;
+        
+        .main{
+            overflow: hidden;
+        }
     }
 }
-
 
 @media (max-width: 850px) {
     .page{

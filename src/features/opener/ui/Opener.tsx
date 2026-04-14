@@ -11,9 +11,10 @@ interface IProps {
     open: boolean;
     isLight?: boolean;
     ref?: RefObject<HTMLDivElement | null>
+    positionLeft?: boolean;
 }
 
-export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref}) => {
+export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref, positionLeft}) => {
 
     const refContainer = useRef<HTMLDivElement>(null)
     const refHint = useRef<HTMLDivElement>(null)
@@ -48,7 +49,7 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref}) =>
     return (
         <section className={classes.wrapper}>
             <section 
-                className={classes.container} 
+                className={classes.icon + (positionLeft ? ` ${classes.left}` : '')} 
                 onClick={() => setOpen(!open)}
                 onMouseDown={e => e.preventDefault()}
                 ref={refContainer}
@@ -58,14 +59,14 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref}) =>
             {
                 open 
                     &&
-                ref
+                (ref
                     ?                     
                 ref.current?.parentElement
                     &&
                 createPortal(
                     <section 
                         ref={refHint}
-                        className={classes.hint  + (isLight ? ` ${classes.light}` : '')} 
+                        className={classes.hint  + (isLight ? ` ${classes.light}` : '') + (positionLeft ? ` ${classes.left}` : '')} 
                     >
                         {elem}
                     </section>,
@@ -74,10 +75,10 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref}) =>
                     :
                 <section 
                     ref={refHint}
-                    className={classes.hint  + (isLight ? ` ${classes.light}` : '')} 
+                    className={classes.hint  + (isLight ? ` ${classes.light}` : '') + (positionLeft ? ` ${classes.left}` : '')} 
                 >
                     {elem}
-                </section>
+                </section>)
             }
         </section>
     )

@@ -2,7 +2,7 @@
 
 
 .wrapper{
-    .container {
+    .icon {
         position: relative;
         display: flex;
         align-items: center;
@@ -12,6 +12,10 @@
         width: 40px;
         min-height: 40px;
         cursor: pointer;
+
+        &.left{
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        }
     }
 }
 
@@ -24,6 +28,15 @@
     background-color: var(--dark-background);
     border-radius: 20px;
     width: 210px;
+
+    &.left{
+        position: absolute;
+        right: 45px;
+        left: auto;
+        top: -5px;
+        bottom: auto;
+        transform: translateX(0);
+    }
 
     &.light{
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
