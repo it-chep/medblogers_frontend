@@ -1,7 +1,8 @@
 "use client"
 
-import { FC, ReactNode, useCallback, useEffect, useRef } from "react";
+import { FC, ReactNode, RefObject, useCallback, useEffect, useRef } from "react";
 import classes from './opener.module.scss'
+import { createPortal } from "react-dom";
 
 interface IProps {
     icon: ReactNode;
@@ -9,9 +10,10 @@ interface IProps {
     setOpen: (open: boolean) => void;
     open: boolean;
     isLight?: boolean;
+    ref: RefObject<HTMLDivElement | null>
 }
 
-export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight}) => {
+export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref}) => {
 
     const refContainer = useRef<HTMLDivElement>(null)
     const refHint = useRef<HTMLDivElement>(null)
@@ -44,7 +46,7 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight}) => {
     }, [])
 
     return (
-        <section className={classes.wrapper + (isLight ? ` ${classes.light}` : '')}>
+        <section className={classes.wrapper}>
             <section 
                 className={classes.container} 
                 onClick={() => setOpen(!open)}
@@ -54,14 +56,17 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight}) => {
                 {icon}
             </section>
             {
-                open
+                open && ref.current?.parentElement
                     &&
-                <section 
-                    ref={refHint}
-                    className={classes.hint} 
-                >
-                    {elem}
-                </section>
+                createPortal(
+                    <section 
+                        ref={refHint}
+                        className={classes.hint  + (isLight ? ` ${classes.light}` : '')} 
+                    >
+                        {elem}
+                    </section>,
+                    ref.current?.parentElement
+                )
             }
         </section>
     )

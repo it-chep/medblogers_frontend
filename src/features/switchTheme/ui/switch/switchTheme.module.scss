@@ -41,8 +41,10 @@
                 background-color: var(--light-background);
             }
 
-            &:hover{
-                background-color: var(--light-background);
+            @media (hover) {
+                &:hover{
+                    background-color: var(--light-background);
+                }
             }
         }
     }

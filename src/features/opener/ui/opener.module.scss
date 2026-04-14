@@ -13,23 +13,19 @@
         min-height: 40px;
         cursor: pointer;
     }
-    
-    .hint{
-        position: fixed;
-        bottom: 48px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: var(--dark-background);
-        border-radius: 20px;
-        width: 210px;
-    }
+}
+
+.hint{
+    position: fixed;
+    z-index: 9;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark-background);
+    border-radius: 20px;
+    width: 210px;
 
     &.light{
-        .hint{
-            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-        }
-        .container{
-            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-        }
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     }
 }

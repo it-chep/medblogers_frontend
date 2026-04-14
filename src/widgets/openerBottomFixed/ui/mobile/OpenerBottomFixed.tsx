@@ -1,7 +1,7 @@
 "use client"
 
 import { SwitchTheme, useBlogTheme } from "@/src/features/switchTheme";
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 import classes from './openerBottomFixed.module.scss'
 import { Opener } from "@/src/features/opener";
 import { HeadlineMobile } from "@/src/features/headlines";
@@ -12,11 +12,18 @@ export const OpenerBottomFixedWrapMobile: FC = () => {
 
     const [open, setOpen] = useState<boolean>(false)
         
+    const refWrapper = useRef<HTMLDivElement>(null)
+
     return (
-        <section className={classes.wrapper + (isLight ? ` ${classes.light}` : '')}>
+        <section 
+            ref={refWrapper}
+            className={classes.wrapper + (isLight ? ` ${classes.light}` : '')}
+        >
             <section className={classes.switchTheme}>
                 <Opener
                     open={open}
+                    isLight={isLight}
+                    ref={refWrapper}
                     setOpen={setOpen}
                     icon={(isLight
                             ?
