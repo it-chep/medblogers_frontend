@@ -13,6 +13,8 @@ import { BlogsTopLayout } from '@/src/widgets/blogsTop'
 import { FAQ } from '@/src/widgets/FAQ'
 import { CheckBlacklist } from '@/src/features/checkBlacklist'
 import { Banners, SwitchBanner } from '@/src/features/switchBanner'
+import { ButtonDark } from '@/src/shared/ui/buttonDark'
+import Link from 'next/link'
 
 const getData = async () => {
     let filters: IFilter | null = null;
@@ -46,6 +48,9 @@ export default async function HomePage() {
                     <section className={classes.banners}>
                         <SwitchBanner banners={Banners} />
                     </section>
+                    <Link href={'/helpers'} className={classes.button}>
+                        <ButtonDark><span className={classes.helpersLink}>Перейти к базе помощников</span></ButtonDark>
+                    </Link>
                     <StatisticsLayout />
                     <SearchDoctors>
                         <OpenFiltersModal>

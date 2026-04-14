@@ -1,2 +1,2 @@
-export { OpenerBottomFixedWrap } from "./ui/desktop/OpenerBottomFixed";
+export { OpenerLeftWrap } from "./ui/desktop/OpenerLeftWrap";
 export { OpenerBottomFixedWrapMobile } from "./ui/mobile/OpenerBottomFixed";

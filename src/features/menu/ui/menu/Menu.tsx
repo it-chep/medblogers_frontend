@@ -19,7 +19,6 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
     const refMenu = useRef<HTMLDivElement>(null)
 
     const pathname = usePathname()
-    const isFreelancer = pathname.includes('helpers') || pathname.includes('freelancer')
 
     useEffect(() => {
         if(refMenu.current){
@@ -32,6 +31,10 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
         }
     }, [open])
 
+    const checkSeleced = (link: string) => {
+        return link === '/' ? pathname === '/' : pathname.includes(link)
+    }
+
     return (
         <nav ref={refMenu} className={classes.menu}>
             <section>
@@ -43,7 +46,10 @@ export const Menu: FC<IProps> = ({open, setOpen}) => {
                 </section>
                 <ul className={classes.list}>
                     {menuLinks.map((menuLink, ind) => 
-                        <li key={ind}>
+                        <li 
+                            key={ind}
+                            className={checkSeleced(menuLink.link) ? classes.selected : ''}
+                        >
                             {
                                 menuLink.site
                                     ?

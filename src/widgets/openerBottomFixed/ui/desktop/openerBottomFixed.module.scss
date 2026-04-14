@@ -6,3 +6,16 @@
 .moon{
     stroke: var(--text-gray);
 }
+
+.container{
+    position: absolute;
+    right: -50px;
+    top: 0;
+}
+
+@media (max-width: 1000px) {
+    .container{
+        right: 10px;
+        top: 10px;
+    }
+}

@@ -1,72 +1,21 @@
 "use client"
 
 import { SwitchTheme, useBlogTheme } from "@/src/features/switchTheme";
-import { FC, useCallback, useEffect, useRef, useState } from "react";
+import { FC, useState } from "react";
 import classes from './openerBottomFixed.module.scss'
 import { Opener } from "@/src/features/opener";
 
-export const OpenerBottomFixedWrap: FC = () => {
+export const OpenerLeftWrap: FC = () => {
 
     const { isLight } = useBlogTheme();
 
     const [open, setOpen] = useState<boolean>(false)
 
-    const [display, setDisplay] = useState<'none' | 'block'>('block')
-
-    const observerRef = useRef<IntersectionObserver | null>(null)
-
-    const initObserver = useCallback(() => {
-        const options: IntersectionObserverInit = {
-            rootMargin: -window.innerHeight + 'px',
-        }
-
-        const callback = (entries: IntersectionObserverEntry[]) => {
-            entries.forEach(entry => {
-                if(!entry.isIntersecting){
-                    setDisplay('none')
-                }
-                else{
-                    setDisplay('block')
-                }
-            })
-        }
-
-        const main = document.querySelector('main')
-        if(main){
-            const observer = new IntersectionObserver(callback, options)
-            observer.observe(main)
-            observerRef.current = observer;
-        }  
-    }, [])
-
-    useEffect(() => {
-
-        initObserver()
-
-        const onResize = () => {
-            if(observerRef.current){
-                observerRef.current.disconnect()
-            }
-            initObserver()
-        }
-
-        window.addEventListener('resize', onResize)
-
-        return () => {
-            window.removeEventListener('resize', onResize)
-
-            if(observerRef.current){
-                observerRef.current.disconnect()
-            }
-        }
-
-    }, [])
 
     return (
-        <section
-            style={{display}}
-        >
+        <section className={classes.container}>
             <Opener
+                positionLeft
                 open={open}
                 setOpen={setOpen}
                 isLight={isLight}
@@ -82,6 +31,7 @@ export const OpenerBottomFixedWrap: FC = () => {
                 )}
                 elem={<SwitchTheme setOpen={setOpen} />}
             />
+            
         </section>
     )
 }

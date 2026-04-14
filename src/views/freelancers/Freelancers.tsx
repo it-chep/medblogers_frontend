@@ -46,6 +46,9 @@ export default async function FreelancersPage() {
                 </aside>
                 <main className={classes.main}>
                     {/* <StatisticsFreelancersLayout /> */}
+                    <Link href={'/'} className={classes.button}>
+                        <ButtonDark><span className={classes.doctorsLink}>Перейти к базе врачей-блогеров</span></ButtonDark>
+                    </Link>
                     <SearchFreelancers>
                         <OpenFiltersModal>
                             <FiltersFreelancersLayout filters={filters} forDesk={false} />

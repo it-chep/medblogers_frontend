@@ -5,7 +5,7 @@ import { Breadcrumbs } from '@/src/widgets/breadcrumbs';
 import { notFound } from 'next/navigation';
 import { Share } from '@/src/features/share';
 import { BlogThemeProvider, BlogThemeRoot } from '@/src/features/switchTheme';
-import { OpenerBottomFixedWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
+import { OpenerLeftWrap, OpenerBottomFixedWrapMobile } from '@/src/widgets/openerBottomFixed';
 import { Headlines } from '@/src/features/headlines';
 import { BlogRecommendationsLayout } from '@/src/widgets/blogRecommendations';
 
@@ -63,7 +63,7 @@ export default async function BlogPage(props: IProps) {
                             </aside>
                             <main className={classes.main}>
                                 <section className={classes.switchTheme}>
-                                    <OpenerBottomFixedWrap />
+                                    <OpenerLeftWrap />
                                 </section>
                                 <section className={classes.mobileFixed}>
                                     <OpenerBottomFixedWrapMobile />

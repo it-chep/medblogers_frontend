@@ -6,6 +6,16 @@ export const menuLinks: IMenu[] = [
         link: 'https://medblogers.ru/'
     },
     {
+        name: 'База врачей-блогеров',
+        link: '/',
+        site: true,
+    },
+    {
+        name: 'База помощников',
+        link: '/helpers',
+        site: true,
+    },
+    {
         name: 'Связаться с техподдержкой и задать вопрос',
         link: 'https://t.me/readydog'
     },

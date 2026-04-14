@@ -1,7 +1,8 @@
 "use client"
 
-import { FC, ReactNode, useCallback, useEffect, useRef } from "react";
+import { FC, ReactNode, RefObject, useCallback, useEffect, useRef } from "react";
 import classes from './opener.module.scss'
+import { createPortal } from "react-dom";
 
 interface IProps {
     icon: ReactNode;
@@ -9,9 +10,11 @@ interface IProps {
     setOpen: (open: boolean) => void;
     open: boolean;
     isLight?: boolean;
+    ref?: RefObject<HTMLDivElement | null>
+    positionLeft?: boolean;
 }
 
-export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight}) => {
+export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight, ref, positionLeft}) => {
 
     const refContainer = useRef<HTMLDivElement>(null)
     const refHint = useRef<HTMLDivElement>(null)
@@ -44,9 +47,9 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight}) => {
     }, [])
 
     return (
-        <section className={classes.wrapper + (isLight ? ` ${classes.light}` : '')}>
+        <section className={classes.wrapper}>
             <section 
-                className={classes.container} 
+                className={classes.icon + (positionLeft ? ` ${classes.left}` : '')} 
                 onClick={() => setOpen(!open)}
                 onMouseDown={e => e.preventDefault()}
                 ref={refContainer}
@@ -54,14 +57,28 @@ export const Opener: FC<IProps> = ({icon, elem, setOpen, open, isLight}) => {
                 {icon}
             </section>
             {
-                open
+                open 
                     &&
+                (ref
+                    ?                     
+                ref.current?.parentElement
+                    &&
+                createPortal(
+                    <section 
+                        ref={refHint}
+                        className={classes.hint  + (isLight ? ` ${classes.light}` : '') + (positionLeft ? ` ${classes.left}` : '')} 
+                    >
+                        {elem}
+                    </section>,
+                    ref.current?.parentElement
+                )
+                    :
                 <section 
                     ref={refHint}
-                    className={classes.hint} 
+                    className={classes.hint  + (isLight ? ` ${classes.light}` : '') + (positionLeft ? ` ${classes.left}` : '')} 
                 >
                     {elem}
-                </section>
+                </section>)
             }
         </section>
     )
