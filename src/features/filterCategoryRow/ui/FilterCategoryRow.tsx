@@ -27,7 +27,7 @@ export const FilterCategoryRow: FC<IProps> = ({categories, all, labelSearchParam
                     name: 'Все',
                     selected: false,
                     count: String(all),
-                }, ...categories.map(c => ({...c, selected: ids.includes(c.id)})).sort((a, b) => +b.selected - +a.selected)
+                }, ...categories.map(c => ({...c, selected: ids.includes(c.id)}))
             ]
         }
         else{
@@ -37,7 +37,7 @@ export const FilterCategoryRow: FC<IProps> = ({categories, all, labelSearchParam
                     name: 'Все',
                     selected: true,
                     count: String(all),
-                }, ...categories.map(coop_type => ({...coop_type, selected: false})).sort((a, b) => +b.selected - +a.selected)
+                }, ...categories.map(coop_type => ({...coop_type, selected: false}))
             ]
         }
     }, [searchParams])  // если будет ?page, то нужно сделать другую зависимость без page

@@ -28,6 +28,9 @@
     gap: 20px;
     width: 100%;
 
+    .button{
+      display: none;
+    }
   }
   .blogsTop{
     display: flex;
@@ -60,6 +63,20 @@
     .aside .filters{
       display: none;
     }
+
+    .main{
+      .button{
+        display: block;
+        height: min-content;
+        height: 55px;
+        min-height: 55px;
+        
+        .doctorsLink{
+          font-size: 17px;
+        }
+      }
+    }
+
     .blogsTop{
       margin-top: 70px;
 

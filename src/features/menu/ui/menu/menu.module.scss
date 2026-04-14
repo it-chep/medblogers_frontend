@@ -1,6 +1,4 @@
 
-
-
 .menu{
     position: fixed;
     display: flex;
@@ -14,7 +12,6 @@
     z-index: 999;
     top: 0;
     height: 100%;
-
 
     .header{
         display: flex;
@@ -47,8 +44,14 @@
 
             transition: color .15s ease;
 
-            &:hover{
+            &.selected{
                 color: var(--blue);
+            }
+
+            @media (hover) {
+                &:hover{
+                    color: var(--blue);
+                }
             }
         }
     }
@@ -77,7 +80,6 @@
     }
 }
 
-
 @media (max-width: 400px) {
     .menu{
         .list{
@@ -90,11 +92,11 @@
 
 @media (max-width: 350px) {
     .menu{
-      .header{
-        margin: 11.5px 1px 20px 0;
-      }
-      .list{
-        padding: 0;
-      }
+        .header{
+            margin: 11.5px 1px 20px 0;
+        }
+        .list{
+            padding: 0;
+        }
     }
 }
