@@ -188,7 +188,7 @@ export const Filters: FC<IProps> = ({forDesk, filtersRes}) => {
                 <MyHr />
                 <FilterItem
                     mobile={!forDesk}
-                    label="Реклама"
+                    label="Реклама (VIP)"
                     search={false}
                     labelSlug="advertising"
                     items={filter?.advertising.map(info => ({id: info.slug, ...info})) || []}

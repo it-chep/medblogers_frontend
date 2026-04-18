@@ -8,6 +8,14 @@ declare global {
         getCounters?: () => any[];
       };
     };
+    UtmTracker?: {
+      sendFromLocation: (config: {
+        cookieId: string;
+        endpoint: string;
+        token?: string;
+      }) => Promise<boolean>;
+    };
+    __utmTrackerStarted?: boolean;
   }
 }
 
