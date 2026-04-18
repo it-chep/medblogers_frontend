@@ -6,7 +6,7 @@ import { ensureCookieId } from "@/src/shared/lib/analytics/cookieId";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
-const UTM_ENDPOINT = `${SERVER_URL_API}/v1/analytics/add_utm`;
+const UTM_ENDPOINT = `${SERVER_URL_API}/v1/analytics/save`;
 
 export const UtmTracker = () => {
     const [isScriptReady, setIsScriptReady] = useState(false);
