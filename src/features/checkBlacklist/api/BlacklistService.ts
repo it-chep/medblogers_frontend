@@ -1,11 +1,12 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 
 
 
 class BlacklistService {
 
     async check(telegram: string){
-        const res = await fetch(SERVER_URL_API + '/v1/blacklist_check', {
+        const res = await fetchServer(SERVER_URL_API + '/v1/blacklist_check', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -18,7 +19,7 @@ class BlacklistService {
     }
 
     async getCount(){
-        const res = await fetch(SERVER_URL_API + '/v1/blacklist_count', {
+        const res = await fetchServer(SERVER_URL_API + '/v1/blacklist_count', {
             cache: "no-cache"
         })
         const {cheatersCount}: {cheatersCount: number} = await res.json()

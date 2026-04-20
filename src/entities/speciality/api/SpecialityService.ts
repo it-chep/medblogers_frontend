@@ -1,15 +1,13 @@
-
-
 import { SERVER_URL_API } from "@/src/app/env/env"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 import { ISpecialityData } from "../model/types"
-
 
 
 
 class SpecialityService {
 
     async getSpecialitiesMain(){
-        const response = await fetch(SERVER_URL_API + '/v1/main_specialities_list',                                     
+        const response = await fetchServer(SERVER_URL_API + '/v1/main_specialities_list',                                     
             {
                 cache: "no-cache"
             }
@@ -19,7 +17,7 @@ class SpecialityService {
     }
 
     async getSpecialitiesAdditional(){
-        const response = await fetch(SERVER_URL_API + '/v1/specialities_list',                                     
+        const response = await fetchServer(SERVER_URL_API + '/v1/specialities_list',                                     
             {
                 cache: "no-cache"
             }

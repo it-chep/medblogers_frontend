@@ -1,15 +1,13 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
-import { ISpecialityData } from "../../speciality/model/types"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 import { IFreelancer, IFreelancerCity, IFreelancerMiniature, IFreelancerSeo, IFreelancerSpeciality, IRecommendation, IStatisticFreelancers } from "../model/types"
 import { IItem } from "@/src/shared/model/types"
-
-
 
 
 class FreelancerService {
 
     async getSpecialities(){
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/specialities_list',                                     
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/specialities_list',                                     
             {
                 cache: "no-cache"
             }
@@ -19,7 +17,7 @@ class FreelancerService {
     }
 
     async getCities(){
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/cities_list',                                     
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/cities_list',                                     
             {
                 cache: "no-cache"
             }
@@ -29,7 +27,7 @@ class FreelancerService {
     }
     
     async getSocialNetworks(){
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/networks_list',                                     
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/networks_list',                                     
             {
                 cache: "no-cache"
             }
@@ -39,7 +37,7 @@ class FreelancerService {
     }
 
     async getAll(params: string): Promise<IFreelancerMiniature[]> {
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/filter' + (params ? `?${params}` : ''),
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/filter' + (params ? `?${params}` : ''),
             {
                 cache: "no-cache"
             }
@@ -49,7 +47,7 @@ class FreelancerService {
     }
     
     async getStatistics(): Promise<IStatisticFreelancers> {
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/counters_info',
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/counters_info',
             {
                 cache: "no-cache"
             }
@@ -59,7 +57,7 @@ class FreelancerService {
     }
 
     async get(slug: string): Promise<IFreelancer> {
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/card/' + slug,
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/card/' + slug,
             {
                 cache: "no-store"
             }
@@ -69,7 +67,7 @@ class FreelancerService {
     }
 
     async getRecommendations(slug: string): Promise<IRecommendation[]> {
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/card/' + slug + '/recommendations',
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/card/' + slug + '/recommendations',
             {
                 cache: "no-store"
             }
@@ -80,7 +78,7 @@ class FreelancerService {
 
 
     async seo(slug: string){
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/seo/' + slug,
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/seo/' + slug,
             {
                 cache: 'no-store',
             }

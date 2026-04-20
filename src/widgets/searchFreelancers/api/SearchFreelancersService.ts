@@ -1,5 +1,6 @@
 import { SERVER_URL_API } from "@/src/app/env/env";
 import { ISearchFreelancers } from "@/src/entities/freelancer";
+import { fetchServer } from "@/src/shared/api/fetchServer";
 
 class SearchFreelancersService{
 
@@ -13,7 +14,7 @@ class SearchFreelancersService{
 
         this.controller = new AbortController()
 
-        const res = await fetch(SERVER_URL_API + '/v1/freelancers/search' + `?query=${query}`, {
+        const res = await fetchServer(SERVER_URL_API + '/v1/freelancers/search' + `?query=${query}`, {
 
             cache: 'no-cache',
             signal: this.controller?.signal
