@@ -6,7 +6,7 @@ import { ensureCookieId } from "@/src/shared/lib/analytics/cookieId";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
-const UTM_ENDPOINT = `${SERVER_URL_API}/v1/analytics/add_utm`;
+const UTM_ENDPOINT = `${SERVER_URL_API}/v1/analytics/save`;
 
 export const UtmTracker = () => {
     const [isScriptReady, setIsScriptReady] = useState(false);
@@ -23,6 +23,8 @@ export const UtmTracker = () => {
         window.__utmTrackerStarted = true;
 
         const cookieId = await ensureCookieId((domain) => userService.createCookieId(domain));
+
+        console.log(444, cookieId)
 
         if (!cookieId) {
             return;

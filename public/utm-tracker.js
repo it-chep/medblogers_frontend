@@ -28,24 +28,28 @@
   }
 
   async function sendFromLocation(config) {
+    
+    
     if (!config || !config.cookieId || !config.endpoint) {
       return false;
     }
-
+    
     var utmParams = getUtmParams();
-
+    console.log(11111111)
+    
     if (!utmParams) {
       return false;
     }
-
+    
     var body = {
       cookieId: config.cookieId,
+      domainName  : window.location.hostname || "",
       token: config.token,
-      utm_source: utmParams.utm_source,
-      utm_medium: utmParams.utm_medium,
-      utm_campaign: utmParams.utm_campaign,
-      utm_content: utmParams.utm_content,
-      utm_term: utmParams.utm_term,
+      utmSource: utmParams.utm_source,
+      utmMedium: utmParams.utm_medium,
+      utmCampaign: utmParams.utm_campaign,
+      utmContent: utmParams.utm_content,
+      utmTerm: utmParams.utm_term,
     };
 
     await fetch(config.endpoint, {
