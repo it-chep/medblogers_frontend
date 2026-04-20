@@ -28,14 +28,12 @@
   }
 
   async function sendFromLocation(config) {
-    
-    
     if (!config || !config.cookieId || !config.endpoint) {
       return false;
     }
     
     var utmParams = getUtmParams();
-    console.log(11111111)
+    var source = config.source || w.location.hostname || "";
     
     if (!utmParams) {
       return false;
@@ -43,7 +41,7 @@
     
     var body = {
       cookieId: config.cookieId,
-      domainName  : window.location.hostname || "",
+      domainName: source,
       token: config.token,
       utmSource: utmParams.utm_source,
       utmMedium: utmParams.utm_medium,
@@ -57,6 +55,7 @@
       body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json;charset=utf-8",
+        "X-Medblogers-Source": source,
       },
       cache: "no-cache",
     });

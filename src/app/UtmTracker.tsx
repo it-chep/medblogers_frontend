@@ -6,6 +6,20 @@ import { ensureCookieId } from "@/src/shared/lib/analytics/cookieId";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
+type UtmTrackerApi = {
+    sendFromLocation: (config: {
+        cookieId: string;
+        endpoint: string;
+        token?: string;
+        source: string;
+    }) => Promise<boolean>;
+};
+
+type UtmTrackerWindow = Window & typeof globalThis & {
+    __utmTrackerStarted?: boolean;
+    UtmTracker?: UtmTrackerApi;
+};
+
 const UTM_ENDPOINT = `${SERVER_URL_API}/v1/analytics/save`;
 
 export const UtmTracker = () => {
@@ -16,24 +30,26 @@ export const UtmTracker = () => {
             return;
         }
 
-        if (window.__utmTrackerStarted || !window.UtmTracker?.sendFromLocation) {
+        const trackerWindow = window as UtmTrackerWindow;
+        const trackerApi = trackerWindow.UtmTracker;
+
+        if (trackerWindow.__utmTrackerStarted || !trackerApi?.sendFromLocation) {
             return;
         }
 
-        window.__utmTrackerStarted = true;
+        trackerWindow.__utmTrackerStarted = true;
 
         const cookieId = await ensureCookieId((domain) => userService.createCookieId(domain));
-
-        console.log(444, cookieId)
 
         if (!cookieId) {
             return;
         }
 
         try {
-            await window.UtmTracker.sendFromLocation({
+            await trackerApi.sendFromLocation({
                 cookieId,
                 endpoint: UTM_ENDPOINT,
+                source: trackerWindow.location.hostname || "",
                 token: process.env.NEXT_PUBLIC_TOKEN,
             });
         } catch (e) {
