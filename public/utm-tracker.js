@@ -5,6 +5,7 @@
     "utm_campaign",
     "utm_content",
     "utm_term",
+    "company"
   ];
 
   function getUtmParams() {
@@ -43,6 +44,7 @@
       cookieId: config.cookieId,
       domainName: source,
       token: config.token,
+      company: utmParams.company,
       utmSource: utmParams.utm_source,
       utmMedium: utmParams.utm_medium,
       utmCampaign: utmParams.utm_campaign,
