@@ -4,8 +4,7 @@
     "utm_medium",
     "utm_campaign",
     "utm_content",
-    "utm_term",
-    "company"
+    "utm_term"
   ];
 
   function getUtmParams() {
@@ -35,6 +34,7 @@
     
     var utmParams = getUtmParams();
     var source = config.source || w.location.hostname || "";
+    var company = w.location.pathname || "/";
     
     if (!utmParams) {
       return false;
@@ -44,7 +44,7 @@
       cookieId: config.cookieId,
       domainName: source,
       token: config.token,
-      company: utmParams.company,
+      company: company,
       utmSource: utmParams.utm_source,
       utmMedium: utmParams.utm_medium,
       utmCampaign: utmParams.utm_campaign,
