@@ -9,7 +9,7 @@ class StatisticService {
 
         const response = await fetchServer(SERVER_URL_API + '/v1/counters_info',
             {
-                next: {revalidate: 60}
+                cache: "no-cache"
             }
         )
         

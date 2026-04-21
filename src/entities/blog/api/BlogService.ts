@@ -45,7 +45,7 @@ class BlogService {
     async getBlogsDoctor(doctorSlug: string): Promise<IBlogMiniature[]> {
         const response = await fetchServer(SERVER_URL_API + '/v1/blogs/doctor/' + doctorSlug,
             {
-                next: {revalidate: 60}
+                cache: "no-cache"
             }
         )
         const {blogs}: {blogs: IBlogMiniature[]} = await response.json()
