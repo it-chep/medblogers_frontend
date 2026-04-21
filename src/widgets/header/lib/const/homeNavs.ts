@@ -1,9 +1,10 @@
 import { StaticImageData } from "next/image";
-import FreelancerSvg from '../lib/assets/Freelancer.svg'
-import PromoOffersSvg from '../lib/assets/PromoOffers.svg'
-import BlogsSvg from '../lib/assets/Blogs.svg'
-import BlackListSvg from '../lib/assets/BlackList.svg'
-import RatingSvg from '../lib/assets/Rating.svg'
+import FreelancerSvg from '../../lib/assets/Freelancer.svg'
+import PromoOffersSvg from '../../lib/assets/PromoOffers.svg'
+import BlogsSvg from '../../lib/assets/Blogs.svg'
+import BlackListSvg from '../../lib/assets/BlackList.svg'
+import RatingSvg from '../../lib/assets/Rating.svg'
+import DoctorsSvg from '../../lib/assets/Doctors.svg'
 
 type THomeNav = {
     name: string;
@@ -13,6 +14,12 @@ type THomeNav = {
 }
 
 export const homeNavs: THomeNav[] = [
+    {
+        name: 'База врачей',
+        href: '/',
+        svg: DoctorsSvg,
+        width: 80
+    },
     {
         name: 'База помощников',
         href: '/helpers',

@@ -51,9 +51,6 @@ export default async function HomePage() {
                         <TouchSwitchBanner banners={BannersMobile} />
                     </section>
                     <section className={classes.wrap}>
-                        <section className={classes.bannerNewDoctorMobile}>
-                            <BannerNewDoctor />
-                        </section>
                         <section className={classes.statisticsDesk}>
                             <StatisticsLayout />
                         </section>

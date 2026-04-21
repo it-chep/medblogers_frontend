@@ -3,7 +3,6 @@
 import { FC } from "react";
 import classes from './desktopMenu.module.scss'
 import Link from "next/link";
-import { LogoMiniSvg } from "../../lib/assets/LogoSvg";
 import { menuLinks } from "../../lib/const/links";
 import { MenuDropdown } from "../menuDropdown/MenuDropdown";
 import { usePathname } from "next/navigation";
@@ -23,8 +22,8 @@ export const DesktopMenu: FC = () => {
         <section className={classes.container}>
             <section className={classes.desktop}>
                 <Link href={'/'}>
-                    <LogoMiniSvg />
-                </Link>            
+                    <Image src={logo.src} width={232} height={60} alt="логотип" />
+                </Link> 
                 <nav className={classes.nav}>
                     <ul className={classes.list}>
                         {menuLinks.map(link => 

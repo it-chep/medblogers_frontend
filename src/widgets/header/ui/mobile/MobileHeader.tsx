@@ -12,6 +12,8 @@ import { HomeNav } from "../homeNav/HomeNav";
 import { FixedMenuMobile } from "../fixedMenuMobile/FixedMenuMobile";
 import { ShowContentSmoothly } from "@/src/features/ShowContentSmoothly";
 
+const ALLOWED_PATHS = ['/', '/helpers']
+
 export const MobileHeader: FC<PropsWithChildren> = ({children}) => {
 
     const pathname = usePathname()
@@ -31,12 +33,16 @@ export const MobileHeader: FC<PropsWithChildren> = ({children}) => {
                     <TitleWrap pathname={pathname || ""} />
                 </section>
                 {
-                    (pathname === '/')
+                    (ALLOWED_PATHS.includes(pathname))
                         &&
                     <section className={classes.home}>
-                        <section className={classes.statistics}> 
-                            {children}
-                        </section>
+                        {
+                            (pathname === '/')
+                                &&
+                            <section className={classes.statistics}> 
+                                {children}
+                            </section>
+                        }
                         <HomeNav />
                     </section>
                 }

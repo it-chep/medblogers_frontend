@@ -1,19 +1,23 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import classes from './homeNav.module.scss'
-import { homeNavs } from "../../const/homeNavs";
+import { homeNavs } from "../../lib/const/homeNavs";
 import Link from "next/link";
 import Image from "next/image";
-
+import { usePathname } from "next/navigation";
 
 
 export const HomeNav: FC = () => {
 
+    const pathname = usePathname()
 
+    const navsNoPage = useMemo(() => {
+        return homeNavs.filter(nav => nav.href !== pathname)
+    }, [pathname])
 
     return (
         <ul className={classes.list}>
             {
-                homeNavs.map(nav => 
+                navsNoPage.map(nav => 
                     <li
                         key={nav.href}
                         className={classes.item}
