@@ -40,11 +40,26 @@
     .button{
       display: none;
     }
-
+    
+    .bannersMobile{
+      display: none;
+    }
+    
     .banners{
       display: block;
       height: 170px;
       width: 100%;
+    }
+
+    .wrap{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+        
+      .bannerNewDoctorMobile{
+        display: none;
+      }      
     }
   }
 
@@ -76,28 +91,50 @@
 
 @media (max-width: 650px) {
   .page{
+    padding: 0;
+
     .content{
       grid-template-columns: 1fr;
+    }
+    
+    .aside{
+      display: none;
     }
     
     .main{
       .banners{
         display: none;
       }
-    }
 
-    .aside{
-      width: 100%;
-      min-width: 0;
+      .bannersMobile{
+        display: block;
+        position: relative;
+        width: 100%;
+        padding: 0 15px;
+        overflow: hidden;
+      }
+
+      .wrap{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 0 20px;
+       
+        .bannerNewDoctorMobile{
+          display: block;
+        }
+  
+        .statisticsDesk{
+          display: none;
+        }
+      }
     }
   }
 }
 
 @media (max-width: 480px) {
   .page{
-    .aside .filters{
-      display: none;
-    }
 
     .main{
       .button{

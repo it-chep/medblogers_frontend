@@ -3,14 +3,19 @@
 
 .openMenu{
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 7px;
     justify-content: center;
-    min-height: 40px;
-    height: 40px;
-    min-width: 40px;
-    width: 40px;
-    border-radius: 50px;
-    background-color: var(--blue);
+    height: 60px;
+    width: 60px;
+    flex: 1;
+    border-radius: 14px;
+    background-color: #1E242A;
+
+    .burger{
+        
+    }
 
     >img{
         width: 20px;
@@ -20,30 +25,30 @@
     cursor: pointer;
 }
 
-@media (max-width: 900px) {
-    .openMenu{
-        min-height: 62px;
-        height: 62px;
-        min-width: 62px;
-        width: 62px;
+// @media (max-width: 900px) {
+//     .openMenu{
+//         min-height: 62px;
+//         height: 62px;
+//         min-width: 62px;
+//         width: 62px;
 
-         >img{
-            width: 25px;
-            height: 25px;
-        }
-    }
-}
+//          >img{
+//             width: 25px;
+//             height: 25px;
+//         }
+//     }
+// }
 
-@media (max-width: 350px) {
-    .openMenu{
-        min-height: 52px;
-        height: 52px;
-        min-width: 52px;
-        width: 52px;
+// @media (max-width: 350px) {
+//     .openMenu{
+//         min-height: 52px;
+//         height: 52px;
+//         min-width: 52px;
+//         width: 52px;
 
-        >img{
-            width: 22px;
-            height: 22px;
-        }
-    }
-}
+//         >img{
+//             width: 22px;
+//             height: 22px;
+//         }
+//     }
+// }

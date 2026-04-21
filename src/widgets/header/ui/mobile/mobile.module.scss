@@ -24,16 +24,17 @@
         }
     }
     
-    .banners{
-        position: relative;
-        width: 100%;
-        
-        margin-top: 20px;
-        padding: 0 15px;
-        overflow: hidden;
-    }
-    
     .titleMobile{
         padding: 0 20px;
+    }
+
+    .home{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        
+        .statistics{
+            margin-top: 14px;
+        }
     }
 }
