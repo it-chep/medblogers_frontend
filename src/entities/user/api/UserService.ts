@@ -1,4 +1,5 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 
 
 class UserService {
@@ -6,7 +7,7 @@ class UserService {
     async createCookieId(domain?: string): Promise<string> {
         const token = process.env.NEXT_PUBLIC_TOKEN;
 
-        const res = await fetch(SERVER_URL_API + '/v1/analytics/create_cookie_id',
+        const res = await fetchServer(SERVER_URL_API + '/v1/analytics/create_cookie_id',
             {
                 method: "POST",
                 body: JSON.stringify({

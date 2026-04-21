@@ -1,4 +1,5 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 import { IPromoOfferItem, IPromoOfferCategory, IPromoOfferData, IPromoOfferSeo } from "../model/types"
 
 
@@ -6,7 +7,7 @@ import { IPromoOfferItem, IPromoOfferCategory, IPromoOfferData, IPromoOfferSeo }
 class PromoOffersService {
 
     async getCategories(): Promise<{cooperationTypes: IPromoOfferCategory[], all: number}> {
-        const res = await fetch(SERVER_URL_API + '/v1/promo_offers/filter/settings', 
+        const res = await fetchServer(SERVER_URL_API + '/v1/promo_offers/filter/settings', 
             {
                 method: "POST",
                 cache: "no-cache"
@@ -17,7 +18,7 @@ class PromoOffersService {
     }
 
     async getSeo(offerId: string): Promise<IPromoOfferSeo> {
-        const res = await fetch(SERVER_URL_API + `/v1/promo_offer/seo/${offerId}`, 
+        const res = await fetchServer(SERVER_URL_API + `/v1/promo_offer/seo/${offerId}`, 
             {
                 cache: "no-cache"
             }
@@ -27,7 +28,7 @@ class PromoOffersService {
     }
 
     async getOffers(cooperationTypeIds: number[]): Promise<IPromoOfferItem[]> {
-        const res = await fetch(SERVER_URL_API + '/v1/promo_offers/filter', 
+        const res = await fetchServer(SERVER_URL_API + '/v1/promo_offers/filter', 
             {
                 method: "POST",
                 body: JSON.stringify({cooperationTypeIds}),
@@ -42,7 +43,7 @@ class PromoOffersService {
     }
     
     async getOffer(offerId: string): Promise<IPromoOfferData> {
-        const res = await fetch(SERVER_URL_API + `/v1/promo_offers/offer/${offerId}`, 
+        const res = await fetchServer(SERVER_URL_API + `/v1/promo_offers/offer/${offerId}`, 
             {
                 cache: "no-cache"
             }

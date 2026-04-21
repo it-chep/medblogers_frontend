@@ -1,4 +1,5 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 import { IStatistic } from "../model/types"
 
 
@@ -6,7 +7,7 @@ class StatisticService {
 
     async get(): Promise<IStatistic>{
 
-        const response = await fetch(SERVER_URL_API + '/v1/counters_info',
+        const response = await fetchServer(SERVER_URL_API + '/v1/counters_info',
             {
                 next: {revalidate: 60}
             }

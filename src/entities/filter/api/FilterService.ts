@@ -1,11 +1,12 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 import { IFilter } from "../model/types"
 
 class FilterService {
 
 
     async getAll(): Promise<IFilter> {
-        const response = await fetch(SERVER_URL_API + '/v1/settings',
+        const response = await fetchServer(SERVER_URL_API + '/v1/settings',
             {
                 cache: "no-cache"
             }

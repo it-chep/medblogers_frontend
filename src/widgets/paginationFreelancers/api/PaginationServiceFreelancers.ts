@@ -1,4 +1,5 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 
 
 
@@ -6,7 +7,7 @@ import { SERVER_URL_API } from "@/src/app/env/env"
 class PaginationServiceFreelancers {
 
     async get(params: string) {
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/pages_count' + `?${params}`,
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/pages_count' + `?${params}`,
             {
                 cache: "no-cache"
             }

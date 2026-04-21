@@ -1,11 +1,12 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 import { IFilterFreelancer } from "../model/types"
 
 class FilterFreelancerService {
 
 
     async getAll(): Promise<IFilterFreelancer> {
-        const response = await fetch(SERVER_URL_API + '/v1/freelancers/settings',
+        const response = await fetchServer(SERVER_URL_API + '/v1/freelancers/settings',
             {
                 cache: "no-cache"
             }

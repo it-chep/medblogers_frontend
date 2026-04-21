@@ -1,11 +1,12 @@
 import { SERVER_URL_API } from "@/src/app/env/env"
+import { fetchServer } from "@/src/shared/api/fetchServer"
 import { IBrandData, IBrandSeo, IOfferItemByBrand } from "../model/types"
 
 
 
 class BrandService {
     async getBrandByOffer(offerSlug: string): Promise<IBrandData> {  // NEW
-        const res = await fetch(SERVER_URL_API + `/v1/promo_offers/brand/by_offer/${offerSlug}`,
+        const res = await fetchServer(SERVER_URL_API + `/v1/promo_offers/brand/by_offer/${offerSlug}`,
             {
                 cache: "no-cache"
             }
@@ -15,7 +16,7 @@ class BrandService {
     }
 
     async getBrand(brandSlug: string): Promise<IBrandData> {
-        const res = await fetch(SERVER_URL_API + `/v1/promo_offers/brand/${brandSlug}`, 
+        const res = await fetchServer(SERVER_URL_API + `/v1/promo_offers/brand/${brandSlug}`, 
             {
                 cache: "no-cache"
             }
@@ -25,7 +26,7 @@ class BrandService {
     }
 
     async getBrandSeo(brandSlug: string): Promise<IBrandSeo> {
-        const res = await fetch(SERVER_URL_API + `/v1/brand/seo/${brandSlug}`, 
+        const res = await fetchServer(SERVER_URL_API + `/v1/brand/seo/${brandSlug}`, 
             {
                 cache: "no-cache"
             }
@@ -35,7 +36,7 @@ class BrandService {
     }
 
     async getOffers(brandSlug: string): Promise<IOfferItemByBrand[]> {
-        const res = await fetch(SERVER_URL_API + `/v1/promo_offers/brand/${brandSlug}/offers`, 
+        const res = await fetchServer(SERVER_URL_API + `/v1/promo_offers/brand/${brandSlug}/offers`, 
             {
                 cache: "no-cache"
             }

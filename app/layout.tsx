@@ -9,6 +9,7 @@ import { YandexMetrika } from "@/src/app/metrika/YandexMetrika";
 import { ButtonUp } from "@/src/features/buttonUp";
 import { ShowContentSmoothly } from "@/src/features/ShowContentSmoothly";
 import { GoogleAnalytics } from "@/src/app/google/GoogleAnalytics";
+import { UtmTracker } from "@/src/app/UtmTracker";
 import { BannersMobile, TouchSwitchBanner } from "@/src/features/switchBanner";
 import Script from "next/script";
 
@@ -54,6 +55,7 @@ export default function RootLayout({
 
 
           <GoogleAnalytics gaId="G-QLS1GZEW7H" />
+          <UtmTracker />
           <YandexMetrika counterId={99369042} />
           <Header>
             <TouchSwitchBanner banners={BannersMobile} />
