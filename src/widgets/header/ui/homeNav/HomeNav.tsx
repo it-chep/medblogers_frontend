@@ -1,6 +1,6 @@
 import { FC, useMemo } from "react";
 import classes from './homeNav.module.scss'
-import { homeNavs } from "../../lib/const/homeNavs";
+import { homeNavs, THomeNav } from "../../lib/const/homeNavs";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,6 +14,13 @@ export const HomeNav: FC = () => {
         return homeNavs.filter(nav => nav.href !== pathname)
     }, [pathname])
 
+    const getPlacementFreelancerHref = (nav: THomeNav) => {
+        if((pathname === '/helpers') && (nav.name === 'Размещение в базе')){
+            return '/welcome_freelancer'
+        }   
+        return nav.href
+    }   
+
     return (
         <ul className={classes.list}>
             {
@@ -23,7 +30,7 @@ export const HomeNav: FC = () => {
                         className={classes.item}
                     >   
                         <Link
-                            href={nav.href}
+                            href={getPlacementFreelancerHref(nav)}
                             className={classes.link}
                         >
                             <section className={classes.image}>

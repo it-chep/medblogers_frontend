@@ -5,8 +5,9 @@ import BlogsSvg from '../../lib/assets/Blogs.svg'
 import BlackListSvg from '../../lib/assets/BlackList.svg'
 import RatingSvg from '../../lib/assets/Rating.svg'
 import DoctorsSvg from '../../lib/assets/Doctors.svg'
+import PlacementSvg from '../../lib/assets/Placement.svg'
 
-type THomeNav = {
+export type THomeNav = {
     name: string;
     svg: string | StaticImageData,
     href: string;
@@ -14,6 +15,12 @@ type THomeNav = {
 }
 
 export const homeNavs: THomeNav[] = [
+    {
+        name: 'Размещение в базе',
+        href: '/welcome',
+        svg: PlacementSvg,
+        width: 100
+    },
     {
         name: 'База врачей',
         href: '/',
