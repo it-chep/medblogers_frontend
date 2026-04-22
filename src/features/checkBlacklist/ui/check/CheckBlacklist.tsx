@@ -8,7 +8,7 @@ import { LoaderSpinner } from "@/src/shared/ui/loaderSpinner";
 import { blacklistService } from "../../api/BlacklistService";
 import { Message } from "../message/Message";
 import { Info } from "../info/Info";
-import { LoaderContainer } from "@/src/shared/ui/loaderContainer";
+import { Desc } from "../desc/Desc";
 
 interface IProps {
     info?: boolean;
@@ -115,19 +115,10 @@ export const CheckBlacklist: FC<IProps> = ({info, titleH1}) => {
                         РАССТРЕЛЬНЫЙ СПИСОК КАНАЛОВ
                     </section>
                 }
-                <section className={classes.count}>
-                    На сегодняшний день в нём 
-                    {
-                        isLoadingCount 
-                            ? 
-                        <section className={classes.loaderCount}>
-                            <LoaderContainer blue />
-                        </section> 
-                            : 
-                        <pre> {count} </pre>
-                    } 
-                    каналов
-                </section>
+                <Desc 
+                    count={count}
+                    isLoadingCount={isLoadingCount}
+                />
                 <section className={classes.wrapInput}>
                     <section onKeyDown={onEnter}
                         className={classes.input}
