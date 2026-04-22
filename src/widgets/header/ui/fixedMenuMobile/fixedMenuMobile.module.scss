@@ -12,6 +12,10 @@
     border-radius: 0 0 30px 30px;
     flex: 1;
 
+    >a{
+        display: flex;
+    }
+
     .title{
         line-height: 130%;
         font-weight: 900;

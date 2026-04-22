@@ -134,3 +134,14 @@
         }
     }   
 }
+
+
+@media (max-width: 400px) {
+    .container{
+        .wrapper{
+            .steps{
+                padding: 0;
+            }
+        }
+    }
+}
