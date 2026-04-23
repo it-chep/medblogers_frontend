@@ -7,7 +7,13 @@ import classes from './statistics.module.scss'
 export const StatisticsLayout: FC = () => {
 
     return (
-        <Suspense fallback={<section className={classes.loader}><LoaderContainer /></section>}>
+        <Suspense 
+            fallback={
+                <section className={classes.loader}>
+                    <LoaderContainer />
+                </section>
+            }
+        >
             <Statistics />
         </Suspense>
     )

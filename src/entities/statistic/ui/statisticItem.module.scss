@@ -32,10 +32,20 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 650px) {
     .wrapper{
         flex-direction: column-reverse; 
         justify-content: center;
+        text-align: center;
+        text-transform: lowercase;
+        
+        &:first-child{
+            width: 32vw;
+        }
+
+        &:last-child{
+            width: 42vw;
+        }
 
         .text{
             font-weight: 400;

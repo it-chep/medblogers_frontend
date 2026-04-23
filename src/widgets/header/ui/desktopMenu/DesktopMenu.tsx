@@ -3,13 +3,13 @@
 import { FC } from "react";
 import classes from './desktopMenu.module.scss'
 import Link from "next/link";
-import { LogoSvg } from "../../lib/assets/LogoSvg";
 import { menuLinks } from "../../lib/const/links";
 import { MenuDropdown } from "../menuDropdown/MenuDropdown";
 import { usePathname } from "next/navigation";
 import { OpenMenu } from "@/src/features/menu";
 import logo from '@/src/shared/lib/assets/medblogers_logo.png'
 import Image from "next/image";
+import { HomeTitle } from "../homeTitle/HomeTitle";
 
 export const DesktopMenu: FC = () => {
 
@@ -23,8 +23,8 @@ export const DesktopMenu: FC = () => {
         <section className={classes.container}>
             <section className={classes.desktop}>
                 <Link href={'/'}>
-                    <LogoSvg />
-                </Link>            
+                    <Image src={logo.src} width={232} height={60} alt="логотип" />
+                </Link> 
                 <nav className={classes.nav}>
                     <ul className={classes.list}>
                         {menuLinks.map(link => 
@@ -67,6 +67,11 @@ export const DesktopMenu: FC = () => {
                     <OpenMenu mobile={true} />
                 </section>
             </section>
+            {
+                (pathname === '/')
+                    &&
+                <HomeTitle />
+            }
         </section>
     )
 }

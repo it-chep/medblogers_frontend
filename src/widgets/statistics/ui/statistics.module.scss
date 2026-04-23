@@ -15,11 +15,12 @@
     padding: 2px 0;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 650px) {
     .wrapper{
         justify-content: center;
         width: 100%;
         gap: 20px;
+        flex-wrap: nowrap;
 
         .loader{
             height: 30px;

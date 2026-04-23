@@ -12,6 +12,7 @@
     z-index: 999;
     top: 0;
     height: 100%;
+    overflow: auto;
 
     .header{
         display: flex;
@@ -64,7 +65,7 @@
 @media (max-width: 900px) {
     .menu{
         padding: 20px;
-        overflow: auto;
+
         .header{
             margin: 12.5px 6px 20px 0;
         }
