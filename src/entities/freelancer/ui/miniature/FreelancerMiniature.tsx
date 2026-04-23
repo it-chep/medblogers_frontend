@@ -7,6 +7,8 @@ import { IFreelancerMiniature } from "../../model/types";
 import commandImg from '@/src/shared/lib/assets/command_blue_bg.png';
 import { PriceBadge } from "../priceBadge/PriceBadge";
 import { HintWrap } from "../hintWrap/HintWrap";
+import { BadgeMiniature } from "../badgeMiniature/BadgeMiniature";
+import { CommandSvg } from "../../lib/assets/CommandSvg";
 
 interface IProps {
     freelancer: IFreelancerMiniature;
@@ -26,21 +28,18 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer, setCitiesSearch, se
             <section className={classes.header}>
                 <section className={classes.image}>
                     <section className={classes.icons}>
-                        <HintWrap width={172} hint="Ценовая категория">
-                            <PriceBadge priceCategory={+freelancer.priceCategory} />
-                        </HintWrap>
                         { 
-                            freelancer.agencyRepresentative
+                            true
                                 &&
-                            <HintWrap width={216} hint="Представитель агентства">
-                                <Image 
-                                    alt="Представитель агентства" 
-                                    height={32} 
-                                    width={36} 
-                                    src={commandImg.src}  
-                                />
-                            </HintWrap>
+                            <BadgeMiniature 
+                                svg={<CommandSvg />}
+                                name="агентство"
+                            />
                         }
+                        <BadgeMiniature 
+                            svg={<PriceBadge priceCategory={+freelancer.priceCategory} />}
+                            name="ср. чек"
+                        />
                         {
                             freelancer.hasMedEducation
                                 &&
