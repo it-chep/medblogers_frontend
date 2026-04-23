@@ -41,6 +41,18 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer, setCitiesSearch, se
                                 />
                             </HintWrap>
                         }
+                        {
+                            freelancer.hasMedEducation
+                                &&
+                            <HintWrap width={216} hint="мед. образование">
+                                <Image 
+                                    alt="мед. образование" 
+                                    height={32} 
+                                    width={36} 
+                                    src={commandImg.src}  
+                                />
+                            </HintWrap>
+                        }
                     </section>
                     <Image 
                         className={classes.avatar} 

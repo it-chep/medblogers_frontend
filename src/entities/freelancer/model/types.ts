@@ -83,6 +83,7 @@ export interface IFreelancerMiniature {
     agencyRepresentative : boolean;
     priceCategory: string;
     socialNetworks: ISocialNetworkItem[];
+    hasMedEducation: boolean;
 }
 
 export interface IFreelancer {
