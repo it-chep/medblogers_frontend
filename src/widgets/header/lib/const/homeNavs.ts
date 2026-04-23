@@ -1,15 +1,15 @@
 import { StaticImageData } from "next/image";
-import FreelancerSvg from '../../lib/assets/Freelancer.svg'
-import PromoOffersSvg from '../../lib/assets/PromoOffers.svg'
-import BlogsSvg from '../../lib/assets/Blogs.svg'
-import BlackListSvg from '../../lib/assets/BlackList.svg'
-import RatingSvg from '../../lib/assets/Rating.svg'
-import DoctorsSvg from '../../lib/assets/Doctors.svg'
-import PlacementSvg from '../../lib/assets/Placement.svg'
+import Freelancer from '../../lib/assets/Freelancer.webp'
+import PromoOffers from '../../lib/assets/PromoOffers.webp'
+import Blogs from '../../lib/assets/Blogs.webp'
+import BlackList from '../../lib/assets/BlackList.webp'
+import Rating from '../../lib/assets/Rating.webp'
+import Doctors from '../../lib/assets/Doctors.webp'
+import Placement from '../../lib/assets/Placement.webp'
 
 export type THomeNav = {
     name: string;
-    svg: string | StaticImageData,
+    url: string,
     href: string;
     width?: number; // width name
 }
@@ -18,43 +18,43 @@ export const homeNavs: THomeNav[] = [
     {
         name: 'Размещение в базе',
         href: '/welcome',
-        svg: PlacementSvg,
+        url: Placement.src,
         width: 100
     },
     {
         name: 'База врачей',
         href: '/',
-        svg: DoctorsSvg,
+        url: Doctors.src,
         width: 80
     },
     {
         name: 'База помощников',
         href: '/helpers',
-        svg: FreelancerSvg,
+        url: Freelancer.src,
         width: 94
     },
     {
         name: 'Рекламные предложения',
         href: '/promotional_offers',
-        svg: PromoOffersSvg,
+        url: PromoOffers.src,
         width: 104
     },
     {
         name: 'Статьи',
         href: '/blogs',
-        svg: BlogsSvg,
+        url: Blogs.src,
         width: 70
     },
     {
         name: 'Расстрельный список каналов',
         href: '/blacklist',
-        svg: BlackListSvg,
+        url: BlackList.src,
         width: 132
     },
     {
         name: 'Рейтинг врачей',
         href: '/rating',
-        svg: RatingSvg,
+        url: Rating.src,
         width: 104
     },
 ] 

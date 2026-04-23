@@ -35,7 +35,7 @@ export const HomeNav: FC = () => {
                         >
                             <section className={classes.image}>
                                 <Image
-                                    src={nav.svg}
+                                    src={nav.url}
                                     alt={nav.name}
                                     width={90}
                                     height={90}
