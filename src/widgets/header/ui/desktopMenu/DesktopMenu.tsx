@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { OpenMenu } from "@/src/features/menu";
 import logo from '@/src/shared/lib/assets/medblogers_logo.png'
 import Image from "next/image";
+import { HomeTitle } from "../homeTitle/HomeTitle";
 
 export const DesktopMenu: FC = () => {
 
@@ -66,6 +67,11 @@ export const DesktopMenu: FC = () => {
                     <OpenMenu mobile={true} />
                 </section>
             </section>
+            {
+                (pathname === '/')
+                    &&
+                <HomeTitle />
+            }
         </section>
     )
 }
