@@ -11,10 +11,14 @@
     width: 100%;
 
     .miniDesktop{
+        position: relative;
+        z-index: 99;
         display: none;
     }
     
     .desktop{
+        position: relative;
+        z-index: 99;
         display: flex;
         align-items: center;
         gap: 25px;

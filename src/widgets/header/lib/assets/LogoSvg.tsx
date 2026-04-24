@@ -2,7 +2,7 @@ import { FC } from "react";
 
 
 
-export const LogoSvg: FC = () => {
+export const LogoMiniSvg: FC = () => {
 
     return (
         <svg width="70" height="54" viewBox="0 0 70 54" fill="none" xmlns="http://www.w3.org/2000/svg">

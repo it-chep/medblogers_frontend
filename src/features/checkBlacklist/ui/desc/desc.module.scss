@@ -1,0 +1,49 @@
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    .item{
+        display: flex;
+        width: 230px;
+        gap: 10px;
+        font-size: 20px;
+        line-height: 110%;
+        letter-spacing: -3%;
+
+        .count{
+            color: var(--blue);
+
+            .loaderCount{
+                display: inline-flex;
+                width: 40px;
+                margin: 0 5px;
+                height: 16px;
+                vertical-align: middle;
+            }
+
+            .countNumb{
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .container{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+
+        .item{
+            text-align: center;
+            gap: 7px;
+            width: 200px;
+            font-size: 18px;
+        }
+    }
+}

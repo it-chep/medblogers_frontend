@@ -26,7 +26,7 @@ export default async function Statistics() {
                 statistics?.doctorsCount 
                     && 
                 <StatisticItem 
-                    label="Врачей в базе" 
+                    label="Врачей-блогеров в базе" 
                     count={String(statistics.doctorsCount)} 
                 /> 
             }

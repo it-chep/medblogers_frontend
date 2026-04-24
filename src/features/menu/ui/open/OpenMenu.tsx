@@ -3,7 +3,6 @@
 import { FC, useEffect, useRef, useState } from "react";
 import classes from './openMenu.module.scss'
 import Image from "next/image";
-import burgerImg from '../../lib/assets/burger.png'
 import { MyModal } from "@/src/shared/ui/myModal";
 import { Menu } from "../menu/Menu";
 import { usePathname } from "next/navigation";
@@ -54,13 +53,15 @@ export const OpenMenu: FC<IProps> = ({mobile}) => {
 
     return (
         <>
-            <section onClick={onClick} className={classes.openMenu}>
-                <Image 
-                    alt="burger"
-                    width={25} 
-                    height={25} 
-                    src={burgerImg.src} 
-                />
+            <section 
+                onClick={onClick} 
+                className={classes.openMenu}
+            >
+                <svg className={classes.burger} width="34" height="20" viewBox="0 0 34 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="34" height="2" rx="1" fill="white"/>
+                    <rect y="9" width="34" height="2" rx="1" fill="white"/>
+                    <rect y="18" width="34" height="2" rx="1" fill="white"/>
+                </svg>
             </section>
             <MyModal 
                 transitionSec={.3} 

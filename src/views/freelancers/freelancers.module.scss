@@ -51,19 +51,14 @@
       flex-direction: column;
     }
 
-    .aside{
-      width: 100%;
-      min-width: 0;
+    .aside {
+      display: none;
     }
   }
 }
 
 @media (max-width: 480px) {
   .page{
-    .aside .filters{
-      display: none;
-    }
-
     .main{
       .button{
         display: block;

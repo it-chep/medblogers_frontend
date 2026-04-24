@@ -3,7 +3,6 @@
 .container{
     display: flex;
     flex-direction: column;
-    gap: 16px;
 
     .top{
         display: flex;
@@ -24,16 +23,18 @@
         }
     }
     
-    .banners{
-        position: relative;
-        width: 100%;
-        
-        margin-top: 20px;
-        padding: 0 15px;
-        overflow: hidden;
-    }
-    
     .titleMobile{
         padding: 0 20px;
+    }
+
+    .home{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 30px;
+        
+        .statistics{
+            margin-top: 0px;
+        }
     }
 }
