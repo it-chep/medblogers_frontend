@@ -5,7 +5,7 @@
   gap: 10px;
   width: 100%;
   background-color: var(--light-black);
-  padding: 15px 15px 30px 15px;
+  padding: 12px 12px 25px 12px;
   border-radius: 20px;
   position: relative;
 
@@ -20,17 +20,13 @@
 
       .icons{
         display: flex;
-        gap: 4px;
+        flex-wrap: wrap-reverse;
+        gap: 3px;
         position: absolute;
-        bottom: 10px;
-        left: 10px;
+        bottom: 4px;
+        left: 4px;
         z-index: 11;
-
-        img{
-          object-fit: contain;
-          height: 32px;
-          width: 36px;
-        }
+        max-width: calc(100% - 8px);
       }
 
       .avatar{
@@ -97,6 +93,18 @@
 
 @media (max-width: 480px) {
   .container{
+    padding: 15px 15px 30px 15px;
+    
+    .header{
+      .image{
+        .icons{
+          gap: 5px;
+          bottom: 8px;
+          left: 8px;
+          max-width: calc(100% - 16px);
+        }
+      }
+    }
 
     .socialNetworks{
       margin-top: 10px;

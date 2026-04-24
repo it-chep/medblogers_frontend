@@ -9,7 +9,6 @@ interface IProps {
     priceCategory: string;
 }
 
-
 export const PriceListWrap: FC<IProps> = ({priceList, priceCategory}) => {
 
     return (

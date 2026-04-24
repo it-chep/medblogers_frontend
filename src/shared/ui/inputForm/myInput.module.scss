@@ -40,5 +40,12 @@
         color: #ff4141;
         font-size: 14px;
     }
+}
 
+@media (max-width: 480px) {
+    .wrapper{
+        >input{
+            padding: 8px 8px 8px 10px;
+        }
+    }
 }

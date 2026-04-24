@@ -70,6 +70,11 @@ export const FreelancerForm: FC = () => {
                 setFormError([{field: 'priceList', text: 'Назвение услуги - обязательное поле'}])
                 break
             }
+            if(form.priceList[i].amount > form.priceList[i].amountTo){
+                isOk = false;
+                setFormError([{field: 'priceList', text: 'Цена ДО должна быть больше'}])
+                break
+            }
         }
         return isOk
     }
@@ -279,7 +284,7 @@ export const FreelancerForm: FC = () => {
                 onSelected={setSelectedAgreePolicy}
             >
                 <section className={classes.agreePolicy}>
-                    Я ознакомлен (-а) <Link href={'https://docs.google.com/document/d/1gwotwzPEN-fYGmfrnhLP1KvnhTkHmw6IK3quQukhw_8/edit?tab=t.0'}>с политикой в отношении персональных данных</Link> и даю согласие на <Link href={'https://docs.google.com/document/d/1OSUmseHGB625qlRPZ9Icfo7KY3Al_JfmdLkpjmnxFOA/edit?tab=t.0'}>обработку персональных данных.</Link>
+                    Я ознакомлен (-а) <a target="_blank" href={'https://docs.google.com/document/d/1gwotwzPEN-fYGmfrnhLP1KvnhTkHmw6IK3quQukhw_8/edit?tab=t.0'}>с политикой в отношении персональных данных</a> и даю согласие на <a target="_blank" href={'https://docs.google.com/document/d/1OSUmseHGB625qlRPZ9Icfo7KY3Al_JfmdLkpjmnxFOA/edit?tab=t.0'}>обработку персональных данных.</a>
                 </section>
             </MyCheckbox>
             <section className={classes.button}>
