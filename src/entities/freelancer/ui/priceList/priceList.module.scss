@@ -17,6 +17,10 @@
         .price{
             position: absolute;
             left: 0;
+            background-color: var(--dark-blue);
+            border-radius: 10px;
+            width: fit-content;
+            padding: 6px 16px;
         }
 
         >h3{
@@ -180,6 +184,7 @@
             .price{
                 left: auto;
                 right: 0;
+                padding: 5px 10px;
             }
             
             >h3{
@@ -220,7 +225,6 @@
 @media (max-width: 480px) {
     .container{
         .header{
-           
             >h3{
                 font-size: 22px;
                 line-height: 36px;

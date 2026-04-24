@@ -28,6 +28,7 @@ export interface IFreelancerCity {
 export interface IPriceListItem {
     name: string;
     amount: number;
+    amountTo: number;
 } 
 
 interface IPriceListItemRes {
@@ -104,6 +105,7 @@ export interface IFreelancer {
     priceList: IPriceListItemRes[];
     workingExperience: string;
     agencyRepresentative: boolean;
+    hasMedEducation: boolean;
 }
 
 export interface IRecommendation {

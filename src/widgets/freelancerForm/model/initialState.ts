@@ -20,10 +20,14 @@ export const initialStateForm: IFreelancerForm = {
     workingExperience: 0,
     priceList: [
         {
-            name: '', amount: 0,
+            name: '', 
+            amount: 0,
+            amountTo: 0,
         },
         {
-            name: '', amount: 0,
+            name: '', 
+            amount: 0,
+            amountTo: 0,
         }
     ],
 }

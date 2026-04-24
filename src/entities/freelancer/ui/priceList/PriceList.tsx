@@ -30,7 +30,7 @@ export const PriceList: FC<IProps> = ({priceList}) => {
                                     ? 
                                 'по договоренности' 
                                     : 
-                                priceList[i].amount ? `От ${priceList[i].amount} рублей` : ''
+                                priceList[i].amount ? `${priceList[i].amount}` : ''
                             }
                         </section>
                     </section>
@@ -50,7 +50,7 @@ export const PriceList: FC<IProps> = ({priceList}) => {
                                             ? 
                                         'по договоренности' 
                                             : 
-                                        priceList[i + 1].amount ? `От ${priceList[i + 1].amount} рублей` : ''
+                                        priceList[i + 1].amount ? `${priceList[i + 1].amount}` : ''
                                     }
                                 </section>
                             </>
@@ -70,7 +70,7 @@ export const PriceList: FC<IProps> = ({priceList}) => {
                         Услуга
                     </section>
                     <section className={classes.badge}>
-                        Стоимость           
+                        Стоимость      
                     </section>
                 </section>
                 <section className={classes.section}>
@@ -78,7 +78,7 @@ export const PriceList: FC<IProps> = ({priceList}) => {
                         Услуга
                     </section>
                     <section className={classes.badge}>
-                        Стоимость           
+                        Стоимость    
                     </section>
                 </section>
             </li>

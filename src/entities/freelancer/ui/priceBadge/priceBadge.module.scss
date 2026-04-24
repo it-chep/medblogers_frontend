@@ -4,6 +4,8 @@
     display: flex;
 
     .price{
+        display: flex;
+        align-items: center;
         opacity: 0.4;
 
         svg{

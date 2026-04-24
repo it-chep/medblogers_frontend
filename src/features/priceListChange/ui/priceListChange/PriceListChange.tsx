@@ -6,7 +6,6 @@ import plusImg from '../../lib/assets/plus.png'
 import deleteImg from '../../lib/assets/delete.png'
 import { Hint } from "@/src/shared/ui/hint";
 
-
 interface IProps {
     list: IPriceListItem[];
     setList: (list: IPriceListItem[]) => void;
@@ -16,10 +15,9 @@ interface IProps {
 
 export const PriceListChange: FC<IProps> = ({list, setList, error, setError}) => {
 
-
     const addItem = () => {
         const target: IPriceListItem[] = [...list]
-        target.push({name: '', amount: 0})
+        target.push({name: '', amount: 0, amountTo: 0})
         setList(target)
         setError && setError('')
     }
@@ -33,17 +31,18 @@ export const PriceListChange: FC<IProps> = ({list, setList, error, setError}) =>
         }
     }
 
-    const setAmount = (ind: number) => {
+    const setAmount = (ind: number, field: keyof Omit<IPriceListItem, 'name'>) => {
         return (val: string) => {
             const target: IPriceListItem[] = JSON.parse(JSON.stringify(list));
             if(val === '') {
-                target[ind].amount = 0;
+                const targetItem = target[ind];
+                targetItem[field] = 0;
                 setList(target)
             }
             else {
                 const parse = parseInt(val)
                 if(parse){
-                    target[ind].amount = parse;
+                    target[ind][field] = parse;
                     setList(target)
                 }
             }
@@ -68,13 +67,11 @@ export const PriceListChange: FC<IProps> = ({list, setList, error, setError}) =>
                     &&
                 <ul className={classes.list}>
                     <li className={classes.title}>
-                        <section className={classes.name}>
-                            <span className={classes.text}>Название услуги</span>
-                        </section>
+                        <span className={classes.text}>Название услуги</span>
                         <section className={classes.amount}>
-                            <span className={classes.text}>Цена ОТ или по договоренности</span>
+                            <span className={classes.text}>Цена ОТ и ДО</span>
                             <section className={classes.hint}>
-                                <Hint hint="Оставьте 0 если работаете по договоренности" />
+                                <Hint hint="Оставьте везде 0, если работаете по договоренности" />
                             </section>
                         </section>
                     </li>
@@ -87,7 +84,10 @@ export const PriceListChange: FC<IProps> = ({list, setList, error, setError}) =>
                                 <MyInputForm value={l.name} setValue={setName(ind)} />
                             </section>
                             <section className={classes.amount}>
-                                <MyInputForm value={String(l.amount)} setValue={setAmount(ind)} />
+                                <MyInputForm value={String(l.amount)} setValue={setAmount(ind, 'amount')} />
+                            </section>
+                            <section className={classes.amountTo}>
+                                <MyInputForm value={String(l.amountTo)} setValue={setAmount(ind, 'amountTo')} />
                             </section>
                             <section 
                                 className={`${classes.button} ${classes.delete}`}

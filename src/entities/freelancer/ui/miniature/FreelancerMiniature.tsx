@@ -4,11 +4,10 @@ import Image from "next/image";
 import {MyButton} from "@/src/shared/ui/myButton";
 import Link from "next/link";
 import { IFreelancerMiniature } from "../../model/types";
-import commandImg from '@/src/shared/lib/assets/command_blue_bg.png';
 import { PriceBadge } from "../priceBadge/PriceBadge";
-import { HintWrap } from "../hintWrap/HintWrap";
 import { BadgeMiniature } from "../badgeMiniature/BadgeMiniature";
 import { CommandSvg } from "../../lib/assets/CommandSvg";
+import { MedMiniSvg } from "../../lib/assets/MedMiniSvg";
 
 interface IProps {
     freelancer: IFreelancerMiniature;
@@ -28,29 +27,25 @@ export const FreelancerMiniature: FC<IProps> = ({freelancer, setCitiesSearch, se
             <section className={classes.header}>
                 <section className={classes.image}>
                     <section className={classes.icons}>
-                        { 
-                            true
+                        {
+                            freelancer.hasMedEducation
                                 &&
                             <BadgeMiniature 
-                                svg={<CommandSvg />}
-                                name="агентство"
+                                svg={<MedMiniSvg />}
+                                name="мед. образование"
                             />
                         }
                         <BadgeMiniature 
                             svg={<PriceBadge priceCategory={+freelancer.priceCategory} />}
                             name="ср. чек"
                         />
-                        {
-                            freelancer.hasMedEducation
+                        { 
+                            freelancer.agencyRepresentative
                                 &&
-                            <HintWrap width={216} hint="мед. образование">
-                                <Image 
-                                    alt="мед. образование" 
-                                    height={32} 
-                                    width={36} 
-                                    src={commandImg.src}  
-                                />
-                            </HintWrap>
+                            <BadgeMiniature 
+                                svg={<CommandSvg />}
+                                name="агентство"
+                            />
                         }
                     </section>
                     <Image 
