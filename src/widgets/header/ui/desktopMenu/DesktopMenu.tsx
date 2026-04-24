@@ -68,7 +68,7 @@ export const DesktopMenu: FC = () => {
                 </section>
             </section>
             {
-                (pathname === '/')
+                ((pathname === '/') || (pathname === '/helpers'))
                     &&
                 <HomeTitle />
             }

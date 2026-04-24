@@ -19,11 +19,19 @@
     .desc{
         position: relative;
         z-index: 2;
-        font-size: min(calc(1.75vw - 4px), 18px);
+        font-size: min(calc(1.7vw - 4px), 18px);
         font-weight: 500;
         line-height: 118%;
-        letter-spacing: -0.02em;
         opacity: .8;
+    }
+
+    &.freelancer{
+        .title{
+            font-size: min(3vw, 36px);
+        }
+        .desc{
+            font-size: min(calc(1.44vw - 3.5px), 15px);
+        }
     }
 
     .blurWrap{
