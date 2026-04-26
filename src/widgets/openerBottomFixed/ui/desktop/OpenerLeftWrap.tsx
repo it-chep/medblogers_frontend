@@ -2,7 +2,7 @@
 
 import { SwitchTheme, useBlogTheme } from "@/src/features/switchTheme";
 import { FC, useState } from "react";
-import classes from './openerBottomFixed.module.scss'
+import classes from './openerLeftWrap.module.scss'
 import { Opener } from "@/src/features/opener";
 
 export const OpenerLeftWrap: FC = () => {
@@ -10,7 +10,6 @@ export const OpenerLeftWrap: FC = () => {
     const { isLight } = useBlogTheme();
 
     const [open, setOpen] = useState<boolean>(false)
-
 
     return (
         <section className={classes.container}>
